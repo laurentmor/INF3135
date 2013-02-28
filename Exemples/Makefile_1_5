@@ -1,0 +1,69 @@
+CC = gcc
+CFLAGS = -W -Wall
+
+all : chapitre1 chapitre2 chapitre3 chapitre5 chapitre7
+
+chapitre1 : exemple1.1 exemple1.2 exemple1.3 exemple1.4 exemple1.5
+exemple1.1: exemple1.1.c
+exemple1.2: exemple1.2.c
+exemple1.3: exemple1.3.c
+exemple1.4: exemple1.4.c
+exemple1.5: exemple1.5.c
+
+chapitre2 : exemple2.1 exemple2.2 exemple2.3 exemple2.4 exemple2.5 exemple2.6 exemple2.7 exemple2.8 exemple2.9 exemple2.10 exemple2.11 exemple2.12 exemple2.13 exemple2.14
+exemple2.1: exemple2.1.c
+exemple2.10: exemple2.10.c
+exemple2.11: exemple2.11.c
+exemple2.12: exemple2.12.c
+exemple2.13: exemple2.13.c
+exemple2.14: exemple2.14.c
+exemple2.2: exemple2.2.c
+exemple2.3: exemple2.3.c
+exemple2.4: exemple2.4.c
+exemple2.5: exemple2.5.c
+exemple2.6: exemple2.6.c
+exemple2.7: exemple2.7.c
+exemple2.8: exemple2.8.c
+exemple2.9: exemple2.9.c
+
+chapitre3 : exemple3.1.en exemple3.1.fr
+exemple3.1.en: exemple3.1.c
+	$(CC) $(CFLAGS) -lm -DLANG=EN exemple3.1.c -o exemple3.1.en
+exemple3.1.fr: exemple3.1.c
+	$(CC) $(CFLAGS) -lm -DLANG=FR exemple3.1.c -o exemple3.1.fr
+
+chapitre5 : exemple5.1 exemple5.2 exemple5.3 exemple5.4 exemple5.5 exemple5.6 exemple5.7 exemple5.8 exemple5.9 exemple5.10 exemple5.11 exemple5.12a exemple5.12b exemple5.12c exemple5.12d exemple5.12e exemple5.12f exemple5.12g exemple5.12h exemple5.12i exemple5.13 exemple5.14
+exemple5.1: exemple5.1.c
+exemple5.10: exemple5.10.c
+	$(CC) $(CFLAGS) -lm exemple5.10.c -o exemple5.10
+exemple5.11: exemple5.11.c
+exemple5.2: exemple5.2.c
+exemple5.3: exemple5.3.c
+exemple5.4: exemple5.4.c
+exemple5.5: exemple5.5.c
+exemple5.6: exemple5.6.c
+exemple5.7: exemple5.7.c
+exemple5.8: exemple5.8.c
+exemple5.9: exemple5.9.c
+exemple5.12a: exemple5.12a.c
+exemple5.12b: exemple5.12b.c
+exemple5.12c: exemple5.12c.c
+exemple5.12d: exemple5.12d.c
+exemple5.12e: exemple5.12e.c
+exemple5.12f: exemple5.12f.c
+exemple5.12g: exemple5.12g.c
+exemple5.12h: exemple5.12h.c
+exemple5.12i: exemple5.12i.c
+exemple5.13: exemple5.13.c
+exemple5.14: exemple5.14.c
+
+chapitre7 : exemple7.1 exemple7.2 exemple7.1.prec0 exemple7.2.prec0
+exemple7.1 : exemple7.1.c
+exemple7.2 : exemple7.2.c
+exemple7.1.prec0 : exemple7.1.c
+	$(CC) $(CFLAGS) -DPRECISION=0 exemple7.1.c -o exemple7.1.prec0
+exemple7.2.prec0 : exemple7.2.c
+	$(CC) $(CFLAGS) -DPRECISION=0 exemple7.2.c -o exemple7.2.prec0
+
+clean :
+	rm exemple[1-7].[1-9] exemple[1-6].1[0-9] exemple3.1.en exemple3.1.fr exemple7*prec0 exemple5.1[0-9][a-i]

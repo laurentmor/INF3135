@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="84">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="Exemples" root=".">
+      <in>Dictionnaires.c</in>
+      <in>Dictionnaires.h</in>
+      <in>exemple1.1.c</in>
+      <in>exemple1.2.c</in>
+      <in>exemple1.3.c</in>
+      <in>exemple1.4.c</in>
+      <in>exemple1.5.c</in>
+      <in>exemple2.1.c</in>
+      <in>exemple2.10.c</in>
+      <in>exemple2.11.c</in>
+      <in>exemple2.12.c</in>
+      <in>exemple2.13.c</in>
+      <in>exemple2.14.c</in>
+      <in>exemple2.2.c</in>
+      <in>exemple2.3.c</in>
+      <in>exemple2.3bis.c</in>
+      <in>exemple2.4.c</in>
+      <in>exemple2.5.c</in>
+      <in>exemple2.6.c</in>
+      <in>exemple2.7.c</in>
+      <in>exemple2.8.c</in>
+      <in>exemple2.9.c</in>
+      <in>exemple3.1.c</in>
+      <in>exemple5.1.c</in>
+      <in>exemple5.10.c</in>
+      <in>exemple5.11.c</in>
+      <in>exemple5.12a.c</in>
+      <in>exemple5.12b.c</in>
+      <in>exemple5.12c.c</in>
+      <in>exemple5.12d.c</in>
+      <in>exemple5.12e.c</in>
+      <in>exemple5.12f.c</in>
+      <in>exemple5.12g.c</in>
+      <in>exemple5.12h.c</in>
+      <in>exemple5.12i.c</in>
+      <in>exemple5.13.c</in>
+      <in>exemple5.14.c</in>
+      <in>exemple5.15.c</in>
+      <in>exemple5.2.c</in>
+      <in>exemple5.3.c</in>
+      <in>exemple5.4.c</in>
+      <in>exemple5.5.c</in>
+      <in>exemple5.6.c</in>
+      <in>exemple5.7.c</in>
+      <in>exemple5.8.bis.c</in>
+      <in>exemple5.8.c</in>
+      <in>exemple5.9.c</in>
+      <in>exemple6.1.c</in>
+      <in>exemple6.2.c</in>
+      <in>exemple6.3.c</in>
+      <in>exemple6.4.c</in>
+      <in>exemple6.5.c</in>
+      <in>exemple6.6.c</in>
+      <in>exemple6.7.c</in>
+      <in>exemple6.8.c</in>
+      <in>exemple6.compteur.c</in>
+      <in>exemple6.compteur.h</in>
+      <in>exemple6.compteur1.c</in>
+      <in>exemple6.compteur2.c</in>
+      <in>exemple6.listes.c</in>
+      <in>exemple6.listes.h</in>
+      <in>exemple6.listesABS.c</in>
+      <in>exemple6.listesABS.h</in>
+      <in>exemple7.1.c</in>
+      <in>exemple7.2.c</in>
+      <in>test_Dictionnaires.c</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
