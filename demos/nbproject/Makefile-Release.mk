@@ -18,10 +18,10 @@ CC=gcc
 CCC=g++
 CXX=g++
 FC=gfortran
-AS=gas
+AS=as
 
 # Macros
-CND_PLATFORM=GNU-Solaris-x86
+CND_PLATFORM=None-Solaris-x86
 CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/demo1.o \
+	${OBJECTDIR}/demo2.o \
 	${OBJECTDIR}/main.o
 
 
@@ -61,12 +62,17 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/demo1.o: demo1.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/demo1.o demo1.c
+
+${OBJECTDIR}/demo2.o: demo2.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/demo2.o demo2.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
