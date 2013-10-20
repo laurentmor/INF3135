@@ -18,11 +18,11 @@ CC=gcc
 CCC=g++
 CXX=g++
 FC=gfortran
-AS=gas
+AS=as
 
 # Macros
-CND_PLATFORM=GNU-Solaris-x86
-CND_DLIB_EXT=so
+CND_PLATFORM=MinGW-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/demo1.o \
+	${OBJECTDIR}/demo2.o \
 	${OBJECTDIR}/main.o
 
 
@@ -57,16 +58,21 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/demo1.o: demo1.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/demo1.o demo1.c
+
+${OBJECTDIR}/demo2.o: demo2.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/demo2.o demo2.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -79,7 +85,7 @@ ${OBJECTDIR}/main.o: main.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/demos.exe
 
 # Subprojects
 .clean-subprojects:
