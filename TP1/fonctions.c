@@ -1,4 +1,4 @@
-//NOM et Prénom : 
+//NOM et Prénom :
 //Code permanent :
 
 #include <stdio.h>
@@ -26,17 +26,17 @@ signaler_erreur(int err)
         case OPTION_DUPLIQUEE_ERREUR :
                 fprintf(stderr,"Option en double.\n");
                 break;
-        case FICHIER_SANS_ENTIER_ERREUR : 
+        case FICHIER_SANS_ENTIER_ERREUR :
             fprintf(stderr,"Le fichier ne comporte aucun entier.\n");
             break;
         case TABLEAU2D_VIDE_ERREUR :
             fprintf(stderr,"Tableau vide!\n");
             break;
-        default : 
+        default :
             fprintf(stderr,"Erreur inconnue.\n");
             break;
     }
-    
+
 }
 
 void
@@ -50,12 +50,12 @@ affiche_Tab2D(int *ptr, int n, int m)
 
         for (int i = 0 ; i < n ; i++)
         {
-            for (int j = 0 ; j < m ; j++) 
+            for (int j = 0 ; j < m ; j++)
             {
                 printf("%5d ",lignePtr[i][j]);
             }
             printf("\b\n");
-        }    
+        }
     }
     else
     {
@@ -63,72 +63,76 @@ affiche_Tab2D(int *ptr, int n, int m)
     }
 }
 //Precondition: fp doit être existant et ouvert
-int nbre_lignes_fichier(File* fp){
-	int nbLignes=0;
-	int c;
-	long tailleFichier=ftell(fp);
-	//On signale le fichier vide
-	if(tailleFichier!=0){	
-		while(!feof(fp)){
-		c=getc(fp);
-		if(c=='\n') nbLignes++;
-		}
-	}
-	else{
-	signaler_erreur(FICHIER_SANS_ENTIER_ERREUR);
-	}
-	return nbLignes;
+int nbre_lignes_fichier(FILE* fp){
+    int nbLignes=0;
+    int c;
+    long tailleFichier=ftell(fp);
+    //On signale le fichier vide
+    if(tailleFichier!=0){
+        while(!feof(fp)){
+            c=getc(fp);
+            if(c=='\n') nbLignes++;
+        }
+    }
+    else{
+        signaler_erreur(FICHIER_SANS_ENTIER_ERREUR);
+    }
+return nbLignes;
 
 }
 int seek_option(char *const argv[], char option){
  //pour prévenir les options dupliquées
- int occurences=0; 
+ int occurences=0;
  int position=-1;
  //On valide l'option cherchée
- 
+
  if(option!='L' ||option!='C'){
-	signaler_erreur(OPTION_INCONNUE_ERREUR);
-	return position;
+    signaler_erreur(OPTION_INCONNUE_ERREUR);
+    return position;
  }
  else{
-	int nombreDeParam=sizeof(argv)/sizeof(char);
-	char* optionsPtr[nombreDeParam];
-	optionsPtr=(char (*)[nombreDeParam]);
-	for(int i=0; i<nombreDeParams;i++){
-		if(optionsPtr[i]=='-'&&optionsPtr[i+1]==option){
-			position=i;
-			occurences++;
-		}
-		if(occurences>1){
-			signaler_erreur(OPTION_DUPLIQUEE_ERREUR);
-			break;
-		}
-		
-	}
+    int nombreDeParam=sizeof(argv)/sizeof(char);
+    char (* optionsPtr)[nombreDeParam];
+    optionsPtr=(char (*)[nombreDeParam])argv;
+    int i=0;
+    while(optionsPtr!=NULL){
+        if(*optionsPtr[i]=='-'&& (*optionsPtr[i+1])==option){
+    position=i;
+    occurences++;
+    i++;
+    }
+    if(occurences>1){
+       signaler_erreur(OPTION_DUPLIQUEE_ERREUR);
+       return 0;
+        }
+    optionsPtr++;
+
+
+    }
  }
  return position;
 }
 
 int check_domaine(char * domaine){
-	int erreur;
+    int erreur;
     //Supporte tous les cas de syntaxe
     const char * expr="(^-{1}[0-9]+$){1}|(^[0-9]+-$)|(^[0-9]+-[0-9]+$)";
     regex_t expressionPtr;
-    erreur=	
+    erreur=regcomp(&expressionPtr,expr,REG_NOSUB | REG_EXTENDED);
     if(erreur==0){
         int matched=regexec(&expressionPtr,domaine,0,NULL,0);
         regfree(&expressionPtr);
         if (matched==0)return 1;
-		
-		
-            
-    }
-	signaler_erreur(SYNTAX_DOMAINE_ERREUR);
-	return 0; 
-}	
 
-	int get_debut_fin_domaine(char * domaine, int max, int *debut, int *fin)
-    { 
+
+
+    }
+    signaler_erreur(SYNTAX_DOMAIN_ERREUR);
+    return 0;
+}
+
+    int get_debut_fin_domaine(char * domaine, int max, int *debut, int *fin)
+    {
         assert(domaine!=NULL && "le domaine est obligatoire");
         assert(debut!=NULL   && "ECHEC d'une precondition - debut doit etre alloue hors fonction");
         assert(fin!=NULL   && "ECHEC d'une precondition - fin doit etre alloue hors fonction");
@@ -141,7 +145,7 @@ int check_domaine(char * domaine){
         const char * cas2="(^[0-9]+-$)";
         //num-num
         const char * cas3="(^[0-9]+-[0-9]+$)";
-        
+
         regex_t regExPtrCas1,
                 regExPtrCas2,
                 regExPtrCas3;
@@ -152,13 +156,13 @@ int check_domaine(char * domaine){
         //Determinons dans quel cas nous sommes pour ls traiter differement
         int matched=regexec(&regExPtrCas1,domaine,0,NULL,0);
         if (matched==0)
-                {       
-                    
+                {
+
                                 *debut=0;
                                 int longueur=strlen(domaine)+1;
                     char * finStr=malloc(longueur*sizeof(char));
                     strncpy(finStr,domaine+1,longueur);
-                    
+
                                 *fin=(int)atoi(finStr);
                                 free(finStr);
                 }
@@ -167,12 +171,12 @@ int check_domaine(char * domaine){
                     matched=regexec(&regExPtrCas2,domaine,0,NULL,0);
                     if (matched==0)
                     {
-                        
+
                                         *fin=(int)max;
                         int longueur=strlen(domaine)+1;
                         char * debutStr=malloc(longueur*sizeof(char));
                         strncpy(debutStr,domaine,longueur-1);
-                        
+
                                         *debut=(int)atoi(debutStr);
                                         free(debutStr);
 
@@ -183,25 +187,25 @@ int check_domaine(char * domaine){
                         if (matched==0)
                         {
                             int longueur=strlen(domaine)+1;
-                            char delimiteur[2]="-"; 
-                            /*On convertit la chaîne du domaine en tableau 
-                            de manière à pouvoir utiliser strtok() pour la diviser correctement
-                            Sûrement pas la meilleur/plus sécuritaire façon de faire*/ 
+                            char delimiteur[2]="-";
+                            /*On convertit la chaîne du domaine en tableau
+                            de maniere a  pouvoir utiliser strtok() pour la diviser correctement
+                            Sûrement pas la meilleur/plus sécuritaire façon de faire*/
                             char domaineTab[longueur];
                             strncpy(domaineTab,domaine,longueur);
                             char * partie=strtok(domaineTab,delimiteur);
-                           
-                            
+
+
                             *debut=(int)atoi(partie);
-                            
+
                             //On récupère la fin
                             partie=strtok(NULL,delimiteur);
                             *fin=(int)atoi(partie);
 
-                            
+
                         }
                         else{
-                                                //Dans le cas où le domaine est invalide on libère   
+                                                //Dans le cas où le domaine est invalide on libère
                                                 free(debut);
                                                 free(fin);
                             return 1;
@@ -210,3 +214,4 @@ int check_domaine(char * domaine){
                 }
             return 0;
     }
+
