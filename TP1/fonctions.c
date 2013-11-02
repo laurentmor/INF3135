@@ -91,24 +91,33 @@ int seek_option(char *const argv[], char option){
     return position;
  }
  else{
-    int nombreDeParam=sizeof(argv)/sizeof(char);
-    char (* optionsPtr)[nombreDeParam];
-    optionsPtr=(char (*)[nombreDeParam])argv;
-    int i=0;
-    while(optionsPtr!=NULL){
-        if(*optionsPtr[i]=='-'&& (*optionsPtr[i+1])==option){
-    position=i;
-    occurences++;
-    i++;
-    }
-    if(occurences>1){
-       signaler_erreur(OPTION_DUPLIQUEE_ERREUR);
-       return 0;
+    //On contruit alors la chaine d'option (ex -L)
+    
+    char *tiret= "-";
+    size_t len = sizeof(tiret); 
+        
+    char *optionCherchee = malloc(len + 1 + 1 ); 
+    strcpy(optionCherchee , tiret);
+       
+    optionCherchee [len - 3] = option;
+    optionCherchee [len - 2] = '\0';
+    int indexArgument=0;
+    for (;argv[indexArgument]!=NULL; ++indexArgument)
+    {
+        int trouve=strcmp(optionCherchee,argv[indexArgument]);
+        if(trouve){
+            occurences++;
+            if(occurences>1){
+                signaler_erreur(OPTION_DUPLIQUEE_ERREUR);
+                break;
+            }
+            else position=indexArgument;
         }
-    optionsPtr++;
 
 
+        
     }
+    
  }
  return position;
 }
@@ -223,7 +232,7 @@ int get_nbre_domaines(char  *const argv[], int pos){
      int estOptionConnue=-1;
      int nbDoms=0;
 
-     while(argumentsPtr[i]!=NULL){
+     while(*argumentsPtr[i]!=NULL){
         int estC=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='C';
         int estL=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='L';
         estOptionConnue=estC||estL;
@@ -270,3 +279,4 @@ int get_nbre_domaines(char  *const argv[], int pos){
      }
     }
 }*/
+
