@@ -1,4 +1,3 @@
-
 //NOM et Prénom : Morissette, Laurent
 //Code permanent : MORL05058301
 
@@ -120,7 +119,7 @@ int seek_option(char *const argv[], char option){
     }
 
  }
- frre(optionCherchee);
+ free(optionCherchee);
  return position;
 }
 
@@ -282,4 +281,4 @@ int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
     }
 }
 
-ubuntu@ip-172-31-39-1:~ $
+
