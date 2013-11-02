@@ -119,6 +119,7 @@ int seek_option(char *const argv[], char option){
     }
     
  }
+ frre(optionCherchee);
  return position;
 }
 
@@ -232,9 +233,9 @@ int get_nbre_domaines(char  *const argv[], int pos){
      int estOptionConnue=-1;
      int nbDoms=0;
 
-     while(*argumentsPtr[i]!=NULL){
-        int estC=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='C';
-        int estL=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='L';
+     while(argumentsPtr[i]!=NULL){
+        int estC=strcmp("-C",argumentsPtr[i]);
+        int estL=strcmp("-L",argumentsPtr[i]);
         estOptionConnue=estC||estL;
         if (estOptionConnue)
         {
@@ -248,8 +249,8 @@ int get_nbre_domaines(char  *const argv[], int pos){
      }
       return nbDoms;
 }
-/*int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
-    assert (n!=null && m!= null);
+int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
+    assert (n!=NULL && m!= NULL);
     int compteur;
 
     for(int i =0; i < n; i++){
@@ -278,5 +279,5 @@ int get_nbre_domaines(char  *const argv[], int pos){
                     
      }
     }
-}*/
+}
 
