@@ -239,7 +239,7 @@ int get_nbre_domaines(char  *const argv[], int pos){
      }
       return nbDoms;
 }
-int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
+/*int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
     assert (n!=null && m!= null);
     int compteur;
 
@@ -269,4 +269,4 @@ int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
                     
      }
     }
-}
+}*/
