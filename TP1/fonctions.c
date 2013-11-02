@@ -214,4 +214,59 @@ int check_domaine(char * domaine){
                 }
             return 0;
     }
+int get_nbre_domaines(char  *const argv[], int pos){
+    assert(pos>=0 && "pos ne doit pas etre negatif");
+     int nombreDeParam=sizeof(argv)/sizeof(char);
+     char (* argumentsPtr)[nombreDeParam];
+     argumentsPtr=(char (*)[nombreDeParam])argv;
+     int i=pos;
+     int estOptionConnue=-1;
+     int nbDoms=0;
 
+     while(*argumentsPtr[i]!=NULL){
+        int estC=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='C';
+        int estL=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='L';
+        estOptionConnue=estC||estL;
+        if (estOptionConnue)
+        {
+            break;
+        }
+        else{
+            nbDoms++;
+            i++;
+        }
+
+     }
+      return nbDoms;
+}
+int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
+    assert (n!=null && m!= null);
+    int compteur;
+
+    for(int i =0; i < n; i++){
+        compteur =0;
+
+        for(int j =0; j < m; j++){
+
+            if(*mat[i][j] != NULL){
+                compteur++;
+            }
+
+            if(j == m-1){
+                if(compteur == 0){
+                //on supprime la ligne
+                }
+            }
+            if(i == n-1){
+                if(compteur == 0){
+                    //on supprime la colonne
+                }
+            }
+            *tab[i][j] = *mat[n][m];
+            
+            for(int a =0; a < i; a++){
+                for(int b =0; b < j; b++){
+                    
+     }
+    }
+}
