@@ -1,5 +1,6 @@
-//NOM et Prénom :
-//Code permanent :
+
+//NOM et Prénom : Morissette, Laurent
+//Code permanent : MORL05058301
 
 #include <stdio.h>
 #include <regex.h>
@@ -92,13 +93,13 @@ int seek_option(char *const argv[], char option){
  }
  else{
     //On contruit alors la chaine d'option (ex -L)
-    
+
     char *tiret= "-";
-    size_t len = sizeof(tiret); 
-        
-    char *optionCherchee = malloc(len + 1 + 1 ); 
+    size_t len = sizeof(tiret);
+
+    char *optionCherchee = malloc(len + 1 + 1 );
     strcpy(optionCherchee , tiret);
-       
+
     optionCherchee [len - 3] = option;
     optionCherchee [len - 2] = '\0';
     int indexArgument=0;
@@ -115,9 +116,9 @@ int seek_option(char *const argv[], char option){
         }
 
 
-        
+
     }
-    
+
  }
  frre(optionCherchee);
  return position;
@@ -273,11 +274,12 @@ int *filter(int * mat, int *n, int *m, int *controlC, int *controlL){
                 }
             }
             *tab[i][j] = *mat[n][m];
-            
+
             for(int a =0; a < i; a++){
                 for(int b =0; b < j; b++){
-                    
+
      }
     }
 }
 
+ubuntu@ip-172-31-39-1:~ $
