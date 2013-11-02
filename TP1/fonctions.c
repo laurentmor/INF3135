@@ -223,7 +223,7 @@ int get_nbre_domaines(char  *const argv[], int pos){
      int estOptionConnue=-1;
      int nbDoms=0;
 
-     while(*argumentsPtr[i]!=NULL){
+     while(argumentsPtr[i]!=NULL){
         int estC=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='C';
         int estL=*argumentsPtr[i]=='-'&&*argumentsPtr[i+1]=='L';
         estOptionConnue=estC||estL;
