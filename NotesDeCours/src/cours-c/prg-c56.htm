@@ -1,0 +1,128 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  6.3. for</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c55.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c57.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c53.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 6.3. for</h2>
+<b>		</b><p>
+ La structure <b>for</b> en Pascal et la structure <u>pour</u> en langage
+algorithmique sont utilis&eacute;es pour faciliter la programmation de boucles
+de comptage. La structure <b>for</b> en C est plus g&eacute;n&eacute;rale et
+beaucoup plus puissante.<p>
+<p>
+<b><i>La structure for en C</i></b>
+
+<pre><b>   for ( &lt;expr1&gt; ; &lt;expr2&gt; ; &lt;expr3&gt; )
+         &lt;bloc d'instructions&gt;
+</b></pre>
+<i>
+est &eacute;quivalent &agrave; :</i>
+
+<pre><b>   &lt;expr1&gt;;
+   while ( &lt;expr2&gt; )
+      {
+       &lt;bloc d'instructions&gt;
+       &lt;expr3&gt;;
+      }
+</b></pre>
+<i>
+<b>&lt;expr1&gt;</b> est &eacute;valu&eacute;e une fois avant le passage de la
+boucle. <br>Elle est utilis&eacute;e pour initialiser les donn&eacute;es de la
+boucle.</i><p>
+<i>	<b>&lt;expr2&gt;</b> est &eacute;valu&eacute;e avant chaque passage de la
+boucle. <br>Elle est utilis&eacute;e pour d&eacute;cider si la boucle est
+r&eacute;p&eacute;t&eacute;e ou non.</i><p>
+<i>	<b>&lt;expr3&gt;</b> est &eacute;valu&eacute;e &agrave; la fin de chaque
+passage de la boucle. <br>Elle est utilis&eacute;e pour r&eacute;initialiser
+les donn&eacute;es de la boucle.</i><p>
+ 
+<p>
+Le plus souvent, <b>for</b> est utilis&eacute; comme boucle de comptage :<p>
+
+
+<pre><b>  for ( &lt;init.&gt; ; &lt;cond. r&eacute;p&eacute;tition&gt; ; &lt;compteur&gt; )
+       &lt;bloc d'instructions&gt;</b></pre>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>int I;
+for (I=0 ; I&lt;=20 ; I++)
+     printf(&quot;Le carr&eacute; de %d est %d \n&quot;, I, I*I);</b></pre>
+<p>
+En pratique, les parties &lt;expr1&gt; et &lt;expr2&gt; contiennent souvent
+plusieurs initialisations ou r&eacute;initialisations,
+<i>s&eacute;par&eacute;es par des virgules</i>. <p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>int n, tot;
+for (tot=0, n=1 ; n&lt;101 ; n++)
+      tot+=n;
+printf(&quot;La somme des nombres de 1 &agrave; 100 est %d\n&quot;, tot);</b></pre>
+<p>
+<b><i>Exemple</i></b><p>
+Cet exemple nous pr&eacute;sente diff&eacute;rentes variations pour
+r&eacute;aliser le m&ecirc;me traitement et nous montre la puissance de la
+structure <b>for</b>. Les expressions suivantes lisent un caract&egrave;re au
+clavier et affichent son code num&eacute;rique en notation binaire :<p>
+<p>
+
+
+<pre><b>/* a */
+/* notation utilisant la structure while */
+int C, I;
+C=getchar();
+I=128;
+while (I&gt;=1) 
+      {
+       printf(&quot;%i &quot;, C/I);
+       C%=I;
+       I/=2;
+      }</b></pre>
+ <p>
+ 
+
+<pre><b>/* b */
+/* notation utilisant for  - tr&egrave;s lisible - */
+/* pr&eacute;f&eacute;r&eacute;e par les d&eacute;butants en C          */
+int C, I;
+C=getchar();
+for (I=128 ; I&gt;=1 ; I/=2) 
+      {
+       printf(&quot;%i &quot;, C/I);
+       C%=I;
+      }
+</b></pre>
+ 
+
+<pre><b>/* c */
+/* notation utilisant for  - plus compacte - */
+/* pr&eacute;f&eacute;r&eacute;e par les experts en C             */
+int C, I;
+C=getchar();
+for (I=128 ; I&gt;=1 ; C%=I, I/=2) 
+       printf(&quot;%i &quot;, C/I);
+</b></pre>
+ 
+
+<pre><b>/* d */
+/* notation utilisant for  - &agrave; d&eacute;conseiller -  */
+/* surcharge et mauvais emploi de la structure */
+int C, I;
+for(C=getchar(),I=128; I&gt;=1 ;printf(&quot;%i &quot;,C/I),C%=i,i/=2)
+      ;</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c55.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c57.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c53.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

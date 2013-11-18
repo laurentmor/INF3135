@@ -1,0 +1,107 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.5.5. Passage de l'adresse d'un tableau &agrave; deux dimensions</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c122.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c124.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.5.5. Passage de l'adresse d'un tableau &agrave; deux dimensions</h3>
+ <p>
+ <p>
+<center><b><i>Exemple</i></b><p>
+</center>Imaginons que nous voulons &eacute;crire une fonction qui calcule la
+somme de tous les &eacute;l&eacute;ments d'une matrice de r&eacute;els A dont
+nous fournissons les deux dimensions N et M comme param&egrave;tres.<p>
+<p>
+<b><i>Probl&egrave;me</i></b><p>
+<b><i>Comment pouvons-nous passer l'adresse de la matrice &agrave; la fonction
+?</i></b><p>
+<p>
+Par analogie avec ce que nous avons vu au chapitre pr&eacute;c&eacute;dent,
+nous pourrions envisager de d&eacute;clarer le tableau concern&eacute; dans
+l'en-t&ecirc;te de la fonction sous la forme <tt>A[][]</tt>. Dans le cas d'un
+tableau &agrave; deux dimensions, cette m&eacute;thode ne fournit pas assez de
+donn&eacute;es, parce que le compilateur a besoin de la deuxi&egrave;me
+dimension du tableau pour d&eacute;terminer l'adresse d'un
+&eacute;l&eacute;ment <tt>A[i][j]</tt>.<p>
+<p>
+Une solution praticable consiste &agrave; faire en sorte que la fonction
+re&ccedil;oive un pointeur (de type float*) sur le d&eacute;but de la matrice
+et de parcourir tous les &eacute;l&eacute;ments comme s'il s'agissait d'un
+tableau &agrave; une dimension N*M.<p>
+<p>
+Cela nous conduit &agrave; cette fonction:<p>
+
+
+<pre><b>float SOMME(float *A, int N, int M)
+{
+ int I;
+ float S;
+ for (I=0; I&lt;N*M; I++)
+      S += A[I];
+ return S;
+}</b></pre>
+<p>
+Lors d'un appel de cette fonction, la seule difficult&eacute; consiste &agrave;
+transmettre l'adresse du d&eacute;but du tableau sous forme d'un pointeur sur
+<b>float</b>. Prenons par exemple un tableau d&eacute;clar&eacute; par<p>
+<tt><b>float A[3][4];</b></tt><p>
+<tt> </tt>Le nom A correspond &agrave; la bonne adresse, mais cette
+adresse est du type <i>&quot;pointeur sur un tableau de 4 &eacute;l&eacute;ments du
+type <b>float</b>&quot;</i>. Si notre fonction est correctement
+d&eacute;clar&eacute;e, le compilateur la convertira automatiquement dans une
+adresse du type <i>'pointeur sur <b>float</b>'</i>.<p>
+Toutefois, comme nous l'avons d&eacute;j&agrave; remarqu&eacute; au chapitre
+9.3.4, on gagne en lisibilit&eacute; et on &eacute;vite d'&eacute;ventuels
+messages d'avertissement si on utilise l'op&eacute;rateur de conversion
+forc&eacute;e <i>(&quot;cast&quot;)</i>.<p>
+<p>
+<b><i>Solution</i></b><p>
+Voici finalement un programme faisant appel &agrave; notre fonction SOMME:<p>
+
+
+<pre><b>#include &lt;stdio.h&gt;
+main()
+{
+ /* Prototype de la fonction SOMME */
+ float SOMME(float *A, int N, int M);
+ /* D&eacute;claration de la matrice */
+ float T[3][4] = {{1, 2, 3, 4},
+                  {5, 6, 7, 8},
+                  {9,10,11,12}};
+ /* Appel de la fonction SOMME */
+ printf(&quot;Somme des &eacute;l&eacute;ments : %f \n&quot;,
+                    SOMME((float*)T, 3, 4) );
+ return 0;
+}</b></pre>
+<p>
+<hr size="1" width="100%">
+<p>
+<b><i>Rappel</i></b><p>
+<p>
+Rappelons encore une fois que lors de l'interpr&eacute;tation d'un tableau
+&agrave; deux dimensions comme tableau unidimensionnel, il faut calculer les
+adresses des composantes &agrave; l'aide du<i> nombre de colonnes maximal
+r&eacute;serv&eacute; lors de la d&eacute;claration.</i><p>
+<p>
+<hr size="1" width="100%">
+<p>
+<b><i>Remarque de Francois Donato <a href="mailto:frdonato@hotmail.com">frdonato@hotmail.com</a>:</i></b><p>
+Une m&eacute;thode plus propre pour &eacute;viter le cast<br>
+<pre><b>                 SOMME((float*)T, 3, 4) );
+</b></pre>
+est de renvoyer explicitement l'adresse du premier &eacute;l&eacute;ment du tableau:
+<pre><b>                 SOMME(&amp;T[0][0], 3, 4) );
+</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c122.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c124.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

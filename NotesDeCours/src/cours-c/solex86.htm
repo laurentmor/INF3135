@@ -1,0 +1,62 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.8</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex85.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex87.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.8</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+<b>#include &lt;string.h&gt;</b>
+ main()
+{
+ /* D&eacute;clarations */
+ char VERB[20]; /* cha&icirc;ne contenant le verbe */
+ char AFFI[30]; /* cha&icirc;ne pour l'affichage   */
+ int L;         /* longueur de la cha&icirc;ne     */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Verbe : &quot;);
+ gets(VERB);
+
+<b> /* Contr&ocirc;ler s'il s'agit d'un verbe en 'er' */</b>
+<b> L=strlen(VERB);</b>
+<b> if ((VERB[L-2]!='e') || (VERB[L-1]!='r'))</b>
+<b>      puts(&quot;\aCe n'est pas un verbe du premier groupe.!&quot;);</b>
+<b> else</b>
+<b>     {</b>
+<b>      /* Couper la terminaison 'er'. */</b>
+<b>      VERB[L-2]='\0';</b>
+<b>      /* Conjuguer ... */</b>
+<b>      AFFI[0]='\0';</b>
+<b>      strcat(AFFI, &quot;je &quot;);</b>
+<b>      strcat(AFFI, VERB);</b>
+<b>      strcat(AFFI, &quot;e&quot;);</b>
+<b>      puts(AFFI);</b>
+ 
+<b>       . . .</b>
+ 
+<b>      AFFI[0]='\0';</b>
+<b>      strcat(AFFI, &quot;ils &quot;);</b>
+<b>      strcat(AFFI, VERB);</b>
+<b>      strcat(AFFI, &quot;ent&quot;);</b>
+<b>      puts(AFFI);</b>
+<b>     }</b>
+  return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex85.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex87.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

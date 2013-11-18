@@ -1,0 +1,56 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.34</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex164.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex166.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex155.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.34</h3>
+ <p>
+ 
+
+<pre>#include &lt;ctype.h&gt;
+#include &lt;math.h&gt;
+
+double CH_DOUBLE(char *CH)
+{
+ /* Variables locales */
+ double N; /* r&eacute;sultat num&eacute;rique */
+ int SIGNE; /* signe de la valeur rationnelle */
+ int DEC; /* positions derri&egrave;re la virgule  */
+
+ /* Initialisation des variables */
+ N = 0.0;
+ SIGNE = 1;
+ /* Traitement du signe */
+ if (*CH=='-') SIGNE = -1;
+ if (*CH=='-' || *CH=='+') CH++;
+ /* Positions devant le point d&eacute;cimal */
+ for ( ; isdigit(*CH); CH++)
+     N = N*10.0 + (*CH-'0');
+ /* Traitement du point d&eacute;cimal */
+ if (*CH=='.') CH++;
+
+ /* Traitement des positions derri&egrave;re le point d&eacute;cimal */
+ for (DEC=0; isdigit(*CH); CH++)
+    {
+     N = N*10.0 + (*CH-'0');
+     DEC++;
+    }
+ /* Calcul de la valeur &agrave; partir du signe et */
+ /* du nombre de d&eacute;cimales. */
+ return SIGNE*N/pow(10,DEC);
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex164.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex166.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex155.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

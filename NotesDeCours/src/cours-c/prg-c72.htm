@@ -1,0 +1,356 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - b) Tableaux &agrave; deux dimensions - Matrices</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c71.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c70.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+b) Tableaux &agrave; deux dimensions - Matrices</h3>
+<ul>
+<li><a href="#Heading148">Exercice 7.17 Mise &agrave; z&eacute;ro de la diagonale principale d'une matrice</a>
+<li><a href="#Heading149">Exercice 7.18 Matrice unitaire</a>
+<li><a href="#Heading150">Exercice 7.19 Transposition d'une matrice</a>
+<li><a href="#Heading151">Exercice 7.20 Multiplication d'une matrice par un r&eacute;el</a>
+<li><a href="#Heading152">Exercice 7.21 Addition de deux matrices</a>
+<li><a href="#Heading153">Exercice 7.22 Multiplication de deux matrices</a>
+<li><a href="#Heading154">Exercice 7.23 Triangle de Pascal</a>
+<li><a href="#Heading155">Exercice 7.24 Recherche de 'points-cols'</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading148">Exercice 7.17 Mise &agrave; z&eacute;ro de la diagonale principale d'une matrice</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Ecrire un programme qui met &agrave; z&eacute;ro les &eacute;l&eacute;ments de
+la diagonale principale d'une matrice <b><i>carr&eacute;e </i></b>A<b><i>
+</i></b>donn&eacute;e.<p>
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading149">Exercice 7.18 Matrice unitaire</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Ecrire un programme qui construit et affiche une matrice <b><i>carr&eacute;e
+unitaire</i></b> U de dimension N. Une matrice unitaire est une matrice, telle
+que:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>/ 1  si i=j</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>u<sub>ij</sub>
+=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>|</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>\
+0  si ij</b></tt>
+<br></td></tr></table><p>
+
+<h4><hr size="2">
+<a name="Heading150">Exercice 7.19 Transposition d'une matrice</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Ecrire un programme qui effectue la transposition t<sub>A</sub> d'une matrice A
+de dimensions N et M en une matrice de dimensions M et N. <p>
+<b>a)</b>	La matrice transpos&eacute;e sera m&eacute;moris&eacute;e dans une
+deuxi&egrave;me matrice B qui sera ensuite affich&eacute;e.<p>
+<b>b)</b>	La matrice A sera transpos&eacute;e par permutation des
+&eacute;l&eacute;ments.<p>
+<b>Rappel:</b>
+
+<pre><b>           /         \      /       \
+   tA =  t | a b c d |  =   | a e i |
+           | e f g h |      | b f j |
+           | i j k l |      | c g k |
+           \         /      | d h l |
+                            \       /</b></pre>
+<p>
+ 
+<h4><hr size="2">
+<a name="Heading151">Exercice 7.20 Multiplication d'une matrice par un r&eacute;el</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Ecrire un programme qui r&eacute;alise la multiplication d'une matrice A par un
+r&eacute;el X. <p>
+<b>Rappel:</b>
+
+<pre><b>       /         \     /                 \
+       | a b c d |     | X*a X*b X*c X*d |
+   X * | e f g h |  =  | X*e X*f X*g X*h |
+       | i j k l |     | X*i X*j X*k X*l |
+       \         /     \                 /</b></pre>
+<b>a)</b>
+Le r&eacute;sultat de la multiplication sera m&eacute;moris&eacute; dans une
+deuxi&egrave;me matrice A qui sera ensuite affich&eacute;e.<p>
+<b>b)</b>	Les &eacute;l&eacute;ments de la matrice A seront multipli&eacute;s
+par X.<p>
+<p>
+ 
+<h4><hr size="2">
+<a name="Heading152">Exercice 7.21 Addition de deux matrices</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Ecrire un programme qui r&eacute;alise l'addition de deux matrices A et B de
+m&ecirc;mes dimensions N et M. <p>
+<b>Rappel:</b>
+
+<pre><b>/         \   /             \     /                     \
+| a b c d |   | a' b' c' d' |     | a+a' b+b' c+c' d+d' |
+| e f g h | + | e' f' g' h' |  =  | e+e' f+f' g+g' h+h' |
+| i j k l |   | i' j' k' l' |     | i+i' j+j' k+k' l+l' |
+\         /   \             /     \                     /</b></pre>
+<b>a)</b>
+Le r&eacute;sultat de l'addition sera m&eacute;moris&eacute; dans une
+troisi&egrave;me matrice C qui sera ensuite affich&eacute;e.<p>
+<b>b)</b>	La matrice B est ajout&eacute;e &agrave; A.<p>
+<p>
+ 
+<h4><hr size="2">
+<a name="Heading153">Exercice 7.22 Multiplication de deux matrices</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+En multipliant une matrice A de dimensions N et M avec une matrice B de
+dimensions M et P on obtient une matrice C de dimensions N et P:<p>
+<p>
+<tt><b>A(N,M) * B(M,P) = C(N,P)</b></tt><p>
+<tt> </tt><p>
+La multiplication de deux matrices se fait en multipliant les composantes des
+deux matrices lignes par colonnes:<p>
+<img src="prg-c29.gif" width="263" height="78"><p>
+<b>Rappel:</b>
+
+<pre><b>	/       \     /     \      /                                     \
+	| a b c |     | p q |      | a*p + b*r + c*t     a*q + b*s + c*u |
+	| e f g |  *  | r s |  =   | e*p + f*r + g*t     e*q + f*s + g*u |
+	| h i j |     | t u |      | h*p + i*r + j*t     h*q + i*s + j*u |
+	| k l m |     \     /      | k*p + l*r + m*t     k*q + l*s + m*u |
+	\       /                  \                                     /</b></pre>
+<p>
+Ecrire un programme qui effectue la multiplication de deux matrices A et B. Le
+r&eacute;sultat de la multiplication sera m&eacute;moris&eacute; dans une
+troisi&egrave;me matrice C qui sera ensuite affich&eacute;e.<p>
+<p>
+ 
+<h4><hr size="2">
+<a name="Heading154">Exercice 7.23 Triangle de Pascal</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Ecrire un programme qui construit le triangle de PASCAL de degr&eacute; N et le
+m&eacute;morise dans une matrice carr&eacute;e P de dimension N+1. <p>
+<b>Exemple: </b><i>Triangle de Pascal de degr&eacute; 6:</i><p>
+ 
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt>n=0</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>n=1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>n=2</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>n=3</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>3</tt>
+<br></td>
+<td colspan="1" align="left"><tt>3</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>n=4</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>4</tt>
+<br></td>
+<td colspan="1" align="left"><tt>6</tt>
+<br></td>
+<td colspan="1" align="left"><tt>4</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>n=5</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>5</tt>
+<br></td>
+<td colspan="1" align="left"><tt>10</tt>
+<br></td>
+<td colspan="1" align="left"><tt>10</tt>
+<br></td>
+<td colspan="1" align="left"><tt>5</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>n=6</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>6</tt>
+<br></td>
+<td colspan="1" align="left"><tt>15</tt>
+<br></td>
+<td colspan="1" align="left"><tt>20</tt>
+<br></td>
+<td colspan="1" align="left"><tt>15</tt>
+<br></td>
+<td colspan="1" align="left"><tt>6</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td></tr></table><p>
+<b>M&eacute;thode: </b><p>
+ Calculer et afficher seulement les valeurs jusqu'&agrave; la diagonale
+principale (incluse). Limiter le degr&eacute; &agrave; entrer par l'utilisateur
+&agrave; 13.<p>
+Construire le triangle ligne par ligne:<p>
+<p>
+	-	Initialiser le premier &eacute;l&eacute;ment et l'&eacute;l&eacute;ment de
+la diagonale &agrave; 1.<p>
+	-	Calculer les valeurs entre les &eacute;l&eacute;ments initialis&eacute;s de
+gauche &agrave; droite en utilisant la relation:<p>
+				P<sub>i,j</sub> = P<sub>i-1,j</sub> + P<sub>i-1,j-1</sub><p>
+<sub></sub><p>
+ 
+<h4><hr size="2">
+<a name="Heading155">Exercice 7.24 Recherche de 'points-cols'</a>
+<hr size="1"></h4>
+
+ <p>
+ <p>
+Rechercher dans une matrice donn&eacute;e A les &eacute;l&eacute;ments qui sont
+&agrave; la fois un maximum sur leur ligne et un minimum sur leur colonne. Ces
+&eacute;l&eacute;ments sont appel&eacute;s des <i>points-cols</i>. Afficher les
+positions et les valeurs de <i>tous</i> les points-cols trouv&eacute;s.<p>
+<b>Exemples:</b> Les &eacute;l&eacute;ments soulign&eacute;s sont des
+points-cols:
+
+<pre><b>/           \   /         \   /           \   /       \
+| 1 8 3 4 0 |   | 4 5 8 9 |   | 3 5 6 7 7 |   | 1 2 3 |
+|           |   | 3 8 9 3 |   | 4 2 2 8 9 |   | 4 5 6 |
+| 6 7 2 7 0 |   | 3 4 9 3 |   | 6 3 2 9 7 |   | 7 8 9 |
+\           /   \         /   \           /   \       /</b></pre>
+<b>M&eacute;thode:</b>
+Etablir deux matrices d'aide MAX et MIN de m&ecirc;me dimensions que A, telles
+que:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>/ 1  si A[i,j] est un maximum </b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>MAX[i,j]
+=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>|
+             sur la ligne i</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>\
+0  sinon</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>/
+1  si A[i,j] est un minimum </b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>MIN[i,j]
+=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>|
+             sur la colonne j</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>\
+0  sinon</b></tt>
+<br></td></tr></table><p>
+<p>
+
+<h1>
+</h1>
+<p><hr size="1" width="100%">
+<a href="prg-c71.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c70.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

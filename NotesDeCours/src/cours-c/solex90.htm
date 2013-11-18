@@ -1,0 +1,42 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.12</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex89.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex91.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.12</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int N;  /* nombre entr&eacute; */
+<b> char JOUR[8][9] = {&quot;\aErreur!&quot;, &quot;lundi&quot;, &quot;mardi&quot;, &quot;mercredi&quot;, </b>
+<b>                    &quot;jeudi&quot;, &quot;vendredi&quot;, &quot;samedi&quot;,&quot;dimanche&quot;};</b>
+  /* Saisie du nombre */
+ printf(&quot;Entrez un nombre entre 1 et 7 : &quot;);
+ scanf(&quot;%d&quot;, &amp;N);
+ /* Affichage du r&eacute;sultat - pour perfectionnistes */
+<b> if (N&gt;0 &amp;&amp; N&lt;8)</b>
+<b>     printf(&quot;Le %de%c jour de la semaine est %s.\n&quot;,</b>
+<b>                                   N, (N==1)?'r':' ', JOUR[N]);</b>
+<b> else</b>
+<b>     puts(JOUR[0]);</b>
+  return 0;
+}
+</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex89.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex91.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

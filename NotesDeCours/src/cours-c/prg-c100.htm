@@ -1,0 +1,208 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  9.4. Tableaux de pointeurs</title><link rel="Stylesheet" href="./site.css" type="text/css">
+<link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c99.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c88.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 9.4. Tableaux de pointeurs</h2>
+<ul>
+<li><a href="#Heading224"> Exercice 9.18</a>
+<li><a href="#Heading225">Exercice 9.19</a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ <p>
+<b><i>Note au lecteur</i></b><p>
+Si la notion de pointeurs vous &eacute;tait nouvelle jusqu'ici, alors sautez
+les sections 9.4 et 9.5 de ce chapitre et les exercices correspondants. Traitez
+d'abord le chapitre suivant jusqu'&agrave; ce que les notions de pointeurs et
+d'adresses se soient bien consolid&eacute;es.<p>
+<p>
+Si nous avons besoin d'un ensemble de pointeurs du m&ecirc;me type, nous
+pouvons les r&eacute;unir dans un tableau de pointeurs.  <p>
+<p>
+<b><i>D&eacute;claration</i></b><p>
+<b><i>D&eacute;claration d'un tableau de pointeurs</i></b>
+
+<pre><b>&lt;Type&gt; *&lt;NomTableau&gt;[&lt;N&gt;]
+d&eacute;clare un tableau &lt;NomTableau&gt; de &lt;N&gt; pointeurs sur des donn&eacute;es du type &lt;Type&gt;.
+</b></pre>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>      double *A[10];</b></pre>
+d&eacute;clare
+un tableau de 10 pointeurs sur des rationnels du type <b>double</b> dont les
+adresses et les valeurs ne sont pas encore d&eacute;finies. <p>
+<p>
+<p>
+<b><i>Remarque</i></b><p>
+Le plus souvent, les tableaux de pointeurs sont utilis&eacute;s pour
+m&eacute;moriser de fa&ccedil;on &eacute;conomique des <i>cha&icirc;nes de
+caract&egrave;res de diff&eacute;rentes longueurs</i>. Dans la suite, nous
+allons surtout consid&eacute;rer les tableaux de pointeurs sur des
+cha&icirc;nes de caract&egrave;res. <p>
+<p>
+<b><i>Initialisation</i></b><p>
+Nous pouvons initialiser les pointeurs d'un tableau sur <b>char</b> par les
+adresses de<i> </i>cha&icirc;nes de caract&egrave;res constantes.<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>  char *JOUR[] = {&quot;dimanche&quot;, &quot;lundi&quot;, &quot;mardi&quot;, 
+                  &quot;mercredi&quot;, &quot;jeudi&quot;, &quot;vendredi&quot;, 
+                  &quot;samedi&quot;};
+</b></pre>
+d&eacute;clare
+un tableau <tt><b>JOUR[]</b></tt> de 7 pointeurs sur <b>char</b>. Chacun des
+pointeurs est initialis&eacute; avec l'adresse de l'une des 7 cha&icirc;nes de
+caract&egrave;res.<p>
+<p>
+<img src="prg-c56.gif" width="429" height="226"><p>
+<p>
+<center>On peut afficher les 7 cha&icirc;nes de caract&egrave;res en
+fournissant les adresses contenues dans le tableau JOUR &agrave; <b>printf
+</b>(ou <b>puts</b>) :<p>
+</center>
+
+<pre><b>  int I;
+  for (I=0; I&lt;7; I++) printf(&quot;%s\n&quot;, JOUR[I]);</b></pre>
+<p>
+Comme JOUR[I] est un pointeur sur <b>char</b>, on peut afficher les
+premi&egrave;res lettres des jours de la semaine en utilisant
+l'op&eacute;rateur 'contenu de' :<p>
+
+
+<pre><b>  int I;
+  for (I=0; I&lt;7; I++) printf(&quot;%c\n&quot;, *JOUR[I]);</b></pre>
+<p>
+L'expression JOUR[I]+J d&eacute;signe la J-i&egrave;me lettre de la
+I-i&egrave;me cha&icirc;ne. On peut afficher la troisi&egrave;me lettre de
+chaque jour de la semaine par:<p>
+
+
+<pre><b>  int I;
+  for (I=0; i&lt;7; I++) printf(&quot;%c\n&quot;,*(JOUR[I]+2));</b></pre>
+<p>
+<p>
+<b><i>R&eacute;sumons: Les tableaux de pointeurs</i></b>
+<tt><b>int *D[];   <br></b></tt>	d&eacute;clare <b><i>un tableau de
+pointeurs</i></b> sur des &eacute;l&eacute;ments du type <b>int</b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>D[i] </b></tt>peut pointer
+<br></td>
+<td colspan="1" align="left">sur
+des variables simples ou 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">sur
+les composantes d'un tableau.
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>D[i]</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse contenue dans l'&eacute;l&eacute;ment i de D
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">(Les
+adresses dans D[i] sont variables)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*D[i]</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de l'adresse dans D[i]
+<br></td></tr></table><p>
+Si D[i] pointe dans un tableau, 
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>D[i]</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de la premi&egrave;re composante
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>D[i]+j</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de la j-i&egrave;me composante 
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(D[i]+j)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de la j-i&egrave;me composante 
+<br></td>
+<td colspan="1" align="left"><br></td></tr></table>
+<h4><hr size="2">
+<a name="Heading224"> Exercice 9.18</a>
+<hr size="1"></h4>
+<p>
+<p>
+Consid&eacute;rez les d&eacute;clarations de <tt><b>NOM1</b></tt> et
+<tt><b>NOM2</b></tt>:<p>
+
+
+<pre><b>char *NOM1[] =    {&quot;Marc&quot;,  &quot;Jean-Marie&quot;,  &quot;Paul&quot;,
+                   &quot;Fran&ccedil;ois-Xavier&quot;,    &quot;Claude&quot; };
+
+char NOM2[][16] = {&quot;Marc&quot;,  &quot;Jean-Marie&quot;,  &quot;Paul&quot;,
+                   &quot;Fran&ccedil;ois-Xavier&quot;,    &quot;Claude&quot; };</b></pre>
+<p>
+a)	Repr&eacute;senter graphiquement la m&eacute;morisation des deux variables
+<tt>NOM1</tt> et <tt>NOM2</tt>.<p>
+<p>
+b)	Imaginez que vous devez &eacute;crire un programme pour chacun des deux
+tableaux qui trie les cha&icirc;nes selon l'ordre lexicographique. En supposant
+que vous utilisez le m&ecirc;me algorithme de tri pour les deux programmes,
+lequel des deux programmes sera probablement le plus rapide?<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading225">Exercice 9.19</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit le jour, le mois et l'ann&eacute;e d'une date au
+clavier et qui affiche la date en fran&ccedil;ais et en allemand. Utiliser deux
+tableaux de pointeurs, MFRAN et MDEUT que vous initialisez avec les noms des
+mois dans les deux langues. La premi&egrave;re composante de chaque tableau
+contiendra un message d'erreur qui sera affich&eacute; lors de l'introduction
+d'une donn&eacute;e ill&eacute;gale.<p>
+<p>
+Exemples:
+
+<pre><b>   Introduisez la date: 1 4 1993
+   Luxembourg, le 1er avril 1993
+   Luxemburg, den 1. April 1993
+
+   Introduisez la date: 2 4 1993
+   Luxembourg, le 2 avril 1993
+   Luxemburg, den 2. April 1993</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c99.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c88.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

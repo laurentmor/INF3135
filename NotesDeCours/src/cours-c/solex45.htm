@@ -1,0 +1,47 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.10</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex44.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex46.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.10</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int N;     /* degr&eacute; du polyn&ocirc;me */
+ float X;   /* argument          */
+ float A;   /* coefficients successifs du polyn&ocirc;me */
+ float P;   /* coefficient courant du terme Horner */
+
+ printf(&quot;Entrer le degr&eacute;  N du polyn&ocirc;me   : &quot;);
+ scanf(&quot;%d&quot;, &amp;N);
+ printf(&quot;Entrer la valeur X de l'argument : &quot;);
+ scanf(&quot;%f&quot;, &amp;X);
+
+<b> for(P=0.0 ; N&gt;=0 ; N--)</b>
+<b>   {</b>
+     printf(&quot;Entrer le coefficient A%d : &quot;, N);
+    scanf(&quot;%f&quot;, &amp;A);
+<b>    P = P*X + A;</b>
+<b>   }</b>
+ 
+ printf(&quot;Valeur du polyn&ocirc;me pour X = %.2f : %.2f\n&quot;, X, P);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex44.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex46.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,146 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.2.4. Affichage et affectation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c68.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c70.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.2.4. Affichage et affectation</h3>
+<ul>
+<li><a href="#Heading133"> Exercice 7.5</a>
+<li><a href="#Heading134">Exercice 7.6</a>
+<li><a href="#Heading135">Exercice 7.7</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+Lors du travail avec les tableaux &agrave; deux dimensions, nous utiliserons
+deux indices (p.ex: I et J), et la structure <b>for</b>, souvent
+imbriqu&eacute;e, pour parcourir les lignes et les colonnes des tableaux.<p>
+<p>
+<b>- Affichage du contenu d'un tableau &agrave; deux dimensions</b><p>
+ Traduisons le programme AFFICHER du langage algorithmique en C:
+
+<pre><u>programme</u> AFFICHER
+|   <u>entier tableau</u> A[5,10]
+|   <u>entier</u> I,J
+|   (* Pour chaque ligne ... *)
+|   <u>pour</u> I <u>variant de</u> 1 <u>&agrave;</u> 5 <u>faire</u>  
+|     (* ... consid&eacute;rer chaque composante *)
+|     <u>pour</u> J <u>variant de</u> 1 <u>&agrave;</u> 10 <u>faire</u>  
+|       <u>&eacute;crire</u> A[I,J]
+|     <u>fpour</u>
+ |     (* Retour &agrave; la ligne *)
+|     <u>&eacute;crire</u> 
+|   <u>fpour</u>
+<u>fprogramme</u></pre>
+
+
+<pre><b>main()
+{
+ int A[5][10];
+ int I,J;
+ /* Pour chaque ligne ... */
+ for (I=0; I&lt;5; I++)  
+   {
+    /* ... consid&eacute;rer chaque composante */
+    for (J=0; J&lt;10; J++)  
+           printf(&quot;%7d&quot;, A[I][J]);
+    /* Retour &agrave; la ligne */
+    printf(&quot;\n&quot;);         
+   }
+ return 0;
+}</b></pre>
+<p>
+<b><i>Remarques</i></b><p>
+*	Avant de pouvoir afficher les composantes d'un tableau, il faut leur affecter
+des valeurs.<p>
+*	Pour obtenir des colonnes bien align&eacute;es lors de l'affichage, il est
+pratique d'indiquer la largeur minimale de l'affichage dans la cha&icirc;ne de
+format. Pour afficher des matrices du type <b>int</b> (valeur la plus 'longue':
+-32768), nous pouvons utiliser la cha&icirc;ne de format <tt>&quot;<b>%7d</b>&quot;</tt>
+:<p>
+<tt><b>printf(&quot;%7d&quot;, A[I][J]);</b></tt><p>
+<tt> </tt><p>
+<b>- Affectation avec des valeurs provenant de l'ext&eacute;rieur</b><p>
+ <p>
+Traduisons le programme REMPLIR du langage algorithmique en C:<p>
+
+
+<pre><b>programme REMPLIR
+|   entier tableau A[5,10]
+|   entier I,J
+|   (* Pour chaque ligne ... *)
+|   pour I variant de 1 &agrave; 5 faire  
+|     (* ... consid&eacute;rer chaque composante *)
+|     pour J variant de 1 &agrave; 10 faire  
+|       lire A[I,J]
+|     fpour
+|   fpour
+fprogramme</b></pre>
+
+
+<pre><b>main()
+{
+ int A[5][10];
+ int I,J;
+ /* Pour chaque ligne ... */
+ for (I=0; I&lt;5; I++)
+   /* ... consid&eacute;rer chaque composante */
+   for (J=0; J&lt;10; J++)
+           scanf(&quot;%d&quot;, &amp;A[I][J]);
+ return 0;
+}</b></pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading133"> Exercice 7.5</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit les dimensions L et C d'un tableau T &agrave; deux
+dimensions du type <b>int</b> (dimensions maximales: 50 lignes et 50 colonnes).
+Remplir le tableau par des valeurs entr&eacute;es au clavier et afficher le
+tableau ainsi que la somme de tous ses &eacute;l&eacute;ments.<p>
+<p>
+ 
+<h4><hr size="2">
+<a name="Heading134">Exercice 7.6</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit les dimensions L et C d'un tableau T &agrave; deux
+dimensions du type <b>int</b> (dimensions maximales: 50 lignes et 50 colonnes).
+Remplir le tableau par des valeurs entr&eacute;es au clavier et afficher le
+tableau ainsi que la somme de chaque ligne et de chaque colonne en n'utilisant
+qu'une variable d'aide pour la somme.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading135">Exercice 7.7</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui transf&egrave;re un tableau M &agrave; deux dimensions
+L et C (dimensions maximales: 10 lignes et 10 colonnes) dans un tableau V
+&agrave; une dimension L*C.<p>
+<p>
+<b>Exemple:</b>
+
+<pre><b>   /         \
+   | a b c d |        /                         \
+   | e f g h |  ==&gt;   | a b c d e f g h i j k l |
+   | i j k l |        \                         /
+   \         /</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c68.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c70.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

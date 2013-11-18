@@ -1,0 +1,222 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.6. Les modules en lang. algorithmique, en Pascal et en C</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c123.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c125.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+10.6. Les modules en lang. algorithmique, en Pascal et en C</h2>
+ <p>
+ <p>
+<p>
+Ce chapitre r&eacute;sume les diff&eacute;rences principales entre les modules
+(programme principal, fonctions, proc&eacute;dures) dans les diff&eacute;rents
+langages de programmation que nous connaissons. <p>
+<p>
+<b><i>Modules</i></b><p>
+<b>En Pascal et en langage algorithmique</b>, nous distinguons programme
+principal, proc&eacute;dures et fonctions.<p>
+<b>En C</b>, il existe uniquement des fonctions. La fonction principale
+<b>main</b> se distingue des autres fonctions par deux qualit&eacute;s:<p>
+	a) Elle est ex&eacute;cut&eacute;e lors de l'appel du programme.<p>
+	b) Les types du r&eacute;sultat (<b>int</b>) et des param&egrave;tres
+(<b>void</b>) sont fix&eacute;s.<p>
+<p>
+<b><i>D&eacute;finition des modules</i></b><p>
+<b>En langage algorithmique</b>, le programme principal, les fonctions et les
+proc&eacute;dures sont d&eacute;clar&eacute;s dans des blocs distincts. Il est
+interdit d'imbriquer leurs d&eacute;finitions. La d&eacute;finition du
+programme principal pr&eacute;c&egrave;de celle des fonctions et des
+proc&eacute;dures.<p>
+<p>
+	<p>
+	
+<img src="prg-c67.gif" width="382" height="210"><p>
+<p>
+<b>En Pascal</b>, les d&eacute;finitions des modules peuvent &ecirc;tre
+imbriqu&eacute;es; c.-&agrave;-d.: on peut d&eacute;finir des fonctions et des
+proc&eacute;dures localement &agrave; l'int&eacute;rieur d'autres fonctions ou
+proc&eacute;dures.<p>
+<p>
+	
+<img src="prg-c68.gif" width="459" height="282"><p>
+<p>
+<b>En C</b>, il est interdit de <i>d&eacute;finir</i> des fonctions &agrave;
+l'int&eacute;rieur d'autres fonctions, mais nous pouvons <i>d&eacute;clarer</i>
+des fonctions localement.<p>
+<p>
+	
+<img src="prg-c69.gif" width="326" height="266"><p>
+<p>
+<b><i>Variables locales</i></b><p>
+<b>En Pascal et en langage algorithmique</b>, nous pouvons d&eacute;clarer <p>
+des variables locales au d&eacute;but des fonctions et des proc&eacute;dures.<p>
+<b>En C</b>, il est permis (mais d&eacute;conseill&eacute;) de d&eacute;clarer
+des variables locales au d&eacute;but de chaque bloc d'instructions.<p>
+<p>
+<b><i>Variables globales</i></b><p>
+<b>En Pascal et en langage algorithmique</b>, les variables globales sont
+d&eacute;finies au d&eacute;but du programme principal. <p>
+<b>En C</b>, les variables globales sont d&eacute;finies au d&eacute;but du
+fichier, &agrave; l'ext&eacute;rieur de toutes les fonctions. (Les variables de
+la fonction principale <b>main</b> sont locales &agrave; <b>main</b>.)<p>
+<p>
+<b><i>Passage des param&egrave;tres</i></b><p>
+<b>En Pascal et en langage algorithmique</b>, nous distinguons entre passage
+des param&egrave;tres par valeur et passage des param&egrave;tres par
+r&eacute;f&eacute;rence.<p>
+<b>En C</b>, le passage des param&egrave;tres se fait toujours par la valeur.
+Pour pouvoir changer le contenu d'une variable d&eacute;clar&eacute;e dans une
+autre fonction, il faut utiliser un pointeur comme param&egrave;tre de passage
+et transmettre l'adresse de la variable lors de l'appel.<p>
+<p>
+<b><i>Exemple comparatif</i></b><p>
+La fonction DIVI divise son premier param&egrave;tre A par son deuxi&egrave;me
+param&egrave;tre B et fournit le reste de la division enti&egrave;re comme
+r&eacute;sultat. Le contenu du param&egrave;tre A est modifi&eacute; &agrave;
+l'int&eacute;rieur de la fonction, le param&egrave;tre B reste inchang&eacute;.
+Le programme principal appelle la fonction DIVI avec deux entiers lus au
+clavier et affiche les r&eacute;sultats.<p>
+ <p>
+<b>- Solution du probl&egrave;me en langage algorithmique</b><p>
+ 
+
+<pre><u>programme</u> TEST_DIVI
+  <u>entier</u> N,D,R
+  <u>&eacute;crire</u> &quot;Entrer nominateur et d&eacute;nominateur : &quot;
+  <u>lire</u> N
+  <u>lire</u> D
+  <u>en</u> R <u>ranger</u> DIVI(N,D)
+  <u>&eacute;crire</u> &quot;R&eacute;sultat: &quot;,N,&quot;  Reste: &quot;,R 
+<u>fprogramme</u>
+
+<u>fonction</u> DIVI (A, B): <u>entier</u>
+  <u>r&eacute;sultat</u>: <u>entier</u> A
+  <u>donn&eacute;e</u>: <u>entier</u> B
+  <u>entier</u> C
+  <u>en</u> C <u>ranger</u> A <u>modulo</u> B
+  <u>en</u> A <u>ranger</u> A <u>divent</u> B
+  <u>en</u> DIVI <u>ranger</u> C
+<u>ffonction</u> (* fin DIVI *)</pre>
+<p>
+*
+Le param&egrave;tre A est <b><i>transf&eacute;r&eacute; par
+r&eacute;f&eacute;rence</i></b>: Il est d&eacute;clar&eacute; par le mot-clef
+<tt><u>r&eacute;sultat</u></tt> au d&eacute;but de la fonction.<p>
+*
+Le param&egrave;tre B est <b><i>transf&eacute;r&eacute; par valeur</i></b>: Il
+est d&eacute;clar&eacute; par le mot-clef <tt><u>donn&eacute;e</u></tt> au
+d&eacute;but de la fonction.<p>
+*
+Le r&eacute;sultat de la fonction est <b><i>affect&eacute; au nom</i></b> de la
+fonction. Cette affectation doit se trouver &agrave; la fin la fonction.<p>
+*
+Dans un appel, il n'y a pas de diff&eacute;rence entre la notation des
+param&egrave;tres pass&eacute;s par r&eacute;f&eacute;rence et ceux
+pass&eacute;s par valeur.<p>
+<p>
+<b>- Solution du probl&egrave;me en Pascal</b><p>
+ 
+
+<pre><b>program TEST_DIVI
+var N, D, R: integer
+
+   function DIVI (var A: integer; B: integer):integer;
+   begin
+     DIVI := A mod B;
+     A := A div B;
+   end;
+
+begin
+  write('Entrer nominateur et d&eacute;nominateur : ');
+  read(N);
+  readln(D);
+  R := DIVI (N, D);
+  writeln('R&eacute;sultat: ',N,'  Reste: ',R );
+end.</b></pre>
+<p>
+*
+Le param&egrave;tre A est <b><i>transf&eacute;r&eacute; par
+r&eacute;f&eacute;rence</i></b>: Il est d&eacute;clar&eacute; par le mot-clef
+<b>var</b> dans l'en-t&ecirc;te de la fonction.<p>
+*
+Le param&egrave;tre B est <b><i>transf&eacute;r&eacute; par valeur</i></b>: Il
+est d&eacute;clar&eacute; sans d&eacute;signation sp&eacute;ciale dans
+l'en-t&ecirc;te de la fonction.<p>
+*
+Le r&eacute;sultat de la fonction est <b><i>affect&eacute; au nom</i></b> de la
+fonction. Cette affectation peut se trouver n'importe o&ugrave; dans la
+fonction.<p>
+*
+Dans un appel, il n'y a pas de diff&eacute;rence entre la notation des
+param&egrave;tres pass&eacute;s par r&eacute;f&eacute;rence et ceux
+pass&eacute;s par valeur.<p>
+<p>
+<b>- Solution du probl&egrave;me en C</b><p>
+ 
+
+<pre><b>#include &lt;stdio.h&gt;
+
+main()
+{
+  int DIVI(int *A, int B);
+  int N, D, R;
+  printf(&quot;Entrer nominateur et d&eacute;nominateur : &quot;);
+  scanf(&quot;%d %d&quot;, &amp;N, &amp;D);
+  R = DIVI (&amp;N, D);
+  printf(&quot;R&eacute;sultat: %d  Reste: %d\n&quot;, N, R);
+  return 0;
+}
+
+int DIVI (int *A, int B)
+{
+  int C;
+  C = *A % B;
+  *A /= B;
+  return C;
+}</b></pre>
+<p>
+*
+Le param&egrave;tre A <b><i>re&ccedil;oit l'adresse d'une variable</i></b>: Il
+est d&eacute;clar&eacute; comme pointeur sur <b>int</b>.<p>
+*
+Le param&egrave;tre B <b><i>re&ccedil;oit la valeur d'une variable</i></b>: Il
+est d&eacute;clar&eacute; comme <b>int</b>.<p>
+*
+Le r&eacute;sultat de la fonction est retourn&eacute; &agrave; l'aide de la
+commande <b>return</b>. Comme l'ex&eacute;cution de la fonction s'arr&ecirc;te
+apr&egrave;s la commande <b>return</b>, celle-ci doit se trouver &agrave; la
+fin de la fonction.<p>
+*
+Dans un appel, le premier param&egrave;tre est une adresse. Le nom de la
+variable N est donc pr&eacute;c&eacute;d&eacute; par l'op&eacute;rateur adresse
+<tt><b>&amp;</b></tt>. <br>Le deuxi&egrave;me param&egrave;tre est pass&eacute;
+par valeur. Le nom de la variable est indiqu&eacute; sans d&eacute;signation
+sp&eacute;ciale.<p>
+<p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Vu de plus pr&egrave;s, les trois langages offrent les m&ecirc;mes
+m&eacute;canismes pour le passage des param&egrave;tres, mais: <p>
+<p>
+<sub>&gt;&gt;</sub> en C nous devons veiller nous-m&ecirc;mes &agrave;
+op&eacute;rer avec les adresses et les pointeurs respectifs si nous voulons
+changer le contenu d'une variable d&eacute;clar&eacute;e dans une autre
+fonction;<p>
+<p>
+<sub>&gt;&gt;</sub> en langage algorithmique et en Pascal, les m&ecirc;mes
+op&eacute;rations se d&eacute;roulent derri&egrave;re les rideaux, sous
+l'&eacute;tiquette 'passage par r&eacute;f&eacute;rence'
+('call-by-reference').<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c123.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c125.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

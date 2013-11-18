@@ -1,0 +1,204 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.3.4. Pointeurs et tableaux &agrave; deux dimensions</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c98.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c100.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.3.4. Pointeurs et tableaux &agrave; deux dimensions</h3>
+<ul>
+<li><a href="#Heading220"> Exercice 9.15</a>
+<li><a href="#Heading221">Exercice 9.16</a>
+<li><a href="#Heading222">Exercice 9.17</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+L'arithm&eacute;tique des pointeurs se laisse &eacute;largir avec <i>toutes</i>
+ses cons&eacute;quences sur les tableaux &agrave; deux dimensions. Voyons cela
+sur un exemple:<p>
+<p>
+<b><i>Exemple</i></b><p>
+Le tableau M &agrave; deux dimensions est d&eacute;fini comme suit:<p>
+
+
+<pre><b>int M[4][10] = {{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+                {10,11,12,13,14,15,16,17,18,19},
+                {20,21,22,23,24,25,26,27,28,29},
+                {30,31,32,33,34,35,36,37,38,39}};</b></pre>
+<p>
+Le nom du tableau M repr&eacute;sente l'adresse du premier
+&eacute;l&eacute;ment du tableau et pointe (oh, surprise...) sur le
+<b><i>tableau</i></b> M[0] qui a la valeur:
+
+<pre><b>               {0,1,2,3,4,5,6,7,8,9}.</b></pre>
+<p>
+L'expression (M+1) est l'adresse du deuxi&egrave;me &eacute;l&eacute;ment du
+tableau et pointe sur M[1] qui a la valeur:
+
+<pre><b>               {10,11,12,13,14,15,16,17,18,19}.</b></pre>
+<p>
+<b><i>Explication</i></b><p>
+Au sens strict du terme, un tableau &agrave; deux dimensions est un tableau
+unidimensionnel dont chaque composante est un tableau unidimensionnel. Ainsi,
+le premier &eacute;l&eacute;ment de la matrice M est le <b><i>vecteur</i></b>
+<tt><b>{0,1,2,3,4,5,6,7,8,9}</b></tt>, le deuxi&egrave;me &eacute;l&eacute;ment
+est <tt><b>{10,11,12,13,14,15,16,17,18,19} </b></tt>et ainsi de suite.<p>
+<p>
+L'arithm&eacute;tique des pointeurs qui respecte automatiquement les dimensions
+des &eacute;l&eacute;ments conclut logiquement que:<p>
+<p>
+<tt><b>   M+I</b></tt>	d&eacute;signe l'adresse du tableau <tt><b>M[I]</b></tt>
+<p>
+<p>
+<p>
+<b><i>Probl&egrave;me</i></b><p>
+Comment pouvons-nous acc&eacute;der &agrave; l'aide de pointeurs aux
+&eacute;l&eacute;ments de chaque composante du tableau, c.&agrave;-d.: aux
+&eacute;l&eacute;ments M[0][0], M[0][1], ... , M[3][9] ?<p>
+<p>
+<b><i>Discussion</i></b><p>
+Une solution consiste &agrave; convertir la valeur de M (qui est un pointeur
+sur <i>un tableau du type <b>int</b>)</i> en un pointeur sur <b><i>int</i></b>.
+On pourrait se contenter de proc&eacute;der ainsi:<p>
+<p>
+<img src="mauvais.gif" alt="Mauvaise solution" align="right" width="44" height="56">
+
+<pre><b>int M[4][10] = {{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+                {10,11,12,13,14,15,16,17,18,19},
+                {20,21,22,23,24,25,26,27,28,29},
+                {30,31,32,33,34,35,36,37,38,39}};
+int *P;
+P = M;   /* conversion automatique */</b></pre>
+<p>
+Cette derni&egrave;re affectation entra&icirc;ne une conversion automatique de
+l'adresse &amp;M[0] dans l'adresse &amp;M[0][0]. (Remarquez bien que l'adresse
+transmise reste la m&ecirc;me, seule la nature du pointeur a chang&eacute;).<p>
+<p>
+Cette solution n'est pas satisfaisante &agrave; cent pour-cent:
+G&eacute;n&eacute;ralement, on gagne en lisibilit&eacute; en explicitant la
+conversion mise en oeuvre par l'op&eacute;rateur de conversion forc&eacute;e
+(&quot;cast&quot;), qui &eacute;vite en plus des messages d'avertissement de la part du
+compilateur.<p>
+<p>
+<b><i>Solution</i></b><p>
+Voici finalement la version que nous utiliserons:<p>
+<img src="bonnesol.gif" alt="Bonne solution" align="right" width="43" height="55">
+
+<pre><b>int M[4][10] = {{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+                {10,11,12,13,14,15,16,17,18,19},
+                {20,21,22,23,24,25,26,27,28,29},
+                {30,31,32,33,34,35,36,37,38,39}};
+int *P;
+P = (int *)M;  /* conversion forc&eacute;e */</b></pre>
+<p>
+D&ucirc; &agrave; la m&eacute;morisation ligne par ligne des tableaux &agrave;
+deux dimensions, il nous est maintenant possible traiter M &agrave; l'aide du
+pointeur P comme un tableau unidimensionnel de dimension 4*10.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Les instructions suivantes calculent la somme de tous les
+&eacute;l&eacute;ments du tableau M:<p>
+
+
+<pre><b>int M[4][10] = {{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+                {10,11,12,13,14,15,16,17,18,19},
+                {20,21,22,23,24,25,26,27,28,29},
+                {30,31,32,33,34,35,36,37,38,39}};
+int *P;
+int I, SOM;
+P = (int*)M;
+SOM = 0;
+for (I=0; I&lt;40; I++)
+     SOM += *(P+I);</b></pre>
+<p>
+<p>
+<b><i>Attention !</i></b><p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+Lors de l'interpr&eacute;tation d'un tableau &agrave; deux dimensions comme
+tableau unidimensionnel <b><i>il faut calculer avec le nombre de colonnes
+indiqu&eacute; dans la d&eacute;claration</i></b> du tableau.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Pour la matrice A, nous r&eacute;servons de la m&eacute;moire pour 3 lignes et
+4 colonnes, mais nous utilisons seulement 2 lignes et 2 colonnes:<p>
+
+
+<pre><b>int A[3][4];
+A[0][0]=1;
+A[0][1]=2;
+A[1][0]=10;
+A[1][1]=20;</b></pre>
+<p>
+Dans la m&eacute;moire, ces composantes sont stock&eacute;es comme suit :<p>
+<p>
+<img src="prg-c55.gif" width="494" height="105"><p>
+<p>
+<p>
+L'adresse de l'&eacute;l&eacute;ment A[I][J] se calcule alors par:<p>
+<p>
+A + I*<b>4 </b>+ J <p>
+ <p>
+<b><i>Conclusion</i></b><p>
+Pour pouvoir travailler &agrave; l'aide de pointeurs dans un tableau &agrave;
+deux dimensions, nous avons besoin de quatre donn&eacute;es: <p>
+<p>
+	<b>a)</b>	l'adresse du premier &eacute;l&eacute;ment du tableau converti dans
+le type simple des &eacute;l&eacute;ments du tableau<p>
+	<b>b)</b>	la longueur d'une ligne r&eacute;serv&eacute;e en m&eacute;moire
+<br>		(- voir d&eacute;claration - ici: 4 colonnes)<p>
+	<b>c)</b>	le nombre d'&eacute;l&eacute;ments effectivement utilis&eacute;s
+dans une ligne<br>		(- p.ex: lu au clavier - ici: 2 colonnes)<p>
+	<b>d)</b>	le nombre de lignes effectivement utilis&eacute;es <br>		(- p.ex: lu
+au clavier - ici: 2 lignes)<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading220"> Exercice 9.15</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit une matrice A de dimensions N et M au clavier et
+affiche les donn&eacute;es suivantes en utilisant le formalisme pointeur
+&agrave; chaque fois que cela est possible:<p>
+	<b>a)</b>	la matrice A<p>
+	<b>b)</b>	la transpos&eacute;e de A<p>
+	<b>c)</b>	la matrice A interpr&eacute;t&eacute;e comme tableau
+unidimensionnel<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading221">Exercice 9.16</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit deux matrices A et B de dimensions N et M
+respectivement M et P au clavier et qui effectue la multiplication des deux
+matrices. Le r&eacute;sultat de la multiplication sera affect&eacute; &agrave;
+la matrice C, qui sera ensuite affich&eacute;e. Utiliser le formalisme pointeur
+&agrave; chaque fois que cela est possible.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading222">Exercice 9.17</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit 5 mots d'une longueur maximale de 50
+caract&egrave;res et les m&eacute;morise dans un tableau de cha&icirc;nes de
+caract&egrave;res TABCH. Inverser l'ordre des caract&egrave;res &agrave;
+l'int&eacute;rieur des 5 mots &agrave; l'aide de deux pointeurs P1 et P2.
+Afficher les mots. <p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c98.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c100.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

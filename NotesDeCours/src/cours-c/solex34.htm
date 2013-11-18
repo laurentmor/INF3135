@@ -1,0 +1,63 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 5.7</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex33.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 5.7</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+<b>#include &lt;math.h&gt;</b>
+ main()
+{
+ /* Calcul des solutions r&eacute;elles d'une &eacute;quation du second degr&eacute; */
+ int A, B, C;
+ double D; /* Discriminant */
+ printf(&quot;Calcul des solutions r&eacute;elles d'une &eacute;quation du second \n&quot;);
+ printf(&quot;degr&eacute; de la forme   ax^2 + bx + c = 0 \n\n&quot;);
+ printf(&quot;Introduisez les valeurs pour a, b, et c : &quot;);
+ scanf(&quot;%i %i %i&quot;, &amp;A, &amp;B, &amp;C);
+
+ /* Calcul du discriminant b^2-4ac */
+<b> D = pow(B,2) - 4.0*A*C;</b>
+ 
+ /* Distinction des diff&eacute;rents cas */
+<b> if (A==0 &amp;&amp; B==0 &amp;&amp; C==0) </b>/* 0x = 0 */
+<b> 		printf(&quot;Tout r&eacute;el est une solution de cette &eacute;quation.\n&quot;);</b>
+<b> else if (A==0 &amp;&amp; B==0)  </b>/* Contradiction: c # 0 et c = 0 */  
+<b> 		printf(&quot;Cette &eacute;quation ne poss&egrave;de pas de solutions.\n&quot;);</b>
+<b> else if (A==0) </b>/* bx + c = 0 */ 
+<b>    {</b>
+<b>     printf(&quot;La solution de cette &eacute;quation du premier degr&eacute; est :\n&quot;); </b>
+<b>     printf(&quot; x = %.4f\n&quot;, (double)C/B);</b>
+<b>    }</b>
+<b> else if (D&lt;0)  </b>/* b^2-4ac &lt; 0 */ 
+<b>     printf(&quot;Cette &eacute;quation n'a pas de solutions r&eacute;elles.\n&quot;);</b>
+<b> else if (D==0) </b>/* b^2-4ac = 0 */ 
+<b>    {</b>
+<b>     printf(&quot;Cette &eacute;quation a une seule solution r&eacute;elle :\n&quot;);</b>
+<b>     printf(&quot; x =  %.4f\n&quot;, (double)-B/(2*A));</b>
+<b>    }</b>
+<b> else</b> /* b^2-4ac &gt; 0 */ 
+<b>    { </b>
+<b>     printf(&quot;Les solutions r&eacute;elles de cette &eacute;quation sont :\n&quot;);</b>
+<b>     printf(&quot; x1 = %.4f\n&quot;, (-B+sqrt(D))/(2*A));</b>
+<b>     printf(&quot; x2 = %.4f\n&quot;, (-B-sqrt(D))/(2*A));</b>
+<b>    }</b>
+  return 0;
+}</pre>
+<p>
+<a href="solex01.htm"></a><a href="solex01.htm"></a><p><hr size="1" width="100%">
+<a href="solex33.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

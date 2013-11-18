@@ -1,0 +1,71 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.15</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex116.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex118.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.15</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{   
+ /* D&eacute;clarations */
+ int A[50][50];  /* matrice */
+ int N, M; /* dimensions de la matrice */
+ int I, J; /* indices courants */    
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ /* Lecture de la matrice au clavier */
+ for (I=0; I&lt;N; I++)
+   for (J=0; J&lt;M; J++)
+      {
+       printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+       scanf(&quot;%d&quot;, <b>(int *)A+I*50+J</b>);
+      }
+ 
+<b> /* a) Affichage de la matrice */</b>
+  printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+   {
+    for (J=0; J&lt;M; J++)
+        printf(&quot;%7d&quot;, <b>*((int *)A+I*50+J)</b>);
+    printf(&quot;\n&quot;);
+   }
+ 
+<b> /* b) Affichage de la transpos&eacute;e de A */</b>
+  printf(&quot;Matrice transpos&eacute;e :\n&quot;);
+ for (<b>J=0</b>; <b>J&lt;M</b>; <b>J++</b>)
+   {
+    for (<b>I=0</b>; <b>I&lt;N</b>; <b>I++</b>)
+        printf(&quot;%7d &quot;, <b>*((int *)A+I*50+J)</b>);
+    printf(&quot;\n&quot;);
+   }
+ 
+<b> /* c) Interpr&eacute;tation de la matrice comme vecteur : */</b>
+<b> /* Attention, ce serait une faute grave d'afficher */</b>
+<b> /*'simplement' les NxM premiers &eacute;l&eacute;ments de A !    */</b>
+  printf(&quot;Matrice affich&eacute;e comme vecteur :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;M; J++)
+        printf(&quot; %d &quot;, <b>*((int *)A+I*50+J)</b>);
+ printf(&quot;\n&quot;);
+ return 0;
+}</pre>
+ <p>
+ <p><hr size="1" width="100%">
+<a href="solex116.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex118.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

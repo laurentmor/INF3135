@@ -1,0 +1,61 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.5</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex55.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex57.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex51.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.5</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int T[50][50]; /* tableau donn&eacute; */
+ int L, C;  /* dimensions        */
+ int I, J;  /* indices courants  */
+ long SOM;  /* somme des &eacute;l&eacute;ments - type long &agrave; cause */
+            /* de la grandeur pr&eacute;visible du r&eacute;sultat. */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;L );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;C );
+<b> for (I=0; I&lt;L; I++)</b>
+<b>    for (J=0; J&lt;C; J++)</b>
+<b>        {</b>
+<b>         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);</b>
+<b>         scanf(&quot;%d&quot;, &amp;T[I][J]);</b>
+<b>        }</b>
+  /* Affichage du tableau */
+ printf(&quot;Tableau donn&eacute; :\n&quot;);
+<b> for (I=0; I&lt;L; I++)</b>
+<b>    {</b>
+<b>     for (J=0; J&lt;C; J++)</b>
+<b>         printf(&quot;%7d&quot;, T[I][J]);</b>
+<b>     printf(&quot;\n&quot;);</b>
+<b>    }</b>
+  /* Calcul de la somme  */
+<b> for (SOM=0, I=0; I&lt;L; I++)</b>
+<b>     for (J=0; J&lt;C; J++)</b>
+<b>         SOM += T[I][J];</b>
+  /* Edition du r&eacute;sultat */
+ printf(&quot;Somme des &eacute;l&eacute;ments : <b>%ld</b>\n&quot;, SOM);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex55.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex57.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex51.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

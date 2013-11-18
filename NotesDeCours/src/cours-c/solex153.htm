@@ -1,0 +1,73 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.23  Tri par propagation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex152.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex154.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.23  Tri par propagation</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ void LIRE_TAB (int *TAB, int *N, int NMAX);
+ void TRI_BULLE(int *T, int N);
+ void ECRIRE_TAB (int *TAB, int N);
+ /* Variables locales */
+ int T[100]; /* Tableau d'entiers */
+ int DIM;    /* Dimension du tableau */
+ /* Traitements */
+ LIRE_TAB (T, &amp;DIM, 100);
+ printf(&quot;Tableau donn&eacute; : \n&quot;);
+ ECRIRE_TAB (T, DIM);
+<b> TRI_BULLE(T, DIM);</b>
+  printf(&quot;Tableau tri&eacute; : \n&quot;);
+ ECRIRE_TAB (T, DIM);
+ return 0;
+}
+
+<b>void TRI_BULLE(int *T, int N)</b>
+<b>{</b>
+  /* Prototypes des fonctions appel&eacute;es */
+ int RANGER(int *X, int *Y);
+ /* Variables locales */
+ int I,J;  /* indices courants */
+ int FIN;  /* position o&ugrave; la derni&egrave;re permutation a eu lieu */
+      /* permet de ne pas trier un sous-ensemble d&eacute;j&agrave; tri&eacute;. */
+ /* Tri de T par propagation de l'&eacute;l&eacute;ment maximal */
+<b> for (I=N-1 ; I&gt;0 ; I=FIN)</b>
+<b>    {</b>
+<b>     FIN=0;</b>
+<b>     for (J=0; J&lt;I; J++)</b>
+<b>          if (RANGER(T+J, T+J+1)) FIN = J;</b>
+<b>    }</b>
+<b>}</b>
+ 
+int RANGER(int *X, int *Y)
+{
+ . . .
+}
+void LIRE_TAB (int *TAB, int *N, int NMAX)
+{
+ . . .
+}
+void ECRIRE_TAB (int *TAB, int N)
+{
+ . . .
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex152.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex154.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

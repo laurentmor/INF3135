@@ -1,0 +1,91 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.20</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex97.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex99.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.20</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#include &lt;ctype.h&gt;
+main()
+{/* D&eacute;clarations */
+ char CH[100]; /* cha&icirc;ne num&eacute;rique &agrave; convertir */
+ double N; /* r&eacute;sultat num&eacute;rique */
+ int I;    /* indice courant */
+ int SIG;  /* signe de la valeur rationnelle */
+ int DEC;  /* nombre de d&eacute;cimales  */
+ int SIGE; /* signe de l'exposant  */
+ int EXP;  /* valeur de l'exposant */
+ int OK;   /* indicateur logique pr&eacute;cisant si la */
+           /* cha&icirc;ne a &eacute;t&eacute; convertie avec succ&egrave;s */
+<b> 		</b>
+ /* Saisie de la cha&icirc;ne */
+ printf(&quot;Entrez un nombre rationnel : &quot;);
+ gets(CH);
+
+ /* Conversion de la cha&icirc;ne */
+<b> /* Initialisation des variables */</b>
+  OK=1;
+ N=0.0;
+ I=0;
+ SIG=1;
+ SIGE=1;
+<b> /* Traitement du signe */</b>
+  if (CH[I]=='-') SIG=-1;
+ if (CH[I]=='-' || CH[I]=='+') I++;
+<b> /* Positions devant le point d&eacute;cimal */</b>
+  for ( ; isdigit(CH[I]); I++)
+     N = N*10.0 + (CH[I]-'0');
+<b> /* Traitement du point d&eacute;cimal */</b>
+  if (CH[I]=='.')
+     I++;
+<b> /* Traitement et comptage des d&eacute;cimales */</b>
+  for (DEC=0; isdigit(CH[I]); I++, DEC++)
+     N = N*10.0 + (CH[I]-'0');
+<b> /* Traitement de la marque exponentielle */</b>
+  if (CH[I]=='e'||CH[I]=='E')
+     I++;
+ else if (CH[I])
+     OK=0;
+<b> /* Traitement du signe de l'exposant */</b>
+  if (CH[I]=='-') SIGE=-1;
+ if (CH[I]=='-' || CH[I]=='+') I++;
+<b> /* Traitement de la valeur de l'exposant */</b>
+  for (EXP=0; isdigit(CH[I]); I++)
+     EXP = EXP*10 + (CH[I]-'0');
+ if (CH[I]) OK=0;
+<b> /* Calcul de l'exposant &agrave; partir du signe  */</b>
+<b> /* SIGE, de la valeur de l'exposant EXP et */</b>
+<b> /* du nombre de positions rationnelles DEC */</b>
+  EXP = SIGE*EXP - DEC;
+<b> /* Calcul de la valeur &agrave; partir du signe et */</b>
+<b> /* de l'exposant. */</b>
+  N = SIG*N*pow(10,EXP);
+
+ /* Affichage de la cha&icirc;ne convertie */
+ if (OK)
+    printf(&quot;Valeur num&eacute;rique : %f\n&quot;, N);
+ else
+    printf(&quot;\a\&quot;%s\&quot; n'est pas une valeur &quot;
+           &quot;rationnelle correcte.\n&quot;, CH);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex97.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex99.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

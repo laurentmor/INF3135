@@ -1,0 +1,131 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.7.1. Ajouter un enregistrement &agrave; un fichier</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c148.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c150.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c148.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.7.1. Ajouter un enregistrement &agrave; un fichier</h3>
+ <p>
+ <p>
+<center>Nous pouvons ajouter le nouvel enregistrement &agrave;
+diff&eacute;rentes positions dans le fichier:<p>
+<p>
+<b>a) Ajoute &agrave; la fin du fichier</b><p>
+ <p>
+L'ancien fichier est enti&egrave;rement copi&eacute; dans le nouveau fichier,
+suivi du nouvel enregistrement.<p>
+<p>
+</center><p>
+<img src="prg-c78.gif" width="354" height="194"><p>
+<p>
+<p>
+<center><b>b) Ajoute au d&eacute;but du fichier</b><p>
+ <p>
+L'ancien fichier est copi&eacute; derri&egrave;re le nouvel enregistrement qui
+est &eacute;crit en premier lieu.<p>
+<p>
+</center>
+<img src="prg-c79.gif" width="354" height="194"><p>
+<p>
+<p>
+<center><b>c)	Insertion dans un fichier tri&eacute; relativement &agrave; une
+rubrique commune des enregistrements</b><p>
+<b></center></b><p>
+Le nouveau fichier est cr&eacute;&eacute; en trois &eacute;tapes:<p>
+<p>
+	-	copier les enregistrements de l'ancien fichier qui pr&eacute;c&egrave;dent
+le nouvel enregistrement, <p>
+	-	&eacute;crire le nouvel enregistrement,<p>
+	-	copier le reste des enregistrements de l'ancien fichier.<p>
+<p>
+<img src="prg-c80.gif" width="354" height="194"><p>
+<p>
+<center>Le programme suivant effectue l'insertion d'un enregistrement &agrave;
+introduire au clavier dans un fichier tri&eacute; selon la seule rubrique de
+ses enregistrements: le nom d'une personne. Le programme inclut en m&ecirc;me
+temps les solutions aux deux probl&egrave;mes pr&eacute;c&eacute;dents. La
+comparaison lexicographique des noms des personnes se fait &agrave; l'aide de
+la fonction <b>strcmp</b>.<p>
+</center><p>
+<b><i>Solution en C</i></b>
+
+<pre><b>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+main()
+{
+  /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char ANCIEN[30], NOUVEAU[30]; 
+  FILE *INFILE, *OUTFILE;
+  /* Autres variables */
+  char NOM_PERS[30], NOM_AJOUT[30];
+  int TROUVE;
+
+  /* Ouverture de l'ancien fichier en lecture */
+  do
+    {
+     printf(&quot;Nom de l'ancien fichier : &quot;);
+     scanf(&quot;%s&quot;, ANCIEN);
+     INFILE = fopen(ANCIEN, &quot;r&quot;); 
+     if (!INFILE) 
+         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+                &quot;le fichier: %s.\n&quot;, ANCIEN);
+    }
+  while (!INFILE);
+  /* Ouverture du nouveau fichier en &eacute;criture */
+  do
+    {
+     printf(&quot;Nom du nouveau fichier : &quot;);
+     scanf(&quot;%s&quot;, NOUVEAU);
+     OUTFILE = fopen(NOUVEAU, &quot;w&quot;); 
+     if (!OUTFILE) 
+         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+                &quot;le fichier: %s.\n&quot;, NOUVEAU);
+    }
+  while (!OUTFILE);
+  /* Saisie de l'enregistrement &agrave; ins&eacute;rer */
+  printf(&quot;Enregistrement &agrave; ins&eacute;rer : &quot;);
+  scanf(&quot;%s&quot;,NOM_AJOUT);
+
+ /* Traitement */
+  TROUVE = 0;
+  /* Copie des enregistrements dont le nom */
+  /* pr&eacute;c&eacute;de lexicogr. celui &agrave; ins&eacute;rer.*/
+  while (!feof(INFILE) &amp;&amp; !TROUVE)
+    {
+     fscanf(INFILE, &quot;%s\n&quot;, NOM_PERS);
+     if (strcmp(NOM_PERS, NOM_AJOUT) &gt; 0)
+         TROUVE = 1;
+     else
+         fprintf(OUTFILE, &quot;%s\n&quot;, NOM_PERS);
+    }
+  /* Ecriture du nouvel enregistrement,  */
+  fprintf(OUTFILE, &quot;%s\n&quot;, NOM_AJOUT);
+  /* suivi du dernier enregistrement lu. */
+  if (TROUVE) fprintf(OUTFILE, &quot;%s\n&quot;, NOM_PERS);
+  /* Copie du reste des enregistrements */
+  while (!feof(INFILE))
+    {
+     fscanf(INFILE, &quot;%s\n&quot;, NOM_PERS);
+     fprintf(OUTFILE, &quot;%s\n&quot;, NOM_PERS);
+    }
+  /* Fermeture des fichiers */
+  fclose(OUTFILE);
+  fclose(INFILE);
+  return 0;
+} </b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c148.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c150.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c148.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

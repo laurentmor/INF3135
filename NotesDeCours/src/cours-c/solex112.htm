@@ -1,0 +1,54 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.10</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex111.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex113.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.10</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+<b>#include &lt;ctype.h&gt;</b>
+ main()
+{
+ /* D&eacute;clarations */
+ char CH[101]; /* cha&icirc;ne donn&eacute;e */
+ char *P;      /* pointeur d'aide */
+ int N;        /* nombre des mots */
+<b> int DANS_MOT; /* indicateur logique: */</b>
+<b>               /* vrai si P pointe &agrave; l'int&eacute;rieur un mot */</b>
+ 
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Entrez une ligne de texte (max.100 caract&egrave;res) :\n&quot;);
+ gets(CH);
+<b> /* Compter les mots */</b>
+<b> N=0;</b>
+<b> DANS_MOT=0;</b>
+<b> for (P=CH; *P; P++)</b>
+<b>     if (isspace(*P))</b>
+<b>         DANS_MOT=0;</b>
+<b>     else if (!DANS_MOT)</b>
+<b>         {</b>
+<b>          DANS_MOT=1;</b>
+<b>          N++;</b>
+<b>         }  </b>
+  /* Affichage du r&eacute;sultat (pour perfectionnistes) */
+ printf(&quot;La cha&icirc;ne \&quot;%s\&quot; \nest form&eacute;e de %d mot%c.\n&quot;,
+                                        CH, N, (N==1)?' ':'s');
+ return 0;
+}</pre>
+ <p>
+ <p>
+<p><hr size="1" width="100%">
+<a href="solex111.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex113.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,48 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.4</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex81.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex83.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.4</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char TXT[201]; /* cha&icirc;ne donn&eacute;e    */
+ int  I,J;      /* indices courants */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Entrez une ligne de texte (max.200 caract&egrave;res) :\n&quot;);
+<b> gets(TXT);</b>
+<b> /* Eliminer les lettres 'e' et comprimer :  */</b>
+<b> /* Copier les caract&egrave;res de I vers J et incr&eacute;menter J */</b>
+<b> /* seulement pour les caract&egrave;res diff&eacute;rents de 'e'.   */</b>
+<b> for (J=0,I=0 ; TXT[I] ; I++)</b>
+<b>    {</b>
+<b>     TXT[J] = TXT[I];</b>
+<b>     if (TXT[I] != 'e') J++;</b>
+<b>    }</b>
+<b> /* Terminer la cha&icirc;ne !! */</b>
+<b> TXT[J]='\0';</b>
+  /* Edition du r&eacute;sultat */
+<b> puts(TXT);</b>
+  return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex81.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex83.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

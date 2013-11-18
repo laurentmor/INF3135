@@ -1,0 +1,144 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.5</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex180.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex182.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.5</h3>
+ <p>
+ <p>
+ <p>
+<b>a)</b>	Supprimer les enregistrements, dont le num&eacute;ro de matricule se
+termine par 8<p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+  /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char ANCIEN[]  = &quot;A:\\INFORM.TXT&quot;;
+  char NOUVEAU[] = &quot;A:\\INFBIS.TXT&quot;; 
+  FILE *INFILE, *OUTFILE;
+  /* Autres variables */
+  char NOM[30], PRENOM[30];
+  int MATRICULE;
+ 
+  /* Ouverture de l'ancien fichier en lecture */
+<b>  INFILE = fopen(ANCIEN, &quot;r&quot;);</b>
+   if (!INFILE)
+     { 
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, ANCIEN);
+      exit(-1);
+     }
+  /* Ouverture du nouveau fichier en &eacute;criture */
+<b>  OUTFILE = fopen(NOUVEAU, &quot;w&quot;);</b>
+   if (!OUTFILE)
+     { 
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOUVEAU);
+      exit(-1);
+     }
+<b>  /* Copie de tous les enregistrements &agrave; l'exception */</b>
+<b>  /* de ceux dont le num&eacute;ro de matricule se termine  */</b>
+<b>  /* par 8. */</b>
+<b>  while (!feof(INFILE))</b>
+<b>    {</b>
+<b>     fscanf (INFILE, &quot;%d\n%s\n%s\n&quot;, &amp;MATRICULE, NOM, PRENOM);</b>
+<b>     if (MATRICULE%10 != 8)</b>
+<b>        fprintf(OUTFILE, &quot;%d\n%s\n%s\n&quot;, MATRICULE,NOM,PRENOM);</b>
+<b>    }</b>
+<b>  /* Fermeture des fichiers */</b>
+<b>  fclose(OUTFILE);</b>
+<b>  fclose(INFILE);</b>
+   return 0;
+} </pre>
+<p>
+<p>
+<b> b)</b>	Supprimer les enregistrements, dont le pr&eacute;nom est &quot;Paul&quot;
+(utiliser <b>strcmp</b>)<p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+<b>#include &lt;string.h&gt;</b>
+ main()
+{
+  /* D&eacute;clarations */
+  . . .
+  /* Ouverture de l'ancien fichier en lecture */
+  . . .
+  /* Ouverture du nouveau fichier en &eacute;criture */
+  . . .
+<b>  /* Copie de tous les enregistrements &agrave; l'exception */</b>
+<b>  /* de ceux dont le pr&eacute;nom est 'Paul'. */</b>
+<b>  while (!feof(INFILE))</b>
+<b>    {</b>
+<b>     fscanf (INFILE, &quot;%d\n%s\n%s\n&quot;, &amp;MATRICULE, NOM, PRENOM);</b>
+<b>     if (strcmp(PRENOM,&quot;Paul&quot;) != 0)</b>
+<b>        fprintf(OUTFILE, &quot;%d\n%s\n%s\n&quot;, MATRICULE,NOM,PRENOM);</b>
+<b>    }</b>
+   /* Fermeture des fichiers */
+  . . .
+} </pre>
+ <p>
+<b> c)</b>	Supprimer les enregistrements, dont le nom est un palindrome.
+D&eacute;finir une fonction d'aide PALI qui fournit le r&eacute;sultat 1 si la
+cha&icirc;ne transmise comme param&egrave;tre est un palindrome, sinon la
+valeur z&eacute;ro.<p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+<b>  /* Prototype de la fonction PALI */</b>
+<b>  int PALI(char *CH);</b>
+   /* D&eacute;clarations */
+  . . .
+  /* Ouverture de l'ancien fichier en lecture */
+   . . .
+  /* Ouverture du nouveau fichier en &eacute;criture */
+  . . .
+<b>  /* Copie de tous les enregistrements &agrave; l'exception */</b>
+<b>  /* des palindromes. */</b>
+<b>  while (!feof(INFILE))</b>
+<b>    {</b>
+<b>     fscanf (INFILE, &quot;%d\n%s\n%s\n&quot;, &amp;MATRICULE, NOM, PRENOM);</b>
+<b>     if (!PALI(NOM))</b>
+<b>        fprintf(OUTFILE, &quot;%d\n%s\n%s\n&quot;, MATRICULE,NOM,PRENOM);</b>
+<b>    }</b>
+   /* Fermeture des fichiers */
+  . . .
+} 
+
+
+<b>int PALI(char *CH)</b>
+<b>{</b>
+<b> /* Variable locale */</b>
+<b> char *CH2;</b>
+<b> /* Placer CH2 &agrave; la fin de la cha&icirc;ne */</b>
+<b> for (CH2=CH; *CH2; CH2++)</b>
+<b>     ;</b>
+<b> CH2--;</b>
+<b> /* Contr&ocirc;ler si la cha&icirc;ne d&eacute;sign&eacute;e par CH est un palindrome */</b>
+<b> for (; CH&lt;CH2; CH++,CH2--)</b>
+<b>      if (*CH != *CH2) return 0;</b>
+<b> return 1;</b>
+<b>}</b>
+  </pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex180.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex182.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

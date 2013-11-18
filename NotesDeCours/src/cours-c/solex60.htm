@@ -1,0 +1,54 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.8 Produit scalaire de deux vecteurs</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex59.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex61.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.8 Produit scalaire de deux vecteurs</h3>
+<b>	</b><p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int U[50], V[50]; /* tableaux donn&eacute;s */
+ int N;     /* dimension        */
+ int I;     /* indice courant   */
+ long PS;   /* produit scalaire */
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension des tableaux (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;** Premier tableau **\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     printf(&quot;El&eacute;ment %d : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;U[I]);
+    }
+ printf(&quot;** Deuxi&egrave;me tableau **\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     printf(&quot;El&eacute;ment %d : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;V[I]);
+    }
+<b> /* Calcul du produit scalaire */</b>
+<b> for (PS=0, I=0; I&lt;N; I++)</b>
+<b>      PS += (long)U[I]*V[I];</b>
+  /* Edition du r&eacute;sultat */
+ printf(&quot;Produit scalaire : <b>%ld</b>\n&quot;, PS);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex59.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex61.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

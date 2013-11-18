@@ -1,0 +1,47 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.32</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex162.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex164.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex155.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.32</h3>
+ <p>
+ 
+
+<pre>char *CHERCHE_CH(char *CH1, char *CH2)
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ int LONG_CH(char *CH);
+ int EGAL_N_CH(int N, char *CH1, char *CH2);
+ /* Variables locales */
+ int L;
+ /* Recherche de CH1 dans CH2 */
+ L=LONG_CH(CH1);
+ while (*CH2 &amp;&amp; !EGAL_N_CH(L, CH1, CH2))
+          CH2++;
+ return CH2;
+}
+
+int LONG_CH(char *CH)
+{
+ . . .
+}
+
+int EGAL_N_CH(int N, char *CH1, char *CH2)
+{
+ . . .
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex162.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex164.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex155.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

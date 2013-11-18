@@ -1,0 +1,271 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - C, la naissance d'un langage de programmation portable ...</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c06.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c08.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c05.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+C, la naissance d'un langage de programmation portable ...</h2>
+<ul>
+<li><a href="#Heading14">(1)  efficience et compr&eacute;hensibilit&eacute; :</a>
+<li><a href="#Heading15">(2) portabilit&eacute; et biblioth&egrave;ques de fonctions</a>
+<li><a href="#Heading16">(3) discipline de programmation</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+<p>
+<b><i>Historique</i></b><p>
+Entre les ann&eacute;es 1980 et 2000, aucun langage de programmation n'a pu
+se vanter d'une croissance en popularit&eacute; comparable &agrave; celle de C
+et de son fr&egrave;re C++. Ce n'est que vers l'an 2000 o&ugrave; le langage C doit passer sa premi&egrave;re place au langage Java - l'un de ses petit-fils. M&ecirc;me en 2011, C occupe toujours la seconde place dans le <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html" target="_new">classement de la popularit&eacute;</a>, entour&eacute; de Java, C++, C# et PHP qui sont tous en quelque sorte des d&eacute;riv&eacute;s de C.<br>
+Le langage C trouve ses sources en 1972 dans les 'Bell Laboratories': Pour d&eacute;velopper
+une version portable du syst&egrave;me d'exploitation UNIX, Dennis M. Ritchie a
+con&ccedil;u ce langage de programmation structur&eacute;, mais tr&egrave;s
+'pr&egrave;s' de la machine. <p>
+<p>
+<p>
+<b><i>K&amp;R-C</i></b><p>
+En 1978, le duo Brian W. Kernighan / Dennis M. Ritchie a publi&eacute; la
+d&eacute;finition classique du langage C (connue sous le nom de <i>standard
+K&amp;R-C </i>) dans un livre intitul&eacute; 'The C Programming Language'.<p>
+<p>
+<b><i>ANSI-C</i></b><p>
+Le succ&egrave;s des ann&eacute;es qui suivaient et le d&eacute;veloppement de
+compilateurs C par d'autres maisons ont rendu n&eacute;cessaire la
+d&eacute;finition d'un standard actualis&eacute; et plus pr&eacute;cis. En
+1983, le 'American National Standards Institute' (ANSI) chargeait une
+commission de mettre au point 'une d&eacute;finition explicite et
+ind&eacute;pendante de la machine pour le langage C', qui devrait quand
+m&ecirc;me conserver l'esprit du langage. Le r&eacute;sultat &eacute;tait le
+<i>standard ANSI-C</i>. La seconde &eacute;dition du livre 'The C Programming
+Language', parue en 1988, respecte tout &agrave; fait le standard ANSI-C et
+elle est devenue par la suite, la 'bible' des programmeurs en C.<p>
+<p>
+<b><i>C++</i></b><p>
+En 1983 un groupe de d&eacute;veloppeurs de AT&amp;T sous la direction de
+Bjarne Stroustrup a cr&eacute;&eacute; le langage C++. Le but &eacute;tait de
+d&eacute;velopper un langage qui garderait les avantages de ANSI-C
+(portabilit&eacute;, efficience) et qui permettrait en plus la programmation
+orient&eacute;e objet. Depuis 1990 il existe une &eacute;bauche pour un
+<i>standard ANSI-C++</i>. Entre-temps AT&amp;T a d&eacute;velopp&eacute; deux
+compilateurs C++ qui respectent les nouvelles d&eacute;terminations de ANSI et
+qui sont consid&eacute;r&eacute;s comme des quasi-standards (AT&amp;T-C++
+Version 2.1 [1990] et AT&amp;T-C++ Version 3.0 [1992]).<p>
+<p>
+<p>
+<b><i>Avantages</i></b><p>
+Le grand succ&egrave;s du langage C s'explique par les avantages suivants; C
+est un langage:<p>
+<p>
+<b>(1)	universel :</b><p>
+	C n'est pas orient&eacute; vers un domaine d'applications sp&eacute;ciales,
+comme par exemple FORTRAN (applications scientifiques et techniques) ou COBOL
+(applications commerciales ou traitant de grandes quantit&eacute;s de
+donn&eacute;es).<p>
+<p>
+<b>(2)	compact :</b><p>
+	C est bas&eacute; sur un noyau de fonctions et d'op&eacute;rateurs
+limit&eacute;, qui permet la formulation d'expressions simples, mais
+efficaces.<p>
+<p>
+<b>(3)	moderne :</b><p>
+	C est un langage structur&eacute;, d&eacute;claratif et r&eacute;cursif; il
+offre des structures de contr&ocirc;le et de d&eacute;claration comparables
+&agrave; celles des autres grands langages de ce temps (FORTRAN, ALGOL68,
+PASCAL).<p>
+ <p>
+<b>(4)	pr&egrave;s de la machine :</b><p>
+	comme C a &eacute;t&eacute; d&eacute;velopp&eacute; en premier lieu pour
+programmer le syst&egrave;me d'exploitation UNIX, il offre des
+op&eacute;rateurs qui sont tr&egrave;s proches de ceux du langage machine et
+des fonctions qui permettent un acc&egrave;s simple et direct aux fonctions
+internes de l'ordinateur (p.ex: la gestion de la m&eacute;moire).<p>
+<p>
+<b>(5)	rapide :</b><p>
+	comme C permet d'utiliser des expressions et des op&eacute;rateurs qui sont
+tr&egrave;s proches du langage machine, il est possible de d&eacute;velopper
+des programmes efficients et rapides.<p>
+<p>
+<b>(6)	ind&eacute;pendant de la machine :</b><p>
+	bien que C soit un langage pr&egrave;s de la machine, il peut &ecirc;tre
+utilis&eacute; sur n'importe quel syst&egrave;me en possession d'un compilateur
+C. Au d&eacute;but C &eacute;tait surtout le langage des syst&egrave;mes
+travaillant sous UNIX, aujourd'hui C est devenu le langage de programmation
+standard dans le domaine des micro-ordinateurs.<p>
+<p>
+<b>(7)	portable :</b><p>
+	en respectant le standard ANSI-C, il est possible d'utiliser le m&ecirc;me
+programme sur tout autre syst&egrave;me (autre hardware, autre syst&egrave;me
+d'exploitation), simplement en le recompilant.<p>
+<p>
+<b>(8)	extensible :</b><p>
+	C ne se compose pas seulement des fonctions standard; le langage est
+anim&eacute; par des biblioth&egrave;ques de fonctions priv&eacute;es ou
+livr&eacute;es par de nombreuses maisons de d&eacute;veloppement.<p>
+<p>
+<b><i>D&eacute;savantages</i></b><p>
+Evidemment, rien n'est parfait. Jetons un petit coup d'oeil sur le revers de la
+m&eacute;daille:<p>
+<p>
+
+<h4>
+<a name="Heading14">(1)  efficience et compr&eacute;hensibilit&eacute; :</a></h4>
+
+ <p>
+ <p>
+En C, nous avons la possibilit&eacute; d'utiliser des expressions compactes et
+efficientes. D'autre part, nos programmes doivent rester compr&eacute;hensibles
+pour nous-m&ecirc;mes et pour d'autres. Comme nous allons le constater sur les
+exemples suivants, ces deux exigences peuvent se contredire
+r&eacute;ciproquement.<p>
+<p>
+<p>
+<b><i>Exemple 1</i></b><p>
+<b>	</b>Les deux lignes suivantes impriment les <b>N</b> premiers
+&eacute;l&eacute;ments d'un tableau <b>A[]</b>, en ins&eacute;rant un espace
+entre les &eacute;l&eacute;ments et en commen&ccedil;ant une nouvelle ligne
+apr&egrave;s chaque dixi&egrave;me chiffre:<p>
+
+
+<pre><b>   for (i=0; i&lt;n; i++)
+        printf(&quot;%6d%c&quot;, a[i], (i%10==9)?'\n':' ');</b></pre>
+<p>
+	Cette notation est tr&egrave;s pratique, mais plut&ocirc;t intimidante pour un
+d&eacute;butant. L'autre variante, plus pr&egrave;s de la notation en Pascal,
+est plus lisible, mais elle ne profite pas des avantages du langage C:<p>
+
+
+<pre><b>   for (I=0; I&lt;N; I=I+1)
+        {
+         printf(&quot;%6d&quot;, A[I]);
+         if ((I%10) == 9)
+             printf(&quot;\n&quot;);
+         else
+             printf(&quot; &quot;);
+        }</b></pre>
+<p>
+<p>
+<b><i>Exemple 2</i></b><p>
+	La fonction <b>copietab()</b> copie les &eacute;l&eacute;ments d'une
+cha&icirc;ne de caract&egrave;res <b>T[]</b> dans une autre cha&icirc;ne de
+caract&egrave;res <b>S[]</b>. Voici d'abord la version 'simili-Pascal' :<p>
+
+
+<pre><b>   void copietab(char S[], char T[])
+   {
+     int I;
+     I=0;
+     while (T[I] != '\0')
+      {
+        S[I] = T[I];
+        I = I+1;
+      }
+     S[I] = '\0';
+   }</b></pre>
+<p>
+	Cette d&eacute;finition de la fonction est valable en C, mais en pratique elle
+ne serait jamais programm&eacute;e ainsi. En utilisant les possibilit&eacute;s
+de C, un programmeur exp&eacute;riment&eacute; pr&eacute;f&egrave;re la
+solution suivante:<p>
+
+
+<pre><b>   void copietab(char *S, char *T)
+   {
+     while (*S++ = *T++);
+   }</b></pre>
+<p>
+	La deuxi&egrave;me formulation de cette fonction est &eacute;l&eacute;gante,
+compacte, efficace et la traduction en langage machine fournit un code
+tr&egrave;s rapide...; mais bien que cette mani&egrave;re de r&eacute;soudre
+les probl&egrave;mes soit le cas normal en C, il n'est pas si &eacute;vident de
+suivre le raisonnement.<p>
+<p>
+<p>
+<b><i>Conclusions</i></b><p>
+Bien entendu, dans les deux exemples ci-dessus, les formulations 'courtes'
+repr&eacute;sentent le bon style dans C et sont de loin
+pr&eacute;f&eacute;rables aux deux autres. Nous constatons donc que:<p>
+	la programmation efficiente en C n&eacute;cessite beaucoup d'exp&eacute;rience
+et n'est pas facilement accessible &agrave; des d&eacute;butants.<p>
+	sans commentaires ou explications, les programmes peuvent<i> </i>devenir
+incompr&eacute;hensibles, donc inutilisables.<p>
+<p>
+<p>
+
+<h4>
+<a name="Heading15">(2) portabilit&eacute; et biblioth&egrave;ques de fonctions</a></h4>
+
+ <p>
+ <p>
+<b><i>Les limites de la portabilit&eacute;</i></b><p>
+La portabilit&eacute; est l'un des avantages les plus importants de C: en
+&eacute;crivant des programmes qui respectent le standard ANSI-C, nous pouvons
+les utiliser sur n'importe quelle machine poss&eacute;dant un compilateur
+ANSI-C. D'autre part, le r&eacute;pertoire des fonctions ANSI-C est assez
+limit&eacute;. Si un programmeur d&eacute;sire faire appel &agrave; une
+fonction sp&eacute;cifique de la machine (p.ex: utiliser une carte graphique
+sp&eacute;ciale), il est assist&eacute; par une foule de fonctions
+'pr&eacute;fabriqu&eacute;es', mais il doit &ecirc;tre conscient qu'il risque
+de perdre la portabilit&eacute;. Ainsi, il devient &eacute;vident que les
+avantages d'un programme portable doivent &ecirc;tre pay&eacute;s par la
+restriction des moyens de programmation.<p>
+ <p>
+ 
+<h4>
+<a name="Heading16">(3) discipline de programmation</a></h4>
+
+ <p>
+ <p>
+<b><i>Les dangers de C</i></b><p>
+Nous voici arriv&eacute;s &agrave; un point crucial:  C est un langage
+pr&egrave;s de la machine, donc dangereux et bien que C soit un langage de
+programmation structur&eacute;, il ne nous force pas &agrave; adopter un
+certain style de programmation (comme p.ex. Pascal). Dans un certain sens, tout
+est permis et la tentation de programmer du 'code spaghetti' est grande.
+(M&ecirc;me la commande 'goto', si redout&eacute;e par les puristes ne manque
+pas en C). Le programmeur a donc beaucoup de libert&eacute;s, mais aussi des
+responsabilit&eacute;s: il doit veiller lui-m&ecirc;me &agrave; adopter un
+style de programmation propre, solide et compr&eacute;hensible.<p>
+<p>
+<p>
+<p>
+<p>
+<b><i>Remarque</i></b><p>
+Au fil de l'introduction du langage C, ce manuel contiendra quelques
+recommandations au sujet de l'utilisation des diff&eacute;rents moyens de
+programmation. Il est impossible de donner des r&egrave;gles universelles
+&agrave; ce sujet, mais les deux conseils suivants sont valables pour tous les
+langages de programmation:<p>
+<p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<i><center>Si, apr&egrave;s avoir lu uniquement les commentaires d'un
+programme, vous n'en comprenez pas le fonctionnement,<br> alors jetez le tout
+!</i><p>
+<i></center></i><p>
+<center>(r&egrave;gle non &eacute;crite dans la maison IBM)<p>
+</center>
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<center><i>Pratiquez la programmation d&eacute;fensive ...</i><p>
+</center>
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c06.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c08.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c05.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997,2011 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

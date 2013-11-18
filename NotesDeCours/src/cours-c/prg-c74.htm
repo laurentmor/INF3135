@@ -1,0 +1,75 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  8.1. D&eacute;claration et m&eacute;morisation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c73.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c75.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 8.1. D&eacute;claration et m&eacute;morisation</h2>
+<b>		</b><p>
+ <p>
+<b><i>D&eacute;claration</i></b><p>
+<b><i>D&eacute;claration de cha&icirc;nes de caract&egrave;res en langage
+algorithmique</i></b>
+
+<pre><u>cha&icirc;ne</u> &lt;NomVariable&gt;
+</pre>
+<p>
+<b><i>D&eacute;claration de cha&icirc;nes de caract&egrave;res en C</i></b>
+
+<pre><b>char &lt;NomVariable&gt; [&lt;Longueur&gt;];
+</b></pre>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>char NOM [20];
+char PRENOM [20];
+char PHRASE [300];</b></pre>
+<p>
+<p>
+<b><i>Espace &agrave; r&eacute;server</i></b><p>
+Lors de la d&eacute;claration, nous devons indiquer l'espace &agrave;
+r&eacute;server en m&eacute;moire pour le stockage de la cha&icirc;ne.<p>
+<p>
+La repr&eacute;sentation interne d'une cha&icirc;ne de caract&egrave;res est
+termin&eacute;e par le symbole <b>'\0'</b> (NUL). Ainsi, pour un texte de
+<b>n</b> caract&egrave;res, nous devons pr&eacute;voir <b>n+1</b> octets. <p>
+<p>
+Malheureusement, le compilateur C ne contr&ocirc;le pas si nous avons
+r&eacute;serv&eacute; un octet pour le symbole de fin de cha&icirc;ne; l'erreur
+se fera seulement remarquer lors de l'ex&eacute;cution du programme ...<p>
+<p>
+<p>
+<b><i>M&eacute;morisation</i></b><p>
+Le nom d'une cha&icirc;ne est le repr&eacute;sentant de <b><i>l'adresse du
+premier caract&egrave;re </i></b>de la cha&icirc;ne. Pour m&eacute;moriser une
+variable qui doit &ecirc;tre capable de contenir un texte de N
+caract&egrave;res, nous avons besoin de N+1 octets en m&eacute;moire:<p>
+<p>
+<b><i>Exemple: M&eacute;morisation d'un tableau</i></b>
+
+<pre><b>   char TXT[10] = &quot;BONJOUR !&quot;;</b></pre>
+ <p>
+ <tt>
+<img src="prg-c30.gif" width="588" height="88"></tt>
+<p>
+<p>
+<center><b><i>Perspectives</i></b><p>
+</center><img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Pour l'avenir, la ISO <i>(International Organization for Standardization)</i>
+pr&eacute;voit un code de caract&egrave;res multi-octets extensible
+<i>(UNICODE) </i>qui contiendra tous les caract&egrave;res et symboles
+sp&eacute;ciaux utilis&eacute;s sur toute la terre. Lors de l'introduction de
+ce code, les m&eacute;thodes de m&eacute;morisation de la plupart des langages
+de programmation devront &ecirc;tre r&eacute;vis&eacute;es.<p>
+<p><hr size="1" width="100%">
+<a href="prg-c73.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c75.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

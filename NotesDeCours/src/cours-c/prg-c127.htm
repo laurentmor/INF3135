@@ -1,0 +1,138 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -   a)  Passage des param&egrave;tres</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c126.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c128.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c126.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+  a)  Passage des param&egrave;tres</h3>
+<ul>
+<li><a href="#Heading258">Exercice 10.2</a>
+<li><a href="#Heading259">Exercice 10.3</a>
+<li><a href="#Heading260">Exercice 10.4</a>
+<li><a href="#Heading261">Exercice 10.5</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading258">Exercice 10.2</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ex&eacute;cuter le programme suivant et construire les grilles correspondantes.
+Impl&eacute;menter le programme ensuite en C.
+
+<pre> <u>programme</u> PARAMETRES
+ |  <u>entier</u> A,B
+ |  <u>en</u> A <u>ranger</u> 0
+ |  <u>en</u> B <u>ranger</u> 0
+ |  P(A,B)
+ |  <u>&eacute;crire</u> A,B
+ <u>fprogramme</u> (* fin PARAMETRES *)</pre>
+<tt></tt>
+
+<pre> <u>proc&eacute;dure</u> P(X,Y)
+ |  <u>donn&eacute;e</u>: <u>entier</u> X
+ |  <u>r&eacute;sultat</u>: <u>entier</u> Y
+ |  <u>en</u> X <u>ranger</u> X+1
+ |  <u>en</u> Y <u>ranger</u> Y+1
+ |  <u>&eacute;crire</u> X,Y
+ <u>fproc&eacute;dure</u> (* fin P *)</pre>
+
+<h4><hr size="2">
+<a name="Heading259">Exercice 10.3</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ex&eacute;cuter le programme suivant et construire les grilles correspondantes.
+Impl&eacute;menter le programme ensuite en C.
+
+<pre> <u>programme</u> TRUC
+ |  <u>entier</u> A
+ |  <u>en</u> A <u>ranger</u> 2
+ |  <u>&eacute;crire</u> A
+ |  MACHIN(A)
+ |  <u>&eacute;crire</u> A
+ <u>fprogramme</u> (* fin TRUC *)</pre>
+<tt></tt>
+
+<pre> <u>proc&eacute;dure</u> MACHIN(X)
+ |  <u>donn&eacute;e</u>: <u>entier</u> X
+ |  <u>&eacute;crire</u> X
+ |  <u>en</u> X <u>ranger</u> 1000
+ |  <u>&eacute;crire</u> X
+ <u>fproc&eacute;dure</u> (* fin MACHIN *)</pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading260">Exercice 10.4</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ex&eacute;cuter le programme suivant et construire les grilles correspondantes.
+Impl&eacute;menter le programme ensuite en C.<p>
+
+
+<pre> <u>programme</u> CALCUL
+ |  <u>entier</u> A,B,C
+ |  <u>en</u> A <u>ranger</u> 3
+ |  <u>en</u> B <u>ranger</u> -8
+ |  <u>en</u> C <u>ranger</u> 12
+ |  <u>&eacute;crire</u> A,B,C
+ |  MODIFIER(A,B,C)
+ |  <u>&eacute;crire</u> A,B,C
+ <u>fprogramme</u> (* fin CALCUL *)
+
+ <u>proc&eacute;dure</u> MODIFIER(X,Y,Z)
+ |  <u>donn&eacute;e</u>: <u>entier</u> X
+ |  <u>r&eacute;sultat</u>: <u>entier</u> Y,Z
+ |  <u>entier</u> T
+ |  <u>en</u> T <u>ranger</u> X
+ |  <u>en</u> X <u>ranger</u> Y
+ |  <u>en</u> Y <u>ranger</u> Z
+ |  <u>en</u> Z <u>ranger</u> T
+ <u>fproc&eacute;dure</u> (* fin MODIFIER *)</pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading261">Exercice 10.5</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ex&eacute;cuter le programme suivant et construire les grilles correspondantes.
+Impl&eacute;menter le programme ensuite en C.<p>
+
+
+<pre> <u>programme</u> MANIPULATION
+ |  <u>entier</u> A,B,C
+ |  <u>en</u> A <u>ranger</u> 208
+ |  <u>en</u> B <u>ranger</u> 5
+ |  <u>en</u> C <u>ranger</u> -34
+ |  <u>&eacute;crire</u> A,B,C
+ |  MANIPULER(A,B,C)
+ |  <u>&eacute;crire</u> A,B,C
+ <u>fprogramme</u> (* fin MANIPULATION *)
+
+ <u>proc&eacute;dure</u> MANIPULER(X,Y,Z)
+ |  <u>donn&eacute;e</u>: <u>entier</u> X,Y
+ |  <u>r&eacute;sultat</u>: <u>entier</u> Z
+ |  <u>&eacute;crire</u> X,Y,Z 
+ |  <u>en</u> X <u>ranger</u> X <u>divent</u> 2
+ |  <u>en</u> Y <u>ranger</u> Y*2
+ |  <u>en</u> Z <u>ranger</u> X+Y
+ |  <u>&eacute;crire</u> X,Y,Z 
+ <u>fproc&eacute;dure</u> (* fin MANIPULER *)</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c126.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c128.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c126.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

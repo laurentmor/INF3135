@@ -1,0 +1,122 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 3.2. La d&eacute;claration des variables simples</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c27.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c29.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+3.2. La d&eacute;claration des variables simples</h2>
+<b>	</b><p>
+ <p>
+Maintenant que nous connaissons les principaux types de variables, il nous faut
+encore la syntaxe pour leur d&eacute;claration:<p>
+<p>
+<b><i>D&eacute;claration de variables en langage algorithmique</i></b>
+
+<pre>
+&lt;<u>Type</u>&gt; &lt;NomVar1&gt;,&lt;NomVar2&gt;,...,&lt;NomVarN&gt;
+</pre>
+<p>
+<b><i>D&eacute;claration de variables en C</i></b>
+
+<pre><b>
+&lt;Type&gt; &lt;NomVar1&gt;,&lt;NomVar2&gt;,...,&lt;NomVarN&gt;;
+</b></pre>
+<p>
+<p>
+Prenons quelques d&eacute;clarations du langage descriptif,<p>
+
+
+<pre><u>entier</u>   COMPTEUR,X,Y
+<u>r&eacute;el</u>   HAUTEUR,LARGEUR,MASSE_ATOMIQUE
+<u>caract&egrave;re</u>   TOUCHE
+<u>bool&eacute;en</u>   T_PRESSEE</pre>
+<p>
+et traduisons-les en des d&eacute;clarations du langage C :<p>
+
+
+<pre><b>int   compteur,X,Y;
+float   hauteur,largeur;
+double   masse_atomique;
+char   touche;
+int   t_pressee;</b></pre>
+<p>
+<p>
+<b><i>Langage algorithmique --&gt; C</i></b><p>
+En g&eacute;n&eacute;ral. nous avons le choix entre plusieurs types et nous
+devons trouver celui qui correspond le mieux au domaine et aux valeurs &agrave;
+traiter. Voici quelques r&egrave;gles g&eacute;n&eacute;rales qui concernent la
+traduction des d&eacute;clarations de variables num&eacute;riques du langage
+algorithmique en C :<p>
+<p>
+-	La <b><i>syntaxe</i></b> des d&eacute;clarations en C ressemble &agrave;
+celle du langage algorithmique. Remarquez quand m&ecirc;me les points-virgules
+&agrave; la fin des d&eacute;clarations en C.<p>
+<p>
+<b><u>entier</u></b> : Nous avons le choix entre tous les types entiers
+(inclusivement <b>char</b>) dans leurs formes <b>signed</b> ou <b>unsigned</b>.
+Si les nombres deviennent trop grands pour <b>unsigned long</b>, il faut
+utiliser un type rationnel (p.ex: <b>double</b>)<p>
+<p>
+	<b><u>r&eacute;el</u></b> : Nous pouvons choisir entre les trois types
+rationnels en observant non seulement la grandeur maximale de l'exposant, mais
+plus encore le nombre de chiffres significatifs de la mantisse.<p>
+<p>
+	<b><u>caract&egrave;re</u></b> : Toute variable du type <b>char</b> peut
+contenir un (seul) caract&egrave;re. En C, il faut toujours &ecirc;tre
+conscient que ce 'caract&egrave;re' n'est autre chose qu'un nombre
+correspondant &agrave; un code (ici: code ASCII). Ce nombre peut &ecirc;tre
+int&eacute;gr&eacute; dans toute sorte d'op&eacute;rations alg&eacute;briques
+ou logiques ...<p>
+<p>
+	<b><u>cha&icirc;ne</u></b> : En C il n'existe pas de type sp&eacute;cial pour
+cha&icirc;nes de caract&egrave;res. Les moyens de traiter les cha&icirc;nes de
+caract&egrave;res seront d&eacute;crits au chapitre 8.<p>
+<p>
+	<b><u>bool&eacute;en</u></b> : En C il n'existe pas de type sp&eacute;cial
+pour variables bool&eacute;ennes. Tous les types de variables num&eacute;riques
+peuvent &ecirc;tre utilis&eacute;s pour exprimer des op&eacute;rations
+logiques:<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+valeur logique <u>faux</u>
+<br></td>
+<td colspan="1" align="left"><b>&lt;=&gt;</b>
+<br></td>
+<td colspan="1" align="left">valeur
+num&eacute;rique z&eacute;ro 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">valeur
+logique <u>vrai</u>
+<br></td>
+<td colspan="1" align="left"><b>&lt;=&gt;</b>
+<br></td>
+<td colspan="1" align="left">toute
+valeur diff&eacute;rente de z&eacute;ro
+<br></td></tr></table><p>
+<img src="conseil.gif" alt="Conseil" align="right" width="34" height="64"><p>
+<i>	Si l'utilisation d'une variable bool&eacute;enne est indispensable, le plus
+naturel sera d'utiliser une variable du type <b>int</b>. </i><p>
+ 	<p>
+	Les op&eacute;rations logiques en C retournent toujours des r&eacute;sultats
+du type <b>int</b>:<p>
+	0 pour <u>faux<br></u>1 pour <u>vrai</u><p>
+<p>
+<p><hr size="1" width="100%">
+<ul>
+<li><a href="prg-c29.htm">  Exercice 3.2 </a>
+<li><a href="prg-c30.htm"> 3.2.1. Les constantes num&eacute;riques </a>
+<li><a href="prg-c31.htm"> 3.2.2. Initialisation des variables </a>
+</ul>
+<hr size="1" width="100%">
+<a href="prg-c27.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c29.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,98 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.1</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex35.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex37.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.1</h3>
+ <p>
+ <p>
+<p>
+a)	en utilisant <b>while</b>, <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int N;       /* nombre de donn&eacute;es */
+ int NOMB;    /* nombre courant    */
+ int I;       /* compteur */
+ long SOM;    /* la somme   des nombres entr&eacute;s */
+ double PROD; /* le produit des nombres entr&eacute;s */
+
+ printf(&quot;Nombre de donn&eacute;es : &quot;);
+ scanf(&quot;%d&quot;, &amp;N);
+
+<b> SOM=0;</b>
+<b> PROD=1;</b>
+<b> I=1;</b>
+<b> while(I&lt;=N)</b>
+<b>    {</b>
+<b>     printf(&quot;%d. nombre : &quot;, I);</b>
+<b>     scanf(&quot;%d&quot;, &amp;NOMB);</b>
+<b>     SOM  += NOMB;</b>
+<b>     PROD *= NOMB;</b>
+<b>     I++;</b>
+<b>    }</b>
+ 
+ printf(&quot;La somme   des %d nombres est %ld \n&quot;, N, SOM);
+ printf(&quot;Le produit des %d nombres est %.0f\n&quot;, N, PROD);
+ printf(&quot;La moyenne des %d nombres est %.4f\n&quot;, N, (float)SOM/N);
+ return 0;
+}</pre>
+<p>
+b)	en utilisant <b>do - while</b>,<p>
+<p>
+Remplacez le bloc de traitement (en gras) de (a) par :<p>
+
+
+<pre> SOM=0;
+ PROD=1;
+ I=1;
+ do
+    {
+     printf(&quot;%d. nombre : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;NOMB);
+     SOM  += NOMB;
+     PROD *= NOMB;
+     I++;
+    }
+ while(I&lt;=N);</pre>
+<p>
+<p>
+<p>
+c)	en utilisant <b>for</b>.<p>
+<p>
+Remplacez le bloc de traitement (en gras) de (a) par :<p>
+
+
+<pre> for (SOM=0, PROD=1, I=1 ; I&lt;=N ; I++)
+    {
+     printf(&quot;%d. nombre : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;NOMB);
+     SOM  += NOMB;
+     PROD *= NOMB;
+    }</pre>
+<p>
+d)	Laquelle des trois variantes est la plus naturelle pour ce
+probl&egrave;me?<p>
+<p>
+	La structure <b>for</b> est la plus compacte et celle qui exprime le mieux
+l'id&eacute;e de l'algorithme. D'autre part, elle permet d'int&eacute;grer
+tr&egrave;s confortablement l'initialisation et l'incr&eacute;mentation des
+variables dans la structure.<p>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex35.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex37.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

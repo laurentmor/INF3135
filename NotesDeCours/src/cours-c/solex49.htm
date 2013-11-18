@@ -1,0 +1,50 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.14</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex48.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex50.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.14</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+<tt> int LIG;   /* nombre de lignes        */</tt>
+<tt> int L;     /* compteur des lignes     */</tt>
+<tt> int ESP;   /* nombre d'espaces        */</tt>
+<tt> int I;     /* compteur des caract&egrave;res */</tt>
+<tt></tt>
+<b> do</b>
+<b>   {</b>
+     printf(&quot;Nombres de lignes : &quot;);
+    scanf(&quot;%d&quot;, &amp;LIG);
+<b>   }</b>
+<b> while (LIG&lt;1 || LIG&gt;20);</b>
+ 
+<b> for (L=0 ; L&lt;LIG ; L++)</b>
+<b>   {</b>
+<b>    ESP = LIG-L-1;</b>
+<b>    for (I=0 ; I&lt;ESP ; I++)</b>
+<b>        putchar(' ');</b>
+<b>    for (I=0 ; I&lt;2*L+1  ; I++)</b>
+<b>        putchar('*');</b>
+<b>    putchar('\n');</b>
+<b>   }</b>
+  return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex48.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex50.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

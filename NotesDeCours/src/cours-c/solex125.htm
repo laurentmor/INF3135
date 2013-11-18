@@ -1,0 +1,78 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.23</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex124.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex126.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.23</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char INTRO[51]; /* cha&icirc;ne pour l'introduction des donn&eacute;es   */
+ char *MOT[10];  /* Tableau de pointeurs sur les 10 cha&icirc;nes  */
+<b> int I;     /* ligne &agrave; partir de laquelle MOT est tri&eacute; */</b>
+  int J;     /* indice courant */
+ char *AIDE;/* pour la permutation des pointeurs  */
+<b> int FIN;   /* ligne o&ugrave; la derni&egrave;re permutation a eu lieu */</b>
+<b>     /* permet de ne pas trier un sous-ensemble d&eacute;j&agrave; tri&eacute; */</b>
+ 
+ /* Saisie des donn&eacute;es et allocation dynamique de m&eacute;moire */
+ puts(&quot;Introduire 10 phrases termin&eacute;es chaque fois&quot;
+      &quot; par un retour &agrave; la ligne :&quot;);
+ for (I=0; I&lt;10; I++)
+     {
+      /* Lecture d'une phrase */
+      printf(&quot;Phrase %d : &quot;,I);
+      gets(INTRO);
+<b>      /* R&eacute;servation de la m&eacute;moire */</b>
+<b>      MOT[I] = malloc(strlen(INTRO)+1);</b>
+<b>      if (MOT[I])</b>
+<b>           strcpy(MOT[I], INTRO);</b>
+<b>      else</b>
+<b>          {</b>
+<b>           printf(&quot;\aPas assez de m&eacute;moire \n&quot;);</b>
+<b>           exit(-1);</b>
+<b>          }</b>
+      }
+
+
+<b> /* Tri du tableau par propagation de l'&eacute;l&eacute;ment maximal. */</b>
+<b>  for (I=9 ; I&gt;0 ; I=FIN)</b>
+<b>      {</b>
+<b>       FIN=0;</b>
+<b>       for (J=0; J&lt;I; J++)</b>
+<b>           if (strcmp(MOT[J],MOT[J+1])&gt;0)</b>
+<b>             {</b>
+<b>              FIN=J;</b>
+<b>              AIDE     = MOT[J];</b>
+<b>              MOT[J]   = MOT[J+1];</b>
+<b>              MOT[J+1] = AIDE;</b>
+<b>             }</b>
+<b>      }</b>
+ 
+ /* Affichage du tableau */
+ puts(&quot;Tableau tri&eacute; :&quot;);
+ for (I=0; I&lt;10; I++)
+      puts(MOT[I]);
+ return 0;
+}
+</pre>
+<p>
+<a href="solex01.htm"></a><a href="solex01.htm"></a><p><hr size="1" width="100%">
+<a href="solex124.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex126.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

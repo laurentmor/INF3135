@@ -1,0 +1,58 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.4.2. Fermer un fichier s&eacute;quentiel</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c140.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c142.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c139.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.4.2. Fermer un fichier s&eacute;quentiel</h3>
+ <p>
+ <p>
+<b><i>Fermer un fichier en langage algorithmique</i></b>
+
+<pre>               <u>fermer</u> &lt;Nom&gt;</pre>
+<tt></tt><p>
+<tt></tt>&lt;Nom&gt; est une cha&icirc;ne de caract&egrave;res constante ou une
+variable de type cha&icirc;ne qui repr&eacute;sente le nom du fichier que l'on
+d&eacute;sire fermer.<p>
+<tt></tt>
+<p>
+<b><i>Fermer un fichier en langage C</i></b>
+
+<pre><b>               fclose( &lt;FP&gt; );</b></pre>
+<tt></tt><p>
+<tt></tt>&lt;FP&gt; est un pointeur du type <b>FILE*</b> reli&eacute; au nom du
+fichier que l'on d&eacute;sire fermer.<p>
+<tt></tt>
+<p>
+La fonction <b>fclose</b> provoque le contraire de <b>fopen</b>: <p>
+<p>
+		Si le fichier a &eacute;t&eacute; ouvert en &eacute;criture, alors les
+donn&eacute;es non &eacute;crites de la m&eacute;moire tampon sont
+&eacute;crites et les donn&eacute;es suppl&eacute;mentaires (longueur du
+fichier, date et heure de sa cr&eacute;ation) sont ajout&eacute;es dans le
+r&eacute;pertoire du m&eacute;dium de stockage.<p>
+<p>
+		Si le fichier a &eacute;t&eacute; ouvert en lecture, alors les donn&eacute;es
+non lues de la m&eacute;moire tampon sont simplement 'jet&eacute;es'.<p>
+<p>
+		La m&eacute;moire tampon est ensuite lib&eacute;r&eacute;e et la liaison
+entre le pointeur sur <b>FILE</b> et le nom du fichier correspondant est
+annul&eacute;e.<p>
+<p>
+Apr&egrave;s <b>fclose()</b> le pointeur &lt;FP&gt; est invalide. Des erreurs graves pourraient donc survenir si
+ce pointeur est utilis&eacute; par la suite!
+
+
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c140.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c142.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c139.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,281 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.1.2. Exemples de modularisation en C</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c108.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c110.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c107.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.1.2. Exemples de modularisation en C</h3>
+ <p>
+ <p>
+Les deux programmes pr&eacute;sent&eacute;s ci-dessous vous donnent un petit
+aper&ccedil;u sur les propri&eacute;t&eacute;s principales des fonctions en C.
+Les d&eacute;tails seront discut&eacute;s plus loin dans ce chapitre. (Vous
+pouvez trouver les solutions des m&ecirc;mes probl&egrave;mes en langage
+algorithmique et en Pascal dans votre manuel d'algorithmique de 13<sup>e</sup>
+[Chapitre I.2. proc&eacute;dures et fonctions]).<p>
+<p>
+<p>
+<b>a) Exemple 1: Afficher un rectangle d'&eacute;toiles</b><p>
+ <p>
+Commen&ccedil;ons par un petit programme que nous vous proposons d'examiner
+vous-m&ecirc;mes sans autres explications: <p>
+Le programme suivant permet d'afficher &agrave; l'&eacute;cran un rectangle de
+longueur L et de hauteur H, form&eacute; d'ast&eacute;risques
+<tt><b>'*'</b></tt> :<p>
+<p>
+<img src="prg-c57.gif" width="166" height="135"><p>
+<p>
+<center><b><i>Impl&eacute;mentation en C</i></b><p>
+</center>
+
+<pre><b>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es par main */
+ void RECTANGLE(int L, int H);
+ /* D&eacute;claration des variables locales de main */
+ int L, H;
+ /* Traitements */
+ printf(&quot;Entrer la longueur (&gt;= 1): &quot;);
+ scanf(&quot;%d&quot;, &amp;L);
+ printf(&quot;Entrer la hauteur  (&gt;= 1): &quot;);
+ scanf(&quot;%d&quot;, &amp;H);
+ /* Afficher un rectangle d'&eacute;toiles */
+ RECTANGLE(L,H);
+ return 0;
+}</b></pre>
+<p>
+Pour que la fonction soit ex&eacute;cutable par la machine, il faut encore
+sp&eacute;cifier la fonction RECTANGLE:<p>
+
+
+<pre><b>void RECTANGLE(int L, int H)
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ void LIGNE(int L);
+ /* D&eacute;claration des variables locales */
+ int I;
+ /* Traitements */
+ /* Afficher H lignes avec L &eacute;toiles  */
+ for (I=0; I&lt;H; I++)
+      LIGNE(L);
+}</b></pre>
+<p>
+Pour que la fonction RECTANGLE soit ex&eacute;cutable par la machine, il faut
+sp&eacute;cifier la fonction LIGNE:<p>
+
+
+<pre><b>void LIGNE(int L)
+{
+ /* Affiche &agrave; l'&eacute;cran une ligne avec L &eacute;toiles */
+ /* D&eacute;claration des variables locales */
+ int I;
+ /* Traitements */
+ for (I=0; I&lt;L; I++)
+      printf(&quot;*&quot;);
+ printf(&quot;\n&quot;);
+}</b></pre>
+<p>
+Sch&eacute;matiquement, nous pouvons repr&eacute;senter la hi&eacute;rarchie
+des fonctions du programme comme suit:<p>
+<p>
+<img src="prg-c58.gif" width="266" height="306"><p>
+<p>
+<p>
+<center><b>b) Exemple 2: Tableau de valeurs d'une fonction</b><p>
+ <p>
+</center>Soit F la fonction num&eacute;rique d&eacute;finie par F(X) =
+X<sup>3</sup>-2X+1. On d&eacute;sire construire un tableau de valeurs de cette
+fonction. Le nombre N de valeurs ainsi que les valeurs de X sont entr&eacute;s
+au clavier par l'utilisateur.<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>Entrez un entier entre 1 et 100 : 9
+Entrez 9 nombres r&eacute;els :
+ -4 -3 -2 -1 0 1 2 3 4
+
+X    -4.0  -3.0  -2.0  -1.0  0.0  1.0  2.0  3.0  4.0
+F(X) -55.0 -20.0 -3.0  2.0   1.0  0.0  5.0  22.0 57.0 </b></pre>
+<p>
+En modularisant ce probl&egrave;me, nous obtenons un programme principal
+tr&egrave;s court et bien 'lisible'. La fonction <b>main</b> joue le r&ocirc;le
+du programme principal:<p>
+
+
+<pre><b>main()
+{
+ float X[100];   /* valeurs de X */
+ float V[100];   /* valeurs de F(X) */
+ int N;
+ ACQUERIR(&amp;N);   /* 1 &lt;= N &lt;= 100 */
+ LIRE_VECTEUR(X, N);
+ CALCULER_VALEURS(X, V, N);
+ AFFICHER_TABLE(X, V, N);
+ return 0;
+}</b></pre>
+<p>
+<p>
+Pour que la machine puisse ex&eacute;cuter ce programme, il faut encore
+impl&eacute;menter les modules <tt><b>ACQUERIR</b></tt>,
+<tt><b>LIRE_VECTEUR</b></tt>, <tt><b>CALCULER_VALEURS</b></tt> et
+<tt><b>AFFICHER_TABLE</b></tt>. Ces sp&eacute;cifications se font en C sous
+forme de <i>fonctions</i> qui remplacent les fonctions <i>et</i> les
+proc&eacute;dures que nous connaissons en langage algorithmique et en Pascal.
+Une 'proc&eacute;dure' est r&eacute;alis&eacute;e en C par une fonction qui
+fournit le r&eacute;sultat <b>void</b> (vide). Les fonctions sont
+ajout&eacute;es dans le texte du programme au-dessus ou en-dessous de la
+fonction <b>main</b>.<p>
+<p>
+<i>Si dans le texte du programme une fonction est d&eacute;fine apr&egrave;s la
+fonction appelante, il faut la <b>d&eacute;clarer</b> ou bien localement
+&agrave; l'int&eacute;rieur de la fonction appelante ou bien globalement au
+d&eacute;but du programme. La d&eacute;claration d'une fonction se fait
+&agrave; l'aide d'un <b>'prototype'</b> de la fonction qui correspond en
+g&eacute;n&eacute;ral &agrave; la premi&egrave;re ligne (la ligne
+d&eacute;clarative) de la fonction.</i><p>
+<p>
+Par convention, nous allons d&eacute;finir la fonction <b>main</b> en premier
+lieu. Ainsi nous obtenons le programme suivant:<p>
+<p>
+<b><i>Impl&eacute;mentation en C</i></b>
+
+<pre><b>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es par main */
+ void ACQUERIR(int *N);
+ void LIRE_VECTEUR(float T[], int N);
+ void CALCULER_VALEURS(float X[], float V[], int N);
+ void AFFICHER_TABLE(float X[], float V[], int N);
+ /* D&eacute;claration des variables locales de main */
+ float X[100];   /* valeurs de X    */
+ float V[100];   /* valeurs de F(X) */
+ int N;
+ /* Traitements */
+ ACQUERIR(&amp;N);   /* 1 &lt;= N &lt;= 100   */
+ LIRE_VECTEUR(X, N);
+ CALCULER_VALEURS(X, V, N);
+ AFFICHER_TABLE(X, V, N);
+ return 0;
+}
+
+void ACQUERIR(int *N)
+{
+ do
+   {
+    printf(&quot;Entrez un entier entre 1 et 100 : &quot;);
+    scanf(&quot;%d&quot;, N);
+   }
+ while (*N&lt;1 || *N&gt;100);
+}
+
+void LIRE_VECTEUR(float T[], int N)
+{
+ /* Remplit un tableau T d'ordre N avec des nombres 
+    r&eacute;els entr&eacute;s au clavier */
+ /* D&eacute;claration des variables locales */
+ int I;
+ /* Remplir le tableau */
+ printf(&quot;Entrez %d nombres r&eacute;els :\n&quot;, N);
+ for (I=0; I&lt;N; I++)
+     scanf(&quot;%f&quot;, &amp;T[I]);
+}
+
+void CALCULER_VALEURS(float X[], float V[], int N)
+{
+ /* Remplit le tableau V avec les valeurs de */
+ /* F(X[I]) pour les N premi&egrave;res composantes */
+ /* X[I] du tableau X */
+ /* Prototype de la fonction F */
+ float F(float X);
+ /* D&eacute;claration des variables locales */
+ int I;
+ /* Calculer les N valeurs */
+ for (I=0; I&lt;N; I++)
+     V[I] = F(X[I]);
+}
+
+float F(float X)
+{
+ /* Retourne la valeur num&eacute;rique du polyn&ocirc;me d&eacute;fini 
+    par F(X) = X^3-2X+1 */
+ return (X*X*X - 2*X + 1);
+}
+
+void AFFICHER_TABLE(float X[], float V[], int N)
+{
+ /* Affiche une table de N valeurs : 
+    X contient les valeurs donn&eacute;es et 
+    V contient les valeurs calcul&eacute;es. */
+ /* D&eacute;claration des variables locales */
+ int I;
+ /* Afficher le tableau */
+ printf(&quot;\n X   : &quot;);
+ for (I=0; I&lt;N; I++)
+     printf(&quot;%.1f&quot;, X[I]);
+ printf(&quot;\n F(X): &quot;);
+ for (I=0; I&lt;N; I++)
+     printf(&quot;%.1f&quot;, V[I]);
+ printf(&quot;\n&quot;);
+}</b></pre>
+<p>
+Le programme est compos&eacute; de six fonctions dont quatre ne fournissent pas
+de r&eacute;sultat. La fonction F retourne la valeur de F(X) comme
+r&eacute;sultat. Le r&eacute;sultat de F est donc du type <b>float</b>; nous
+disons alors que <i>'F est du type <b>float</b>'</i> ou <i>'F a le type
+<b>float</b>'</i>. <p>
+<p>
+<i>Les fonctions fournissent leurs r&eacute;sultats &agrave; l'aide de la
+commande <b>return</b>. La valeur rendue &agrave; l'aide de <b>return</b> doit
+correspondre au type de la fonction, sinon elle est automatiquement convertie
+dans ce type. </i><p>
+ <p>
+A la fin de l'ex&eacute;cution du programme, la fonction <b>main</b> fournit
+par d&eacute;faut une valeur comme code d'erreur &agrave; l'environnement. Le
+retour de la valeur z&eacute;ro veut dire que le programme s'est termin&eacute;
+normalement et sans erreurs fatales.<p>
+<p>
+<i>Le passage des param&egrave;tres en C se fait toujours par la valeur. Pour
+pouvoir modifier une variable d&eacute;clar&eacute;e dans la proc&eacute;dure
+appelante, la fonction appel&eacute;e a besoin de l'adresse de cette variable.
+Le param&egrave;tre correspondant doit donc &ecirc;tre un pointeur et lors d'un
+appel de la fonction, il faut veiller &agrave; envoyer l'adresse et non la
+valeur de la variable.</i><p>
+ <p>
+Dans notre exemple, la fonction ACQUERIR a besoin de l'adresse de la variable N
+pour pouvoir affecter une nouvelle valeur &agrave; N. Le param&egrave;tre N
+doit donc &ecirc;tre d&eacute;fini comme pointeur (sur <b>int</b>). Lors de
+l'appel, il faut transmettre l'adresse de N par &amp;N. A l'int&eacute;rieur de
+la fonction il faut utiliser l'op&eacute;rateur 'contenu de' pour
+acc&eacute;der &agrave; la valeur de N. Les autres fonctions ne changent pas le
+contenu de N et ont seulement besoin de sa valeur. Dans les en-t&ecirc;tes de
+ces fonctions, N est simplement d&eacute;clar&eacute; comme <b>int</b>.<p>
+<p>
+<i>Lorsque nous passons un tableau comme param&egrave;tre &agrave; une
+fonction, il ne faut pas utiliser l'op&eacute;rateur adresse &amp; lors de
+l'appel, parce que le nom du tableau repr&eacute;sente d&eacute;j&agrave;
+l'adresse du tableau.</i><p>
+ <p>
+Dans notre exemple, la fonction LIRE_VECTEUR modifie le contenu de la variable
+X, mais lors de l'appel, il suffit d'envoyer le nom du tableau comme
+param&egrave;tre.<p>
+<p>
+Sch&eacute;matiquement, nous pouvons repr&eacute;senter la hi&eacute;rarchie
+des fonctions comme suit:<p>
+<p>
+<img src="prg-c59.gif" width="570" height="346"><p>
+<p><hr size="1" width="100%">
+<a href="prg-c108.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c110.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c107.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,146 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.5.1. Traitement par enregistrements</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c143.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c145.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c143.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.5.1. Traitement par enregistrements</h3>
+ <p>
+ <p>
+Les fichiers texte sont g&eacute;n&eacute;ralement organis&eacute;s en lignes,
+c.-&agrave;-d. la fin d'une information dans le fichier est marqu&eacute;e par
+le symbole '\n':<p>
+<p>
+<img src="prg-c76.gif" width="540" height="165"><p>
+<p>
+<center><b><i>Attention !</i></b><p>
+</center>Pour pouvoir lire correctement les enregistrements dans un fichier
+s&eacute;quentiel, le programmeur doit conna&icirc;tre l'ordre des
+diff&eacute;rentes rubriques (champs) &agrave; l'int&eacute;rieur des
+enregistrements.<p>
+<p>
+<p>
+<b>a) Ecrire une information dans un fichier s&eacute;quentiel</b><p>
+ <p>
+<b><i>Ecrire dans un fichier s&eacute;quentiel en langage algorithmique</i></b>
+
+<pre>      <u>&eacute;crire</u> &lt;Nom&gt;:&lt;Expr1&gt;
+      <u>&eacute;crire</u> &lt;Nom&gt;:&lt;Expr2&gt;
+      ...
+      <u>&eacute;crire</u> &lt;Nom&gt;:&lt;ExprN&gt;</pre>
+<p>
+*	<b>&lt;Nom&gt;</b> est une cha&icirc;ne de caract&egrave;res constante ou une
+variable de type cha&icirc;ne qui repr&eacute;sente le nom du fichier dans
+lequel on veut &eacute;crire.<p>
+*	<b>&lt;Expr1&gt;, &lt;Expr2&gt;, ... , &lt;ExprN&gt;</b> repr&eacute;sentent
+les rubriques qui forment un enregistrement et dont les valeurs respectives
+sont &eacute;crites dans le fichier.<p>
+<tt></tt>
+<p>
+<b><i>Ecrire dans un fichier s&eacute;quentiel en langage C - fprintf</i></b>
+
+<pre><b>      fprintf( &lt;FP&gt;, &quot;&lt;Form1&gt;\n&quot;, &lt;Expr1&gt;);
+      fprintf( &lt;FP&gt;, &quot;&lt;Form2&gt;\n&quot;, &lt;Expr2&gt;);
+      ...
+      fprintf( &lt;FP&gt;, &quot;&lt;FormN&gt;\n&quot;, &lt;ExprN&gt;);</b></pre>
+<p>
+ou bien
+
+<pre><b>   fprintf(&lt;FP&gt;,&quot;&lt;Form1&gt;\n&lt;Form2&gt;\n...\n&lt;FormN&gt;\n&quot;, &lt;Expr1&gt;, &lt;Expr2&gt;, ... , &lt;ExprN&gt;);</b></pre>
+<p>
+*	<b>&lt;FP&gt;</b> est un pointeur du type <b>FILE*</b> qui est reli&eacute;
+au nom du fichier cible.<p>
+*	<b>&lt;Expr1&gt;, &lt;Expr2&gt;, ... , &lt;ExprN&gt;</b> repr&eacute;sentent
+les rubriques qui forment un enregistrement et dont les valeurs respectives
+sont &eacute;crites dans le fichier.<p>
+*	<b>&lt;Form1&gt;, &lt;Form2&gt;, ... , &lt;FormN&gt;</b> repr&eacute;sentent
+les sp&eacute;cificateurs de format pour l'&eacute;criture des
+diff&eacute;rentes rubriques (voir chapitre 4.3.).<p>
+<tt></tt>
+<p>
+<b><i>Remarque</i></b><p>
+L'instruction 
+
+<pre><b>fprintf(stdout, &quot;Bonjour\n&quot;);</b></pre>
+<p>
+est identique &agrave;
+
+<pre><b>printf(&quot;\Bonjour\n&quot;);</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+Notez que <b>fprintf</b> (et <b>printf</b>) &eacute;crit toutes les
+cha&icirc;nes de caract&egrave;res <i>sans le symbole de fin de cha&icirc;ne
+</i><b>'\0'</b>. Dans les fichiers texte, il faut ajouter le symbole de fin de
+ligne <b>'\n'</b> pour s&eacute;parer les donn&eacute;es.<p>
+<p>
+<p>
+<b>b) Lire une information dans un fichier s&eacute;quentiel </b><p>
+ <p>
+<b><i>Lire dans un fichier s&eacute;quentiel en langage algorithmique</i></b>
+
+<pre>      <u>lire</u> &lt;Nom&gt;:&lt;Var1&gt;
+      <u>lire</u> &lt;Nom&gt;:&lt;Var2&gt;
+      ...
+      <u>lire</u> &lt;Nom&gt;:&lt;VarN&gt;
+</pre>
+*
+<b>&lt;Nom&gt;</b> est une cha&icirc;ne de caract&egrave;res constante ou une
+variable de type cha&icirc;ne qui repr&eacute;sente le nom du fichier duquel on
+veut lire.<p>
+*	<b>&lt;Var1&gt;, &lt;Var2&gt;, ... , &lt;VarN&gt;</b> repr&eacute;sentent les
+variables qui vont recevoir les valeurs des diff&eacute;rentes rubriques d'un
+enregistrement lu dans le fichier.<p>
+<tt></tt>
+<p>
+<p>
+<b><i>Lire dans un fichier s&eacute;quentiel en langage C - fscanf</i></b>
+
+<pre><b>      fscanf( &lt;FP&gt;, &quot;&lt;Form1&gt;\n&quot;, &lt;Adr1&gt;);
+      fscanf( &lt;FP&gt;, &quot;&lt;Form2&gt;\n&quot;, &lt;Adr2&gt;);
+      ...
+      fscanf( &lt;FP&gt;, &quot;&lt;FormN&gt;\n&quot;, &lt;AdrN&gt;);</b></pre>
+<p>
+ou bien
+
+<pre><b>      fscanf(&lt;FP&gt;,&quot;&lt;Form1&gt;\n&lt;Form2&gt;\n...\n&lt;FormN&gt;\n&quot;, &lt;Adr1&gt;, &lt;Adr2&gt;, ... , &lt;AdrN&gt;);
+</b></pre>
+*
+<b>&lt;FP&gt;</b> est un pointeur du type <b>FILE*</b> qui est reli&eacute; au
+nom du fichier &agrave; lire.<p>
+*	<b>&lt;Adr1&gt;, &lt;Adr2&gt;, ... , &lt;AdrN&gt;</b> repr&eacute;sentent les
+adresses des variables qui vont recevoir les valeurs des diff&eacute;rentes
+rubriques d'un enregistrement lu dans le fichier.<p>
+*	<b>&lt;Form1&gt;, &lt;Form2&gt;, ... , &lt;FormN&gt;</b> repr&eacute;sentent
+les sp&eacute;cificateurs de format pour la lecture des diff&eacute;rentes
+rubriques (voir chapitre 4.4.).
+<p>
+<b><i>Remarque</i></b><p>
+L'instruction 
+
+<pre><b>fscanf(stdin, &quot;%d\n&quot;, &amp;N);
+</b></pre>
+est
+identique &agrave;
+
+<pre><b>scanf(&quot;%d\n&quot;, &amp;N);
+</b></pre>
+<b><i>Attention
+!</i></b><p>
+Pour les fonctions <b>scanf</b> et <b>fscanf</b> tous les signes d'espacement
+sont &eacute;quivalents comme s&eacute;parateurs. En cons&eacute;quence,
+&agrave; l'aide de <b>fscanf</b>, il nous sera impossible de lire toute une
+phrase dans laquelle les mots sont s&eacute;par&eacute;s par des espaces.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c143.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c145.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c143.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

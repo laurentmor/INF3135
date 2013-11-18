@@ -1,0 +1,91 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.42</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex173.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex175.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex168.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.42</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ int TRANSPO_MATRICE (int *MAT, int *L, int LMAX, int *C, int CMAX);
+ void LIRE_DIM     (int *L, int LMAX, int *C, int CMAX);
+ void LIRE_MATRICE   (int *MAT, int L, int C, int CMAX);
+ void ECRIRE_MATRICE (int *MAT, int L, int C, int CMAX);
+ /* Variables locales */
+ int M[30][30]; /* Matrice d'entiers */
+ int L, C;      /* Dimensions de la matrice */ 
+ /* Traitements */
+ LIRE_DIM (&amp;L,30,&amp;C,30);
+ LIRE_MATRICE ((int*)M,L,C,30 );
+ printf(&quot;Matrice donn&eacute;e : \n&quot;);
+ ECRIRE_MATRICE ((int*)M,L,C,30);
+<b> if (TRANSPO_MATRICE ((int*)M,&amp;L,30,&amp;C,30))</b>
+<b>     {</b>
+<b>      printf(&quot;Matrice transpos&eacute;e : \n&quot;);</b>
+<b>      ECRIRE_MATRICE ((int*)M,L,C,30);</b>
+<b>     }</b>
+<b> else</b>
+<b>     printf(&quot;\aLa matrice n'a pas pu &ecirc;tre transpos&eacute;e\n&quot;);</b>
+  return 0;
+}
+
+<b>int TRANSPO_MATRICE (int *MAT, int *L, int LMAX, int *C, int CMAX)</b>
+<b>{</b>
+  /* Prototypes des fonctions appel&eacute;es */
+ void PERMUTER(int *A, int *B);
+ /* Variables locales */
+ int I,J;
+ int DMAX; /* la plus grande des deux dimensions */
+ /* Transposition de la matrice */
+<b> if (*L&gt;CMAX || *C&gt;LMAX)</b>
+<b>      return 0;</b>
+<b> else</b>
+<b>      {</b>
+<b>       DMAX = (*L&gt;*C) ? *L : *C;</b>
+<b>       for (I=0; I&lt;DMAX; I++)</b>
+<b>            for (J=0; J&lt;I; J++)</b>
+<b>                 PERMUTER (MAT+I*CMAX+J, MAT+J*CMAX+I);</b>
+<b>       PERMUTER(L,C);  </b>/* &eacute;changer les dimensions */ 
+<b>       return 1;</b>
+<b>      }</b>
+<b>}</b>
+ 
+void PERMUTER(int *A, int *B)
+{
+ . . .
+}
+
+void LIRE_DIM (int *L, int LMAX, int *C, int CMAX)
+{
+ . . .
+}
+
+void LIRE_MATRICE (int *MAT, int L, int C, int CMAX)
+{
+ . . .
+}
+
+void ECRIRE_MATRICE (int *MAT, int L, int C, int CMAX)
+{
+ . . .
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex173.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex175.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex168.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

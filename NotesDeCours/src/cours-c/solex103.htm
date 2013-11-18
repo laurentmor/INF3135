@@ -1,0 +1,180 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.1</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex102.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex104.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.1</h3>
+ <p>
+ <p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b><u>A</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>B</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>C</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>P1</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>P2</u></b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>Init.</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>P1=&amp;A</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>P2=&amp;C</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>*P1=(*P2)++</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>P1=P2</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>P2=&amp;B</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>*P1-=*P2</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>++*P2</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>2</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>*P1*=*P2</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>6</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>A=++*P2**P1</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>24</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>6</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>P1=&amp;A</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>24</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>6</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>*P2=*P1/=*P2</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>6</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>6</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>6</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>&amp;B</b></tt>
+<br></td></tr></table><tt></tt><p>
+<tt></tt><p>
+<p><hr size="1" width="100%">
+<a href="solex102.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex104.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

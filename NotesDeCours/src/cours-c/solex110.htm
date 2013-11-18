@@ -1,0 +1,89 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.8</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex109.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex111.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.8</h3>
+ <p>
+ <p>
+<b>a)</b>	en utilisant uniquement le formalisme tableau<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char CH[101]; /* cha&icirc;ne donn&eacute;e    */
+ <b>int I,J;      /* indices courants */</b>
+<b> int PALI;     /* indicateur logique:          */ </b>
+<b>               /* vrai si CH est un palindrome */</b>
+ 
+  /* Saisie des donn&eacute;es */
+ printf(&quot;Entrez une ligne de texte (max.100 caract&egrave;res) :\n&quot;);
+ gets(CH);
+<b> /* Placer J sur la derni&egrave;re lettre de la cha&icirc;ne */</b>
+<b> for(J=0; CH[J]; J++)</b>
+<b>     ;</b>
+<b> J--;</b>
+<b> /* Contr&ocirc;ler si CH est un palindrome */</b>
+<b> PALI=1;</b>
+<b> for (I=0 ; PALI &amp;&amp; I&lt;J ; I++,J--)</b>
+<b>      if (CH[I] != CH[J])</b>
+<b>          PALI=0;</b>
+ 
+  /* Affichage du r&eacute;sultat */
+ if (PALI)
+    printf(&quot;La cha&icirc;ne \&quot;%s\&quot; est un palindrome.\n&quot;, CH);
+ else
+    printf(&quot;La cha&icirc;ne \&quot;%s\&quot; n'est pas un palindrome.\n&quot;, CH);
+ return 0;
+}</pre>
+ <p>
+ <i>		</i><p>
+ <p>
+<p>
+<b>b)</b>	en utilisant des pointeurs au lieu des indices num&eacute;riques :<p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char CH[101];  /* cha&icirc;ne donn&eacute;e    */
+<b> char *P1,*P2;  /* pointeurs d'aide */</b>
+  int PALI;  /* indicateur logique:          */
+            /* vrai si CH est un palindrome */
+ 
+  /* Saisie des donn&eacute;es */
+ printf(&quot;Entrez une ligne de texte (max.100 caract&egrave;res) :\n&quot;);
+ gets(CH);
+<b> /* Placer P2 sur la derni&egrave;re lettre de la cha&icirc;ne */</b>
+<b> for (P2=CH; *P2; P2++)</b>
+<b>      ;</b>
+<b> P2--;</b>
+<b> /* Contr&ocirc;ler si CH est un palindrome */</b>
+<b> PALI=1;</b>
+<b> for (P1=CH ; PALI &amp;&amp; P1&lt;P2 ; P1++,P2--)</b>
+<b>      if (*P1 != *P2) PALI=0;</b>
+  /* Affichage du r&eacute;sultat */
+ if (PALI)
+    printf(&quot;La cha&icirc;ne \&quot;%s\&quot; est un palindrome.\n&quot;, CH);
+ else
+    printf(&quot;La cha&icirc;ne \&quot;%s\&quot; n'est pas un palindrome.\n&quot;, CH);
+ return 0;
+}</pre>
+ <p>
+ <p>
+<p><hr size="1" width="100%">
+<a href="solex109.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex111.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

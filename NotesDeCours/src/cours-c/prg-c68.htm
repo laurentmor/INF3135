@@ -1,0 +1,62 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.2.3. Acc&egrave;s aux composantes</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c67.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c69.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.2.3. Acc&egrave;s aux composantes</h3>
+ <p>
+ <p>
+<b><i>Acc&egrave;s &agrave; un tableau &agrave; deux dimensions en lang.
+algorithmique</i></b>
+
+<pre><u>&lt;NomTableau&gt;</u>[&lt;Ligne&gt;, &lt;Colonne&gt;]
+</pre>
+<p>
+<b><i>Acc&egrave;s &agrave; un tableau &agrave; deux dimensions en C</i></b>
+
+<pre><b>&lt;NomTableau&gt;[&lt;Ligne&gt;][&lt;Colonne&gt;]
+</b></pre>
+<p>
+Les &eacute;l&eacute;ments d'un tableau de dimensions L et C se
+pr&eacute;sentent de la fa&ccedil;on suivante:
+
+<pre><b>/                                                       \
+|  A[0][0]    A[0][1]    A[0][2]    . . .    A[0][C-1]  |
+|  A[1][0]    A[1][1]    A[1][2]    . . .    A[1][C-1]  |
+|  A[2][0]    A[2][1]    A[2][2]    . . .    A[2][C-1]  |
+|   . . .      . . .      . . .     . . .      . . .    |
+| A[L-1][0]  A[L-1][1]  A[L-1][2]   . . .   A[L-1][C-1] |
+\                                                       /</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+Consid&eacute;rons un tableau A de dimensions<b> L </b>et<b> C</b>.<p>
+<b><i>En C,</i></b><p>
+<b> </b>	-	les indices du tableau varient	de <b>0</b> &agrave;
+<b>L-1</b>,  respectivement	de <b>0</b> &agrave; <b>C-1</b>.<p>
+	-	la composante de la N<sup>i&egrave;me</sup> ligne et M<sup>i&egrave;me</sup>
+colonne est not&eacute;e:
+
+<pre><b>         A[N-1][M-1]</b></pre>
+ <p>
+<b><i>En langage algorithmique,</i></b><p>
+<b> </b>	-	les indices du tableau varient	de <b>1</b> &agrave; <b>L</b>,
+respectivement	de <b>1</b> &agrave; <b>C</b>.<p>
+	-	la composante de la N<sup>i&egrave;me</sup> ligne et M<sup>i&egrave;me</sup>
+colonne est not&eacute;e:
+
+<pre><b>         A[N,M]</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c67.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c69.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

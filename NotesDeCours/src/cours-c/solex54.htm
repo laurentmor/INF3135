@@ -1,0 +1,61 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.3</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex53.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex55.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex51.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.3</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int T[50]; /* tableau donn&eacute; */
+ int N;     /* dimension     */
+ int I,J;   /* indices courants */
+ int AIDE;  /* pour l'&eacute;change   */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension du tableau (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ for (I=0; I&lt;N; I++)
+    {
+     printf(&quot;El&eacute;ment %d : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;T[I]);
+    }
+ /* Affichage du tableau */
+ printf(&quot;Tableau donn&eacute; : \n&quot;);
+ for (I=0; I&lt;N; I++)
+     printf(&quot;%d &quot;, T[I]);
+ printf(&quot;\n&quot;);
+<b> /* Inverser le tableau */</b>
+<b> for (I=0, J=N-1 ; I&lt;J ; I++,J--)</b>
+<b>      /* Echange de T[I] et T[J] */</b>
+<b>        {</b>
+<b>         AIDE = T[I];</b>
+<b>         T[I] = T[J];</b>
+<b>         T[J] = AIDE;</b>
+<b>        }</b>
+  /* Edition des r&eacute;sultats */
+ printf(&quot;Tableau r&eacute;sultat :\n&quot;);
+ for (I=0; I&lt;N; I++)
+     printf(&quot;%d &quot;, T[I]);
+ printf(&quot;\n&quot;);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex53.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex55.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex51.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

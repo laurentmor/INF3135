@@ -1,0 +1,145 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -    8.5. Pr&eacute;c&eacute;dence alphab&eacute;tique et lexicographique</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c77.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+   8.5. Pr&eacute;c&eacute;dence alphab&eacute;tique et lexicographique</h2>
+ <p>
+ <p>
+<center><b><i>Pr&eacute;c&eacute;dence alphab&eacute;tique des
+caract&egrave;res</i></b><p>
+</center>La pr&eacute;c&eacute;dence des caract&egrave;res dans l'alphabet
+d'une machine est d&eacute;pendante du code de caract&egrave;res
+utilis&eacute;. Pour le code ASCII, nous pouvons constater l'ordre suivant: <p>
+<p>
+<center>. . . ,0,1,2, ... ,9, . . . ,A,B,C, ... ,Z, . . . ,a,b,c, ... ,z, . . .
+<p>
+</center><p>
+Les symboles sp&eacute;ciaux (' ,+ ,- ,/ ,{ ,] , ...) et les lettres
+accentu&eacute;es (&eacute; ,&egrave; ,&agrave; ,&ucirc; , ...) se trouvent
+r&eacute;partis autour des trois grands groupes de caract&egrave;res (chiffres,
+majuscules, minuscules). Leur pr&eacute;c&eacute;dence ne correspond &agrave;
+aucune r&egrave;gle d'ordre sp&eacute;cifique.<p>
+<p>
+<b><i>Relation de pr&eacute;c&eacute;dence</i></b><p>
+De la pr&eacute;c&eacute;dence alphab&eacute;tique des caract&egrave;res, on
+peut d&eacute;duire une <b><i>relation de pr&eacute;c&eacute;dence</i></b><i>
+'est inf&eacute;rieur &agrave;'</i> sur l'ensemble des caract&egrave;res.
+Ainsi, on peut dire que <p>
+			<tt><b>'0'</b></tt> <i>est inf&eacute;rieur &agrave;
+</i><tt><b>'Z'</b></tt><p>
+et noter <p>
+			<tt><b>'0' &lt; 'Z'</b></tt><p>
+car dans l'alphabet de la machine, le code du caract&egrave;re '0' (ASCII: 48)
+est inf&eacute;rieur au code du caract&egrave;re 'Z' (ASCII: 90).<p>
+<p>
+<b><i>Pr&eacute;c&eacute;dence lexicographique des cha&icirc;nes de
+caract&egrave;res</i></b><p>
+En nous basant sur cette relation de <i>pr&eacute;c&eacute;dence
+alphab&eacute;tique des caract&egrave;res</i>, nous pouvons d&eacute;finir une
+<b><i>pr&eacute;c&eacute;dence lexicographique</i></b><i> pour les
+cha&icirc;nes de caract&egrave;res</i>. Cette relation de
+pr&eacute;c&eacute;dence suit l'&lt;&lt;ordre du dictionnaire&gt;&gt; et est
+d&eacute;finie de fa&ccedil;on r&eacute;currente:<p>
+<p>
+ <p>
+<b>a)</b>	La cha&icirc;ne vide <tt><b>&quot;&quot;</b></tt> pr&eacute;c&egrave;de
+lexicographiquement toutes les autres cha&icirc;nes.<p>
+<b>b)</b>	La cha&icirc;ne A = &quot;a<sub>1</sub>a<sub>2</sub>a ... a<sub>p</sub>&quot;
+(p caract&egrave;res) pr&eacute;c&egrave;de lexicographiquement la cha&icirc;ne
+B = &quot;b<sub>1</sub>b<sub>2 </sub>... b<sub>m</sub>&quot; (m caract&egrave;res) si
+l'une des deux conditions suivantes est remplie:<p>
+<b>	1)</b>	'a<sub>1</sub>' &lt; 'b<sub>1</sub>'<p>
+<b>	2)</b>	'a<sub>1</sub>' = 'b<sub>1</sub>' et<p>
+		&quot;a<sub>2</sub>a<sub>3</sub> ... a<sub>p</sub>&quot; pr&eacute;c&egrave;de
+lexicographiquement &quot;b<sub>2</sub>b<sub>3 </sub>... b<sub>m</sub>&quot;<p>
+<p>
+<p>
+<b><i>Exemples</i></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>&quot;</b></tt><tt><b>ABC&quot; </b></tt>pr&eacute;c&egrave;de<tt><b>
+&quot;BCD&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">car<b>
+ <tt>'A'&lt;'B'</tt></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>&quot;ABC&quot;
+</b></tt>pr&eacute;c&egrave;de<tt><b> &quot;B&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">car<b>
+ <tt>'A'&lt;'B'</tt></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>&quot;Abc&quot;
+</b></tt>pr&eacute;c&egrave;de<tt><b> &quot;abc&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">car<b>
+ <tt>'A'&lt;'a'</tt></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>&quot;ab&quot;
+ </b></tt>pr&eacute;c&egrave;de<tt><b> &quot;abcd&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">car<b>
+ <tt>&quot;&quot; </tt></b>pr&eacute;c&egrave;de<tt><b> &quot;cd&quot;</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>&quot;
+ab&quot; </b></tt>pr&eacute;c&egrave;de<tt><b> &quot;ab&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">car<b>
+ <tt>' '&lt;'a' </tt></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">(le
+code ASCII de <tt><b>' '</b></tt> est 32, et le code ASCII de
+<tt><b>'a'</b></tt> est 97)
+<br></td></tr></table><p>
+<b><i>Remarque</i></b><p>
+Malheureusement, il existe diff&eacute;rents codes de caract&egrave;res (p.ex.
+ASCII, EBCDIC, ISO) et l'ordre lexicographique est d&eacute;pendant de la
+machine. M&ecirc;me la fonction <b>strcmp</b> qui indique la
+pr&eacute;c&eacute;dence lexicographique de deux cha&icirc;nes de
+caract&egrave;res (voir 8.6.2.) d&eacute;pend du code de caract&egrave;res
+utilis&eacute;.<p>
+<p>
+<b><i>Conversions et tests</i></b><p>
+En tenant compte de l'ordre alphab&eacute;tique des caract&egrave;res, on peut
+contr&ocirc;ler le type du caract&egrave;re (chiffre, majuscule, minuscule). <p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>if (C&gt;='0' &amp;&amp; C&lt;='9') printf(&quot;Chiffre\n&quot;, C);
+if (C&gt;='A' &amp;&amp; C&lt;='Z') printf(&quot;Majuscule\n&quot;, C);
+if (C&gt;='a' &amp;&amp; C&lt;='z') printf(&quot;Minuscule\n&quot;, C);</b></pre>
+<p>
+Il est facile, de convertir des lettres majuscules dans des minuscules:
+
+<pre><b>if (C&gt;='A' &amp;&amp; C&lt;='Z') C = C-'A'+'a';</b></pre>
+ou
+vice-versa:
+
+<pre><b>if (C&gt;='a' &amp;&amp; C&lt;='z') C = C-'a'+'A';</b></pre>
+<p>
+<b><i>Remarque</i></b><p>
+Le code EBCDIC est organis&eacute; en zones, de fa&ccedil;on que les
+caract&egrave;res des trois grands groupes ne sont pas cod&eacute;s
+cons&eacute;cutivement. (P.ex.: les codes des caract&egrave;res 'i' et 'j'
+diff&egrave;rent de 8 unit&eacute;s). Les m&eacute;thodes de conversion
+discut&eacute;es ci-dessus ne fonctionnent donc pas correctement dans le code
+EBCDIC et un programme portable doit &ecirc;tre &eacute;crit &agrave; l'aide
+des fonctions (<b>isalpha</b>, <b>islower</b>, <b>toupper</b>, ...) de la
+biblioth&egrave;que <i>&lt;ctype&gt;</i> qui sont ind&eacute;pendantes du code
+de caract&egrave;res (voir 8.6.4.).<p>
+<p><hr size="1" width="100%">
+<a href="prg-c77.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

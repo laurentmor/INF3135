@@ -1,0 +1,56 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 5.4</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex30.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex32.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 5.4</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* Tri par ordre d&eacute;croissant de trois entiers
+    en &eacute;changeant les valeurs 
+ */
+ int A, B, C, AIDE;
+ printf(&quot;Introduisez trois nombres entiers :&quot;);
+ scanf(&quot;%i %i %i&quot;, &amp;A, &amp;B, &amp;C);
+ printf(&quot;Avant le tri : \tA = %i\tB = %i\tC = %i\n&quot;, A, B, C);
+<b> /* Valeur maximale -&gt; A */</b>
+<b> if (A&lt;B) </b>
+<b>     {</b>
+<b>      AIDE = A;</b>
+<b>      A = B;</b>
+<b>      B = AIDE;</b>
+<b>     }</b>
+<b> if (A&lt;C)</b>
+<b>     {</b>
+<b>      AIDE = A;</b>
+<b>      A = C;</b>
+<b>      C = AIDE;</b>
+<b>     }</b>
+<b> /* trier B et C */</b>
+<b> if (B&lt;C)</b>
+<b>     {</b>
+<b>      AIDE = B;</b>
+<b>      B = C;</b>
+<b>      C = AIDE;</b>
+<b>     }</b>
+<b> printf(&quot;Apr&egrave;s le tri : \tA = %i\tB = %i\tC = %i\n&quot;, A, B, C);</b>
+  return 0;
+}</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex30.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex32.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

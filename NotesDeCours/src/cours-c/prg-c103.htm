@@ -1,0 +1,47 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.5.2. Allocation dynamique</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c102.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c104.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.5.2. Allocation dynamique</h3>
+ <p>
+ <p>
+<b><i>Probl&egrave;me</i></b><p>
+Souvent, nous devons travailler avec des donn&eacute;es dont nous ne pouvons
+pas pr&eacute;voir le nombre et la grandeur lors de la programmation. Ce serait
+alors un gaspillage de r&eacute;server toujours l'espace maximal
+pr&eacute;visible. Il nous faut donc un moyen de g&eacute;rer la m&eacute;moire
+lors de l'ex&eacute;cution du programme.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Nous voulons lire 10 phrases au clavier et m&eacute;moriser les phrases en
+utilisant un tableau de pointeurs sur <b>char</b>. Nous d&eacute;clarons ce
+tableau de pointeurs par:<p>
+ <p>
+<b><tt>   char *TEXTE[10];</tt></b><p>
+<b><tt></tt></b><p>
+Pour les 10 pointeurs, nous avons besoin de 10*p octets. Ce nombre est connu
+d&egrave;s le d&eacute;part et les octets sont r&eacute;serv&eacute;s
+automatiquement. Il nous est cependant impossible de pr&eacute;voir &agrave;
+l'avance le nombre d'octets &agrave; r&eacute;server pour les phrases
+elles-m&ecirc;mes qui seront introduites lors de l'ex&eacute;cution du
+programme ...<p>
+<p>
+<b><i>Allocation dynamique</i></b><p>
+La r&eacute;servation de la m&eacute;moire pour les 10 phrases peut donc
+seulement se faire <i>pendant l'ex&eacute;cution du programme</i>. Nous parlons
+dans ce cas de l'<b><i>allocation dynamique</i></b> de la m&eacute;moire.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c102.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c104.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

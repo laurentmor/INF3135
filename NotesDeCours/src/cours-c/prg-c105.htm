@@ -1,0 +1,90 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.5.4. La fonction free</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c104.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.5.4. La fonction free</h3>
+<ul>
+<li><a href="#Heading232"> Exercice 9.21</a>
+<li><a href="#Heading233">Exercice 9.22</a>
+<li><a href="#Heading234">Exercice 9.23</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+Si nous n'avons plus besoin d'un bloc de m&eacute;moire que nous avons
+r&eacute;serv&eacute; &agrave; l'aide de <b>malloc</b>, alors nous pouvons le
+lib&eacute;rer &agrave; l'aide de la fonction <b>free</b> de la
+biblioth&egrave;que <i>&lt;stdlib&gt;</i>.<p>
+
+
+<pre><b>free( &lt;Pointeur&gt; )
+lib&egrave;re le bloc de m&eacute;moire d&eacute;sign&eacute; par le &lt;Pointeur&gt;; n'a pas d'effet si le pointeur a la valeur z&eacute;ro.</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+*	La fonction <b>free</b> peut aboutir &agrave; un d&eacute;sastre si on essaie
+de lib&eacute;rer de la m&eacute;moire qui n'a pas &eacute;t&eacute;
+allou&eacute;e par <b>malloc</b>.<p>
+*	La fonction <b>free</b> ne change pas le contenu du pointeur; il est
+conseill&eacute; d'affecter la valeur z&eacute;ro au pointeur
+imm&eacute;diatement apr&egrave;s avoir lib&eacute;r&eacute; le bloc de
+m&eacute;moire qui y &eacute;tait attach&eacute;.<p>
+*	Si nous ne lib&eacute;rons pas explicitement la m&eacute;moire &agrave;
+l'aide <b>free</b>, alors elle est lib&eacute;r&eacute;e automatiquement
+&agrave; la fin du programme.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading232"> Exercice 9.21</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit 10 mots au clavier (longueur maximale: 50
+caract&egrave;res) et attribue leurs adresses &agrave; un tableau de pointeurs
+MOT. Effacer les 10 mots un &agrave; un, en suivant l'ordre lexicographique et
+en lib&eacute;rant leur espace en m&eacute;moire. Afficher &agrave; chaque fois
+les mots restants en attendant la confirmation de l'utilisateur (par
+'Enter').<p>
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading233">Exercice 9.22</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit 10 mots au clavier (longueur maximale: 50
+caract&egrave;res) et attribue leurs adresses &agrave; un tableau de pointeurs
+MOT. Copier les mots selon l'ordre lexicographique en une seule 'phrase' dont
+l'adresse est affect&eacute;e &agrave; un pointeur PHRASE. R&eacute;server
+l'espace n&eacute;cessaire &agrave; la PHRASE avant de copier les mots.
+Lib&eacute;rer la m&eacute;moire occup&eacute;e par chaque mot apr&egrave;s
+l'avoir copi&eacute;. Utiliser les fonctions de <i>&lt;string&gt;</i>.<p>
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading234">Exercice 9.23</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit 10 phrases au clavier (longueur maximale: 50
+caract&egrave;res) et attribue leurs adresses &agrave; un tableau de pointeurs
+MOT. R&eacute;server dynamiquement l'emplacement en m&eacute;moire pour les
+mots. Trier les phrases lexicographiquement en n'&eacute;changeant que les
+pointeurs. Utiliser la m&eacute;thode de tri par propagation (m&eacute;thode de
+la bulle - d&eacute;crite dans l'exercice 7.15).<p>
+ <p>
+ <p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c104.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

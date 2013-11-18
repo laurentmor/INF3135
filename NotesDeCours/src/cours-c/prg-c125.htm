@@ -1,0 +1,252 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  10.7. Discussion de deux probl&egrave;mes</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c124.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c126.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 10.7. Discussion de deux probl&egrave;mes</h2>
+<b>		</b><p>
+ <p>
+<p>
+<b><i>&quot;fonction&quot; ou &quot;proc&eacute;dure&quot; ?</i></b><p>
+<b>Probl&egrave;me 1:</b> Ecrire une fonction qui lit un nombre entier au
+clavier en affichant un petit texte d'invite.<p>
+<b>R&eacute;flexion:</b> Avant d'attaquer le probl&egrave;me, nous devons nous
+poser la question, de quelle fa&ccedil;on nous allons transf&eacute;rer la
+valeur lue dans la variable de la fonction appelante. Il se pr&eacute;sente
+alors deux possibilit&eacute;s:<p>
+<b>a)</b>	Nous pouvons fournir la valeur comme r&eacute;sultat de la fonction.
+<p>
+<b>b)</b>	Nous pouvons affecter la valeur &agrave; une adresse que nous
+obtenons comme param&egrave;tre. Dans ce cas, le r&eacute;sultat de la fonction
+est <b>void</b>. Cette fonction est en fait une &quot;proc&eacute;dure&quot; au sens du
+langage Pascal et du langage algorithmique.<p>
+<p>
+<b><i>R&eacute;sultat int ==&gt; &quot;fonction&quot;</i></b><p>
+Reprenons d'abord la fonction ENTREE que nous avons d&eacute;finie au chapitre
+10.3.:
+
+<pre><b>int ENTREE(void)
+{
+ int NOMBRE;
+ printf(&quot;Entrez un nombre entier : &quot;);
+ scanf(&quot;%d&quot;, &amp;NOMBRE);
+ return NOMBRE;
+}</b></pre>
+La
+fonction ENTREE fournit un r&eacute;sultat du type <b>int</b> qui est
+typiquement affect&eacute; &agrave; une variable,
+
+<pre><b>int A;
+A = ENTREE();
+</b></pre>
+ou
+int&eacute;gr&eacute; dans un calcul:
+
+<pre><b>   long SOMME;
+   int I;
+   for (I=0; I&lt;10; I++)
+      SOMME += ENTREE();
+</b></pre>
+<b><i>R&eacute;sultat
+void ==&gt; &quot;proc&eacute;dure&quot;</i></b><p>
+Nous pouvons obtenir le m&ecirc;me effet que ENTREE en d&eacute;finissant une
+fonction ENTRER du type <b>void</b>, qui affecte la valeur lue au clavier
+imm&eacute;diatement &agrave; une adresse fournie comme param&egrave;tre. Pour
+accepter cette adresse, le param&egrave;tre de la fonction doit &ecirc;tre
+d&eacute;clar&eacute; comme pointeur:
+
+<pre><b>void ENTRER(int *NOMBRE)
+{
+ printf(&quot;Entrez un nombre entier : &quot;);
+ scanf(&quot;%d&quot;, NOMBRE);
+}</b></pre>
+<p>
+Remarquez: Comme le param&egrave;tre NOMBRE est un pointeur, il n'a pas besoin
+d'&ecirc;tre pr&eacute;c&eacute;d&eacute; du symbole <b>&amp;</b> dans
+l'instruction <b>scanf</b>.<p>
+Lors de l'appel, nous devons transf&eacute;rer l'adresse de la variable cible
+comme param&egrave;tre:
+
+<pre><b>int A;
+ENTRER(&amp;A);</b></pre>
+<p>
+Jusqu'ici, la d&eacute;finition et l'emploi de la fonction ENTRER peuvent
+sembler plus simples que ceux de la fonction ENTREE. Si nous essayons
+d'int&eacute;grer les valeurs lues par ENTRER dans un calcul, nous allons quand
+m&ecirc;me constater que ce n'est pas toujours le cas:
+
+<pre><b>   long SOMME;
+   int I;
+   int A;
+   for (I=0; I&lt;10; I++)
+      {
+       ENTRER(&amp;A);
+       SOMME += A;
+      } </b></pre>
+<p>
+<b><i>Conclusions</i></b><p>
+Dans la plupart des cas, nous pouvons remplacer une fonction qui fournit un
+r&eacute;sultat par une fonction du type <b>void</b> qui modifie le contenu
+d'une variable de la fonction appelante. Dans le langage Pascal, nous dirions
+que nous pouvons remplacer une <b><i>fonction</i></b> par une
+<b><i>proc&eacute;dure</i></b>. En g&eacute;n&eacute;ral, la
+pr&eacute;f&eacute;rence pour l'une ou l'autre variante d&eacute;pend le
+l'utilisation de la fonction: <p>
+<p>
+<img src="conseil.gif" alt="Conseil" align="right" width="34" height="64"><p>
+	
+Si le r&eacute;sultat de la fonction est typiquement int&eacute;gr&eacute; dans
+un calcul ou une expression, alors nous employons une fonction qui fournit un
+r&eacute;sultat. En fait, personne ne remplacerait une fonction comme
+
+<pre><b>         double sin(double X)</b></pre>
+<p>
+		par une fonction
+
+<pre><b>         void sin(double *Y, double X)</b></pre>
+<p>
+*
+Si la charge principale d'une fonction est de modifier des donn&eacute;es ou
+l'&eacute;tat de l'environnement, sans que l'on ait besoin d'un
+r&eacute;sultat, alors il vaut mieux utiliser une fonction du type
+<b>void</b>.<p>
+*
+Si une fonction doit fournir plusieurs valeurs comme r&eacute;sultat, il
+s'impose d'utiliser une proc&eacute;dure du type <b>void</b>. Ce ne serait pas
+une bonne solution de fournir une valeur comme r&eacute;sultat et de
+transmettre les autres valeurs comme param&egrave;tres.<p>
+<p>
+<b><i>Exemple</i></b><p>
+La fonction MAXMIN fournit le maximum et le minimum des valeurs d'un tableau T
+de N d'entiers. Comme nous ne pouvons pas fournir les deux valeurs comme
+r&eacute;sultat, il vaut mieux utiliser deux param&egrave;tres pointeurs MAX et
+MIN qui obtiendront les adresses cibles pour les deux valeurs. Ainsi la
+fonction MAXMIN est d&eacute;finie avec quatre param&egrave;tres:
+
+<pre><b>void MAXMIN(int N, int *T, int *MAX, int *MIN);
+{
+ int I;
+ *MAX=*T;
+ *MIN=*T;
+ for (I=1; I&lt;N; I++)
+     {
+      if (*(T+I)&gt;*MAX) *MAX = *(T+I);
+      if (*(T+I)&lt;*MIN) *MIN = *(T+I);
+     }
+}</b></pre>
+<p>
+Lors d'un appel de MAXMIN, il ne faut pas oublier d'envoyer les <i>adresses</i>
+des param&egrave;tres pour MAX et MIN.<p>
+
+
+<pre><b>int TAB[8] = {2,5,-1,0,6,9,-4,6};
+int N = 8;
+int MAXVAL, MINVAL;
+MAXMIN(N, TAB, &amp;MAXVAL, &amp;MINVAL);</b></pre>
+<p>
+<b><i>Pointeur ou indice num&eacute;rique ?</i></b><p>
+<b>Probl&egrave;me 2:</b> Ecrire une fonction qui fournit la position du
+prochain signe d'espacement dans une cha&icirc;ne de caract&egrave;res ou la
+position de la fin de la cha&icirc;ne si elle ne contient pas de signe
+d'espacement. Utiliser la fonction <b>isspace</b> de la biblioth&egrave;que
+<i>&lt;ctype&gt;</i> pour la recherche.<p>
+<b>R&eacute;flexion:</b> Il y a plusieurs possibilit&eacute;s de
+r&eacute;soudre ce probl&egrave;me: Une &quot;indication&quot; d'une position dans une
+cha&icirc;ne de caract&egrave;res peut &ecirc;tre fournie par un
+<i>pointeur</i> ou par un <i>indice num&eacute;rique</i>. Dans la suite, nous
+allons d&eacute;velopper les deux variations.<p>
+<p>
+Dans les deux cas, nous avons besoin de l'adresse du tableau qui est
+pass&eacute;e comme param&egrave;tre <tt><b>char *CH</b></tt> &agrave; la
+fonction.<p>
+<p>
+<p>
+<b><i>R&eacute;sultat int</i></b><p>
+La fonction CHERCHE1 fournit l'indice de l'&eacute;l&eacute;ment
+recherch&eacute; comme r&eacute;sultat du type <b>int</b>. 
+
+<pre><b>int CHERCHE1(char *CH)
+{
+ int INDEX=0;
+ while (*CH &amp;&amp; !isspace(*CH))
+   {
+    CH++;
+    INDEX++;
+   }
+ return INDEX;
+}</b></pre>
+<p>
+Cette information peut &ecirc;tre affect&eacute;e &agrave; une variable:
+
+<pre><b>   int I;
+   char TXT[40];
+   ...
+   I = CHERCHE1(TXT);</b></pre>
+<p>
+ou &ecirc;tre int&eacute;gr&eacute;e dans une expression en profitant
+m&ecirc;me de l'arithm&eacute;tique des pointeurs:
+
+<pre><b>main()
+{
+ /* Prototype de la fonction appel&eacute;e */
+ int CHERCHE1(char *CH);
+ char TXT[40];
+ printf(&quot;Entrer une phrase : &quot;);
+ gets(TXT);
+ /* Affichage de la phrase sans le premier mot */
+ puts(TXT + CHERCHE1(TXT));
+ return 0;
+}</b></pre>
+<p>
+<b><i>R&eacute;sultat char*</i></b><p>
+La fonction CHERCHE2 fournit un pointeur sur l'&eacute;l&eacute;ment
+recherch&eacute;. Remarquez la d&eacute;claration du r&eacute;sutat de la
+fonction CHERCHE2 comme pointeur sur <b>char</b>: <p>
+
+
+<pre><b>char *CHERCHE2(char *CH)
+{
+ while (*CH &amp;&amp; !isspace(*CH))
+       CH++;
+ return CH;
+}   </b></pre>
+<p>
+Il se montre &agrave; nouveau que l'utilisation de pointeurs permet une
+solution tr&egrave;s compacte et &eacute;l&eacute;gante. Dans cette version,
+nous n'avons plus besoin de variables d'aide et nous pouvons renvoyer la valeur
+modifi&eacute;e du param&egrave;tre local CH comme r&eacute;sultat.
+L'utilisation de la fonction peut se pr&eacute;senter de fa&ccedil;on aussi
+&eacute;l&eacute;gante:
+
+<pre><b>main()
+{
+ /* Prototype de la fonction appel&eacute;e */
+ char *CHERCHE2(char *CH);
+ char TXT[40];
+ printf(&quot;Entrer une phrase : &quot;);
+ gets(TXT);
+ /* Affichage de la phrase sans le premier mot */
+ puts(CHERCHE2(TXT));
+ return 0;
+}</b></pre>
+<p>
+<b><i>Conclusion</i></b><p>
+Lors du travail avec des tableaux et surtout avec des cha&icirc;nes de
+caract&egrave;res, il est toujours avantageux d'utiliser des pointeurs et de
+profiter de l'arithm&eacute;tique des pointeurs. Les fonctions employant des
+pointeurs lors du traitement de tableaux permettent souvent des solutions
+tr&egrave;s naturelles, d'autant plus qu'elles disposent des adresses des
+tableaux dans des param&egrave;tres locaux.<p>
+<p><hr size="1" width="100%">
+<a href="prg-c124.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c126.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

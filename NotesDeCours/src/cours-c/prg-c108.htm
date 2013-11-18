@@ -1,0 +1,78 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.1.1. La modularit&eacute; et ses avantages</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c107.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c109.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c107.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.1.1. La modularit&eacute; et ses avantages</h3>
+ <p>
+ <p>
+La plupart des langages de programmation nous permettent de subdiviser nos
+programmes en sous-programmes, fonctions ou proc&eacute;dures plus simples et
+plus compacts. A l'aide de ces structures nous pouvons
+<b><i>modulariser</i></b> nos programmes pour obtenir des solutions plus
+&eacute;l&eacute;gantes et plus efficientes. <p>
+<p>
+<b><i>Modules</i></b><p>
+Dans ce contexte, un <b><i>module</i></b> d&eacute;signe une entit&eacute; de
+donn&eacute;es et d'instructions qui fournissent une solution &agrave; une
+(petite) partie bien d&eacute;finie d'un probl&egrave;me plus complexe. Un
+module peut faire appel &agrave; d'autres modules, leur transmettre des
+donn&eacute;es et recevoir des donn&eacute;es en retour. L'ensemble des modules
+ainsi reli&eacute;s doit alors &ecirc;tre capable de r&eacute;soudre le
+probl&egrave;me global. <p>
+<p>
+Dans ce manuel, les modules (en C: les fonctions) sont mis en &eacute;vidence
+par une bordure dans la marge gauche.<p>
+ <p>
+<b><i>Avantages</i></b><p>
+Voici quelques avantages d'un programme modulaire:<p>
+<p>
+*	<b><i>Meilleure lisibilit&eacute;</i></b><p>
+*	<b><i>Diminution du risque d'erreurs</i></b><p>
+*	<b><i>Possibilit&eacute; de tests s&eacute;lectifs</i></b><p>
+*	<b><i>Dissimulation des m&eacute;thodes </i></b><br>Lors de l'utilisation
+d'un module il faut seulement conna&icirc;tre son effet, sans devoir s'occuper
+des d&eacute;tails de sa r&eacute;alisation.<p>
+*	<b><i>R&eacute;utilisation de modules d&eacute;j&agrave;
+existants</i></b><br>Il est facile d'utiliser des modules qu'on a &eacute;crits
+soi-m&ecirc;me ou qui ont &eacute;t&eacute; d&eacute;velopp&eacute;s par
+d'autres personnes.<p>
+*	<b><i>Simplicit&eacute; de l'entretien</i></b><br>Un module peut &ecirc;tre
+chang&eacute; ou remplac&eacute; sans devoir toucher aux autres modules du
+programme.<p>
+*	<b><i>Favorisation du travail en &eacute;quipe</i></b> <br>Un programme peut
+&ecirc;tre d&eacute;velopp&eacute; en &eacute;quipe par
+d&eacute;l&eacute;gation de la programmation des modules &agrave;
+diff&eacute;rentes personnes ou groupes de personnes. Une fois
+d&eacute;velopp&eacute;s, les modules peuvent constituer une base de travail
+commune.<p>
+*	<b><i>Hi&eacute;rarchisation des modules</i></b><br>Un programme peut d'abord
+&ecirc;tre r&eacute;solu globalement au niveau du module principal. Les
+d&eacute;tails peuvent &ecirc;tre report&eacute;s &agrave; des modules
+sous-ordonn&eacute;s qui peuvent eux aussi &ecirc;tre subdivis&eacute;s en
+sous-modules et ainsi de suite. De cette fa&ccedil;on, nous obtenons une
+<i>hi&eacute;rarchie de modules</i>. <br>Les modules peuvent &ecirc;tre
+d&eacute;velopp&eacute;s en passant du haut vers le bas dans la
+hi&eacute;rarchie <i>('top-down-development' - m&eacute;thode du raffinement
+progressif)</i> ou bien en passant du bas vers le haut
+<i>('bottom-up-development').</i> <p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+	En principe, la m&eacute;thode du raffinement progressif est &agrave;
+pr&eacute;f&eacute;rer, mais en pratique, on aboutit souvent &agrave; une
+m&eacute;thode hybride, qui construit un programme en consid&eacute;rant aussi
+bien le probl&egrave;me pos&eacute; que les possibilit&eacute;s de l'ordinateur
+cibl&eacute; <i>('m&eacute;thode du jo-jo')</i>. <p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c107.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c109.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c107.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

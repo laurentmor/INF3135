@@ -1,0 +1,134 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 2.5</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex05.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex07.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex01.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 2.5</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt; 
+<i>/* Ce programme calcule la somme de 4 nombres entiers</i>
+<i>   introduits au clavier.</i>
+<i>*/</i>
+ main()
+{
+    int NOMBRE, SOMME, COMPTEUR;
+<i>    /* Initialisation des variables */</i>
+     SOMME = 0;
+    COMPTEUR = 0;
+<i>    /* Lecture des donn&eacute;es */</i>
+     while (COMPTEUR &lt; 4)
+        {
+<i>         /* Lire la valeur du nombre suivant */</i>
+          printf(&quot;Entrez un nombre entier :&quot;);
+         scanf(&quot;%i&quot;, &amp;NOMBRE);
+<i>         /* Ajouter le nombre au r&eacute;sultat */</i>
+          SOMME += NOMBRE;
+<i>         /* Incr&eacute;menter le compteur */</i>
+          COMPTEUR++;
+        }
+<i>    /* Impression du r&eacute;sultat */</i>
+     printf(&quot;La somme est: %i \n&quot;, SOMME);
+    return 0;
+}</pre>
+<p>
+<b>Solution:</b><p>
+ <p>
+	-	Commande au compilateur: <b>#include&lt;stdio.h&gt;</b> <p>
+			pour pouvoir utiliser les fonctions <b>printf</b> et <b>scanf</b>.<p>
+<p>
+	-	Fonction <b>main</b> <p>
+			n'a pas de param&egrave;tres (la liste des param&egrave;tres est vide) et<p>
+			fournit par d&eacute;faut un r&eacute;sultat du type <b>int</b> (&agrave;
+l'environnement).<p>
+<p>
+	-	Commentaires (mis en italique).<p>
+<p>
+	-	Variables utilis&eacute;es: <p>
+			NOMBRE, SOMME, COMPTEUR d&eacute;clar&eacute;es comme entiers (type
+<b>int</b>).<p>
+<p>
+	-	Fonctions utilis&eacute;es: <p>
+			<b>printf</b>, <b>scanf</b> de la biblioth&egrave;que
+<i>&lt;stdio&gt;</i>.<p>
+<p>
+	-	Op&eacute;rateurs:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
++=
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">op&eacute;rateur
+arithm&eacute;tique d'affectation
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">++
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">op&eacute;rateur
+arithm&eacute;tique
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">&lt;
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">op&eacute;rateur
+de comparaison
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">=
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">op&eacute;rateur
+d'affectation
+<br></td></tr></table><p>
+	-	Structure de contr&ocirc;le:<b> while(&lt;condition&gt;) { ... }</b><p>
+			r&eacute;p&egrave;te le bloc d'instructions aussi longtemps que la
+&lt;condition&gt;<br>			est remplie.<p>
+<p>
+	-	L'instruction <b>return 0;</b><p>
+			retourne la valeur z&eacute;ro comme code d'erreur &agrave; l'environnement
+apr&egrave;s<br>			l'ex&eacute;cution du programme<p>
+<p>
+<b>Ajoutes :</b><p>
+ <p>
+	-	la fonction <b>scanf </b>est appel&eacute;e avec deux param&egrave;tres: <p>
+<p>
+		<a href="solex01.htm"></a><a href="solex01.htm"></a>
+le format de saisie de la donn&eacute;e (ici: &quot;%i&quot; pour lire un entier du type
+<b>int</b>)<p>
+<p>
+		<a href="solex01.htm"></a><a href="solex01.htm"></a>
+l'adresse de la variable destination (ici: l'adresse de NOMBRE).<p>
+<p>
+	-	la fonction <b>printf </b>est appel&eacute;e avec un respectivement avec
+deux param&egrave;tres: <p>
+<p>
+		<a href="solex01.htm"></a><a href="solex01.htm"></a>
+le premier param&egrave;tre est une cha&icirc;ne de caract&egrave;res, qui peut
+contenir une information pour le format d'affichage des variables
+indiqu&eacute;es dans la suite (ici: &quot;%i&quot; pour afficher la valeur du type
+<b>int</b> contenue dans SOMME).<p>
+<p>
+		<a href="solex01.htm"></a><a href="solex01.htm"></a>
+les param&egrave;tres qui suivent la cha&icirc;ne de caract&egrave;res
+indiquent les noms des variables &agrave; afficher. (ici: SOMME)<p>
+<p>
+<a href="solex01.htm"></a><a href="solex01.htm"></a><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex05.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex07.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex01.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

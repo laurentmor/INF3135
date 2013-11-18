@@ -1,0 +1,116 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - Ex 11.11</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex193.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex195.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex183.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Ex 11.11</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+  /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char ANCIEN[30], NOUVEAU[30]; 
+  FILE *INFILE, *OUTFILE;
+  /* Autres variables */
+  char C; /* caract&egrave;re lu dans le fichier */
+  char N_RET; /* Compteur des retours &agrave; la ligne cons&eacute;cutifs */
+ 
+  /* Ouverture de l'ancien fichier en lecture */
+<b>  do</b>
+<b>    {</b>
+<b>     printf(&quot;Nom du fichier source : &quot;);</b>
+<b>     scanf(&quot;%s&quot;, ANCIEN);</b>
+<b>     INFILE = fopen(ANCIEN, &quot;r&quot;); </b>
+<b>     if (!INFILE) </b>
+<b>         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;</b>
+<b>                &quot;le fichier: %s.\n&quot;, ANCIEN);</b>
+<b>    }</b>
+<b>  while (!INFILE);</b>
+   /* Ouverture du nouveau fichier en &eacute;criture */
+<b>  do</b>
+<b>    {</b>
+<b>     printf(&quot;Nom du nouveau fichier : &quot;);</b>
+<b>     scanf(&quot;%s&quot;, NOUVEAU);</b>
+<b>     OUTFILE = fopen(NOUVEAU, &quot;w&quot;); </b>
+<b>     if (!OUTFILE) </b>
+<b>         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;</b>
+<b>                &quot;le fichier: %s.\n&quot;, NOUVEAU);</b>
+<b>    }</b>
+<b>  while (!OUTFILE);</b>
+ 
+
+  /* Copier tous les caract&egrave;res et remplacer le */
+  /* premier retour &agrave; la ligne d'une suite par  */
+  /* un espace. */ 
+<b>  N_RET=0;</b>
+<b>  while (!feof(INFILE))</b>
+<b>    {</b>
+<b>     C=fgetc(INFILE);</b>
+<b>     if (!feof(INFILE))</b>
+<b>        {</b>
+<b>         if (C == '\n')</b>
+<b>            {</b>
+<b>             N_RET++;</b>
+<b>             if (N_RET &gt; 1)</b>
+<b>                fputc('\n', OUTFILE);</b>
+<b>             else</b>
+<b>                fputc(' ', OUTFILE);</b>
+<b>            }</b>
+<b>         else</b>
+<b>            {</b>
+<b>             N_RET=0; </b>
+<b>             fputc(C, OUTFILE);</b>
+<b>            }</b>
+<b>        }</b>
+<b>    }</b>
+   /* Fermeture des fichiers */
+<b>  fclose(OUTFILE);</b>
+<b>  fclose(INFILE);</b>
+   return 0;
+} </pre>
+<tt></tt><p>
+<tt></tt><b>Remarque :</b><p>
+ Apr&egrave;s la lecture par <b>fgetc</b>, il faut s'assurer encore une
+fois que le caract&egrave;re lu est diff&eacute;rent de <b>EOF</b>. Nous
+obtenons ainsi une construction un peu lourde:<p>
+<tt></tt>
+
+<pre>   while (!feof(INFILE))
+     {
+      C=fgetc(INFILE);
+      if (!feof(INFILE))
+         {
+          . . .
+         }
+     }</pre>
+<tt></tt><p>
+<tt></tt>Il est possible de r&eacute;unir plusieurs instructions dans le bloc
+conditionnel de la structure <b>while</b>, en les s&eacute;parant par des
+virgules. En pratique, on retrouve cette solution souvent pour &eacute;viter
+des constructions inutilement lourdes:<p>
+<tt></tt>
+
+<pre>   while (C=fgetc(INFILE), !feof(INFILE))
+     {
+          . . .
+     }</pre>
+<tt></tt><p>
+<tt></tt><p>
+<p><hr size="1" width="100%">
+<a href="solex193.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex195.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex183.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

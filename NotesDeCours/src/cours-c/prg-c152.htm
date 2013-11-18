@@ -1,0 +1,356 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  11.8. Exercices d'application</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c151.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c153.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 11.8. Exercices d'application</h2>
+<ul>
+<li><a href="#Heading325">Exercice 11.1</a>
+<li><a href="#Heading326">Exercice 11.2</a>
+<li><a href="#Heading327">Exercice 11.3</a>
+<li><a href="#Heading328">Exercice 11.4</a>
+<li><a href="#Heading329">Exercice 11.5</a>
+<li><a href="#Heading330">Exercice 11.6</a>
+<li><a href="#Heading331">Exercice 11.7</a>
+<li><a href="#Heading332">Exercice 11.8</a>
+<li><a href="#Heading333">Exercice 11.9</a>
+<li><a href="#Heading334">Exercice 11.10</a>
+<li><a href="#Heading335">Exercice 11.11</a>
+<li><a href="#Heading336">Exercice 11.12</a>
+<li><a href="#Heading337">Exercice 11.13</a>
+<li><a href="#Heading338">Exercice 11.14</a>
+<li><a href="#Heading339">Exercice 11.15</a>
+<li><a href="#Heading340">Exercice 11.16</a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ 
+<h4><hr size="2">
+<a name="Heading325">Exercice 11.1</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Cr&eacute;er sur disquette puis afficher &agrave; l'&eacute;cran le fichier
+INFORM.TXT dont les informations sont structur&eacute;es de la mani&egrave;re
+suivante:<p>
+ <p>
+		Num&eacute;ro de matricule (entier)<p>
+		Nom (cha&icirc;ne de caract&egrave;res)<p>
+		Pr&eacute;nom (cha&icirc;ne de caract&egrave;res)<p>
+ <p>
+Le nombre d'enregistrements &agrave; cr&eacute;er est &agrave; entrer au
+clavier par l'utilisateur.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading326">Exercice 11.2</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui cr&eacute;e sur disquette un fichier INFBIS.TXT qui est
+la copie exacte (enregistrement par enregistrement) du fichier INFORM.TXT.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading327">Exercice 11.3</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ajouter un nouvel enregistrement (entr&eacute; au clavier) &agrave; la fin de
+INFORM.TXT et sauver le nouveau fichier sous le nom INFBIS.TXT.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading328">Exercice 11.4</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ins&eacute;rer un nouvel enregistrement dans INFORM.TXT en supposant que le
+fichier est tri&eacute; relativement &agrave; la rubrique NOM et sauver le
+nouveau fichier sous le nom INFBIS.TXT.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading329">Exercice 11.5</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Supprimer dans INFORM.TXT tous les enregistrements:<p>
+ <p>
+<b> a)</b>	dont le num&eacute;ro de matricule se termine par 8<p>
+<b> b)</b>	dont le pr&eacute;nom est &quot;Paul&quot; (utiliser <b>strcmp</b>)<p>
+<b> c)</b>	dont le nom est un palindrome. D&eacute;finir une fonction d'aide
+PALI qui fournit le r&eacute;sultat 1 si la cha&icirc;ne transmise comme
+param&egrave;tre est un palindrome, sinon la valeur z&eacute;ro.<p>
+ <p>
+Sauver le nouveau fichier &agrave; chaque fois sous le nom INFBIS.TXT.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading330">Exercice 11.6</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Cr&eacute;er sur disquette puis afficher &agrave; l'&eacute;cran le fichier
+FAMILLE.TXT dont les informations sont structur&eacute;es de la mani&egrave;re
+suivante:<p>
+ <p>
+		Nom de famille<p>
+		Pr&eacute;nom du p&egrave;re<p>
+		Pr&eacute;nom de la m&egrave;re<p>
+		Nombre d'enfants<p>
+		Pr&eacute;noms des enfants<p>
+ <p>
+Le nombre d'enregistrements &agrave; cr&eacute;er est entr&eacute; au
+clavier.<p>
+ <p>
+<b>Attention:</b> Le nombre de rubriques des enregistrements varie avec le
+nombre d'enfants !<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading331">Exercice 11.7</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui cr&eacute;e sur disquette le fichier MOTS.TXT contenant
+une s&eacute;rie de 50 mots au maximum (longueur maximale d'un mot: 50
+caract&egrave;res). La saisie des mots se terminera &agrave; l'introduction du
+symbole <tt><b>'*'</b></tt> qui ne sera pas &eacute;crit dans le fichier.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading332">Exercice 11.8</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui affiche le nombre de mots, le nombre de palindromes
+ainsi que la longueur moyenne des mots contenus dans le fichier MOTS.TXT.
+Utiliser les deux fonctions d'aide PALI et LONG_CH d&eacute;finies au chapitre
+10.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading333">Exercice 11.9</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui charge les mots du fichier MOTS.TXT dans la
+m&eacute;moire centrale, les trie d'apr&egrave;s la m&eacute;thode par
+propagation (m&eacute;thode de la bulle - voir exercice 7.15) et les
+&eacute;crit dans un deuxi&egrave;me fichier MOTS_TRI.TXT sur la disquette. Les
+mots seront m&eacute;moris&eacute;s &agrave; l'aide d'un tableau de pointeurs
+sur <b>char</b> et la m&eacute;moire n&eacute;cessaire sera
+r&eacute;serv&eacute;e de fa&ccedil;on dynamique.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading334">Exercice 11.10</a>
+<hr size="1"></h4>
+<p>
+ <p>
+A l'aide d'un &eacute;diteur de textes, cr&eacute;er un fichier NOMBRES.TXT qui
+contient une liste de nombres entiers. Dans le fichier, chaque nombre doit
+&ecirc;tre suivi par un retour &agrave; la ligne. Ecrire un programme qui
+affiche les nombres du fichier, leur somme et leur moyenne.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading335">Exercice 11.11</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui remplace, dans un fichier contenant un texte, les
+retours &agrave; la ligne par des espaces. Si plusieurs retours &agrave; la
+ligne se suivent, seulement le premier sera remplac&eacute;. Les noms des
+fichiers source et destination sont entr&eacute;s au clavier.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading336">Exercice 11.12</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui d&eacute;termine dans un fichier un texte dont le nom
+est entr&eacute; au clavier, le nombre de phrases termin&eacute;es par un
+point, un point d'interrogation ou un point d'exclamation.<p>
+<p>
+Utiliser une fonction d'aide FIN_PHRASE qui d&eacute;cide si un
+caract&egrave;re transmis comme param&egrave;tre est un des s&eacute;parateurs
+mentionn&eacute;s ci-dessus. FIN_PHRASE retourne la valeur (logique) 1 si le
+caract&egrave;re est &eacute;gal &agrave; <tt><b>'.'</b></tt>,
+<tt><b>'!'</b></tt> ou <tt><b>'?'</b></tt> et 0 dans le cas contraire.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading337">Exercice 11.13</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui d&eacute;termine dans un fichier un texte dont le nom
+est entr&eacute; au clavier:<p>
+<p>
+		-	le nombre de caract&egrave;res qu'il contient,<p>
+		-	le nombre de chacune des lettres de l'alphabet <p>
+			(sans distinguer les majuscules et les minuscules),<p>
+		-	le nombre de mots,<p>
+		-	le nombre de paragraphes (c.-&agrave;-d.: des retours &agrave; la ligne),<p>
+ <p>
+Les retours &agrave; la ligne ne devront pas &ecirc;tre comptabilis&eacute;s
+dans les caract&egrave;res. On admettra que deux mots sont toujours
+s&eacute;par&eacute;s par un ou plusieurs des caract&egrave;res suivants:<p>
+ <p>
+		-	fin de ligne<p>
+		-	espace<p>
+		-	ponctuation: <tt><b>. : , ; ? !</b></tt><p>
+		-	parenth&egrave;ses: <tt><b>( )</b></tt><p>
+		-	guillemets: <tt><b>&quot;</b></tt><p>
+		-	apostrophe: <tt><b>'</b></tt><p>
+ <p>
+Utiliser une fonction d'aide SEPA qui d&eacute;cide si un caract&egrave;re
+transmis comme param&egrave;tre est l'un des s&eacute;parateurs
+mentionn&eacute;s ci-dessus. SEPA restituera la valeur (logique) 1 si le
+caract&egrave;re est un s&eacute;parateur et 0 dans le cas contraire. SEPA
+utilise un tableau qui contient les s&eacute;parateurs &agrave;
+d&eacute;tecter.<p>
+ <p>
+<b>Exemple:</b>
+
+<pre><b>      Nom du fichier texte : A:LITTERA.TXT
+      Votre fichier contient:
+         12 paragraphes
+         571 mots
+         4186 caract&egrave;res
+      dont
+         279 fois la lettre a
+         56 fois la lettre b
+         . . . 
+         3 fois la lettre z
+      et 470 autres caract&egrave;res</b></pre>
+
+<p>
+
+<h4><hr size="2">
+<a name="Heading338">Exercice 11.14</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui affiche le contenu d'un fichier texte sur un
+&eacute;cran de 25 lignes et 80 colonnes en attendant la confirmation de
+l'utilisateur (par 'Enter') apr&egrave;s chaque page d'&eacute;cran. Utiliser
+la fonction <b>getchar</b>.<p>
+ <p>
+
+<h4><hr size="2">
+<a name="Heading339">Exercice 11.15</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Ecrire un programme qui v&eacute;rifie la validit&eacute; d'une s&eacute;rie de
+num&eacute;ros de CCP m&eacute;moris&eacute;s dans un fichier. Un num&eacute;ro
+de CCP est compos&eacute; de trois parties: un num&eacute;ro de compte, un
+s&eacute;parateur '-' et un num&eacute;ro de contr&ocirc;le. Un num&eacute;ro
+de CCP est correct:<p>
+ <p>
+	-	si le reste de la division enti&egrave;re de la valeur devant le
+s&eacute;parateur '-' par 97 est diff&eacute;rent de z&eacute;ro et &eacute;gal
+&agrave; la valeur de contr&ocirc;le. <p>
+ <p>
+	-	si le reste de la division par 97 est z&eacute;ro et la valeur de
+contr&ocirc;le est 97.<p>
+ <p>
+<b>Exemple: </b><p>
+  
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+Nombre de CCP 15742-28 :
+<br></td>
+<td colspan="1" align="left">15742
+modulo 97 = 28
+<br></td>
+<td colspan="1" align="left">
+correct
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">Nombre
+de CCP 72270-5 :
+<br></td>
+<td colspan="1" align="left">72270
+modulo 97 = 5
+<br></td>
+<td colspan="1" align="left">
+correct
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">Nombre
+de CCP 22610-10 :
+<br></td>
+<td colspan="1" align="left">22610
+modulo 97 = 9
+<br></td>
+<td colspan="1" align="left">
+incorrect
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">Nombre
+de CCP 50537-0 : 
+<br></td>
+<td colspan="1" align="left">50537
+modulo 97 = 0 
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">
+ nombre incorrect, car la valeur de contr&ocirc;le devrait &ecirc;tre 97.
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">
+Nombre de CCP 50537-97 : 
+<br></td>
+<td colspan="1" align="left">50537
+modulo 97 = 0 
+<br></td>
+<td colspan="1" align="left">
+correct
+<br></td></tr></table>
+<p>
+Utiliser une fonction CCP_TEST qui obtient comme param&egrave;tres les deux
+parties num&eacute;riques d'un nombre de CCP et qui affiche alors un message
+indiquant si le num&eacute;ro de CCP est valide ou non.<p>
+ <p>
+Pour tester le programme, cr&eacute;er &agrave; l'aide d'un &eacute;diteur de
+texte un fichier CCP.TXT qui contient les num&eacute;ros ci-dessus, suivis par
+des retours &agrave; la ligne. <p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading340">Exercice 11.16</a>
+<hr size="1"></h4>
+<p>
+ <p>
+Deux fichiers FA et FB dont les noms sont &agrave; entrer au clavier
+contiennent des nombres entiers tri&eacute;s dans l'ordre croissant. Ecrire un
+programme qui copie le contenu de FA et FB respectivement dans les tableaux
+TABA et TABB dans la m&eacute;moire centrale. Les tableaux TABA et TABB sont
+fusionn&eacute;s dans un troisi&egrave;me tableau tri&eacute; en ordre
+croissant TABC. Apr&egrave;s la fusion, la tableau TABC est sauv&eacute; dans
+un fichier FC dont le nom est &agrave; entrer au clavier.<p>
+ <p>
+La m&eacute;moire pour TABA, TABB et TFUS dont les nombres
+d'&eacute;l&eacute;ments sont inconnus, est r&eacute;serv&eacute;e
+dynamiquement apr&egrave;s que les longueurs des fichiers FA et FB ont
+&eacute;t&eacute; d&eacute;tect&eacute;es.<p>
+ <p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c151.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c153.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

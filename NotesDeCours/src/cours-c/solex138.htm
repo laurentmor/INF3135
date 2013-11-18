@@ -1,0 +1,52 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.10</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex137.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex139.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.10</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ int NCHIFFRES(long N);
+ /* Variables locales */
+ long A;
+ /* Traitements */
+ printf(&quot;Introduire un nombre entier : &quot;);
+ scanf(&quot;%ld&quot;, &amp;A);
+ printf(&quot;Le nombre %ld a %d chiffres.\n&quot;,A ,<b>NCHIFFRES(A)</b>);
+ return 0;
+}
+
+
+<b>int NCHIFFRES(long N)</b>
+<b>{</b>
+  /* Comme N est transmis par valeur, N peut &ecirc;tre */
+ /* modifi&eacute; &agrave; l'int&eacute;rieur de la fonction. */
+ int I;
+ /* Conversion du signe si N est n&eacute;gatif */
+<b> if (N&lt;0) </b>
+<b>      N *= -1;</b>
+  /* Compter les chiffres */
+<b> for (I=1; N&gt;10; I++)</b>
+<b>      N /= 10;</b>
+<b> return I;</b>
+<b>}</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex137.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex139.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

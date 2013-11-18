@@ -1,0 +1,339 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (WinNT; I) [Netscape]">
+   <TITLE>Programmation en C -  3.5. Les priorit&eacute;s des op&eacute;rateurs</TITLE>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<A HREF="prg-c35.htm"><IMG SRC="leftg.gif" ALT="Previous" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c37.htm"><IMG SRC="rightg.gif" ALT="Next" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c24.htm"><IMG SRC="upg.gif" ALT="Up" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c.htm"><IMG SRC="topg.gif" ALT="Index" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c_c.htm"><IMG SRC="contg.gif" ALT="Contents" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;
+<hr size="1" width="100%">
+<H2>
+3.5. Les priorit&eacute;s des op&eacute;rateurs</H2>
+
+<UL>
+<LI>
+<A HREF="#Heading60">Exercice 3.5</A></LI>
+
+<LI>
+<A HREF="#Heading61">Exercice 3.6</A></LI>
+</UL>
+
+<hr size="1" width="100%">
+
+<P>L'ordre de l'&eacute;valuation des diff&eacute;rentes parties d'une
+expression correspond en principe &agrave; celle que nous connaissons des
+math&eacute;matiques.
+
+<P><B><I>Exemple</I></B>
+
+<P>&nbsp;Supposons pour l'instruction suivante: A=5, B=10, C=1
+
+<P>&nbsp;
+<PRE><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X = 2*A+3*B+4*C;</B></PRE>
+L'ordinateur &eacute;value d'abord les multiplications:
+<PRE><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2*A ==> 10 , 3*B ==> 30 , 4*C ==> 4</B></PRE>
+Ensuite, il fait l'addition des trois r&eacute;sultats obtenus:
+<PRE><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10+30+4 ==> 44</B></PRE>
+A la fin, il affecte le r&eacute;sultat g&eacute;n&eacute;ral &agrave;
+la variable:
+<PRE><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X = 44</B></PRE>
+<B><I>Priorit&eacute; d'un op&eacute;rateur</I></B>
+
+<P>&nbsp;On dit alors que la multiplication <B><I>a la priorit&eacute;</I></B>
+sur l'addition et que la multiplication et l'addition ont la priorit&eacute;
+sur l'affectation.
+
+<P>&nbsp;
+
+<P>Si nous voulons forcer l'ordinateur &agrave; commencer par un op&eacute;rateur
+avec une priorit&eacute; plus faible, nous devons (comme en math&eacute;matiques)
+entourer le terme en question par des <I>parenth&egrave;ses.</I>
+
+<P>&nbsp;
+
+<P><B><I>Exemple</I></B>
+
+<P>&nbsp;Dans l'instruction:
+<PRE><B>X = 2*(A+3)*B+4*C;</B></PRE>
+l'ordinateur &eacute;value d'abord l'expression entre parenth&egrave;ses,
+ensuite les multiplications, ensuite l'addition et enfin l'affectation.
+(En reprenant les valeurs de l'exemple ci-dessus, le r&eacute;sultat sera
+164)
+
+<P>Entre les op&eacute;rateurs que nous connaissons jusqu'ici, nous pouvons
+distinguer les classes de priorit&eacute;s suivantes:
+
+<P>&nbsp;
+
+<P><B><I>Classes de priorit&eacute;s</I></B>
+<TABLE BORDER >
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 1 (la plus forte):&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>()</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 2:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>! ++ --</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 3:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>* / %</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 4:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>+ -</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 5:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>&lt; &lt;= > >=</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 6:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>== !=</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 7:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>&amp;&amp;</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 8:&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>||</TT></B>&nbsp;</TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT>Priorit&eacute; 9 (la plus faible):&nbsp;</TD>
+
+<TD ALIGN=LEFT><B><TT>= += -= *= /= %=</TT></B>&nbsp;</TD>
+</TR>
+</TABLE>
+<B><I>Evaluation d'op&eacute;rateurs de la m&ecirc;me classe</I></B>
+
+<P>&nbsp;--> Dans chaque classe de priorit&eacute;, les op&eacute;rateurs
+ont la m&ecirc;me priorit&eacute;. Si nous avons une suite d'op&eacute;rateurs
+binaires de la m&ecirc;me classe, l'&eacute;valuation se fait en passant
+<I>de la gauche vers la droite</I> dans l'expression.
+
+<P>&lt;-- Pour les op&eacute;rateurs unaires (<B><TT>!,++,--</TT></B>)
+et pour les op&eacute;rateurs d'affectation (<B><TT>=,+=,-=,*=,/=,%=</TT></B>),
+l'&eacute;valuation se fait <I>de droite &agrave; gauche</I> dans l'expression.
+
+<P><B><I>Exemples</I></B>
+
+<P>&nbsp;L'expression <TT>10+20+30-40+50-60</TT> sera &eacute;valu&eacute;e
+comme suit:
+
+<P>&nbsp;
+<TABLE>
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT><B><TT>10+20</TT></B>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>==></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>30</TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT><TT>30<B>+30</B></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>==></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>60</TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT><TT>60<B>-40</B></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>==></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>20</TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT><TT>20<B>+50</B></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>==></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>70</TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+</TR>
+
+<TR ALIGN=LEFT rowspan="1">
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT></TD>
+
+<TD ALIGN=LEFT><TT>70<B>-60</B></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>==></TT>&nbsp;</TD>
+
+<TD ALIGN=LEFT><TT>10</TT>&nbsp;</TD>
+</TR>
+</TABLE>
+Pour A=3 et B=4, l'expression <B><TT>A *= B += 5</TT></B> sera &eacute;valu&eacute;e
+comme suit:
+
+<P>&nbsp;<IMG SRC="prg-c04.gif" HEIGHT=122 WIDTH=113>
+
+<P>&nbsp;
+
+<P>Pour A=1 et B=4, l'expression <B><TT>!--A==++!B</TT></B> sera &eacute;valu&eacute;e
+comme suit:
+
+<P>&nbsp;<IMG SRC="prg-c05.gif" HEIGHT=175 WIDTH=109>
+
+<P>&nbsp;
+<CENTER></CENTER>
+
+<CENTER><B><I>Les parenth&egrave;ses</I></B></CENTER>
+
+<CENTER></CENTER>
+
+<CENTER>&nbsp;</CENTER>
+Les parenth&egrave;ses sont seulement n&eacute;cessaires si nous devons
+forcer la priorit&eacute;, mais elles sont aussi permises si elles ne changent
+rien &agrave; la priorit&eacute;. En cas de parenth&egrave;ses imbriqu&eacute;es,
+l'&eacute;valuation se fait de l'int&eacute;rieur vers l'ext&eacute;rieur.
+
+<P><B><I>Exemple</I></B>
+
+<P>&nbsp;En supposant &agrave; nouveau que A=5, B=10, C=1 l'expression
+suivante s'&eacute;valuera &agrave; 134:
+<PRE><B>X = ((2*A+3)*B+4)*C</B></PRE>
+<IMG SRC="attentio.gif" ALT="Attention!" HEIGHT=65 WIDTH=43 ALIGN=RIGHT>
+
+<P>&nbsp;Observez la priorit&eacute; des op&eacute;rateurs d'affectation
+:
+<PRE><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X *= Y + 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;=>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X = X * (Y + 1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X *= Y + 1&nbsp;&nbsp;&nbsp; n'&eacute;quivaut PAS &agrave;&nbsp;&nbsp;&nbsp;&nbsp; X = X * Y + 1</B></PRE>
+
+<H4>
+
+<HR size="2"><A NAME="Heading60"></A>Exercice 3.5&nbsp;
+<HR size="1"></H4>
+Evaluer les expressions suivantes en supposant
+<PRE><B>&nbsp;&nbsp; a=20&nbsp;&nbsp; b=5&nbsp;&nbsp; c=-10&nbsp;&nbsp; d=2&nbsp;&nbsp; x=12&nbsp;&nbsp; y=15</B></PRE>
+Notez chaque fois la valeur rendue comme r&eacute;sultat de l'expression
+et les valeurs des variables dont le contenu a chang&eacute;.
+<PRE><B>&nbsp;&nbsp; (1)&nbsp;&nbsp; (5*X)+2*((3*B)+4)
+&nbsp;&nbsp; (2)&nbsp;&nbsp; (5*(X+2)*3)*(B+4)
+&nbsp;&nbsp; (3)&nbsp;&nbsp; A == (B=5)
+&nbsp;&nbsp; (4)&nbsp;&nbsp; A += (X+5)
+&nbsp;&nbsp; (5)&nbsp;&nbsp; A != (C *= (-D))
+&nbsp;&nbsp; (6)&nbsp;&nbsp; A *= C+(X-D)
+&nbsp;&nbsp; (7)&nbsp;&nbsp; A %= D++
+&nbsp;&nbsp; (8)&nbsp;&nbsp; A %= ++D
+&nbsp;&nbsp; (9)&nbsp;&nbsp; (X++)*(A+C)
+&nbsp;&nbsp; (10)&nbsp;&nbsp; A = X*(B&lt;C)+Y*!(B&lt;C)
+&nbsp;&nbsp; (11)&nbsp;&nbsp; !(X-D+C)||D
+&nbsp;&nbsp; (12)&nbsp;&nbsp; A&amp;&amp;B||!0&amp;&amp;C&amp;&amp;!D
+&nbsp;&nbsp; (13)&nbsp;&nbsp; ((A&amp;&amp;B)||(!0&amp;&amp;C))&amp;&amp;!D
+&nbsp;&nbsp; (14)&nbsp;&nbsp; ((A&amp;&amp;B)||!0)&amp;&amp;(C&amp;&amp;(!D))</B></PRE>
+
+<H4>
+
+<HR size="2"><A NAME="Heading61"></A>Exercice 3.6&nbsp;
+<HR size="1"></H4>
+Eliminer les parenth&egrave;ses superflues dans les expressions de l'exercice
+3.5.
+
+<P>&nbsp;
+
+<P>
+<hr size="1" width="100%"><A HREF="prg-c35.htm"><IMG SRC="leftg.gif" ALT="Previous" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c37.htm"><IMG SRC="rightg.gif" ALT="Next" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c24.htm"><IMG SRC="upg.gif" ALT="Up" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c.htm"><IMG SRC="topg.gif" ALT="Index" BORDER=0 HEIGHT=30 WIDTH=30></A>&nbsp;<A HREF="prg-c_c.htm"><IMG SRC="contg.gif" ALT="Contents" BORDER=0 HEIGHT=30 WIDTH=30></A>
+
+<P>
+<hr size="1" width="100%"><small><A HREF="prg-c04.htm">Feedback - Copyright
+&copy;</A> 1993,1996,1997 <A HREF="prg-c02.htm">F.Faber</a></small>
+</BODY>
+</HTML>

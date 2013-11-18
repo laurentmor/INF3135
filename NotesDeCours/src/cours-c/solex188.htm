@@ -1,0 +1,64 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.12</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex187.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex189.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.12</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+<b>  /* Prototype de la fonction FIN_PHRASE */</b>
+<b>  int FIN_PHRASE(char C);</b>
+   /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char NOM_FICH[30]; 
+  FILE *FICHIER;
+  /* Autres variables */
+  char C; /* caract&egrave;re lu dans le fichier */
+  char NP; /* Compteur de phrases */
+ 
+  /* Ouverture de l'ancien fichier en lecture */
+  do
+    {
+     printf(&quot;Nom du fichier texte : &quot;);
+     scanf(&quot;%s&quot;, NOM_FICH);
+<b>     FICHIER = fopen(NOM_FICH, &quot;r&quot;); </b>
+      if (!FICHIER) 
+         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+                &quot;le fichier: %s.\n&quot;, NOM_FICH);
+    }
+  while (!FICHIER);
+<b>  /* Compter les symboles de fin de phrase */</b>
+<b>  NP=0;</b>
+<b>  while (!feof(FICHIER))</b>
+<b>        NP += FIN_PHRASE(fgetc(FICHIER));</b>
+   /* Fermeture du fichier */
+<b>  fclose(FICHIER);</b>
+   /* Affichage du r&eacute;sultat */
+  printf(&quot;Le fichier %s contient %d phrases.\n&quot;,
+                                                 NOM_FICH, NP);
+  return 0;
+} 
+
+<b>int FIN_PHRASE(char C)</b>
+<b>{</b>
+<b> return (C=='.' || C=='!' || C=='?');</b>
+<b>}</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex187.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex189.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

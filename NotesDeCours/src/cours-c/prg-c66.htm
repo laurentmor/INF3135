@@ -1,0 +1,112 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.2.1. D&eacute;claration et m&eacute;morisation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c65.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c67.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.2.1. D&eacute;claration et m&eacute;morisation</h3>
+ <p>
+ <p>
+<b><i>D&eacute;clarations</i></b><p>
+<b><i>D&eacute;claration de tableaux &agrave; deux dimensions en lang.
+algorithmique</i></b>
+
+<pre><u>&lt;TypeSimple&gt; tableau</u> &lt;NomTabl&gt;[&lt;DimLigne&gt;,&lt;DimCol&gt;]
+</pre>
+<p>
+<b><i>D&eacute;claration de tableaux &agrave; deux dimensions en C</i></b>
+
+<pre><b>&lt;TypeSimple&gt; &lt;NomTabl&gt;[&lt;DimLigne&gt;][&lt;DimCol&gt;];
+</b></pre>
+<p>
+<p>
+<b><i>Exemples</i></b><p>
+Les d&eacute;clarations suivantes en langage algorithmique,
+
+<pre><b>entier tableau A[10,10]
+r&eacute;el tableau B[2,20]
+bool&eacute;en tableau C[3,3]
+caract&egrave;re tableau D[15,40]</b></pre>
+<p>
+se laissent traduire en C par:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>i</b></tt><tt><b>nt A[10][10];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt><b>long
+A[10][10];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt>...</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>float
+B[2][20];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt><b>double
+B[2][20];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt>...</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>int
+C[3][3];</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>char
+D[15][40];</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<b><i>M&eacute;morisation</i></b><p>
+Comme pour les tableaux &agrave; une dimension, le nom d'un tableau est le
+repr&eacute;sentant de <b><i>l'adresse du premier &eacute;l&eacute;ment</i></b>
+du tableau (c.-&agrave;-d. l'adresse de la premi&egrave;re <b><i>ligne</i></b>
+du tableau). Les composantes d'un tableau &agrave; deux dimensions sont
+stock&eacute;es ligne par ligne dans la m&eacute;moire.<p>
+<p>
+<b><i>Exemple: M&eacute;morisation d'un tableau &agrave; deux dimensions</i></b>
+
+<pre><b>   short A[3][2] = {{1,   2  },
+                    {10,  20 },
+                    {100, 200}};
+</b></pre>
+<tt><img src="prg-c20.gif" width="494" height="91"></tt><p>
+<tt></tt>
+<p>
+<center>Un tableau de dimensions L et C, form&eacute; de composantes dont
+chacune a besoin de M octets, occupera L*C*M octets en m&eacute;moire.<p>
+</center><p>
+<b><i>Exemple</i></b><p>
+En supposant qu'une variable du type <b>double</b> occupe 8 octets (c.-&agrave;-d: <tt><b>sizeof(double)=8</b></tt>), pour le tableau T d&eacute;clar&eacute; par:<tt><b>   double
+T[10][15];</b></tt><br>
+<tt> </tt>C r&eacute;servera L*C*M = 10*15*8 = 1200 octets en
+m&eacute;moire.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c65.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c67.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

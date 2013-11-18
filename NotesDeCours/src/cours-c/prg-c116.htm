@@ -1,0 +1,214 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.3.3. Discussion d'un exemple</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c115.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c117.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c113.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.3.3. Discussion d'un exemple</h3>
+<ul>
+<li><a href="#Heading246"> Exercice 10.1</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+Consid&eacute;rons la situation suivante:<p>
+*	La fonction <b>main</b> appelle la fonction FA.<p>
+*	La fonction FA appelle la fonction FB.<p>
+<p>
+Nous obtenons donc la hi&eacute;rarchie suivante:<p>
+<p>
+<img src="prg-c62.gif" width="129" height="97"><p>
+<p>
+<center>Il y a beaucoup de possibilit&eacute;s de d&eacute;clarer et de
+d&eacute;finir ces fonctions. Nous allons retenir trois variantes qui suivent
+une logique cons&eacute;quente:<p>
+</center><p>
+<p>
+<b>a)	D&eacute;clarations locales des fonctions et d&eacute;finition
+'top-down'</b><p>
+ <p>
+La d&eacute;finition 'top-down' suit la hi&eacute;rarchie des fonctions: <p>
+Nous commen&ccedil;ons par la d&eacute;finition de la fonction principale
+<b>main</b>, suivie des sous-programmes FA et FB. Nous devons d&eacute;clarer
+explicitement FA et FB car leurs d&eacute;finitions suivent leurs appels.<p>
+
+
+<pre><b>/* D&eacute;finition de main */
+main()
+{
+  /* D&eacute;claration locale de FA */
+  int FA (int X, int Y);
+  ...
+  /* Appel de FA */
+  I = FA(2, 3);
+  ...
+}
+
+/* D&eacute;finition de FA */
+int FA(int X, int Y)
+{
+  /* D&eacute;claration locale de FB */
+  int FB (int N, int M);
+  ...
+  /* Appel de FB */
+  J = FB(20, 30);
+  ...
+}
+
+/* D&eacute;finition de FB */
+int FB(int N, int M)
+{
+  ...
+}</b></pre>
+<p>
+Cet ordre de d&eacute;finition a l'avantage de refl&eacute;ter la
+hi&eacute;rarchie des fonctions: Ainsi l'utilisateur qui ne s'int&eacute;resse
+qu'&agrave; la solution globale du probl&egrave;me n'a qu'&agrave; lire le
+d&eacute;but du fichier. Pour retrouver les d&eacute;tails d'une
+impl&eacute;mentation, il peut passer du haut vers le bas dans le fichier. Sur
+ce chemin, il retrouve toutes les d&eacute;pendances des fonctions simplement
+en se r&eacute;f&eacute;rant aux d&eacute;clarations locales. S'il existe
+beaucoup de d&eacute;pendances dans un programme, le nombre des
+d&eacute;clarations locales peut quand m&ecirc;me s'accro&icirc;tre dans des
+dimensions insoutenables.<p>
+<p>
+<p>
+<b>b)	D&eacute;finition 'bottom-up' sans d&eacute;clarations</b><p>
+ <p>
+La d&eacute;finition 'bottom-up' commence en bas de la hi&eacute;rarchie: <p>
+La fonction <b>main</b> se trouve &agrave; la fin du fichier. Les fonctions qui
+traitent les d&eacute;tails du probl&egrave;me sont d&eacute;finies en premier
+lieu.<p>
+
+
+<pre><b>/* D&eacute;finition de FB */
+int FB(int N, int M)
+{
+  ...
+}
+
+/* D&eacute;finition de FA */
+int FA(int X, int Y)
+{
+  ...
+  /* Appel de FB */
+  J = FB(20, 30);
+  ...
+}
+
+/* D&eacute;finition de main */
+main()
+{
+  ...
+  /* Appel de FA */
+  I = FA(2, 3);
+  ...
+}</b></pre>
+<p>
+Comme les fonctions sont d&eacute;finies avant leur appel, les
+d&eacute;clarations peuvent &ecirc;tre laiss&eacute;es de c&ocirc;t&eacute;.
+Ceci all&egrave;ge un peu le texte du programme, mais il est beaucoup plus
+difficile de retrouver les d&eacute;pendances entre les fonctions. <p>
+<p>
+<p>
+<b>c) D&eacute;claration globale des fonctions et d&eacute;finition
+'top-down'</b><p>
+<p>
+En d&eacute;clarant toutes les fonctions globalement au d&eacute;but du texte
+du programme, nous ne sommes pas forc&eacute;s de nous occuper de la
+d&eacute;pendance entre les fonctions. Cette solution est la plus simple et la
+plus s&ucirc;re pour des programmes complexes contenant une grande
+quantit&eacute; de d&eacute;pendances. Il est quand m&ecirc;me
+recommand&eacute; de d&eacute;finir les fonctions selon l'ordre de leur
+hi&eacute;rarchie:<p>
+
+
+<pre><b>/* D&eacute;claration globale de FA et FB */
+int FA (int X, int Y);
+int FB (int N, int M);
+
+/* D&eacute;finition de main */
+main()
+{
+  ...
+  /* Appel de FA */
+  I = FA(2, 3);
+  ...
+}
+
+/* D&eacute;finition de FA */
+int FA(int X, int Y)
+{
+  ...
+  /* Appel de FB */
+  J = FB(20, 30);
+  ...
+}
+
+/* D&eacute;finition de FB */
+int FB(int N, int M)
+{
+  ...
+}</b></pre>
+<p>
+<b>d) Conclusions</b><p>
+ <p>
+Dans la suite, nous allons utiliser l'ordre de d&eacute;finition 'top-down' qui
+refl&egrave;te le mieux la structure d'un programme. Comme nos programmes ne
+contiennent pas beaucoup de d&eacute;pendances, nous allons d&eacute;clarer les
+fonctions localement dans les fonctions appelantes.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading246"> Exercice 10.1</a>
+<hr size="1"></h4>
+<p>
+<p>
+Soient les fonctions <b>main</b>, <b>PI</b> et <b>SURFACE</b> d&eacute;finies
+par:
+
+<pre><b> #include &lt;stdio.h&gt;
+
+ main()
+ {
+  double R;
+  printf(&quot;Introduire le rayon du cercle : &quot;);
+  scanf(&quot;%lf&quot;, &amp;R);
+  printf(&quot;La surface du cercle est %f. \n&quot;, 
+                                       SURFACE(R));
+  return 0;
+ }
+
+ double PI(void)
+ {
+  return 3.14159265;
+ }
+
+ double SURFACE(double RAYON)
+ {
+  return PI()*RAYON*RAYON;
+ }
+</b></pre>
+<b>
+</b><p>
+<b> a) </b>	Etablir la hi&eacute;rarchie des appels pour les trois fonctions.<p>
+<b> b) </b>	D&eacute;finir les fonctions d'apr&egrave;s les trois
+m&eacute;thodes d&eacute;crites ci-dessus en ajoutant les d&eacute;clarations
+manquantes.<p>
+<b> c) </b>	Quels messages fournit le compilateur lorsqu'une fonction n'est pas
+d&eacute;finie ou d&eacute;clar&eacute;e avant son appel? Comment peut-on
+expliquer ces messages? <p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c115.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c117.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c113.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,117 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - C.4. Fonctions d'aide g&eacute;n&eacute;rales : &lt;stdlib.h&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c159.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c161.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+C.4. Fonctions d'aide g&eacute;n&eacute;rales : &lt;stdlib.h&gt;</h3>
+ <p>
+ <p>
+<i>Le fichier en-t&ecirc;te &lt;stdlib.h&gt; d&eacute;clare des fonctions pour
+la conversion de nombres, pour la gestion de m&eacute;moire et des charges
+pareilles.</i><p>
+ <p>
+<p>
+<b><i>Conversion de cha&icirc;nes de caract&egrave;res en nombres</i></b><p>
+<tt><b>int atoi(const char *CH)   </b></tt>8.6.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>atoi<tt> </tt></b>retourne la valeur num&eacute;rique
+repr&eacute;sent&eacute;e par <i>CH</i> comme <b>int</b>
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>long atol(const char *CH)   </tt></b>8.6.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>atol<tt> </tt></b>retourne la valeur num&eacute;rique
+repr&eacute;sent&eacute;e par <i>CH</i> comme <b>long</b>
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>double atof(const char *CH)   </tt></b>8.6.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>atof<tt> </tt></b>retourne la valeur num&eacute;rique
+repr&eacute;sent&eacute;e par <i>CH</i> comme <b>double</b><p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<b><i>Gestion de m&eacute;moire</i></b><p>
+<tt><b>void *malloc(unsigned int N)   </b></tt>9.5.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>malloc</b> retourne un pointeur sur un bloc de m&eacute;moire libre de la
+grandeur <i>N,</i> ou z&eacute;ro si la requ&egrave;te ne peut pas &ecirc;tre
+remplie. (Remarque: En ANSI-C, on utilise le type <b>void*</b> pour
+d&eacute;clarer des pointeurs qui peuvent pointer sur tous les types).
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>void free(void *P)   </b></tt>9.5.4.<tt> </tt><p>
+<tt> </tt><p>
+<b>free</b> lib&egrave;re le bloc en m&eacute;moire
+r&eacute;f&eacute;renc&eacute; par <i>P;</i> la fonction n'a pas d'effet si
+<i>P</i> a la valeur z&eacute;ro. <i>P</i> doit pointer sur un bloc
+r&eacute;serv&eacute; &agrave; l'aide de <b>malloc</b> (ou <b>calloc</b> ou
+<b>realloc</b> - fonctions non trait&eacute;es dans ce manuel).<p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<b><i>Abandon d'un programme</i></b><p>
+<tt><b>void exit(int STAT)   </b></tt>9.5.3. / 10.4. /
+11.4.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>exit</b> termine un programme, ferme tous les fichiers encore ouverts et
+redonne le contr&ocirc;le &agrave; l'environnement du programme en retournant
+la valeur <i>STAT</i> comme code d'erreur. La valeur z&eacute;ro pour
+<i>STAT</i> indique une termination normale du programme.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<p>
+<img src="noansi.gif" alt="No Ansi" align="right" width="140" height="75"><p>
+<b><i>Les trois fonctions suivantes sont r&eacute;serv&eacute;es &agrave; DOS:
+elles ne sont pas conformes au standard ANSI-C et elles ne sont pas
+portables.</i></b><p>
+<b> </b><p>
+<p>
+<b><i>Conversion de nombres en cha&icirc;nes de caract&egrave;res</i></b><p>
+<tt><b>char *itoa (int VAL, char *CH, int B)
+</b></tt>8.6.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>itoa</b> convertit <i>VAL</i> dans une cha&icirc;ne de caract&egrave;res
+termin&eacute;e par '\0' et attribue le r&eacute;sultat &agrave; <i>CH</i>;
+<b>itoa</b> retourne <i>CH</i> comme r&eacute;sultat. <i>B</i> est la base
+utilis&eacute;e pour la conversion de <i>VAL</i>. <i>B</i> doit &ecirc;tre
+compris entre 2 et 36 (inclus). (R&eacute;servez assez de m&eacute;moire pour
+la cha&icirc;ne r&eacute;sultat: <b>itoa</b> peut retourner jusqu'&agrave; 17
+bytes.)
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *ltoa (long VAL, char *CH, int B)
+</b></tt>8.6.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>ltoa</b> convertit <i>VAL</i> dans une cha&icirc;ne de caract&egrave;res
+termin&eacute;e par '\0' et attribue le r&eacute;sultat &agrave; <i>CH</i>;
+<b>ltoa</b> retourne <i>CH</i> comme r&eacute;sultat. <i>B</i> est la base
+utilis&eacute;e pour la conversion de <i>VAL</i>. <i>B</i> doit &ecirc;tre
+compris entre 2 et 36 (inclus). (<b>ltoa</b> peut retourner jusqu'&agrave; 33
+bytes.)
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *ultoa (unsigned long VAL, char *CH, int B)</b></tt><p>
+<tt><b>         </b></tt>8.6.3.<tt> </tt><p>
+<tt> </tt><p>
+<b>ultoa</b> convertit <i>VAL</i> dans une cha&icirc;ne de caract&egrave;res
+termin&eacute;e par '\0' et attribue le r&eacute;sultat &agrave; <i>CH</i>;
+<b>ultoa</b> retourne <i>CH</i> comme r&eacute;sultat. <i>B</i> est la base
+utilis&eacute;e pour la conversion de <i>VAL</i>. <i>B</i> doit &ecirc;tre
+compris entre 2 et 36 (inclus). (<b>ultoa</b> peut retourner jusqu'&agrave; 33
+bytes.)<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c159.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c161.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

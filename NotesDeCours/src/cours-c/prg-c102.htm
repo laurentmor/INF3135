@@ -1,0 +1,64 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.5.1. D&eacute;claration statique de donn&eacute;es</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c101.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c103.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.5.1. D&eacute;claration statique de donn&eacute;es</h3>
+ <p>
+ <p>
+Chaque variable dans un programme a besoin d'un certain nombre d'octets en
+m&eacute;moire. Jusqu'ici, la r&eacute;servation de la m&eacute;moire s'est
+d&eacute;roul&eacute;e automatiquement par l'emploi des d&eacute;clarations des
+donn&eacute;es. Dans tous ces cas, le nombre d'octets &agrave; r&eacute;server
+&eacute;tait d&eacute;j&agrave; connu pendant la compilation. Nous parlons
+alors de la <b><i>d&eacute;claration statique</i></b> des variables.<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>float A, B, C;        /* r&eacute;servation de 12  octets */
+short D[10][20];      /* r&eacute;servation de 400 octets */
+char E[] = {&quot;Bonjour !&quot;};
+                      /* r&eacute;servation de 10  octets */
+char F[][10] = {&quot;un&quot;, &quot;deux&quot;, &quot;trois&quot;, &quot;quatre&quot;};
+                      /* r&eacute;servation de 40  octets */</b></pre>
+<p>
+<b><i>Pointeurs</i></b><p>
+Le nombre d'octets &agrave; r&eacute;server pour un <i>pointeur</i>
+d&eacute;pend de la machine et du 'mod&egrave;le' de m&eacute;moire choisi,
+mais il est d&eacute;j&agrave; connu lors de la compilation. Un pointeur est
+donc aussi d&eacute;clar&eacute; statiquement. Supposons dans la suite qu'un
+pointeur ait besoin de p octets en m&eacute;moire. (En DOS: p =2 ou p = 4)<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>double *G;      /* r&eacute;servation de p    octets */
+char *H;        /* r&eacute;servation de p    octets */
+float *I[10];   /* r&eacute;servation de 10*p octets */</b></pre>
+<p>
+<b><i>Cha&icirc;nes de caract&egrave;res constantes</i></b><p>
+L'espace pour les <i>cha&icirc;nes de caract&egrave;res constantes</i> qui sont
+affect&eacute;es &agrave; des pointeurs ou utilis&eacute;es pour initialiser
+des pointeurs sur <b>char</b> est aussi r&eacute;serv&eacute;
+automatiquement:<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>char *J = &quot;Bonjour !&quot;;
+           /* r&eacute;servation de   p+10      octets */
+float *K[] = {&quot;un&quot;, &quot;deux&quot;, &quot;trois&quot;, &quot;quatre&quot;};
+           /* r&eacute;servation de 4*p+3+5+6+7 octets */</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c101.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c103.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

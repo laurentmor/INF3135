@@ -1,0 +1,62 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  4.3. &Eacute;criture d'un caract&egrave;re</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c43.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c45.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c41.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 4.3. &Eacute;criture d'un caract&egrave;re</h2>
+<b>		</b><p>
+ <p>
+<p>
+La commande,
+
+<pre><b>   putchar('a');</b></pre>
+transf&egrave;re
+le caract&egrave;re <i>a</i> vers le fichier standard de sortie <i>stdout</i>.
+Les arguments de la fonction <b>putchar</b> sont ou bien des caract&egrave;res
+(c.-&agrave;-d. des nombres entiers entre 0 et 255) ou bien le symbole
+<b>EOF</b> <i>(End Of File)</i>.<p>
+ <p>
+<b>EOF</b> est une constante d&eacute;finie dans <i>&lt;stdio&gt;</i> qui
+marque la fin d'un fichier. La commande <b>putchar(EOF);</b> est
+utilis&eacute;e dans le cas o&ugrave; <i>stdout</i> est d&eacute;vi&eacute;
+vers un fichier. <p>
+<p>
+<b><i>Type de l'argument</i></b><p>
+Pour ne pas &ecirc;tre confondue avec un caract&egrave;re, la constante<i>
+</i><b>EOF</b> doit n&eacute;cessairement avoir une valeur qui sort du domaine
+des caract&egrave;res (en g&eacute;n&eacute;ral <b>EOF</b> a la valeur -1).
+Ainsi, les arguments de <b>putchar</b> sont par d&eacute;finition du type
+<b>int</b> et toutes les valeurs trait&eacute;es par <b>putchar</b> (m&ecirc;me
+celles du type<b> char</b>) sont d'abord converties en <b>int</b>.<p>
+<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>   char A = 225;
+   char B = '\a';
+   int  C = '\a';
+   putchar('x');   /* afficher la lettre x      */
+   putchar('?');   /* afficher le symbole ?     */
+   putchar('\n');  /* retour &agrave; la ligne         */
+   putchar(65);    /* afficher le symbole avec  */
+                   /* le code 65  (ASCII: 'A')  */
+   putchar(A);     /* afficher la lettre avec   */
+                   /* le code 225 (ASCII: '&szlig;')  */
+   putchar(B);     /* beep sonore               */
+   putchar(C);     /* beep sonore               */
+   putchar(EOF);   /* marquer la fin du fichier */</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c43.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c45.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c41.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

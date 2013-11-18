@@ -1,0 +1,119 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 2.2.1. Les fonctions</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c17.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c19.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c17.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+2.2.1. Les fonctions</h3>
+<b>	</b><p>
+ <p>
+En C, le programme principal et les sous-programmes sont d&eacute;finis comme
+fonctions. Il n'existe pas de structures sp&eacute;ciales pour le programme
+principal ni les proc&eacute;dures (comme en Pascal ou en langage
+algorithmique).<p>
+<p>
+Le programme principal &eacute;tant aussi une 'fonction', nous devons nous
+int&eacute;resser d&egrave;s le d&eacute;but &agrave; la d&eacute;finition et
+aux caract&eacute;ristiques des fonctions en C. Commen&ccedil;ons par comparer
+la syntaxe de la d&eacute;finition d'une fonction en C avec celle d'une
+fonction en langage algorithmique:<p>
+<p>
+<b><i>D&eacute;finition d'une fonction en langage algorithmique</i></b>
+
+<pre>   <u>fonction</u> &lt;NomFonct&gt; (&lt;NomPar1&gt;, &lt;NomPar2&gt;, ...):&lt;TypeR&eacute;s&gt;
+   |   &lt;d&eacute;clarations des param&egrave;tres&gt;
+   |   &lt;d&eacute;clarations locales&gt;
+   |   &lt;instructions&gt;
+   <u>ffonction</u>
+</pre>
+<p>
+<b><i>D&eacute;finition d'une fonction en C</i></b>
+
+<pre><b>   |&lt;TypeR&eacute;s&gt; &lt;NomFonct&gt; (&lt;TypePar1&gt; &lt;NomPar1&gt;,
+   |                      &lt;TypePar2&gt; &lt;NomPar2&gt;, ... )
+   |{
+   |   &lt;d&eacute;clarations locales&gt;
+   |   &lt;instructions&gt;
+   |}
+</b></pre>
+<p>
+En C, une fonction est d&eacute;finie par:<p>
+<p>
+*	une ligne d&eacute;clarative qui contient:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<i>&lt;TypeR&eacute;s&gt;</i> - le type du r&eacute;sultat de la fonction
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><i>&lt;NomFonct&gt;</i>
+- le nom de la fonction
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><i>&lt;TypePar1&gt;
+&lt;NomPar1&gt;, &lt;TypePar2&gt; &lt;NomPar2&gt;, ...</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">les
+types et les noms des param&egrave;tres de la fonction 
+<br></td></tr></table><p>
+*	un bloc d'instructions d&eacute;limit&eacute; par des accolades { },
+contenant:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<i>&lt;d&eacute;clarations locales&gt; </i>- les d&eacute;clarations des
+donn&eacute;es locales (c.-&agrave;-d.: des donn&eacute;es qui sont uniquement
+connues &agrave; l'int&eacute;rieur de la fonction) 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><i>&lt;instructions&gt;
+</i>- la liste des instructions qui d&eacute;finit l'action qui doit &ecirc;tre
+ex&eacute;cut&eacute;e 
+<br></td></tr></table><p>
+<p>
+<p>
+<b><i>R&eacute;sultat d'une fonction</i></b><p>
+Par d&eacute;finition, <i>toute fonction en C fournit un r&eacute;sultat</i>
+dont le type doit &ecirc;tre d&eacute;fini. Si aucun type n'est d&eacute;fini
+explicitement, C suppose par d&eacute;faut que le type du r&eacute;sultat est
+<b>int</b> (integer). <p>
+Le retour du r&eacute;sultat se fait en g&eacute;n&eacute;ral &agrave; la fin
+de la fonction par l'instruction <b>return</b>.<p>
+Le type d'une fonction qui ne fournit pas de r&eacute;sultat (comme les
+proc&eacute;dures en langage algorithmique ou en Pascal), est
+d&eacute;clar&eacute; comme <b>void</b> (vide).<p>
+<p>
+<b><i>Param&egrave;tres d'une fonction</i></b><p>
+La d&eacute;finition des param&egrave;tres (arguments) d'une fonction est
+plac&eacute;e entre parenth&egrave;ses <b>( )</b> derri&egrave;re le nom de la
+fonction. Si une fonction n'a pas besoin de param&egrave;tres, les
+parenth&egrave;ses restent vides ou contiennent le mot <b>void</b>. La fonction
+minimale qui ne fait rien et qui ne fournit aucun r&eacute;sultat est alors:<p>
+
+
+<pre><b>      void dummy() {}</b></pre>
+<p>
+<b><i>Instructions</i></b><p>
+En C, <i>toute</i> instruction simple est termin&eacute;e par un
+point-virgule<b> ;</b> (m&ecirc;me si elle se trouve en derni&egrave;re
+position dans un bloc d'instructions). Par exemple:<p>
+
+
+<pre><b>         printf(&quot;hello, world\n&quot;);</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c17.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c19.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c17.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

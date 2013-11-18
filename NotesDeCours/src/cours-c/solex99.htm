@@ -1,0 +1,66 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.21</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex98.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex100.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.21</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char SUJ[100]; /* cha&icirc;ne &agrave; transformer        */
+ char OBJ[100]; /* cha&icirc;ne &agrave; supprimer dans SUJ */
+ int I;         /* indice courant dans SUJ     */
+ int J;         /* indice courant dans OBJ     */
+<b> int TROUVE;    /* indicateur logique qui pr&eacute;cise */</b>
+<b>                /* si la cha&icirc;ne OBJ a &eacute;t&eacute; trouv&eacute;e */</b>
+ 
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Introduisez la cha&icirc;ne &agrave; supprimer   : &quot;);
+ gets(OBJ);
+ printf(&quot;Introduisez la cha&icirc;ne &agrave; transformer : &quot;);
+ gets(SUJ);
+<b> /* Recherche de OBJ dans SUJ */</b>
+<b> TROUVE=0;</b>
+<b> for (I=0; SUJ[I] &amp;&amp; !TROUVE; I++)</b>
+<b>    /* Si la premi&egrave;re lettre est identique, */</b>
+<b>    if (SUJ[I]==OBJ[0])</b>
+<b>        {</b>
+<b>         /* alors comparer le reste de la cha&icirc;ne */</b>
+<b>         for (J=1; OBJ[J] &amp;&amp; (OBJ[J]==SUJ[I+J]); J++)</b>
+<b>            ;</b>
+<b>         if (OBJ[J]=='\0') TROUVE=1;</b>
+<b>        }</b>
+<b> /* Si la position de d&eacute;part de OBJ dans SUJ a &eacute;t&eacute; trouv&eacute;e */</b>
+<b> /* alors d&eacute;placer le reste de SUJ &agrave; cette position. */</b>
+<b> if (TROUVE)</b>
+<b>    {</b>
+<b>     I--;</b>
+<b>     /* Maintenant  I indique la position de OBJ */</b>
+<b>     /* dans SUJ et J indique la longueur de OBJ */</b>
+<b>     for (; SUJ[I+J]; I++)</b>
+<b>          SUJ[I]=SUJ[I+J];</b>
+<b>     SUJ[I]='\0';</b>
+<b>    }</b>
+  /* Affichage du r&eacute;sultat */
+ printf(&quot;Cha&icirc;ne r&eacute;sultat : \&quot;%s\&quot;\n&quot;, SUJ);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex98.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex100.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

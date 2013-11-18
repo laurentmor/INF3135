@@ -1,0 +1,63 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.8</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex42.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex44.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.8</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int  X;       /* Le chiffre courant        */
+ int  N=0;     /* Le compteur des d&eacute;cimales */
+ long VALD=1;  /* Valeur de la position d&eacute;cimale courante */
+ long NOMB=0;  /* Le nombre r&eacute;sultat                      */
+<b> do</b>
+<b>    {</b>
+      printf(&quot;Entrez le %d%s chiffre : &quot;, (N+1), (N)?&quot;e&quot;:&quot;er&quot;);
+     scanf(&quot;%d&quot;, &amp;X);
+
+<b>     if (X&lt;0||X&gt;9)</b>
+<b>        printf(&quot;\a&quot;);</b>
+<b>     else if (X)</b>
+<b>        {</b>
+<b>         NOMB += VALD*X;</b>
+<b>         N++;</b>
+<b>         VALD *= 10;</b>
+<b>        }</b>
+<b>     else</b>
+<b>        printf(&quot;La valeur du nombre renvers&eacute; est %ld\n&quot;, NOMB);</b>
+<b>    }</b>
+<b> while (X);</b>
+  return 0;
+}</pre>
+ <p>
+<b>Remarque :</b><p>
+<p>
+En rempla&ccedil;ant la ligne<p>
+<tt>   NOMB += VALD*X;</tt><p>
+<tt></tt>par<p>
+<tt>   NOMB += pow(10, N)*X;</tt><p>
+<tt></tt>on n'a plus besoin de la variable VALD. Il faut cependant inclure les
+fonctions de la biblioth&egrave;que <i>&lt;math&gt;</i>. D'autre part, le
+calcul de 10<sup>N</sup> serait alors r&eacute;p&eacute;t&eacute; &agrave;
+chaque ex&eacute;cution de la boucle.<p>
+Finalement, cette variante est plus lente et plus volumineuse que la
+premi&egrave;re.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex42.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex44.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

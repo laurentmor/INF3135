@@ -1,0 +1,456 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>Programmation en ANSI-C - INFORMATIONS SUR CE COURS</title>
+<link rel="Stylesheet" href="./site.css" type="text/css">
+</head>
+<body>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 --><a href="prg-c02.htm"><img SRC="leftg.gif" ALT="Previous" BORDER=0 height=30 width=30></a><a href="prg-c04.htm"><img SRC="rightg.gif" ALT="Next" BORDER=0 height=30 width=30></a><a href="prg-c01.htm"><img SRC="upg.gif" ALT="Up" BORDER=0 height=30 width=30></a><a href="prg-c.htm"><img SRC="topg.gif" ALT="Title" BORDER=0 height=30 width=30></a><a href="prg-c_c.htm"><img SRC="contg.gif" ALT="Contents" BORDER=0 height=30 width=30></a>
+<hr size="1" width="100%">
+<p align=right><small>[<i>dernière modification le 7 juin 2011</i>]</small></p>
+<h3>
+FAQ <i> - Frequently Asked Questions</i> - <i>Foire aux questions</i></h3>
+
+<ul>
+<li>
+<a href="#public">A quel <b>public</b> cible s'adresse ce cours?</a></li>
+
+<li>
+<a href="#Heading4">A quel <b>standard de programmation</b> s'oriente ce
+cours?</a></li>
+
+<li>
+<a href="#VersionOnline">O&ugrave; se trouve la <b>version originale / la plus actuelle</b>
+du cours?</a></li>
+
+<li>
+<a href="#Heading5">Qu'est-ce que ce <b>"langage algorithmique" </b>qui
+appara&icirc;t parfois dans le cours?</a></li>
+
+<li>
+<a href="#Heading5">Pourquoi n'y a-t-il pas de <b>liens directs entre les
+&eacute;nonc&eacute;s et les solutions des exercices</b>?</a></li>
+
+<li>
+<a href="#SujetsNonTraites">Je ne trouve pas la description de l'instruction
+xxx dans votre cours! -> Les sujets qui ne sont <b>pas tra&icirc;t&eacute;s
+dans ce cours</b>.</a></li>
+
+<li>
+<a href="#Heading7">Existe-t-il des <b>compilateurs ANSI-C</b> bon march&eacute;
+ou m&ecirc;me gratuits?</a></li>
+
+<li>
+<a href="#compilergcc">Linux/Unix/Mac OS-X: Comment faire tourner mon programme avec les moyens de bord (gcc) ?</a></li>
+
+<li>
+<a href="#Document_RTF">Est-ce vous pouvez m'envoyer votre cours sous forme
+de <b>document RTF, DOC, PDF, PS, ...?</b></a></li>
+
+<li>
+<a href="#lire_blancs">Comment peut-on lire une cha&icirc;ne de caract&egrave;res
+contenant des blancs (espaces, tabulations, etc.)?</a></li>
+
+<li>
+<a href="#imprimer">Comment imprimer du texte (sous DOS/Linux/MacOSX)?</a></li>
+
+<li>
+<a href="#graph">Comment utiliser le mode graphique (avec les produits
+Borland) sous DOS?</a></li>
+
+<li>
+<a href="prg-c03.htm#graphDJGPP">Comment utiliser le mode graphique avec
+DJGPP?</a></li>
+
+<li>
+<a href="#keypressed">Comment contr&ocirc;ler quelle/si une touche a &eacute;t&eacute;
+press&eacute;e sans bloquer le programme sous DOS/ sous UNIX? remplacement
+pour <i>getch</i> sous Unix?</a></li>
+
+<li>
+<a href="#listes_chainees">Comment impl&eacute;menter des listes cha&icirc;n&eacute;es/arbres
+binaires en C?</a></li>
+</ul>
+
+<ul>
+<li>
+<font size=+1><a href="#CppJava">O&ugrave; est-ce que je trouve un cours
+semblable au v&ocirc;tre traitant <b>PASCAL / C++ / JAVA</b>?</a></font></li>
+</ul>
+
+<ul>
+<li>
+<font size=+1><a href="#AdressesSurInternet">Pour d'autres questions concernant
+la programmation en C, ANSI-C, C++, etc. veuillez consulter <b>les adresses
+sur l'Internet</b></a></font></li>
+</ul>
+
+<hr size="1" width="100%">
+<br>&nbsp;
+<h4>
+<a NAME="public"></a>A quel public cible s'adresse ce cours?</h4>
+Ce cours a &eacute;t&eacute; &eacute;labor&eacute; originalement pour des
+&eacute;l&egrave;ves du niveau de treizi&egrave;me de la formation de technicien
+en informatique au <a href="http://www.ltam.lu" target="_parent">Lyc&eacute;e
+Technique des Arts et M&eacute;tiers</a> au Grand-Duch&eacute; du Luxembourg. 
+<p>Accompagn&eacute; du recueil des solutions des exercices, il s'adresse
+aussi &agrave; des personnes qui veulent s'adonner &agrave; des &eacute;tudes
+d'autodidacte de la programmation en C.
+<br>Il faut toutefois remarquer que C n'est pas un langage facile &agrave;
+utiliser pour des d&eacute;butants en programmation. Pour cette raison,
+il est avantageux si vous poss&eacute;dez d&eacute;j&agrave; quelques notions
+de base de la programmation en PASCAL (ou d'un autre langage de programmation
+structur&eacute;).<P>
+<b>Remarque:</b> Aujourd'hui, la programmation en ANSI-C ne se trouve plus au programme de la classe de 13e mentionn&eacute;e ci-dessus. Pendant quelques ann&eacute;es, nous avons trait&eacute; la programmation en Delphi sous Windows (pour pouvoir int&eacute;grer la programmation avec des composants graphiques). Aujourd'hui, nous commençons tout de suite par enseigner la programmation orient&eacute;e objet en nous basant sur Java. Pour cela, nous utilisons des environnements simples (<a href="http://www.bluej.org" target="_top">BlueJ</a> ou mieux encore <a href="http://unimozer.fisch.lu" target="_top">Unimozer</a>). Si vous &ecirc;tes int&eacute;ressés, nos cours actuels se trouvent ici: <a href="http://java.web.myschool.lu" target="_top">java.web.myschool.lu</a>.
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="Heading4"></a>A quel standard de programmation s'oriente ce cours?</h4>
+Le cours se comprend comme une introduction &agrave; la programmation en
+<b><a href="prg-c07.htm">ANSI-C</a></b>.
+(Ne pas &agrave; confondre avec le standard ANSI-C++)
+<p>Les notations du cours suivent celles de la 'bible' des programmeurs
+en C: <i>"<b>The C Programming Language</b>" de Kernighan/Ritchie</i>.
+<p><img SRC="noansi.gif" ALT="No Ansi" height=75 width=140 align=RIGHT>
+<p>Quelques fonctions non-portables, sp&eacute;cifiques &agrave; MS-DOS
+sont introduites dans le cours et marqu&eacute;es par un symbole sp&eacute;cial:
+<br>&nbsp;
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="VersionOnline"></a>O&ugrave; se trouve la version originale / la plus actuelle
+du cours?</h4>
+Vous trouverez la version originale du cours sur le serveur Web
+du<i> Lyc&eacute;e Technique des Arts et M&eacute;tiers (Luxembourg)</i>:
+<ul><b><tt><a href="http://www.ltam.lu/Tutoriel_Ansi_C" target="_Parent">http://www.ltam.lu/Tutoriel_Ansi_C</a></tt></b></ul>
+Vous pouvez t&eacute;l&eacute;charger la version originale du cours (comprim&eacute;e
+.ZIP) du serveur ftp du <i>Lyc&eacute;e Technique des Arts et M&eacute;tiers</i>:
+<ul><b><tt><a href="http://www.ltam.lu/Tutoriel_Ansi_C/download.htm" target="_Parent">http://www.ltam.lu/Tutoriel_Ansi_C/download.htm</a></tt></b></ul>
+Si le serveur ne r&eacute;pond pas, veuillez contacter l'administrateur
+du serveur:
+<ul><b><a href="mailto:wwwadmin@ltam.lu?Subject=Le serveur 'ltam.lu' ne repond pas">mailto:wwwadmin@ltam.lu</a></b></ul>
+
+<hr size="1" width="100%">
+<h4>
+<a NAME="Heading5"></a>Qu'est-ce que ce "langage algorithmique"?</h4>
+La mati&egrave;re trait&eacute;e se base en partie sur les cours d'informatique
+de la classe de technicien en informatique (Initiation &agrave; l'algorithmique,
+application en Pascal) et contient donc quelques explications utilisant
+les notations du langage algorithmique qui y ont &eacute;t&eacute; introduites.
+<p>Ceci ne devrait cependant pas emp&ecirc;cher les personnes poss&eacute;dant
+quelques notions de base de la programmation en PASCAL (ou d'un autre langage
+de programmation structur&eacute;) de pouvoir tirer profit de ce cours.
+<p>Il faut toutefois remarquer que C n'est pas un langage facile &agrave;
+utiliser pour des d&eacute;butants en programmation.
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="Heading6"></a>Pourquoi n'y a-t-il pas de liens directs entre les
+&eacute;nonc&eacute;s et les solutions des exercices?</h4>
+Je n'ai pas pr&eacute;vu d'&eacute;tablir des liens directs
+entre les questionnaires des exercices et les solutions respectives. Les
+solutions des exercices sont disponibles dans une s&eacute;rie de documents
+&agrave; part:
+<br>voir: <a href="homesol.htm" target="_new">La page des solutions des
+exercices</a>
+<p>(Bien que cette fa&ccedil;on de proc&eacute;der se laisserait facilement
+justifier par des arguments p&eacute;dagogiques, la v&eacute;rit&eacute;
+est bien plus simple: environ 200 liens devraient &ecirc;tre &eacute;tablis
+'manuellement' pour relier les 165 fichiers du cours aux 201 fichiers des
+solutions ...)
+<p><b>Remarque:</b> Pendant la lecture, il est pratique d'ouvrir <b>deux</b>
+fen&ecirc;tres de votre <i>'WWW-Browser'</i>:
+<br>- une page pour feuilleter le manuel et
+<br>- une deuxi&egrave;me page pour afficher les solutions des exercices.
+<p>Les versions actuelles du cours ouvrent automatiquement une deuxi&egrave;me fen&ecirc;tre pour
+la page des solutions des exercices.
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="SujetsNonTraites"></a>Les sujets qui ne sont pas tra&icirc;t&eacute;s
+dans ce cours</h4>
+Comme le cours a &eacute;t&eacute; r&eacute;dig&eacute; comme introduction
+&agrave; la programmation en <b>ANSI-C</b> diff&eacute;rents sujets ont
+&eacute;t&eacute;
+omis volontairement du cours:
+<ul>
+<li>
+La structure de contr&ocirc;le <b>switch [case, default]</b> (correspond
+&agrave; <tt>case</tt> en Pascal)</li>
+
+<li>
+Les instructions de contr&ocirc;le <b>break</b> et <b>continue</b></li>
+
+<li>
+L'instruction <b>goto</b> et les marques</li>
+
+<li>
+Les classes de m&eacute;morisation <b>auto, static, register, extern</b></li>
+
+<li>
+Le qualificateur <b>volatile</b></li>
+
+<li>
+Les types complexes <b>union, enum, struct</b> et la d&eacute;finition
+de types par <b>typedef</b></li>
+
+<li>
+Les structures de donn&eacute;es bas&eacute;es sur des pointeurs (listes cha&icirc;n&eacute;es, arbres, graphes)</li>
+
+<li>
+Les instructions du pr&eacute;processeur (&agrave; l'exception de <b>#include</b>)</li>
+</ul>
+Pour des d&eacute;tails sur ces points, vous pouvez vous r&eacute;f&eacute;rencer
+au manuel <i><b>"The C programming language</b>" de Kernighan/Ritchie</i>
+ou vous pouvez vous r&eacute;f&eacute;rencer &agrave; l'une des <a href="#AdressesSurInternet">adresses
+sur l'Internet</a>.
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="Heading7"></a>Compilateurs ANSI-C</h4>
+Pour pouvoir suivre ce cours avec succ&egrave;s, vous avez besoin d'un
+compilateur ANSI-C. Il existe un grand nombre de compilateurs gratuits, avec ou sans environnement de programmation. En principe un simple &eacute;diteur de texte et un compilateur (GCC, MinGW, ...) suffisent, mais il existe aussi des environnements int&eacute;gr&eacute;s. Personnellement, pour ANSI-C je pr&eacute;f&egrave;re les environnements simples (Borland C++ Compiler, Code::Blocks, dev c++) aux bolides super-sophistiqu&eacute;s comme Eclipse ou XCode.  
+<p><font size=+1>
+Une bonne liste des compilateurs disponibles actuellement se trouve sur '<a href="http://c.developpez.com" target="_blank">c.developpez.com</a>',
+ <p>plus pr&eacute;cis&eacute;ment:
+<a href="http://c.developpez.com/compilateurs/" target="_blank">c.developpez.com/compilateurs/</a> 
+</font>
+<p>
+
+<p>
+<hr size="1" width="100%">
+<h4>
+<a name="compilergcc"></a>Linux/Unix/Mac OS-X: Comment faire tourner mon programme avec les moyens de bord (gcc) ?</H4>
+Comme le compilateur gcc est install&eacute; d'office sur les syst&egrave;mes Linux/Unix/MacOSX, on peut tr&egrave;s simplement compiler et faire tourner un programme.
+<ul>
+<li>Ecrire votre programme dans un votre &eacute;diteur de texte pr&eacute;f&eacute;r&eacute;</li>
+<li>Sauvegarder le programme avec le suffixe '.c' (p.ex: hello.c)</li>
+<li>Dans une fen&ecirc;tre console (Terminal) aller dans le dossier o&ugrave; le programme a &eacute;t&eacute; sauvegard&eacute;</li>
+<li>Entrer : 'gcc' suivi du nom de votre programme (p.ex: <tt> gcc hello.c </tt> ). Si votre programme ne contient pas d'erreurs, alors un fichier du nom 'a.out' est cr&eacute;&eacute; - c'est votre programme compil&eacute;</li>
+<li>Faire tourner le programme 'a.out' en entrant : <tt> ./a.out  </tt> ( Ne pas oublier le './' au d&eacute;but )</li>
+</ul>
+
+
+
+<hr size="1" width="100%">
+<h4>
+<a NAME="Document_RTF"></a><b>Est-ce vous pouvez m'envoyer votre cours
+sous forme de document RTF, DOC, PDF, PS, ...?</b></h4>
+Au d&eacute;part (en 1995) ce cours a &eacute;t&eacute; r&eacute;dig&eacute;
+en format Winword. A un certain moment, j'ai converti
+le document en format HTML. Pour plusieurs raisons, je ne distribue
+pas la version 'originale' en format Word, la raison la plus importante
+&eacute;tant la suivante: Depuis la conversion en HTML, je ne m'occupe
+plus du fichier original et la version compl&egrave;te, corrigée et actualis&eacute;e
+existe uniquement sous format HTML, qui est alors distribu&eacute;e <a href="http://www.ltam.lu/Tutoriel_Ansi_C/download.htm" target="_parent">sous
+forme d'un fichier ZIP</a>.<p>
+Je n'ai donc pas de version imprimable en PDF/DOC et je ne connais pas d'outil qui me permette de convertir le cours en entier en un seul fichier PDF tout en gardant la structure, les liens et sans r&eacute;p&eacute;ter des pages ou des chapitres entiers.
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="lire_blancs"></a>Comment peut-on lire une cha&icirc;ne de caract&egrave;res
+contenant des blancs (espaces, tabulations, etc.)?</h4>
+La commande associ&eacute;e &agrave; scanf pour pouvoir lire des cha&icirc;nes
+de caract&egrave;res comportant des blancs est :
+<br>&nbsp;&nbsp;&nbsp;<b><tt> scanf("%[^\n]", ch);</tt></b>
+<p>
+<hr size="1" width="100%">
+<h4>
+<a NAME="imprimer"></a>Comment imprimer du texte sous DOS/ sous UNIX/Linux/Mac OS-X?</h4>
+Une solution en DOS </hr>peut &ecirc;tre r&eacute;alis&eacute;e en utilisant les instructions
+suivantes:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><tt>FILE *PRN;</tt></b>
+<p><b><tt>&nbsp;&nbsp;&nbsp; PRN = fopen("PRN", "w");&nbsp;&nbsp;&nbsp;&nbsp;
+/* ouvrir l'imprimante en &eacute;criture */</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; fprintf(PRN, "exemple\n");&nbsp;&nbsp; /*
+imprimer ... */</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp; fclose(PRN);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/* fermer l'imprimante */</tt></b>
+<p>
+Sous Mac OS-X / Linux:
+<p>
+<b><tt>&nbsp;&nbsp;&nbsp; #include &lt;stdio.h&gt;  </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp; int main(void){ </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  FILE *PRN; </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  PRN = popen("/usr/bin/lp", "w"); </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  fprintf(PRN, "%s", "Hello World!\nBonjour tout le monde!\n"); </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  fflush(PRN); </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  pclose(PRN); </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  return 0; </tt></b><br>
+<b><tt>&nbsp;&nbsp;&nbsp; } </tt></b><br>
+</p>
+
+<b>Remarque:</b><p> Les fonctions <b>popen</b> et <b>pclose</b> ne font pas partie du livre 'The C Programming Language', mais elles sont comprises dans le livre 'The Standard C Library'. En Unix/Linux/MacOSX, elles offrent la possibilit&eacute; d'&eacute;crire et de lire dans une file (angl: pipe). Voir &agrave; ce sujet les pages d'aide (man-pages) : "man popen"</p>
+
+<br>
+<hr SIZE=1 WIDTH="99%">
+<h4>
+<a NAME="graph"></a>Comment utiliser le mode graphique (avec les produits
+Borland) sous DOS?</h4>
+Ceci n'a plus rien &agrave; faire avec le standard ANSI-C, puisque c'est
+sp&eacute;cifique au DOS et m&ecirc;me uniquement valable pour Borland-C(++):
+<br>Voici quand m&ecirc;me l'exemple d'un petit test graphique:
+<p><b><tt>#include &lt;stdio.h></tt></b>
+<br><b><tt>#include &lt;graphics.h></tt></b>
+<p><b><tt>int main(void)</tt></b>
+<br><b><tt>{</tt></b>
+<br><b><tt>&nbsp;&nbsp; /* request auto detection */</tt></b>
+<br><b><tt>&nbsp;&nbsp; int gdriver = DETECT, gmode, errorcode;</tt></b>
+<br><b><tt>&nbsp;&nbsp; int i, maxx, maxy;</tt></b>
+<p><b><tt>&nbsp;&nbsp; /* initialize graphics, local variables */</tt></b>
+<br><b><tt>&nbsp;&nbsp; initgraph(&amp;gdriver, &amp;gmode, "");</tt></b>
+<p><b><tt>&nbsp;&nbsp; /* read result of initialization */</tt></b>
+<br><b><tt>&nbsp;&nbsp; errorcode = graphresult();</tt></b>
+<br><b><tt>&nbsp;&nbsp; if (errorcode != grOk)</tt></b>
+<br><b><tt>&nbsp;&nbsp; /* an error occurred */</tt></b>
+<br><b><tt>&nbsp;&nbsp; {</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Graphics error: %s\n",&nbsp;
+grapherrormsg(errorcode));</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Press any key to halt:");</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getch();</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit(1);</tt></b>
+<br><b><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* terminate with an error code
+*/</tt></b>
+<br><b><tt>&nbsp;&nbsp; }</tt></b>
+<p><b><tt>&nbsp;&nbsp; /* DESSINER ... */</tt></b>
+<br><b><tt>&nbsp; . . .</tt></b>
+<p><b><tt>&nbsp;&nbsp; /* clean up */</tt></b>
+<br><b><tt>&nbsp;&nbsp; closegraph();</tt></b>
+<br><b><tt>&nbsp;&nbsp; return 0;</tt></b>
+<br><b><tt>}</tt></b>
+<br>&nbsp;
+<p><b><i>Condition:</i></b> Les fichiers *.bgi n&eacute;cessaires doivent
+se trouver dans le r&eacute;pertoire du programme *.exe ou bien il faut
+indiquer le r&eacute;pertoire o&ugrave; se trouvent ces fichiers comme
+dernier param&egrave;tre de l'instruction <b>initgraph</b> (p.ex:<b><tt>
+initgraph(&amp;gdriver, &amp;gmode, "C:\TC\BGI");.</tt></b>
+<br>Le d&eacute;savantage de la deuxi&egrave;me solution est clair: Le
+programme n'est plus portable, puisqu'il tourne uniquement sur des machines
+o&ugrave; le r&eacute;pertoire indiqu&eacute; existe et contient les fichiers
+.BGI.
+<br>En g&eacute;n&eacute;ral, le fichier <b><i>egavga.bgi</i></b> devrait
+suffire pour les cartes graphiques actuelles si vous n'utilisez pas de
+polices (fontes) sp&eacute;ciales.
+<p>Voir aussi le FAQ:&nbsp; <a href="http://www.eskimo.com/~scs/C-faq/q19.10.html" target="_parent">19.10
+How can I do graphics?</a>
+<br>
+<hr size="1" width="100%">
+<h4>
+<a NAME="graphDJGPP"></a>Comment utiliser le mode graphique avec
+DJGPP?</h4>
+Ceci n'a plus rien &agrave; faire avec le standard ANSI-C.
+<br>Tout ce dont on a besoin pour programmer graphiquement sous DJGPP est
+contenu dans la librairie graphique gratuite ALLEGRO pour DJGPP,
+<br>t&eacute;l&eacute;chargeable &agrave; l'adresse :
+<br>&nbsp;&nbsp;&nbsp; <a href="http://www.talula.demon.co.uk/allegro">http://www.talula.demon.co.uk/allegro</a>
+<p>Voir aussi le FAQ:&nbsp; <a href="http://www.eskimo.com/~scs/C-faq/q19.10.html" target="_parent">19.10
+How can I do graphics?</a>
+<br>
+<hr size="1" width="100%">
+<h4>
+<a NAME="keypressed"></a>Comment contr&ocirc;ler quelle/si une touche a
+&eacute;t&eacute; press&eacute;e sans bloquer le programme sous DOS/ sous
+UNIX?<b> remplacement pour <i>getch</i> sous Unix?</b></h4>
+Le standard ANSI-C ne d&eacute;finit pas de fonction &agrave; cet effet.
+La solution n'est donc pas portable.
+<p><b>Sous DOS:</b>
+<ul>Sur un PC (sous turbo-C), on peut utiliser la fonction '<tt>bioskey()</tt>'
+pour acc&eacute;der directement au clavier, sans devoir attendre.
+<br>Pour des explications plus pr&eacute;cises, consulter les fichiers
+d'aide, les groupes news ou l'un des <a href="#AdressesSurInternet">autres
+sites Web</a>.</ul>
+<b>Sous UNIX:</b>
+<ul>Voici ce que le <a href="http://www.eskimo.com/~scs/C-faq/top.html" target="_parent">FAQ</a>
+dit &agrave; ce sujet:
+<p>&nbsp;<a href="http://www.eskimo.com/~scs/C-faq/q19.1.html" target="_parent">19.1
+How can I read a single character from the keyboard without waiting for
+the RETURN key?</a>
+<br>&nbsp;<a href="http://www.eskimo.com/~scs/C-faq/q19.2.html" target="_parent">19.2
+How can I find out how many characters are available for reading, or do
+a non-blocking read?</a></ul>
+
+<hr size="1" width="100%">
+<h4>
+<a NAME="listes_chainees"></a>Comment impl&eacute;menter des listes cha&icirc;n&eacute;es/arbres
+binaires en C?</h4>
+Vous trouverez une r&eacute;ponse &agrave; ces question sur les pages suivantes:
+<ul>
+<li>
+<a href="http://c.ftp-developpez.com/downloads/c/struct_chainee.doc" target="_parent">L'explication et l'implémentation des structures chainées (arbres) en C</a></li>
+
+<li>
+<a href="http://chgi.developpez.com/pile/" target="_parent">Les listes chaînées en C. Par CGi</a></li>
+
+<li>
+Ou dans l'un des autres tutoriels publiés p.ex sur <a href="http://c.developpez.com/cours/" target="_parent">c.developpez.com/cours</a></li>
+
+</ul>
+
+<hr size="1" width="100%">
+<h4>
+<a NAME="CppJava"></a>O&ugrave; est-ce que je trouve un cours semblable
+au v&ocirc;tre sur <b>PASCAL/C++/JAVA</b>?</h4>
+Il existe un grand nombre de tutoriels traitant Pascal, C++ ou JAVA sur
+l'Internet. Je vous conseille de commencer votre recherche sur le site 
+<a href="http://www.developpez.com" target="_top">www.developpez.com</a>.
+
+<hr size="1" width="100%">
+<h4>
+<a NAME="AdressesSurInternet"></a>Autres adresses sur l'Internet</h4>
+Avant toute autre source, veuillez consulter le <b>FAQ</b> du groupe de
+discussion <b>comp.lang.c:</b>
+<ul>
+<li>
+<b><a href="http://www.eskimo.com/~scs/C-faq/top.html" target="_parent"><font size=+1>FAQ:
+</font>comp.lang.c
+Frequently Asked Questions</a></b></li>
+</ul>
+
+<P>Pour les ressources <b>en fran&ccedil;ais</b>, je vous conseillerais encore une fois de commencer 
+sur 
+<ul>
+<li><font size=+1>
+<a href="http://c.developpez.com" target="_parent">c.developpez.com</a></font>
+</li>
+</ul>
+
+Quelques adresses int&eacute;ressantes pour des programmeurs en C:
+<ul>
+<li>
+<a href="http://www.strath.ac.uk/CC/Courses/NewCcourse/ccourse.html" target="_parent">Steve
+Holmes's C Course (ANSI C)</a></li>
+
+<li>
+<a href="http://www.lysator.liu.se/c/index.html" target="_parent">Vinit's
+and Jutta's "Programming in C" page</a></li>
+
+<li>
+<a href="http://www.eskimo.com/~scs/cclass/krnotes/top.html" target="_parent">Steve
+Summit's C tutorial</a></li>
+
+<li>
+<a href="http://www.cyberdiem.com/vin/learn.html" target="_parent">Vinit
+Carpenter's page on resources for learning C and C++</a></li>
+
+
+<li>
+<a href="http://www.csd.uwo.ca/%7ejamie/.Refs/C-refs.html" target="_parent">J.
+Blustein's C programming references</a></li>
+
+<li>
+<a href="ftp://garbo.uwasa.fi/pc/c-lang/c-lesson.zip">C-tutorial - .ZIP
+format</a></li>
+
+</ul>
+
+Pour des questions concernant les standards ANSI-C / K&amp;R-C / ... :
+<ul>
+<li><b><a href="http://groups.google.com/group/comp.std.c/topics">Groupe de discussion : comp.std.c</a></b></li>
+</ul>
+<p>
+<hr size="1" width="100%"><a href="prg-c02.htm"><img SRC="leftg.gif" ALT="Previous" BORDER=0 height=30 width=30></a><a href="prg-c04.htm"><img SRC="rightg.gif" ALT="Next" BORDER=0 height=30 width=30></a><a href="prg-c01.htm"><img SRC="upg.gif" ALT="Up" BORDER=0 height=30 width=30></a><a href="prg-c.htm"><img SRC="topg.gif" ALT="Title" BORDER=0 height=30 width=30></a><a href="prg-c_c.htm"><img SRC="contg.gif" ALT="Contents" BORDER=0 height=30 width=30></a><br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback
+- Copyright &copy;</a> 1993,1996,1997,2011 <a href="prg-c02.htm">F.Faber</a> - version du 17.6.2011 -</small>
+</body>
+</html>

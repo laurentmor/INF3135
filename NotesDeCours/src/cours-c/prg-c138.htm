@@ -1,0 +1,116 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.3.2. Exemple: Cr&eacute;er et afficher un fichier s&eacute;quentiel</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c137.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c139.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c136.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.3.2. Exemple: Cr&eacute;er et afficher un fichier s&eacute;quentiel</h3>
+ <p>
+ <p>
+Avant de discuter les d&eacute;tails du traitement des fichiers, nous vous
+pr&eacute;sentons un petit exemple comparatif qui r&eacute;unit les
+op&eacute;rations les plus importantes sur les fichiers. <p>
+<p>
+<b><i>Probl&egrave;me</i></b><p>
+On se propose de cr&eacute;er un fichier qui est form&eacute; d'enregistrements
+contenant comme information le nom d'une personne. Chaque enregistrement est
+donc constitu&eacute; d'une seule rubrique, &agrave; savoir, le nom de la
+personne.<p>
+<p>
+<img src="prg-c75.gif" width="474" height="157"><p>
+<p>
+<center>L'utilisateur doit entrer au clavier le nom du fichier, le nombre de
+personnes et les noms des personnes. Le programme se chargera de cr&eacute;er
+le fichier correspondant sur disque dur ou sur disquette.<p>
+</center><p>
+Apr&egrave;s avoir &eacute;crit et ferm&eacute; le fichier, le programme va
+rouvrir le m&ecirc;me fichier en lecture et afficher son contenu, sans utiliser
+le nombre d'enregistrements introduit dans la premi&egrave;re partie.<p>
+<p>
+<b><i>Solution en langage algorithmique</i></b>
+
+<pre><u>programme</u> PERSONNEL
+  <u>cha&icirc;ne</u> NOM_FICHIER, NOM_PERS
+  <u>entier</u> C,_NB_ENREG
+
+  (* Premi&egrave;re partie : 
+     Cr&eacute;er et remplir le fichier *)
+  <u>&eacute;crire</u> &quot;Entrez le nom du fichier &agrave; cr&eacute;er : &quot;
+  <u>lire</u> NOM_FICHIER
+<i>  </i><cite>ouvrir</cite><i> NOM_FICHIER </i><cite>en &eacute;criture</cite> 
+   <u>&eacute;crire</u> &quot;Nombre d'enregistrements &agrave; cr&eacute;er : &quot;
+  <u>lire</u> NB_ENREG
+  <u>en</u> C <u>ranger</u> 0
+  <u>tant que</u> (C&lt;NB_ENREG) <u>faire</u>
+  |  <u>&eacute;crire</u> &quot;Entrez le nom de la personne : &quot;
+  |  <u>lire</u> NOM_PERS
+  |  <cite>&eacute;crire</cite><i> NOM_FICHIER:NOM_PERS</i>
+  |  <u>en</u> C <u>ranger</u> C+1
+  <u>ftant</u> (* C=NB_ENREG *)
+  <cite>fermer</cite><i> NOM_FICHIER</i> 
+(* Deuxi&egrave;me partie : 
+     Lire et afficher le contenu du fichier *)
+  <cite>ouvrir</cite><i> NOM_FICHIER </i><cite>en lecture</cite> 
+  <u>en</u> C <u>ranger</u> 0
+  <u>tant que</u> <cite>non</cite><i>(</i><cite>finfichier</cite><i>(NOM_FICHIER))</i> <u>faire</u>
+  |  <cite>lire</cite><i> NOM_FICHIER:NOM_PERS</i>
+  |  <u>&eacute;crire</u> &quot;NOM : &quot;,NOM_PERS
+  |  <u>en</u> C <u>ranger</u> C+1
+  <u>ftant</u>
+  <cite>fermer</cite><i> NOM_FICHIER</i>   
+<u>fprogramme</u> (* fin PERSONNEL *)  </pre>
+<p>
+<b><i>Solution en langage C</i></b>
+
+<pre><b>#include &lt;stdio.h&gt;
+
+main()
+{
+  FILE *P_FICHIER; /* pointeur sur FILE */
+  char NOM_FICHIER[30], NOM_PERS[30];
+  int  C,NB_ENREG;
+
+  /* Premi&egrave;re partie : 
+     Cr&eacute;er et remplir le fichier */
+  printf(&quot;Entrez le nom du fichier &agrave; cr&eacute;er : &quot;);
+  scanf(&quot;%s&quot;, NOM_FICHIER);
+  P_FICHIER = fopen(NOM_FICHIER, &quot;w&quot;);  /* write */
+  printf(&quot;Nombre d'enregistrements &agrave; cr&eacute;er : &quot;);
+  scanf(&quot;%d&quot;, &amp;NB_ENREG);
+  C = 0;
+  while (C&lt;NB_ENREG)
+     { 
+      printf(&quot;Entrez le nom de la personne : &quot;);
+      scanf(&quot;%s&quot;, NOM_PERS);
+      fprintf(P_FICHIER, &quot;%s\n&quot;, NOM_PERS);
+      C++;
+     }
+  fclose(P_FICHIER);
+
+  /* Deuxi&egrave;me partie : 
+     Lire et afficher le contenu du fichier */
+  P_FICHIER = fopen(NOM_FICHIER, &quot;r&quot;);  /* read */
+  C = 0;
+  while (!feof(P_FICHIER))
+     {
+      fscanf(P_FICHIER, &quot;%s\n&quot;, NOM_PERS);
+      printf(&quot;NOM : %s\n&quot;, NOM_PERS);
+      C++;
+     }
+  fclose(P_FICHIER);
+  return 0;
+} </b></pre>
+<p>
+&gt;&gt; Voir aussi: <a href="prg-c142.htm">Chapitre 11.4.3.</a> Exemples: Ouvrir et fermer des fichiers en pratique
+<p><hr size="1" width="100%">
+<a href="prg-c137.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c139.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c136.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

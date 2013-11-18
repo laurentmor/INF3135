@@ -1,0 +1,174 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.16</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex191.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <img src="./norightg.gif" alt="Next " border="0" width="30" height="30">
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.16</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+<b>  /* Prototype de la fonction FUSION */</b>
+<b>  void FUSION(int *A, int *B, int *FUS, int N, int M);</b>
+   /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char FICH_A[30], FICH_B[30], FICH_FUS[30];
+  FILE *FA, *FB, *FFUS;
+  /* Autres variables */
+<b>  int *TABA, *TABB, *TFUS; /* pointeurs pour les tableaux */</b>
+<b>  int LA, LB; /* Longueurs de FA et FB */</b>
+   int N; /* Nombre lu ou &eacute;crit dans un fichier */
+  int I; /* Indice d'aide */
+ 
+<b>  /* Ouverture du fichier FA en lecture */</b>
+   do
+    {
+     printf(&quot;Nom du fichier FA : &quot;);
+     scanf(&quot;%s&quot;, FICH_A);
+     FA = fopen(FICH_A, &quot;r&quot;); 
+     if (!FA) 
+         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+                &quot;le fichier: %s.\n&quot;, FICH_A);
+    }
+  while (!FA);
+<b>  /* D&eacute;tection de la longueur de FA */</b>
+<b>  for (LA=0; !feof(FA); LA++)</b>
+<b>       fscanf(FA,&quot;%d\n&quot;, &amp;N);</b>
+<b>  /* Fermeture du fichier FA */</b>
+<b>  fclose(FA);</b>
+<b>  /* Allocation de la m&eacute;moire pour TABA */</b>
+<b>  TABA = malloc (LA*sizeof(int));</b>
+   if (!TABA)
+       {
+        printf(&quot;\a Pas assez de m&eacute;moire pour TABA\n&quot;);
+        exit(-1);
+       }
+
+
+<b>  /* R&eacute;ouverture du fichier FA en lecture */</b>
+<b>  FA = fopen(FICH_A, &quot;r&quot;);</b>
+<b>  /* Copie du contenu de FA dans TABA */</b>
+<b>  for (I=0; I&lt;LA; I++)</b>
+<b>       fscanf(FA,&quot;%d\n&quot;, TABA+I);</b>
+<b>  /* Fermeture du fichier FA */</b>
+<b>  fclose(FA);</b>
+  
+<b>  /* M&ecirc;mes op&eacute;rations pour FB : */</b>
+<b>  /* Ouverture du fichier FB en lecture */</b>
+   do
+    {
+     printf(&quot;Nom du fichier FB : &quot;);
+     scanf(&quot;%s&quot;, FICH_B);
+     FB = fopen(FICH_B, &quot;r&quot;);
+     if (!FB) 
+         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+                &quot;le fichier: %s.\n&quot;, FICH_B);
+    }
+  while (!FB);
+<b>  /* D&eacute;tection de la longueur de FB */</b>
+<b>  for (LB=0; !feof(FB); LB++)</b>
+<b>       fscanf(FB,&quot;%d\n&quot;, &amp;N);</b>
+<b>  /* Fermeture du fichier FB */</b>
+<b>  fclose(FB);</b>
+<b>  /* Allocation de la m&eacute;moire pour TABB */</b>
+<b>  TABB = malloc (LB*sizeof(int));</b>
+   if (!TABB)
+       {
+        printf(&quot;\a Pas assez de m&eacute;moire pour TABB\n&quot;);
+        exit(-1);
+       }
+<b>  /* R&eacute;ouverture du fichier FB en lecture */</b>
+<b>  FB = fopen(FICH_B, &quot;r&quot;);</b>
+<b>  /* Copie du contenu de FB dans TABB */</b>
+<b>  for (I=0; I&lt;LB; I++)</b>
+<b>       fscanf(FB,&quot;%d\n&quot;, TABB+I);</b>
+<b>  /* Fermeture du fichier FB */</b>
+<b>  fclose(FB);</b>
+  
+<b>  /* Allocation de la m&eacute;moire pour TFUS */</b>
+   <b>TFUS = malloc ((LA+LB)*sizeof(int));</b>
+  if (!TFUS)
+       {
+        printf(&quot;\a Pas assez de m&eacute;moire pour TFUS\n&quot;);
+        exit(-1);
+       }
+ 
+<b>  /* Fusion des tableaux TA et TB dans TFUS */</b>
+<b>  FUSION (TABA, TABB, TFUS, LA, LB);</b>
+ 
+
+<b>  /* Ouverture du fichier FFUS en &eacute;criture */</b>
+   do
+    {
+     printf(&quot;Nom du fichier FFUS : &quot;);
+     scanf(&quot;%s&quot;, FICH_FUS);
+     FFUS = fopen(FICH_FUS, &quot;w&quot;); 
+     if (!FFUS) 
+         printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+                &quot;le fichier: %s.\n&quot;, FICH_FUS);
+    }
+  while (!FFUS);
+<b>  /* Copier le contenu de TFUS dans FFUS */</b>
+<b>  for (I=0; I&lt;(LA+LB); I++)</b>
+<b>       fprintf(FFUS,&quot;%d\n&quot;, *(TFUS+I));</b>
+<b>  /* Fermeture du fichier FFUS */</b>
+<b>  fclose(FFUS);</b>
+   return 0;
+} 
+
+<b>void FUSION(int *A, int *B, int *FUS, int N, int M)</b>
+<b>{</b>
+  /* Variables locales */
+ /* Indices courants dans A, B et FUS */
+ int IA,IB,IFUS;  
+ 
+ /* Fusion de A et B dans FUS */
+ IA=0, IB=0; IFUS=0;
+ while ((IA&lt;N) &amp;&amp; (IB&lt;M))
+    if (*(A+IA)&lt;*(B+IB))
+        {
+         *(FUS+IFUS)=*(A+IA);
+         IFUS++;
+         IA++;
+        }
+    else
+        {
+         FUS[IFUS]=B[IB];
+         IFUS++;
+         IB++;
+        }
+ /* Si A ou B sont arriv&eacute;s &agrave; la fin, alors */
+ /* copier le reste de l'autre tableau.    */
+ while (IA&lt;N)
+     {
+      *(FUS+IFUS)=*(A+IA);
+      IFUS++;
+      IA++;
+     }
+ while (IB&lt;M)
+     {
+      *(FUS+IFUS)=*(B+IB);
+      IFUS++;
+      IB++;
+     }
+<b>}</b></pre>
+
+<p>
+<a href="solex01.htm"></a><a href="solex01.htm"></a><p>
+<a href="solex01.htm"></a><p><hr size="1" width="100%">
+<a href="solex191.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <img src="./norightg.gif" alt="Next " border="0" width="30" height="30">
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

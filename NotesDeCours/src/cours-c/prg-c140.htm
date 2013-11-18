@@ -1,0 +1,144 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.4.1. Ouvrir un fichier s&eacute;quentiel</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c139.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c141.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c139.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.4.1. Ouvrir un fichier s&eacute;quentiel</h3>
+ <p>
+ <p>
+<b><i>Ouvrir un fichier en langage algorithmique</i></b>
+
+<pre>      <u>ouvrir</u> &lt;Nom&gt; <u>en &eacute;criture</u></pre>
+<p>
+	ou bien
+
+<pre>      <u>ouvrir</u> &lt;Nom&gt; <u>en lecture</u></pre>
+<tt></tt><p>
+<tt></tt>&lt;Nom&gt; est une cha&icirc;ne de caract&egrave;res constante ou une
+variable de type cha&icirc;ne qui repr&eacute;sente le nom du fichier sur le
+m&eacute;dium de stockage.<p>
+<tt></tt>
+<p>
+<b><i>Ouvrir un fichier en C - fopen</i></b><p>
+Lors de l'ouverture d'un fichier avec <b>fopen</b>, le syst&egrave;me s'occupe
+de la r&eacute;servation de la m&eacute;moire tampon dans la m&eacute;moire
+centrale et g&eacute;n&egrave;re les informations pour un nouvel
+&eacute;l&eacute;ment du type <b>FILE</b>. L'adresse de ce bloc est
+retourn&eacute;e comme r&eacute;sultat si l'ouverture s'est
+d&eacute;roul&eacute;e avec succ&egrave;s. La commande <b>fopen </b>peut ouvrir
+des fichiers en &eacute;criture ou en lecture en d&eacute;pendance de son
+deuxi&egrave;me param&egrave;tre (&quot;r&quot; ou &quot;w&quot;) :
+
+<pre><b>      &lt;FP&gt; = fopen ( &lt;Nom&gt; , &quot;w&quot; );</b></pre>
+<p>
+	ou bien
+
+<pre><b>      &lt;FP&gt; = fopen ( &lt;Nom&gt; , &quot;r&quot; );</b></pre>
+<tt></tt><p>
+<tt></tt>*	<b>&lt;Nom&gt;</b> est une cha&icirc;ne de caract&egrave;res
+constante ou une variable de type cha&icirc;ne qui repr&eacute;sente le nom du
+fichier sur le m&eacute;dium de stockage,<p>
+*	<b>le deuxi&egrave;me argument</b> d&eacute;termine le mode d'acc&egrave;s au
+fichier:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>&quot;w&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">pour
+'ouverture en &eacute;criture'
+<br></td>
+<td colspan="1" align="left"><i>-
+write </i>-
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>&quot;r&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">pour
+'ouverture en lecture'
+<br></td>
+<td colspan="1" align="left"><i>-
+read -</i>
+<br></td></tr></table><p>
+*	<b>&lt;FP&gt;</b> est un pointeur du type <b>FILE*</b> qui sera reli&eacute;
+au fichier sur le m&eacute;dium de stockage. Dans la suite du programme, il
+faut utiliser &lt;FP&gt; au lieu de &lt;Nom&gt; pour r&eacute;f&eacute;rencer
+le fichier.<p>
+*	&lt;FP&gt; doit &ecirc;tre d&eacute;clar&eacute; comme:
+
+<pre><b>	      FILE *FP;</b></pre>
+<p>
+<p>
+<b><i>Le r&eacute;sultat de fopen</i></b><p>
+Si le fichier a pu &ecirc;tre ouvert avec <i>succ&egrave;s</i>, <b>fopen</b>
+fournit l'adresse d'un nouveau bloc du type <b>FILE</b>. En
+g&eacute;n&eacute;ral, la valeur de cette adresse ne nous int&eacute;resse pas;
+elle est simplement affect&eacute;e &agrave; un pointeur &lt;FP&gt; du type
+<b>FILE*</b> que nous utiliserons ensuite pour acc&eacute;der au fichier.<p>
+<p>
+A l'apparition d'une <i>erreur</i> lors de l'ouverture du fichier, <b>fopen</b>
+fournit la valeur num&eacute;rique z&eacute;ro qui est souvent utilis&eacute;e
+dans une expression conditionnelle pour assurer que le traitement ne continue
+pas avec un fichier non ouvert (voir 11.4.3. Exemples).<p>
+<p>
+<b><i>Ouverture en &eacute;criture</i></b><p>
+Dans le cas de la cr&eacute;ation d'un nouveau fichier, le nom du fichier est
+ajout&eacute; au r&eacute;pertoire du m&eacute;dium de stockage et la
+t&ecirc;te de lecture/&eacute;criture est positionn&eacute;e sur un espace
+libre du m&eacute;dium.<p>
+<p>
+Si un fichier <b><i>existant</i></b> est ouvert en &eacute;criture, alors son
+contenu est perdu.<p>
+<p>
+Si un fichier <b><i>non existant</i> </b>est ouvert en &eacute;criture, alors
+il est cr&eacute;&eacute; automatiquement. Si la cr&eacute;ation du fichier est
+impossible alors <b>fopen</b> indique une erreur en retournant la valeur
+z&eacute;ro.<p>
+<p>
+Autres possibilit&eacute;s d'erreurs signal&eacute;es par un
+r&eacute;sultat nul:<p>
+	-	chemin d'acc&egrave;s non valide,<p>
+	-	pas de disque/bande dans le lecteur,<p>
+	-	essai d'&eacute;crire sur un m&eacute;dium prot&eacute;g&eacute; contre
+l'&eacute;criture,<p>
+	-	. . .<p>
+<p>
+<b><i>Ouverture en lecture</i></b><p>
+Dans le cas de la lecture d'un fichier existant, le nom du fichier doit
+&ecirc;tre retrouv&eacute; dans le r&eacute;pertoire du m&eacute;dium et la
+t&ecirc;te de lecture/&eacute;criture est plac&eacute;e sur le premier
+enregistrement de ce fichier.<p>
+<p>
+Possibilit&eacute;s d'erreurs signal&eacute;es par un r&eacute;sultat nul:<p>
+	-	essai d'ouvrir un fichier non existant,<p>
+	-	essai d'ouvrir un fichier sans autorisation d'acc&egrave;s,<p>
+	-	essai d'ouvrir un fichier prot&eacute;g&eacute; contre la lecture,<p>
+	-	. . .<p>
+<p>
+<hr size="2">
+<a name="remavancee"></a>
+<img src="remavanc.gif" align="right" width="262" height="113">
+<i><b>Remarque avanc&eacute;e:</b></i><br> 
+Si un fichier n'a pas pu &ecirc;tre ouvert avec succ&egrave;s, (r&eacute;sultat NUL), un code d'erreur est plac&eacute; dans la variable <b><i>errno</i></b>. Ce code d&eacute;signe plus exactement la nature de l'erreur survenue. Les codes d'erreurs sont d&eacute;finis dans <b>&lt;errno.h&gt;</b>.<p>
+<ul>
+ <li> L'appel de la fonction <b>strerror(errno)</b> retourne un pointeur sur la cha&icirc;ne de caract&egrave;res qui d&eacute;crit l'erreur dans <b>errno</b>.<p>
+ <li> L'appel de la fonction <b>perror(s)</b> affiche la cha&icirc;ne s et le message d'erreur qui est d&eacute;fini pour l'erreur dans <b>errno</b>.<p>
+</ul><p>
+<p><hr size="1" width="100%">
+<a href="prg-c139.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c141.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c139.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,48 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.11</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex45.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex47.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.11</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int A, B;         /* donn&eacute;es */
+ int X, Y, RESTE;  /* var. d'aide pour l'algorithme d'Euclide */
+
+<b> do </b>
+<b>    {</b>
+      printf(&quot;Entrer l'entier A (non nul) : &quot;);
+     scanf(&quot;%d&quot;, &amp;A);
+<b>    } </b>
+<b> while(!A);</b>
+<b> do </b>
+<b>    {</b>
+      printf(&quot;Entrer l'entier B (non nul) : &quot;);
+     scanf(&quot;%d&quot;, &amp;B);
+<b>    } </b>
+<b> while(!B);</b>
+ 
+<b> for (RESTE=A, X=A, Y=B ; RESTE ; X=Y, Y=RESTE)</b>
+<b>      RESTE = X%Y;</b>
+ 
+ printf(&quot;Le PGCD de %d et de %d est %d\n&quot;, A, B, X);
+ return 0;
+}</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex45.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex47.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

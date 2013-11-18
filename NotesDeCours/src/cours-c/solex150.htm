@@ -1,0 +1,71 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.20</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex149.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex151.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.20</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ void INSERER(int X, int *T, int *N);
+ void LIRE_TAB (int *TAB, int *N, int NMAX);
+ void ECRIRE_TAB (int *TAB, int N);
+ /* Variables locales */
+ int T[100]; /* Tableau d'entiers */
+ int DIM;    /* Dimension du tableau */
+ int A;      /* Nombre &agrave; ins&eacute;rer */ 
+ /* Traitements */
+ LIRE_TAB (T, &amp;DIM, 100);
+ printf(&quot;Tableau donn&eacute; : \n&quot;);
+ ECRIRE_TAB (T, DIM);
+ printf(&quot;Introduire le nombre &agrave; ins&eacute;rer : &quot;);
+ scanf(&quot;%d&quot;, &amp;A);
+<b> INSERER(A, T, &amp;DIM);</b>
+  printf(&quot;Tableau r&eacute;sultat : \n&quot;);
+ ECRIRE_TAB (T, DIM);
+ return 0;
+}
+
+<b>void INSERER(int X, int *T, int *N)</b>
+<b>{</b>
+  /* Variables locales */
+ int I;
+ /* Insertion de X dans le tableau T suppos&eacute; tri&eacute;: */
+ /* D&eacute;placer les &eacute;l&eacute;ments plus grands que X d'une  */
+ /* position vers l'arri&egrave;re. */
+<b> for (I=*N ; I&gt;0 &amp;&amp; *(T+I-1)&gt;X ; I--)</b>
+<b>      *(T+I) = *(T+I-1);</b>
+  /* X est copi&eacute; &agrave; la position du dernier &eacute;l&eacute;ment d&eacute;plac&eacute; */
+<b> *(T+I)=X;</b>
+  /* Nouvelle dimension du tableau: */
+<b> (*N)++;</b> /* Attention aux parenth&egrave;ses ! */ 
+<b>}</b>
+ 
+void LIRE_TAB (int *TAB, int *N, int NMAX)
+{
+ . . .
+}
+
+void ECRIRE_TAB (int *TAB, int N)
+{
+ . . .
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex149.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex151.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

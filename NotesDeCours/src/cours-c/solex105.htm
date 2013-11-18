@@ -1,0 +1,91 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.3</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex104.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex106.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.3</h3>
+ <p>
+ <p>
+<p>
+<b>Solution: </b>En traitant des tableaux &agrave; l'aide de pointeurs, nous
+utilisons souvent des expressions de la forme:<p>
+<tt><b> </b></tt><b>
+</b><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>f</b></tt><tt><b>or (P=A ; P&lt;A+N ; P++)</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+<br></td>
+<td colspan="1" align="left"><tt><b>
+for (P=CH ; *P ; P++)</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+     {</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>
+     {</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+      ...</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>
+      ...</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+     }</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>
+     }</b></tt>
+<br></td></tr></table> <p>
+ ou les versions analogues avec <b>while</b>. <p>
+Dans ces boucles, le pointeur P est incr&eacute;ment&eacute; &agrave; la fin du
+bloc d'instruction et compar&eacute; ensuite &agrave; la condition de la
+boucle. Au moment o&ugrave; la condition est remplie, P pointe
+d&eacute;j&agrave; &agrave; l'ext&eacute;rieur du tableau; plus
+pr&eacute;cis&eacute;ment sur le premier &eacute;l&eacute;ment derri&egrave;re
+le tableau.<p>
+ <p>
+<b>Exemple:</b><p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[10]; /* tableau */
+ int *P;    /* pointeur dans A */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Introduire 10 entiers : \n&quot;);
+ for (<b>P=A</b>; <b>P&lt;A+10</b>; <b>P++</b>)
+      scanf(&quot;%d&quot;, P);
+ /* Affichage du tableau */
+ printf(&quot;Tableau donn&eacute; A :\n&quot;);
+ for (<b>P=A</b>; <b>P&lt;A+10</b>; <b>P++</b>)
+     printf(&quot;%d &quot;, *P);
+ printf(&quot;\n&quot;);
+ return 0;
+}
+ </pre>
+A
+la fin des boucles, P contient l'adresse A+10 et pointe donc sur
+l'&eacute;l&eacute;ment A[10] qui ne fait plus partie du tableau. <p>
+<tt></tt><p>
+<tt></tt><p>
+<p><hr size="1" width="100%">
+<a href="solex104.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex106.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,186 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 8.6.3. Les fonctions de &lt;stdlib&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c81.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c83.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+8.6.3. Les fonctions de &lt;stdlib&gt;</h3>
+<ul>
+<li><a href="#Heading174"> Exercice 8.9</a>
+<li><a href="#Heading175"> Exercice 8.10</a>
+</ul>
+<hr size="1" width="100%">
+<b>	</b><p>
+ <p>
+La biblioth&egrave;que <i>&lt;stdlib&gt;</i> contient des d&eacute;clarations
+de fonctions pour la conversion de nombres en cha&icirc;nes de
+caract&egrave;res et vice-versa.<p>
+<p>
+<b><i>Cha&icirc;ne --&gt; Nombre</i></b><p>
+Les trois fonctions d&eacute;finies ci-dessous correspondent au standard ANSI-C
+et sont portables. Le symbole &lt;s&gt; peut &ecirc;tre remplac&eacute; par :<p>
+<ul>
+<li>	une cha&icirc;ne de caract&egrave;res constante
+<li>	le nom d'une variable d&eacute;clar&eacute;e comme tableau de <b>char</b>
+<li>	un pointeur sur <b>char</b> (voir chapitre 9)
+</ul>
+<p>
+<b>Conversion de cha&icirc;nes de caract&egrave;res en nombres</b><p>
+<b>
+</b><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<b>atoi(&lt;s&gt;)</b>
+<br></td>
+<td colspan="1" align="left">retourne
+la valeur num&eacute;rique repr&eacute;sent&eacute;e par &lt;s&gt; comme
+<b>int</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>atol(&lt;s&gt;)</b>
+<br></td>
+<td colspan="1" align="left">retourne
+la valeur num&eacute;rique repr&eacute;sent&eacute;e par &lt;s&gt; comme
+<b>long</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>atof(&lt;s&gt;)</b>
+<br></td>
+<td colspan="1" align="left">retourne
+la valeur num&eacute;rique repr&eacute;sent&eacute;e par &lt;s&gt; comme
+<b>double </b>(!)
+<br></td></tr></table>
+<p><b>R&egrave;gles
+g&eacute;n&eacute;rales pour la conversion:</b><p>
+<ul>
+<li>	Les espaces au d&eacute;but d'une cha&icirc;ne sont ignor&eacute;s
+<li>	Il n'y a pas de contr&ocirc;le du domaine de la cible
+<li>	La conversion s'arr&ecirc;te au premier caract&egrave;re non convertible
+<li>	Pour une cha&icirc;ne non convertible, les fonctions retournent z&eacute;ro
+</ul>
+<p>
+
+<h4><hr size="2">
+<a name="Heading174"> Exercice 8.9</a>
+<hr size="1"></h4>
+<p>
+<p>
+Soient les instructions:
+
+<pre><b>   char STR[200];
+   puts(&quot;Entrez un nombre :&quot;);
+   gets(STR);
+   printf(&quot;Entr&eacute;e  = %s \n&quot;, STR);
+   printf(&quot;integer = %d \n&quot;, atoi(STR));
+   printf(&quot;long    = %ld \n&quot;, atol(STR));
+   printf(&quot;double  = %f \n&quot;, atof(STR));</b></pre>
+Quelles
+sont les valeurs affich&eacute;es si on entre les cha&icirc;nes de
+caract&egrave;res suivantes:
+
+<pre><b>	a)	123
+	b)	    -123
+	c)	 - 123
+	d)	123.45
+	e)	12E3
+	f)	1234f5
+	g)	-1234567
+	h)	123e-02
+	i)	-0,1234</b></pre>
+<p>
+<hr size="2">
+<p>
+<p>
+<b><i>Nombre --&gt; Cha&icirc;ne</i></b><p>
+Le standard ANSI-C ne contient pas de fonctions pour convertir des nombres en
+cha&icirc;nes de caract&egrave;res. Si on se limite aux syst&egrave;mes
+fonctionnant sous DOS, on peut quand m&ecirc;me utiliser les fonctions
+<b>itoa</b>, <b>ltoa</b> et <b>ultoa</b> qui convertissent des entiers en
+cha&icirc;nes de caract&egrave;res. <p>
+<p>
+<p>
+<b>Conversion de nombres en cha&icirc;nes de caract&egrave;res</b><p>
+<b></b><img src="noansi.gif" alt="No Ansi" align="right" width="140" height="75"><p>
+ <p>
+<b>	itoa (&lt;n_int&gt;, &lt;s&gt;, &lt;b&gt;)</b><p>
+<b>	ltoa (&lt;n_long&gt;, &lt;s&gt;, &lt;b&gt;)</b><p>
+<b>	ultoa (&lt;n_uns_long&gt;, &lt;s&gt;, &lt;b&gt;)</b><p>
+<p>
+Chacune de ces trois proc&eacute;dures convertit son premier argument en une
+cha&icirc;ne de caract&egrave;res qui sera ensuite attribu&eacute;e &agrave;
+&lt;s&gt;. La conversion se fait dans la base &lt;b&gt;.
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<b>&lt;n_int&gt;</b>
+<br></td>
+<td colspan="1" align="left">est
+un nombre du type <b>int</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>&lt;n_long&gt;</b>
+<br></td>
+<td colspan="1" align="left">est
+un nombre du type <b>long</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>&lt;n_uns_long&gt;</b>
+<br></td>
+<td colspan="1" align="left">est
+un nombre du type <b>unsigned</b> <b>long</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>&lt;s&gt;</b>
+<br></td>
+<td colspan="1" align="left">est
+une cha&icirc;ne de caract&egrave;res
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">longueur
+maximale de la cha&icirc;ne: 17 resp. 33 byte
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>&lt;b&gt;</b>
+<br></td>
+<td colspan="1" align="left">est
+la base pour la conversion (2 ... 36)
+<br></td></tr></table><p>
+<p>
+<hr size="2">
+<p>
+<a name="RemAvancee"></a><img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113">
+<b><i>Remarque avanc&eacute;e</i></b><p>En ANSI-C il existe la possibilit&eacute; d'employer la fonction <b><tt>sprintf</tt></b> pour copier
+des donn&eacute;es format&eacute;es <b><i>dans une variable</i></b> de la m&ecirc;me fa&ccedil;on que <b><tt>printf</tt></b> les imprime &agrave; l'&eacute;cran.<p>
+<b>Syntaxe:</b>
+<pre><b>        sprintf( &lt;cha&icirc;ne cible&gt;, &lt;cha&icirc;ne de formatage&gt;, &lt;expr1&gt;, &lt;expr2&gt;, . . . )
+</b></pre>
+<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading175"> Exercice 8.10</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrivez un petit programme utilisant la fonction <b>ltoa</b> qui sert &agrave;
+contr&ocirc;ler les r&eacute;sultats de l'exercice 3.3.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c81.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c83.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

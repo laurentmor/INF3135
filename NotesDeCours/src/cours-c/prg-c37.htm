@@ -1,0 +1,178 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  3.6. Les fonctions arithm&eacute;tiques standard</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c36.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c38.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 3.6. Les fonctions arithm&eacute;tiques standard</h2>
+<ul>
+<li><a href="#Heading63"> Exercice 3.7 </a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ <p>
+Les fonctions suivantes sont pr&eacute;d&eacute;finies dans la
+biblioth&egrave;que standard <i>&lt;math&gt;</i>. Pour pouvoir les utiliser, le
+programme doit contenir la ligne:<p>
+<p>
+<b>	#include &lt;math.h&gt;</b><p>
+<p>
+<b><i>Type des donn&eacute;es</i></b><p>
+Les arguments et les r&eacute;sultats des fonctions arithm&eacute;tiques sont
+du type <b>double</b>.<p>
+<p>
+<p>
+<b><i>Fonctions arithm&eacute;tiques</i></b>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>COMMANDE C</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>EXPLICATION</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>LANG.
+ALGORITHMIQUE</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>exp(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">fonction
+exponentielle
+<br></td>
+<td colspan="1" align="left"><tt><b>e<sup>X</sup></b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>log(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">logarithme
+naturel
+<br></td>
+<td colspan="1" align="left"><tt><b>ln(X)</b>,
+X&gt;0</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>log10(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">logarithme
+&agrave; base 10
+<br></td>
+<td colspan="1" align="left"><tt><b>log<sub>10</sub>(X)</b>,
+X&gt;0</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>pow(X,Y)</b></tt>
+<br></td>
+<td colspan="1" align="left">X
+exposant Y
+<br></td>
+<td colspan="1" align="left"><tt><b>X<sup>Y</sup></b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>sqrt(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">racine
+carr&eacute;e de X
+<br></td>
+<td colspan="1" align="left">pour <tt>X&gt;0</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>fabs(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">valeur
+absolue de X
+<br></td>
+<td colspan="1" align="left"><tt><b>|X|</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>floor(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">arrondir
+en moins
+<br></td>
+<td colspan="1" align="left"><tt><b>int(X)</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>ceil(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">arrondir
+en plus
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>fmod(X,Y)</b></tt>
+<br></td>
+<td colspan="1" align="left">reste rationnel de X/Y (m&ecirc;me signe que X)
+<br></td>
+<td colspan="1" align="left">pour X diff&eacute;rent de 0<br></td></tr></table><tt><table border></tt>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>s</b></tt><tt><b>in(X)</b>  <b>cos(X)</b>  <b>tan(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">sinus,
+cosinus, tangente de X
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>asin(X)</b>
+<b>acos(X)</b> <b>atan(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">arcsin(X),
+arccos(X), arctan(X)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>sinh(X)</b>
+<b>cosh(X)</b> <b>tanh(X)</b></tt>
+<br></td>
+<td colspan="1" align="left">sinus,
+cosinus, tangente hyperboliques de X
+<br></td></tr></table><tt>
+  </tt>
+<p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113">
+<b><i>Remarque avanc&eacute;e</i></b><p>
+La liste des fonctions ne cite que les fonctions les plus courantes. Pour la liste compl&egrave;te et les constantes pr&eacute;d&eacute;finies voir <tt><b>&lt;math.h&gt;</b></tt>.        
+<p><br clear="all">
+<h4><hr size="2">
+<a name="Heading63"> Exercice 3.7 </a>
+<hr size="1"></h4>
+<p>
+<p>
+Essayez le programme suivant et modifiez-le de fa&ccedil;on &agrave; ce qu'il
+affiche:<p>
+<p>
+*
+	A<sup>B</sup>,<p>
+*
+	l'hypot&eacute;nuse d'un triangle rectangle de c&ocirc;t&eacute;s A et B,<p>
+*		la tangente de A en n'utilisant que les fonctions <b>sin</b> et
+<b>cos</b>,<p>
+*		la valeur arrondie (en moins) de A/B,<p>
+*
+	la valeur arrondie (en moins) &agrave; trois positions derri&egrave;re la
+virgule de A/B.<p>
+<tt></tt>
+
+<pre><b>#include &lt;stdio.h&gt;
+main()
+{
+ double A;
+ double B;
+ double RES;
+ /* Saisie de A et B */
+ printf(&quot;Introduire la valeur pour A : &quot;);
+ scanf(&quot;%lf&quot;, &amp;A);
+ printf(&quot;Introduire la valeur pour B : &quot;);
+ scanf(&quot;%lf&quot;, &amp;B);
+ /* Calcul */
+ RES = A*A;
+ /* Affichage du r&eacute;sultat */
+ printf(&quot;Le carr&eacute; de A est %f \n&quot;, RES);
+ /* Calcul */
+ RES = B*B;
+ /* Affichage du r&eacute;sultat */
+ printf(&quot;Le carr&eacute; de B est %f \n&quot;, RES);
+ return 0;
+}
+</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c36.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c38.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

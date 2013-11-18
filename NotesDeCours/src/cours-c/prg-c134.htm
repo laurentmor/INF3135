@@ -1,0 +1,91 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  11.1. D&eacute;finitions et propri&eacute;t&eacute;s</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c133.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c135.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 11.1. D&eacute;finitions et propri&eacute;t&eacute;s</h2>
+<b>		</b><p>
+ <p>
+<b><i>Fichier</i></b><p>
+Un <b><i>fichier</i></b> (angl.: <i>file</i>) est un ensemble structur&eacute;
+de donn&eacute;es stock&eacute; en g&eacute;n&eacute;ral sur un support externe
+(disquette, disque dur, disque optique, bande magn&eacute;tique, ...). Un
+<b><i>fichier structur&eacute;</i></b> contient une suite <i>d'enregistrements</i> homog&egrave;nes, qui
+regroupent le plus souvent plusieurs composantes appartenant ensemble<i>
+(champs)</i>.<p>
+<p>
+<b><i>Fichier s&eacute;quentiel</i></b><p>
+Dans des <b><i>fichiers s&eacute;quentiels</i></b>, les enregistrements sont
+m&eacute;moris&eacute;s cons&eacute;cutivement dans l'ordre de leur
+entr&eacute;e et peuvent seulement &ecirc;tre lus dans cet ordre. Si on a
+besoin d'un enregistrement pr&eacute;cis dans un fichier s&eacute;quentiel, il
+faut lire tous les enregistrements qui le pr&eacute;c&egrave;dent, en
+commen&ccedil;ant par le premier. <p>
+<p>
+En simplifiant, nous pouvons nous imaginer qu'un fichier s&eacute;quentiel est
+enregistr&eacute; sur une bande magn&eacute;tique:<p>
+<p>
+<img src="prg-c73.gif" width="540" height="157"><p>
+<p>
+<center><b><i>Propri&eacute;t&eacute;s</i></b><p>
+</center>Les fichiers s&eacute;quentiels que nous allons consid&eacute;rer dans
+ce cours auront les propri&eacute;t&eacute;s suivantes:<p>
+<p>
+*
+Les fichiers se trouvent ou bien en &eacute;tat d'&eacute;criture ou bien en
+&eacute;tat de lecture; nous ne pouvons pas simultan&eacute;ment lire et
+&eacute;crire dans le m&ecirc;me fichier.<p>
+
+<p>
+*
+A un moment donn&eacute;, on peut uniquement acc&eacute;der &agrave; un seul
+enregistrement; celui qui se trouve en face de la t&ecirc;te de
+lecture/&eacute;criture.<p>
+
+<p>
+*
+Apr&egrave;s chaque acc&egrave;s, la t&ecirc;te de lecture/&eacute;criture est
+d&eacute;plac&eacute;e derri&egrave;re la donn&eacute;e lue en dernier lieu. <p>
+<p>
+<b><i>Fichiers standards</i></b><p>
+Il existe deux fichiers sp&eacute;ciaux qui sont d&eacute;finis par
+d&eacute;faut pour tous les programmes: <p>
+<p>
+	-	<b><i>stdin</i></b>	le fichier d'entr&eacute;e standard<p>
+	-	<b><i>stdout</i></b>	le fichier de sortie standard  <p>
+<p>
+En g&eacute;n&eacute;ral, <i>stdin</i> est li&eacute; au clavier et
+<i>stdout</i> est li&eacute; &agrave; l'&eacute;cran, c.-&agrave;-d. les
+programmes lisent leurs donn&eacute;es au clavier et &eacute;crivent les
+r&eacute;sultats sur l'&eacute;cran. <p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+En UNIX et en MS-DOS, il est possible de d&eacute;vier l'entr&eacute;e et la
+sortie standard vers d'autres fichiers ou p&eacute;riph&eacute;riques &agrave;
+l'aide des symboles <b>&lt;</b> (pour <i>stdin </i>) et <b>&gt;</b> (pour
+<i>stdout</i>) :<p>
+<p>
+<b><i>Exemple</i></b><p>
+L'appel suivant du programme PROG lit les donn&eacute;es dans le fichier
+C:\TEST.TXT au lieu du clavier et &eacute;crit les r&eacute;sultats sur
+l'imprimante au lieu de l'&eacute;cran.<p>
+<p>
+<tt><b>PROG  &lt;C:\TEST.TXT &gt;PRN: </b></tt><p>
+<tt> </tt><p>
+En fait, l'affectation de <i>stdin</i> et <i>stdout</i> est g&eacute;r&eacute;e
+par le syst&egrave;me d'exploitation; ainsi le programme ne 'sait' pas
+d'o&ugrave; viennent les donn&eacute;es et o&ugrave; elles vont.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c133.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c135.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

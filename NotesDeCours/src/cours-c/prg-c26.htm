@@ -1,0 +1,224 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 3.1.1. Les types entiers</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c25.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c27.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c25.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+3.1.1. Les types entiers</h3>
+ <p>
+ <p>
+<center>Avant de pouvoir utiliser une variable, nous devons nous
+int&eacute;resser &agrave; deux caract&eacute;ristiques de son type
+num&eacute;rique:<p>
+</center>	<i>(1)	le domaine des valeurs admissibles</i><p>
+<i>	(2)	le nombre d'octets qui est r&eacute;serv&eacute; pour une
+variable</i><p>
+ <p>
+Le tableau suivant r&eacute;sume les caract&eacute;ristiques des types
+num&eacute;riques entiers de C :<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>d</i></b><b><i>&eacute;finition</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>description</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>domaine
+min</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>domaine
+max</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>nombre
+d'octets</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>char</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>caract&egrave;re</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-128</tt>
+<br></td>
+<td colspan="1" align="left"><tt>127</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>short</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>entier
+court</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-32768</tt>
+<br></td>
+<td colspan="1" align="left"><tt>32767</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>entier
+standard</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-32768</tt>
+<br></td>
+<td colspan="1" align="left"><tt>32767</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>entier
+long</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-2147483648</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2147483647</tt>
+<br></td>
+<td colspan="1" align="left"><tt>4</tt>
+<br></td></tr></table><p>
+-	<b>char</b> : caract&egrave;re<p>
+	Une variable du type <b>char</b> peut contenir une valeur entre -128 et 127 et
+elle<b> </b>peut subir les m&ecirc;mes op&eacute;rations que les variables du
+type <b>short</b>, <b>int</b> ou <b>long</b>.<p>
+<p>
+-	<b>int</b> : entier standard<p>
+	Sur chaque machine, le type <b>int</b> est le type de base pour les calculs
+avec les entiers. Le codage des variables du type <b>int</b> est donc
+d&eacute;pendant de la machine. Sur les IBM-PC sous MS-DOS, une variable du type <b>int</b>
+est cod&eacute;e dans deux octets.<p>
+<p>
+-	<b>short</b> : entier court<p>
+	Le type <b>short</b> est en g&eacute;n&eacute;ral cod&eacute; dans 2 octets.
+Comme une variable<b> int</b> occupe aussi 2 octets sur notre syst&egrave;me,
+le type <b>short</b> devient seulement n&eacute;cessaire, si on veut utiliser
+le m&ecirc;me programme sur d'autres machines, sur lesquelles le type standard
+des entiers n'est pas forc&eacute;ment 2 octets.<p>
+<p>
+-	Les modificateurs <b>signed/unsigned</b>:<p>
+Si on ajoute le pr&eacute;fixe <b>unsigned</b> &agrave; la d&eacute;finition
+d'un type de variables enti&egrave;res, les domaines des variables sont
+d&eacute;plac&eacute;s comme suit:<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>d</i></b><b><i>&eacute;finition</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>description</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>domaine
+min</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>domaine
+max</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>nombre
+d'octets</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>unsigned
+char</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>caract&egrave;re</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>255</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>unsigned</b>
+<b>short</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>entier
+court</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>65535</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>unsigned
+int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>entier
+standard</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>65535</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>unsigned
+long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>entier
+long</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>4294967295</tt>
+<br></td>
+<td colspan="1" align="left"><tt>4</tt>
+<br></td></tr></table><p>
+<p>
+<b><i>Remarques</i></b><p>
+1.	Le calcul avec des entiers d&eacute;finis comme <b>unsigned</b> correspond
+&agrave; l'arithm&eacute;tique <b><i>modulo</i></b>
+<b><i>2<sup>n</sup></i></b>. Ainsi, en utilisant une variable X<i> </i>du type
+<b>unsigned</b> <b>short</b>, nous obtenons le r&eacute;sultat suivant:<p>
+<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67">
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+Affectation : 
+<br></td>
+<td colspan="1" align="left">X
+= 65500 + 100
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">R&eacute;sultat
+: 
+<br></td>
+<td colspan="1" align="left">X
+= 64
+<br></td>
+<td colspan="1" align="left">/*
+[+2<sup>16</sup>] */
+<br></td></tr></table><p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+2.	Par d&eacute;faut, les types entiers <b>short</b>, <b>int</b>, <b>long</b>
+sont munis d'un signe. Le type par d&eacute;faut de <b>char</b> est
+d&eacute;pendant du compilateur et peut &ecirc;tre <b>signed</b> ou
+<b>unsigned</b>. Ainsi, l'attribut <b>signed</b> a seulement un sens en liaison
+avec <b>char </b>et peut forcer la machine &agrave; utiliser la
+repr&eacute;sentation des caract&egrave;res avec signe (qui n'est cependant pas
+tr&egrave;s usuelle).<p>
+<p>
+3.	Les valeurs limites des differents types sont indiqu&eacute;es dans le fichier <i>header</i> <tt><b>&lt;limits.h&gt;</b></tt>.        
+<p><p>
+4.	(Ajoute de <i><b>Francois Donato</b> <a href="mailto:frdonato@hotmail.com">frdonato@hotmail.com</a></i>)
+	En principe, on peut dire que 
+
+<pre><b>          sizeof(short) &lt;= sizeof(int) &lt;= sizeof(long)</b>
+</pre>        
+           Ainsi sur certaine architecture on peut avoir<br><pre>     short = 2 octets, int = 2 octets, long = 4 octets</pre>
+                et sur d'autre               <pre>     short = 2 octets, int = 4 octets, long = 4 octets </pre><p>
+
+         ( Il sera int&eacute;ressant de voir l'implementation dans un environnement 64 bits! )
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c25.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c27.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c25.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

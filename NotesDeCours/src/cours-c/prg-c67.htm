@@ -1,0 +1,77 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.2.2. Initialisation et r&eacute;servation automatique</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c66.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c68.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.2.2. Initialisation et r&eacute;servation automatique</h3>
+ <p>
+ <p>
+<b><i>Initialisation</i></b><p>
+Lors de la d&eacute;claration d'un tableau, on peut initialiser les composantes
+du tableau, en indiquant la liste des valeurs respectives entre accolades. A
+l'int&eacute;rieur de la liste, les composantes de chaque ligne du tableau sont
+encore une fois comprises entre accolades. Pour am&eacute;liorer la
+lisibilit&eacute; des programmes, on peut indiquer les composantes dans
+plusieurs lignes.<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>int A[3][10] ={{ 0,10,20,30,40,50,60,70,80,90},
+               {10,11,12,13,14,15,16,17,18,19},
+               { 1,12,23,34,45,56,67,78,89,90}};
+
+float B[3][2] = {{-1.05,   -1.10  },
+                 {86e-5,    87e-5 },
+                 {-12.5E4, -12.3E4}};</b></pre>
+<p>
+Lors de l'initialisation, les valeurs sont affect&eacute;es ligne par ligne en
+passant de gauche &agrave; droite. Nous ne devons pas n&eacute;cessairement
+indiquer toutes les valeurs: Les valeurs manquantes seront initialis&eacute;es
+par z&eacute;ro. Il est cependant d&eacute;fendu d'indiquer trop de valeurs
+pour un tableau.<p>
+<p>
+<b><i>Exemples</i></b><p>
+<tt>
+<img src="prg-c21.gif" width="399" height="191"></tt><p>
+<p>
+<img src="prg-c22.gif" width="399" height="151"><p>
+<p>
+<img src="prg-c23.gif" width="399" height="152"><p>
+<p>
+<img src="prg-c24.gif" width="399" height="79"><p>
+<p>
+<center><b><i>R&eacute;servation automatique</i></b><p>
+</center>Si le nombre de <b>lignes</b> <b>L</b> n'est pas indiqu&eacute;
+explicitement lors de l'initialisation, l'ordinateur r&eacute;serve
+automatiquement le nombre d'octets n&eacute;cessaires.
+
+<pre><b>int A[][10] = {{ 0,10,20,30,40,50,60,70,80,90},
+               {10,11,12,13,14,15,16,17,18,19},
+               { 1,12,23,34,45,56,67,78,89,90}};</b></pre>
+
+	r&eacute;servation de 3*10*2 = 60 octets<p>
+ 
+
+<pre><b>float B[][2] = {{-1.05,   -1.10  },
+                {86e-5,    87e-5 },
+                {-12.5E4, -12.3E4}};</b></pre>
+
+	r&eacute;servation de 3*2*4 = 24 octets<p>
+<p>
+<b><i>Exemple</i></b><p>
+<tt>
+<img src="prg-c25.gif" width="400" height="216"></tt><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c66.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c68.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

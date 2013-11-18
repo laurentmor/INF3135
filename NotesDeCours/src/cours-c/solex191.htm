@@ -1,0 +1,79 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.15</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex190.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex192.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.15</h3>
+ <p>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+<b>  /* Prototype de la fonction CCP_TEST */</b>
+<b>  void CCP_TEST(long COMPTE, int CONTROLE);</b>
+   /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char NOM_FICH[]  = &quot;A:\\CCP.TXT&quot;;
+  FILE *FICHIER;
+  /* Autres variables */
+  long COMPTE;  /* nombre du compte CCP */
+  int CONTROLE; /* nombre de contr&ocirc;le   */
+ 
+  /* Ouverture du fichier CCP.TXT en lecture */
+<b>  FICHIER = fopen(NOM_FICH, &quot;r&quot;);</b>
+   if (!FICHIER)
+     { 
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOM_FICH);
+      exit(-1);
+     }
+
+
+  /* Lecture des nombres et appel de la fonction CCP_TEST  */
+  /* A l'aide de la cha&icirc;ne de format, scanf lit les deux   */
+  /* parties du nombre de CCP, les convertit en long resp. */
+  /* en int et affecte les r&eacute;sultats aux variables COMPTE  */
+  /* et CONTROLE. */
+<b>  while (!feof(FICHIER))</b>
+<b>     {</b>
+<b>      fscanf (FICHIER, &quot;%ld-%d\n&quot;, &amp;COMPTE, &amp;CONTROLE);</b>
+<b>      CCP_TEST(COMPTE, CONTROLE);</b>
+<b>     }</b>
+   /* Fermeture du fichier */
+<b>  fclose(FICHIER);</b>
+   return 0;
+} 
+
+
+<b>void CCP_TEST(long COMPTE, int CONTROLE)</b>
+<b>{</b>
+<b> int RESTE;</b>
+<b> RESTE = COMPTE % 97;</b>
+<b> if (RESTE == 0)</b>
+<b>     RESTE = 97;</b>
+<b> if (RESTE == CONTROLE)</b>
+<b>     printf (&quot;Le nombre CCP %ld-%d est valide\n&quot;,</b>
+<b> COMPTE, CONTROLE);</b>
+<b> else</b>
+<b>     printf (&quot;Le nombre CCP %ld-%d n'est pas valide\n&quot;,</b>
+<b> COMPTE, CONTROLE);</b>
+<b>}</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex190.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex192.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

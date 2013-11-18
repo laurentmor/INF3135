@@ -1,0 +1,90 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 2.2.2. La fonction main</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c18.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c20.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c17.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+2.2.2. La fonction main</h3>
+<ul>
+<li><a href="#Heading29"> Exercice 2.1</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+La fonction <b>main</b> est la fonction principale des programmes en C: Elle se
+trouve obligatoirement dans tous les programmes. L'ex&eacute;cution d'un
+programme entra&icirc;ne automatiquement l'appel de la fonction <b>main</b>.<p>
+<p>
+Dans les premiers chapitres, nous allons simplement 'traduire' la structure
+<tt><u>programme</u></tt> du langage algorithmique par une d&eacute;finition
+&eacute;quivalente de la fonction <b>main</b> :<p>
+<p>
+<b><i>D&eacute;finition du programme principal en langage algorithmique</i></b>
+
+<pre>   <u>programme</u> &lt;NomProgramme&gt;
+   |   &lt;d&eacute;clarations&gt;
+   |   &lt;instructions&gt;
+   <u>fprogramme</u></pre>
+<p>
+<b><i>D&eacute;finition de la fonction main en C</i></b>
+
+<pre><b>   |main()
+   |{
+   |   &lt;d&eacute;clarations&gt;
+   |   &lt;instructions&gt;
+   |   return 0;
+   |}</b></pre>
+<p>
+<p>
+<b><i>R&eacute;sultat de main</i></b><p>
+-	En principe tout programme devrait retourner une valeur comme code d'erreur
+&agrave; son environnement. Par cons&eacute;quent, le type r&eacute;sultat de
+<b>main</b> est toujours <b>int</b>. En g&eacute;n&eacute;ral, le type de
+<b>main</b> n'est pas d&eacute;clar&eacute; explicitement, puisque c'est le
+type par d&eacute;faut. Nous allons terminer nos programmes par
+l'instruction:<p>
+
+
+<pre><b>   return 0;</b></pre>
+<p>
+	qui indique &agrave; l'environnement que le programme s'est termin&eacute;
+avec succ&egrave;s, sans anomalies ou erreurs fatales.<p>
+<p>
+<b><i>Param&egrave;tres de main</i></b><p>
+-	Si la liste des param&egrave;tres de la fonction <b>main</b> est vide,
+il est d'usage de la d&eacute;clarer par <tt><b>()</b></tt>.<p>
+-	Si nous utilisons des fonctions pr&eacute;d&eacute;finies (par exemple:
+<b>printf</b>), il faut faire pr&eacute;c&eacute;der la d&eacute;finition de
+<b>main </b>par les instructions <b>#include</b> correspondantes.<p>
+
+<hr size="2">
+<a name="remavancee"></a>
+<img src="remavanc.gif" align="right" width="262" height="113">
+<i><b>Remarque avanc&eacute;e:</b></i><br> Il est possible de faire passer des arguments de la ligne de commande &agrave; un programme. Dans ce cas, la liste des param&egrave;tres doit contenir les d&eacute;clarations correspondantes. Dans notre cours, nous n'allons pas utiliser des arguments de la ligne de commande. Ainsi la liste des param&egrave;tres de la fonction <b>main</b> sera vide (<b>void</b>)  dans tous nos exemples et nous pourrons employer la d&eacute;claration suivante qui fait usage des valeurs par d&eacute;faut:
+<b><pre>
+        main() { ... }
+</pre></b><p>
+Voici <a href="passargu.htm">l'exemple d'un programme utilisant des arguments de la ligne de commande</a>, publi&eacute; avec la permission de <i><b>Francois Donato</b> <a href="mailto:frdonato@hotmail.com">frdonato@hotmail.com</a></i>
+<br clear="all">
+<h4><hr size="2">
+<a name="Heading29"> Exercice 2.1</a>
+<hr size="1"></h4>
+<p>
+<p>
+Comparez la syntaxe de la d&eacute;finition d'une fonction en C avec celle des
+fonctions et des proc&eacute;dures dans Pascal. (Basez-vous sur les
+observations mentionn&eacute;es ci-dessus.)<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c18.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c20.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c17.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

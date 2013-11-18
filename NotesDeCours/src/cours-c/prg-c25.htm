@@ -1,0 +1,77 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  3.1. Les types simples</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c24.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c26.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 3.1. Les types simples</h2>
+<b>		</b><p>
+ <p>
+<b><i>Ensembles de nombres et leur repr&eacute;sentation</i></b><p>
+En math&eacute;matiques, nous distinguons divers ensembles de nombres:<p>
+<p>
+*
+l'ensemble des entiers naturels I<b>N</b>, <p>
+*	l'ensemble des entiers relatifs <b>ZZ</b>, <p>
+*	l'ensemble des rationnels <b>Q</b>, <p>
+*	l'ensemble des r&eacute;els<b> IR</b>.<p>
+<p>
+En math&eacute;matiques l'ordre de grandeur des nombres est illimit&eacute; et
+les rationnels peuvent &ecirc;tre exprim&eacute;s sans perte de
+pr&eacute;cision.<p>
+<p>
+Un ordinateur ne peut traiter ais&eacute;ment que des nombres entiers d'une
+taille limit&eacute;e. Il utilise le syst&egrave;me binaire pour calculer et
+sauvegarder ces nombres. Ce n'est que par des astuces de calcul et de
+repr&eacute;sentation que l'ordinateur obtient des valeurs correctement
+approch&eacute;es des entiers tr&egrave;s grands, des r&eacute;els ou des
+rationnels &agrave; partie d&eacute;cimale infinie.<p>
+<p>
+<b><i>Les charges du programmeur</i></b><p>
+M&ecirc;me un programmeur utilisant C ne doit pas conna&icirc;tre tous les
+d&eacute;tails des m&eacute;thodes de codage et de calcul, il doit quand
+m&ecirc;me &ecirc;tre capable de:<p>
+<p>
+-	<i>choisir un type num&eacute;rique appropri&eacute; &agrave; un
+probl&egrave;me donn&eacute;;</i><br>c.-&agrave;-d.: trouver un optimum de
+pr&eacute;cision, de temps de calcul et d'espace &agrave; r&eacute;server en
+m&eacute;moire<p>
+-	<i>choisir un type appropri&eacute; pour la repr&eacute;sentation sur
+l'&eacute;cran</i><p>
+-	<i>pr&eacute;voir le type r&eacute;sultant d'une op&eacute;ration entre
+diff&eacute;rents types num&eacute;riques;<br></i>c.-&agrave;-d.:
+conna&icirc;tre les transformations automatiques de type que C accomplit lors
+des calculs (voir 3.7.1).<p>
+-	<i>pr&eacute;voir et optimiser la pr&eacute;cision des r&eacute;sultats
+interm&eacute;diaires au cours d'un calcul complexe;<br></i>c.-&agrave;-d.:
+changer si n&eacute;cessaire l'ordre des op&eacute;rations ou forcer
+l'ordinateur &agrave; utiliser un type num&eacute;rique mieux adapt&eacute;
+(casting: voir 3.7.2). <p>
+<p>
+<b><i>Exemple</i></b><p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+Supposons que la mantisse du type choisi ne comprenne que 6 positions
+d&eacute;cimales (ce qui est tr&egrave;s r&eacute;aliste pour le type
+<b>float</b>):<p>
+<p>
+<p>
+<b>
+<img src="prg-c03.gif" width="401" height="155"></b><p>
+<p>
+<p><hr size="1" width="100%">
+<ul>
+<li><a href="prg-c26.htm"> 3.1.1. Les types entiers </a>
+<li><a href="prg-c27.htm"> 3.1.2. Les types rationnels </a>
+</ul>
+<hr size="1" width="100%">
+<a href="prg-c24.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c26.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

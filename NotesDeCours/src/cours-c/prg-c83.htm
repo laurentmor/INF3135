@@ -1,0 +1,104 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 8.6.4. Les fonctions de &lt;ctype&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c82.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c84.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+8.6.4. Les fonctions de &lt;ctype&gt;</h3>
+<b>	</b><p>
+ <p>
+Les fonctions de <i>&lt;ctype&gt;</i> servent &agrave; classifier et &agrave;
+convertir des caract&egrave;res. Les symboles nationaux (&eacute;, &egrave;,
+&auml;, &uuml;, &szlig;, &ccedil;, ...) ne sont pas consid&eacute;r&eacute;s.
+Les fonctions de <i>&lt;ctype&gt;</i> sont ind&eacute;pendantes du code de
+caract&egrave;res de la machine et favorisent la portabilit&eacute; des
+programmes. Dans la suite, &lt;c&gt; repr&eacute;sente une valeur du type
+<b>int</b> qui peut &ecirc;tre repr&eacute;sent&eacute;e comme
+caract&egrave;re.<p>
+<p>
+<b><i>Fonctions de classification et de conversion</i></b>
+<p>
+Les fonctions de <b><i>classification</i></b> suivantes fournissent un
+r&eacute;sultat du type <b>int</b> diff&eacute;rent de z&eacute;ro, si la
+condition respective est remplie, sinon z&eacute;ro.<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<u>L</u><u>a fonction:</u>
+<br></td>
+<td colspan="1" align="left"><u>retourne
+une valeur diff&eacute;rente de z&eacute;ro,</u>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>
+</tt><b>isupper(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+&lt;c&gt; est une majuscule <tt><b>('A'...'Z')</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>islower(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+&lt;c&gt; est une minuscule <tt><b>('a'...'z')</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>isdigit(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+&lt;c&gt; est un chiffre d&eacute;cimal <tt><b>('0'...'9')</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>isalpha(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+<b>islower(&lt;c&gt;)</b> ou <b>isupper(&lt;c&gt;)</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>isalnum(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+<b>isalpha(&lt;c&gt;)</b> ou <b>isdigit(&lt;c&gt;)</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>isxdigit(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+&lt;c&gt; est un chiffre hexad&eacute;cimal 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">(<tt><b>'0'...'9'</b></tt>
+ou <tt><b> 'A'...'F'</b></tt> ou <tt><b>'a'...'f'</b></tt>)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>isspace(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">si
+&lt;c&gt; est un signe d'espacement
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">(<tt><b>'
+'</b></tt>, <tt><b>'\t'</b></tt>, <tt><b>'\n'</b></tt>, <tt><b>'\r'</b></tt>,
+<tt><b>'\f'</b></tt>)
+<br></td></tr></table><p>
+Les fonctions de <b><i>conversion</i></b> suivantes fournissent une valeur du
+type <b>int</b> qui peut &ecirc;tre repr&eacute;sent&eacute;e comme
+caract&egrave;re; la valeur originale de &lt;c&gt; reste inchang&eacute;e:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>t</b><b>olower(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">retourne
+&lt;c&gt; converti en minuscule si &lt;c&gt; est une majuscule
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>toupper(&lt;c&gt;)</b>
+<br></td>
+<td colspan="1" align="left">retourne
+&lt;c&gt; converti en majuscule si &lt;c&gt; est une minuscule
+<br></td></tr></table>
+<p><hr size="1" width="100%">
+<a href="prg-c82.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c84.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

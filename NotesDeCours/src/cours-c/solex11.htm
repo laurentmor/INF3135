@@ -1,0 +1,200 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 3.4</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex10.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex12.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex07.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 3.4</h3>
+<b>
+<table border></b>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+Donn&eacute;e
+<br></td>
+<td colspan="1" align="left">Type
+(si correct) 
+<br></td>
+<td colspan="1" align="left">Valeur
+/ Erreur
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>12332</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12332</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>23.4</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>23.4</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>345lu</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>d&eacute;claration
+correcte: 345ul</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>34.5L</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>long
+double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>34.5</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>-1.0</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>-1.0</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>0xeba</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>10+11*16+14*256
+= 3770</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>0123l</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3+2*8+1*64
+= 83</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>'\n'</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>val.
+d&eacute;pend de la machine (ASCII: 10)</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>1.23ul</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>'unsigned'
+seulement pour des entiers</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>-1.0e-1</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>-0.1</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>0FE0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>0
+=&gt; octal; 'FE' seulement pour hexa.</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>40000</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>40000</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>40000u</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>unsigned
+int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>40000</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>70000u</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>unsigned
+long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>70000</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>1e1f</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>float</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>10
+</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>'0'</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>val.
+d&eacute;pend de la machine (ASCII: 48)</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>o</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>apostrophes
+manquent</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>'\0'</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>valeur
+en g&eacute;n&eacute;ral z&eacute;ro</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>0</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>valeur
+z&eacute;ro</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>'O'</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>val.
+d&eacute;pend de la machine (ASCII: 79)</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>67e0</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>67</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>\r</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>apostrophes
+manquent</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>01001</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1+0*8+0*64+1*512
+= 513</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>0.0l</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>long
+double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>0</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>0XEUL</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>unsigned
+long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>14</b></tt>
+<br></td></tr></table><p>
+<p><hr size="1" width="100%">
+<a href="solex10.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex12.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex07.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

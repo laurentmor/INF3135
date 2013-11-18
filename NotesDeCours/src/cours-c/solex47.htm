@@ -1,0 +1,93 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.12</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex46.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex48.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.12</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int U1, U2, UN;    /* pour parcourir la suite */
+ int N;             /* rang du terme demand&eacute;   */
+ int I;             /* compteur pour la boucle */
+<b> do</b>
+<b>   {</b>
+     printf(&quot;Rang du terme demand&eacute; : &quot;);
+    scanf(&quot;%d&quot;, &amp;N);
+<b>   }</b>
+<b> while(N&lt;1);</b>
+ 
+<b> U1=U2=1;</b> /* Initialisation des deux premiers termes */ 
+<b> if (N==1)</b>
+<b>      UN=U1;</b>
+<b> else if (N==2)</b>
+<b>      UN=U2;</b>
+<b> else</b>
+<b>      {</b>
+<b>       for (I=3 ; I&lt;=N ; I++)</b>
+<b>           {</b>
+<b>            UN = U1+U2;</b>
+<b>            U1 = U2;</b>
+<b>            U2 = UN;</b>
+<b>           }</b>
+<b>      }</b>
+  printf(&quot;Valeur du terme de rang %d : %d\n&quot;, N, UN);
+ return 0;
+}</pre>
+<p>
+Rang et terme maximal calculable en utilisant les d&eacute;clarations :<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>i</b><b>nt</b> U1, U2, UN; 
+<br></td>
+<td colspan="1" align="left">(sp&eacute;c.
+de format : %d)
+<br></td>
+<td colspan="1" align="left">U<sub>23
+</sub>= 28657
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>long</b>
+U1, U2, UN; 
+<br></td>
+<td colspan="1" align="left">(sp&eacute;c.
+de format : %ld)
+<br></td>
+<td colspan="1" align="left">U<sub>46
+</sub>= 1836311903
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>double</b>
+U1, U2, UN; 
+<br></td>
+<td colspan="1" align="left">(sp&eacute;c.
+de format : %e)
+<br></td>
+<td colspan="1" align="left">U<sub>1476
+</sub>= 1.306989e<sup>308</sup>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>long
+double</b> U1, U2, UN; 
+<br></td>
+<td colspan="1" align="left">(sp&eacute;c.
+de format : <b>%Le</b>)
+<br></td>
+<td colspan="1" align="left">U<sub>23601
+</sub>= 9.285655e<sup>4931</sup>
+<br></td></tr></table><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex46.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex48.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

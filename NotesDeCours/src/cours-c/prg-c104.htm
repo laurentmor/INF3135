@@ -1,0 +1,197 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.5.3. La fonction malloc et l'op&eacute;rateur sizeof</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c103.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c105.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.5.3. La fonction malloc et l'op&eacute;rateur sizeof</h3>
+<ul>
+<li><a href="#Heading230"> Exercice 9.20</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+La fonction <b>malloc</b> de la biblioth&egrave;que <i>&lt;stdlib&gt;</i> nous
+aide &agrave; localiser et &agrave; r&eacute;server de la m&eacute;moire au
+cours d'un programme. Elle nous donne acc&egrave;s au tas <i>(heap)</i>;
+c.-&agrave;-d. &agrave; l'espace en m&eacute;moire laiss&eacute; libre une fois
+mis en place le DOS, les gestionnaires, les programmes r&eacute;sidents, le
+programme lui-m&ecirc;me et la pile <i>(stack)</i>.<p>
+<p>
+<b><i>La fonction malloc</i></b>
+
+<pre><b>malloc( &lt;N&gt; )
+fournit l'adresse d'un bloc en m&eacute;moire de &lt;N&gt; octets libres ou la valeur z&eacute;ro s'il n'y a pas assez de m&eacute;moire.</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+Sur notre syst&egrave;me, le param&egrave;tre &lt;N&gt; est du type
+<b>unsigned</b> <b>int</b>. A l'aide de <b>malloc</b>, nous ne pouvons donc pas
+r&eacute;server plus de 65535 octets &agrave; la fois!<p>
+<p>
+<b><i>Exemple</i></b><p>
+Supposons que nous ayons besoin d'un bloc en m&eacute;moire pour un texte de
+4000 caract&egrave;res. Nous disposons d'un pointeur T sur <b>char</b>
+(<tt><b>char *T</b></tt>). Alors l'instruction:
+
+<pre><b>  T = malloc(4000);
+</b></pre>
+fournit
+l'adresse d'un bloc de 4000 octets libres et l'affecte &agrave; T. S'il n'y a
+plus assez de m&eacute;moire, T obtient la valeur z&eacute;ro.<p>
+<p>
+<p>
+Si nous voulons r&eacute;server de la m&eacute;moire pour des donn&eacute;es
+d'un type dont la grandeur varie d'une machine &agrave; l'autre, nous avons
+besoin de la grandeur effective d'une donn&eacute;e de ce type.
+L'op&eacute;rateur <b>sizeof</b> nous aide alors &agrave; pr&eacute;server la
+portabilit&eacute; du programme. <p>
+<p>
+<b><i>L'op&eacute;rateur unaire sizeof</i></b>
+
+<pre><b>   sizeof &lt;var&gt;
+      fournit la grandeur de la variable &lt;var&gt;
+   sizeof &lt;const&gt;
+      fournit la grandeur de la constante &lt;const&gt;
+   sizeof (&lt;type&gt;)
+      fournit la grandeur pour un objet du type &lt;type&gt;
+</b></pre>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+Apr&egrave;s la d&eacute;claration, 
+
+<pre><b>   short A[10];
+   char B[5][10];
+</b></pre>
+nous
+obtenons les r&eacute;sultats suivants sur un IBM-PC (ou compatible):<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>sizeof A</b></tt>
+<br></td>
+<td colspan="1" align="left">s'&eacute;value
+&agrave; 20
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>sizeof
+B</b></tt>
+<br></td>
+<td colspan="1" align="left">s'&eacute;value
+&agrave; 50
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>sizeof
+4.25</b></tt>
+<br></td>
+<td colspan="1" align="left">s'&eacute;value
+&agrave; 8
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>sizeof
+&quot;Bonjour !&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">s'&eacute;value
+&agrave; 10
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>sizeof(float)</b></tt>
+<br></td>
+<td colspan="1" align="left">s'&eacute;value
+&agrave; 4
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>sizeof(double)</b></tt>
+<br></td>
+<td colspan="1" align="left">s'&eacute;value
+&agrave; 8
+<br></td></tr></table><p>
+<b><i>Exemple</i></b><p>
+Nous voulons r&eacute;server de la m&eacute;moire pour X valeurs du type
+<b>int</b>; la valeur de X est lue au clavier:<p>
+
+
+<pre><b>int X;
+int *PNum;
+printf(&quot;Introduire le nombre de valeurs :&quot;);
+scanf(&quot;%d&quot;, &amp;X);
+PNum = malloc(X*sizeof(int));</b></pre>
+<p>
+<b><i>exit</i></b><p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+S'il n'y a pas assez de m&eacute;moire pour effectuer une action avec
+succ&egrave;s, il est conseill&eacute; d'interrompre l'ex&eacute;cution du
+programme &agrave; l'aide de la commande <b>exit</b> (de <i>&lt;stdlib&gt;</i>)
+et de renvoyer une valeur diff&eacute;rente de z&eacute;ro comme code d'erreur
+du programme (voir aussi chapitre 10.4).<p>
+<p>
+<b><i>Exemple</i></b><p>
+Le programme &agrave; la page suivante lit 10 phrases au clavier, recherche des
+blocs de m&eacute;moire libres assez grands pour la m&eacute;morisation et
+passe les adresses aux composantes du tableau <tt><b>TEXTE[]</b></tt>. S'il n'y
+a pas assez de m&eacute;moire pour une cha&icirc;ne, le programme affiche un
+message d'erreur et interrompt le programme avec le code d'erreur -1.<p>
+<p>
+Nous devons utiliser une variable d'aide <tt><b>INTRO</b></tt> comme zone
+interm&eacute;diaire (non dynamique). Pour cette raison, la longueur maximale
+d'une phrase est fix&eacute;e &agrave; 500 caract&egrave;res.<p>
+
+
+<pre><b>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+main()
+{
+ /* D&eacute;clarations */
+ char INTRO[500];
+ char *TEXTE[10];
+ int I;
+ /* Traitement */
+ for (I=0; I&lt;10; I++)
+     {
+      gets(INTRO);
+      /* R&eacute;servation de la m&eacute;moire */
+      TEXTE[I] = malloc(strlen(INTRO)+1);
+      /* S'il y a assez de m&eacute;moire, ... */
+      if (TEXTE[I])  
+           /* copier la phrase &agrave; l'adresse */
+           /* fournie par malloc, ...      */
+           strcpy(TEXTE[I], INTRO);
+      else 
+          {
+           /* sinon quitter le programme */
+           /* apr&egrave;s un message d'erreur. */ 
+           printf(&quot;ERREUR: Pas assez de m&eacute;moire \n&quot;);
+           exit(-1);
+          }
+     }
+ return 0;
+}</b></pre>
+
+<h4><hr size="2">
+<a name="Heading230"> Exercice 9.20</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit 10 phrases d'une longueur maximale de 200
+caract&egrave;res au clavier et qui les m&eacute;morise dans un tableau de
+pointeurs sur <b>char</b> en r&eacute;servant dynamiquement l'emplacement en
+m&eacute;moire pour les cha&icirc;nes. Ensuite, l'ordre des phrases est
+invers&eacute; en modifiant les pointeurs et le tableau r&eacute;sultant est
+affich&eacute;.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c103.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c105.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c101.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

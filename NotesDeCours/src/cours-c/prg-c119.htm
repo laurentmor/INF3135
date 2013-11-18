@@ -1,0 +1,58 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.5.1. G&eacute;n&eacute;ralit&eacute;s</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c118.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c120.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.5.1. G&eacute;n&eacute;ralit&eacute;s</h3>
+ <p>
+ <p>
+<b><i>Conversion automatique</i></b><p>
+<p>
+Lors d'un appel, le nombre et l'ordre des param&egrave;tres doivent
+n&eacute;cessairement correspondre aux indications de la d&eacute;claration de
+la fonction. Les param&egrave;tres sont automatiquement convertis dans les
+types de la d&eacute;claration avant d'&ecirc;tre pass&eacute;s &agrave; la
+fonction.<p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+Le prototype de la fonction <b>pow</b> (biblioth&egrave;que
+<i>&lt;math&gt;</i>) est d&eacute;clar&eacute; comme suit:
+
+<pre><b>double pow (double, double);
+</b></pre>
+Au
+cours des instructions, 
+
+<pre><b>   int A, B;
+   ...
+   A = pow (B, 2);
+</b></pre>
+nous
+assistons &agrave; trois conversions automatiques: <p>
+<p>
+Avant d'&ecirc;tre transmis &agrave; la fonction, la valeur de B est convertie
+en <b>double</b>; la valeur 2 est convertie en 2.0 . Comme <b>pow</b> est du
+type <b>double</b>, le r&eacute;sultat de la fonction doit &ecirc;tre converti
+en <b>int</b> avant d'&ecirc;tre affect&eacute; &agrave; A.<p>
+<p>
+<b><i>void</i></b><p>
+Evidemment, il existe aussi des fonctions qui fournissent leurs
+r&eacute;sultats ou ex&eacute;cutent une action sans avoir besoin de
+donn&eacute;es. La liste des param&egrave;tres contient alors la
+d&eacute;claration <b>void</b> ou elle reste vide (P.ex.: <tt><b>double
+PI(void)</b></tt>  ou  <tt><b>int ENTREE()</b></tt> ).<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c118.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c120.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

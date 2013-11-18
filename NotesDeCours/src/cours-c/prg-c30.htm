@@ -1,0 +1,473 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 3.2.1. Les constantes num&eacute;riques</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c29.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c31.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c28.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+3.2.1. Les constantes num&eacute;riques</h3>
+<ul>
+<li><a href="#Heading47">- Les constantes enti&egrave;res</a>
+<li><a href="#Heading48">- Les constantes rationnelles</a>
+<li><a href="#Heading49">- Les caract&egrave;res constants</a>
+<ul>
+<li><a href="#Heading50"> Exercice 3.3</a>
+<li><a href="#Heading51">Exercice 3.4</a>
+</ul>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+En pratique, nous utilisons souvent des valeurs constantes pour calculer, pour
+initialiser des variables, pour les comparer aux variables, etc. Dans ces cas,
+l'ordinateur doit attribuer un type num&eacute;rique aux valeurs constantes.
+Pour pouvoir pr&eacute;voir le r&eacute;sultat et le type exact des calculs, il
+est important pour le programmeur de conna&icirc;tre les r&egrave;gles selon
+lesquelles l'ordinateur choisit les types pour les constantes.<p>
+<p>
+
+<h4>
+<a name="Heading47">- Les constantes enti&egrave;res</a></h4>
+
+<b>
+</b><p>
+ <p>
+<b><i>Type automatique</i></b><p>
+Lors de l'attribution d'un type &agrave; une constante enti&egrave;re, C
+choisit en g&eacute;n&eacute;ral la solution la plus &eacute;conomique:<p>
+<p>
+<b><i>Le type des constantes enti&egrave;res</i></b>
+*	Si possible, les constantes enti&egrave;res obtiennent le type <b>int</b>.<p>
+*	Si le nombre est trop grand pour <b>int</b> (p.ex: -40000 ou +40000) il aura
+automatiquement le type <b>long</b>.<p>
+*	Si le nombre est trop grand pour <b>long</b>, il aura le type <b>unsigned</b>
+<b>long</b>.<p>
+*	Si le nombre est trop grand pour <b>unsigned long</b>, la r&eacute;action du
+programme est impr&eacute;visible.<p>
+
+<p>
+<p>
+<b><i>Type forc&eacute;</i></b><p>
+Si nous voulons forcer l'ordinateur &agrave; utiliser un type de notre choix,
+nous pouvons employer les suffixes suivants:<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>s</i></b><b><i>uffixe</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>type</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>Exemple</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>u</b>
+ou <b>U</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>unsigned
+(int ou long)</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>550u</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>l</b>
+ou <b>L</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>123456789L</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>ul</b>
+ou <b>UL</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>unsigned</b>
+<b>long</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>12092UL</tt>
+<br></td></tr></table><p>
+<b><i>Exemples</i></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>12345</b></tt>
+<br></td>
+<td colspan="1" align="left">
+
+<br></td>
+<td colspan="1" align="left">type
+<b>int</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>52000</b></tt>
+<br></td>
+<td colspan="1" align="left">
+
+<br></td>
+<td colspan="1" align="left">type
+<b>long</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>-2</b></tt>
+<br></td>
+<td colspan="1" align="left">
+
+<br></td>
+<td colspan="1" align="left">type
+<b>int</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>0</b></tt>
+<br></td>
+<td colspan="1" align="left"><b><i>
+</i></b>
+<br></td>
+<td colspan="1" align="left">type
+<b>int</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>1u</b></tt>
+<br></td>
+<td colspan="1" align="left"><b><i>
+</i></b>
+<br></td>
+<td colspan="1" align="left">type
+<b>unsigned int</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>52000u</b></tt>
+<br></td>
+<td colspan="1" align="left">
+
+<br></td>
+<td colspan="1" align="left">type
+<b>unsigned long</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>22LU</b></tt>
+<br></td>
+<td colspan="1" align="left"><b><i>
+</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>Erreur
+!</i></b>
+<br></td></tr></table><p>
+<b><i>Base octale et hexad&eacute;cimale </i></b><p>
+Il est possible de d&eacute;clarer des constantes enti&egrave;res en utilisant
+la base <b><i>octale</i></b> ou <b><i>hexad&eacute;cimale</i></b>:<p>
+*	Si une constante enti&egrave;re commence par <b>0</b> (z&eacute;ro), alors
+elle est interpr&eacute;t&eacute;e en base octale.<p>
+*	Si une constante enti&egrave;re commence par <b>0x</b> ou <b>0X</b> , alors
+elle est interpr&eacute;t&eacute;e en base hexad&eacute;cimale.<p>
+<p>
+<b><i>Exemples</i></b>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>b</i></b><b><i>ase d&eacute;cimale</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>base
+octale</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>base
+hexad&eacute;cimale</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>repr&eacute;s.
+binaire</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>100</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0144</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0X64</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1100100</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>255</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0377</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0xff</tt>
+<br></td>
+<td colspan="1" align="left"><tt>11111111</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>65536</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0200000</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0X10000</tt>
+<br></td>
+<td colspan="1" align="left"><tt>10000000000000000</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>12</tt>
+<br></td>
+<td colspan="1" align="left"><tt>014</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0XC</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1100</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>4040</tt>
+<br></td>
+<td colspan="1" align="left"><tt>07710</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0xFC8</tt>
+<br></td>
+<td colspan="1" align="left"><tt>111111001000</tt>
+<br></td></tr></table><p>
+
+<h4>
+<a name="Heading48">- Les constantes rationnelles</a></h4>
+
+<b>
+</b><p>
+ <p>
+Les constantes rationnelles peuvent &ecirc;tre indiqu&eacute;es:<p>
+<p>
+*	<i>en notation d&eacute;cimale</i>, c.-&agrave;-d. &agrave; l'aide d'un point
+d&eacute;cimal:<p>
+<b><i>Exemples</i></b>
+
+<pre><b>   123.4   -0.001   1.0</b></pre>
+<p>
+*	<i>en notation exponentielle</i>, c.-&agrave;-d. &agrave; l'aide d'un
+exposant s&eacute;par&eacute; du nombre d&eacute;cimal par les
+caract&egrave;res 'e' ou 'E':<p>
+<b><i>Exemples</i></b>
+
+<pre><b>   1234e-1   -1E-3   0.01E2</b></pre>
+<p>
+L'ordinateur reconna&icirc;t les constantes rationnelles au point
+d&eacute;cimal ou au s&eacute;parateur de l'exposant ('e' ou 'E'). Par
+d&eacute;faut, les constantes rationnelles sont du type <b>double</b>.<p>
+<p>
+<b><i>Le type des constantes rationnelles</i></b>
+*	Sans suffixe, les constantes rationnelles sont du type <b>double</b>.<p>
+*	Le suffixe <b>f</b> ou <b>F</b> force l'utilisation du type <b>float</b>.<p>
+*	Le suffixe <b>l</b> ou <b>L</b> force l'utilisation du type <b>long</b>
+<b>double</b>.
+<p>
+
+<h4>
+<a name="Heading49">- Les caract&egrave;res constants</a></h4>
+
+<b>
+</b><p>
+ <p>
+Les constantes qui d&eacute;signent un (seul) caract&egrave;re sont toujours
+indiqu&eacute;es entre des apostrophes: par exemple <b>'x'</b>. La valeur d'un
+caract&egrave;re constant est le code interne de ce caract&egrave;re. Ce code
+(ici: le code ASCII) est d&eacute;pendant de la machine.<p>
+Les caract&egrave;res constants peuvent appara&icirc;tre dans des
+op&eacute;rations arithm&eacute;tiques ou logiques, mais en
+g&eacute;n&eacute;ral ils sont utilis&eacute;s pour &ecirc;tre compar&eacute;s
+&agrave; des variables.<p>
+<p>
+<b><i>S&eacute;quences d'&eacute;chappement</i></b><p>
+Comme nous l'avons vu au chapitre 2, l'impression et l'affichage de texte peut
+&ecirc;tre contr&ocirc;l&eacute; &agrave; l'aide de <b><i>s&eacute;quences
+d'&eacute;chappement</i></b>. Une s&eacute;quence d'&eacute;chappement est un
+couple de symboles dont le premier est le <i>signe d'&eacute;chappement</i>
+'\'. Au moment de la compilation, chaque s&eacute;quence d'&eacute;chappement
+est traduite en un caract&egrave;re de contr&ocirc;le dans le code de la
+machine. Comme les s&eacute;quences d'&eacute;chappement sont identiques sur
+toutes les machines, elles nous permettent d'&eacute;crire des programmes
+portables, c.-&agrave;-d.: des programmes<i> </i>qui ont le m&ecirc;me effet
+sur toutes les machines, ind&eacute;pendemment du code de caract&egrave;res
+utilis&eacute;.<p>
+<p>
+<b><i>S&eacute;quences d'&eacute;chappement</i></b><i>
+<table border></i>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>\</b></tt><tt><b>a</b></tt>
+<br></td>
+<td colspan="1" align="left">sonnerie
+<br></td>
+<td colspan="1" align="left"><tt><b>\\</b></tt>
+<br></td>
+<td colspan="1" align="left">trait
+oblique 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>\b</b></tt>
+<br></td>
+<td colspan="1" align="left">curseur
+arri&egrave;re
+<br></td>
+<td colspan="1" align="left"><tt><b>\?</b></tt>
+<br></td>
+<td colspan="1" align="left">point
+d'interrogation
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>\t</b></tt>
+<br></td>
+<td colspan="1" align="left">tabulation
+<br></td>
+<td colspan="1" align="left"><tt><b>\'</b></tt>
+<br></td>
+<td colspan="1" align="left">apostrophe
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>\n</b></tt>
+<br></td>
+<td colspan="1" align="left">nouvelle
+ligne 
+<br></td>
+<td colspan="1" align="left"><tt><b>\&quot;</b></tt>
+<br></td>
+<td colspan="1" align="left">guillemets
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>\r</b></tt>
+<br></td>
+<td colspan="1" align="left">retour
+au d&eacute;but de ligne
+<br></td>
+<td colspan="1" align="left"><tt><b>\f</b></tt>
+<br></td>
+<td colspan="1" align="left">saut
+de page (imprimante)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>\0</b></tt>
+<br></td>
+<td colspan="1" align="left">NUL
+<br></td>
+<td colspan="1" align="left"><tt><b>\v</b></tt>
+<br></td>
+<td colspan="1" align="left">tabulateur vertical
+<br></td></tr></table><p>
+<p>
+<b><i>Le caract&egrave;re NUL</i></b><p>
+La constante <b>'\0'</b> qui a la valeur num&eacute;rique z&eacute;ro (ne pas
+&agrave; confondre avec le caract&egrave;re '0' !!) a une signification
+sp&eacute;ciale dans le traitement et la m&eacute;morisation des cha&icirc;nes
+de caract&egrave;res: En C le caract&egrave;re '\0' d&eacute;finit <b>la fin
+d'une cha&icirc;ne</b> de caract&egrave;res.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading50"> Exercice 3.3</a>
+<hr size="1"></h4>
+<p>
+<p>
+Compl&eacute;tez le tableau suivant:<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>b</b><b>ase d&eacute;cimale</b>
+<br></td>
+<td colspan="1" align="left"><b>base
+octale</b>
+<br></td>
+<td colspan="1" align="left"><b>base
+hexad&eacute;cimale</b>
+<br></td>
+<td colspan="1" align="left"><b>repr&eacute;s.
+binaire</b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>01770</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>8100</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>0XAAAA</tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1001001001</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>1100101011111110</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt>10000</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>0234</tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr></table>
+<h4><hr size="2">
+<a name="Heading51">Exercice 3.4</a>
+<hr size="1"></h4>
+<p>
+Pour les constantes correctement d&eacute;finies, trouvez les types et les
+valeurs num&eacute;riques d&eacute;cimales:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt>12332</tt>
+<br></td>
+<td colspan="1" align="left"><tt>23.4</tt>
+<br></td>
+<td colspan="1" align="left"><tt>345LU</tt>
+<br></td>
+<td colspan="1" align="left"><tt>34.5L</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-1.0</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>0xeba</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0123l</tt>
+<br></td>
+<td colspan="1" align="left"><tt>'\n'</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1.23ul</tt>
+<br></td>
+<td colspan="1" align="left"><tt>-1.0e-1</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>0FE0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>40000</tt>
+<br></td>
+<td colspan="1" align="left"><tt>40000u</tt>
+<br></td>
+<td colspan="1" align="left"><tt>70000u</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1e1f</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>'0'</tt>
+<br></td>
+<td colspan="1" align="left"><tt>o</tt>
+<br></td>
+<td colspan="1" align="left"><tt>'\0'</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>'O'</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>67e0</tt>
+<br></td>
+<td colspan="1" align="left"><tt>\r</tt>
+<br></td>
+<td colspan="1" align="left"><tt>01001</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0.0l</tt>
+<br></td>
+<td colspan="1" align="left"><tt>0XEUL</tt>
+<br></td></tr></table><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c29.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c31.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c28.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

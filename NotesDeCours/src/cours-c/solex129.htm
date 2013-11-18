@@ -1,0 +1,63 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.2</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex128.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex130.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex128.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.2</h3>
+ <p>
+ <p>
+<p>
+	
+<img src="solex03.gif" width="330" height="138"><p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>A</b><b>ffichage:</b>
+<br></td>
+<td colspan="1" align="left">1
+<br></td>
+<td colspan="1" align="left">1
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">0
+<br></td>
+<td colspan="1" align="left">1
+<br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<b>Impl&eacute;mentation:</b><p>
+
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+<b> void P(int X, int *Y); </b>/* Prototype de la fonction appel&eacute;e */ 
+  int A,B;
+ A=0;   
+ B=0; 
+<b> P(A, &amp;B);</b>
+  printf(&quot;%d %d \n&quot;, A, B);
+ return 0;
+}
+
+<b>void P(int X, int *Y)</b>
+ {
+ X = X+1;
+ <b>*</b>Y = <b>*</b>Y+1;
+ printf(&quot;%d %d \n&quot;, X, <b>*</b>Y);
+}</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex128.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex130.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex128.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

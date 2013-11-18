@@ -1,0 +1,122 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  5.2. if sans else</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c48.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c50.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 5.2. if sans else</h2>
+<ul>
+<li><a href="#Heading87"> Exercice 5.1</a>
+</ul>
+<hr size="1" width="100%">
+<b>	</b>	 <p>
+ <p>
+La partie <b>else</b> est facultative. On peut donc utiliser <b>if</b> de la
+fa&ccedil;on suivante:<p>
+<p>
+<b><i>if sans else</i></b>
+
+<pre><b>if ( &lt;expression&gt; ) 
+      &lt;bloc d'instructions&gt;
+</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+Comme la partie <b>else</b> est optionnelle, les expressions contenant
+plusieurs structures <b>if</b> et <b>if - else</b> peuvent mener &agrave; des
+confusions.<p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+L'expression suivante peut &ecirc;tre interpr&eacute;t&eacute;e de deux
+fa&ccedil;ons:<p>
+<p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65">
+
+<pre><b>if (N&gt;0)
+   if (A&gt;B)
+      MAX=A;
+   else
+      MAX=B;</b></pre>
+
+
+<pre><b>if (N&gt;0)
+   if (A&gt;B)
+      MAX=A;
+else
+   MAX=B;</b></pre>
+<p>
+Pour N=0, A=1 et B=2, <p>
+<p>
+*
+dans la premi&egrave;re interpr&eacute;tation, MAX reste inchang&eacute;,<p>
+*	dans la deuxi&egrave;me interpr&eacute;tation, MAX obtiendrait la valeur de
+B.<p>
+<p>
+Sans r&egrave;gle suppl&eacute;mentaire, le r&eacute;sultat de cette expression
+serait donc impr&eacute;visible.<p>
+<p>
+<p>
+<b><i>Convention</i></b><p>
+En C une partie <b>else</b> est toujours li&eacute;e au dernier <b>if</b> qui
+ne poss&egrave;de pas de partie <b>else</b>.<p>
+Dans notre exemple, C utiliserait donc la premi&egrave;re
+interpr&eacute;tation.<p>
+<p>
+<p>
+<b><i>Solution</i></b><p>
+Pour &eacute;viter des confusions et pour forcer une certaine
+interpr&eacute;tation d'une expression, il est recommand&eacute; d'utiliser des
+accolades <b>{ }</b> .<p>
+<p>
+<b><i>Exemple</i></b><p>
+Pour forcer la deuxi&egrave;me interpr&eacute;tation de l'expression ci-dessus,
+nous pouvons &eacute;crire:
+
+<pre><b>if (N&gt;0)
+      {
+       if (A&gt;B)
+          MAX=A;
+      }
+   else
+      MAX=B;</b></pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading87"> Exercice 5.1</a>
+<hr size="1"></h4>
+<p>
+<p>
+Consid&eacute;rez la s&eacute;quence d'instructions suivante:
+
+<pre><b>if (A&gt;B) printf (&quot;premier choix \n&quot;); else 
+   if (A&gt;10) printf (&quot;deuxi&egrave;me choix \n&quot;);
+   if (B&lt;10) printf (&quot;troisi&egrave;me choix \n&quot;);
+   else printf (&quot;quatri&egrave;me choix \n&quot;);
+</b></pre>
+<b>a)</b>
+Copiez la s&eacute;quence d'instructions en utilisant des tabulateurs pour
+marquer les blocs <b>if - else</b> appartenant ensemble.<p>
+<b>b)</b>	D&eacute;terminez les r&eacute;ponses du programme pour chacun des
+couples de nombres suivants et v&eacute;rifiez &agrave; l'aide de
+l'ordinateur.<p>
+	-	A=10 et B=5<p>
+	-	A=5 et B=5<p>
+	-	A=5 et B=10<p>
+	-	A=10 et B=10<p>
+	-	A=20 et B=10<p>
+	-	A=20 et B=20<p>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c48.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c50.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

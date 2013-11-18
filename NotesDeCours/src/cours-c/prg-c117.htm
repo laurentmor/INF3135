@@ -1,0 +1,217 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  10.4. Renvoyer un r&eacute;sultat</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c116.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 10.4. Renvoyer un r&eacute;sultat</h2>
+<b>		</b><p>
+ <p>
+<p>
+Par d&eacute;finition, toutes les fonctions fournissent un r&eacute;sultat d'un
+type que nous devons d&eacute;clarer. Une fonction peut renvoyer une valeur
+d'un type simple ou l'adresse d'une variable ou d'un tableau.<p>
+<p>
+Pour fournir un r&eacute;sultat en quittant une fonction, nous disposons de la
+commande <b>return</b>:<p>
+<p>
+<b><i>La commande return</i></b>
+L'instruction 
+
+<pre><b>         return &lt;expression&gt;;</b></pre>
+a
+les effets suivants:<p>
+<i>	-	&eacute;valuation de l'&lt;expression&gt;</i><br>
+<i>	-	conversion automatique du r&eacute;sultat de l'expression dans le type de
+la fonction</i><br>
+<i>	-	renvoi du r&eacute;sultat</i><br>
+<i>	-	terminaison de la fonction</i><br>
+ 
+<p>
+<b><i>Exemples</i></b><p>
+La fonction CARRE du type <b>double</b> calcule et fournit comme
+r&eacute;sultat le carr&eacute; d'un r&eacute;el fourni comme
+param&egrave;tre.<p>
+
+
+<pre><b>double CARRE(double X)
+{
+ return X*X;
+}</b></pre>
+<p>
+Nous pouvons d&eacute;finir nous-m&ecirc;mes une fonction TAN qui calcule la
+tangente d'un r&eacute;el X &agrave; l'aide des fonctions <b>sin</b> et de
+<b>cos</b> de la biblioth&egrave;que <i>&lt;math&gt;</i>. En langage
+algorithmique cette fonction se pr&eacute;sente comme suit:<p>
+
+
+<pre><b>fonction TAN(X): r&eacute;el
+|   donn&eacute;e: r&eacute;el X
+|   si (cos(X) &lt;&gt; 0)
+|   |   alors en TAN ranger sin(X)/cos(X)
+|   |   sinon &eacute;crire &quot;Erreur !&quot;
+|   fsi
+ffonction (* fin TAN *)</b></pre>
+<p>
+En C, il faut d'abord inclure le fichier en-t&ecirc;te de la
+biblioth&egrave;que <i>&lt;math&gt;</i> pour pouvoir utiliser les fonctions
+pr&eacute;d&eacute;finies <b>sin</b> et <b>cos</b>.<p>
+
+
+<pre><b>#include &lt;math.h&gt;
+
+double TAN(double X)
+{
+ if (cos(X) != 0)
+     return sin(X)/cos(X);
+ else 
+     printf(&quot;Erreur !\n&quot;);
+}</b></pre>
+<p>
+Si nous supposons les d&eacute;clarations suivantes, 
+
+<pre><b>   double X, COT;</b></pre>
+les
+appels des fonctions CARRE et TAN peuvent &ecirc;tre int&eacute;gr&eacute;s
+dans des calculs ou des expressions:<p>
+
+
+<pre><b>printf(&quot;Le carre de %f est %f \n&quot;, X, CARRE(X));
+printf(&quot;La tangente de %f est %f \n&quot;, X, TAN(X));
+COT = 1/TAN(X);</b></pre>
+<p>
+<b><i>void</i></b><p>
+En C, il n'existe pas de structure sp&eacute;ciale pour la d&eacute;finition de
+<i>proc&eacute;dures</i> comme en Pascal et en langage algorithmique. Nous
+pouvons cependant employer une fonction du type <b>void </b>partout o&ugrave;
+nous utiliserions une proc&eacute;dure en langage algorithmique ou en Pascal.<p>
+<p>
+<b><i>Exemple</i></b><p>
+La proc&eacute;dure LIGNE affiche L &eacute;toiles dans une ligne:<p>
+
+
+<pre><u>proc&eacute;dure</u> LIGNE(L)
+| <u>donn&eacute;e</u> L
+| (* D&eacute;clarations des variables locales *)
+| <u>entier</u> I
+| (* Traitements *)
+| <u>en</u> I <u>ranger</u> 0
+| <u>tant que</u> I&lt;&gt;L <u>faire</u>
+| |     <u>&eacute;crire</u> &quot;*&quot;
+| |     <u>en</u> I <u>ranger</u> I+1
+| <u>ftant</u> (* I=L *)
+| <u>&eacute;crire</u> (* passage &agrave; la ligne *)
+<u>fproc&eacute;dure</u></pre>
+<p>
+Pour la traduction en C, nous utilisons une fonction du type <b>void</b>:<p>
+
+
+<pre><b>void LIGNE(int L)
+{
+ /* D&eacute;clarations des variables locales */
+ int I;
+ /* Traitements */
+ for (I=0; I&lt;L; I++)
+      printf(&quot;*&quot;);
+ printf(&quot;\n&quot;);
+}</b></pre>
+<p>
+<b><i>main</i></b><p>
+Dans nos exemples, la fonction <b>main</b> n'a pas de param&egrave;tres et est toujours du type
+<b>int</b> (Voir aussi <a href="prg-c19.htm#remavancee">Chap 2.2.2. Remarque avanc&eacute;e</a>)<br>
+ Typiquement, les programmes renvoient la valeur z&eacute;ro comme
+code d'erreur s'ils se terminent avec succ&egrave;s. Des valeurs
+diff&eacute;rentes de z&eacute;ro indiquent un arr&ecirc;t fautif ou anormal.
+<p>
+<p>
+En MS-DOS, le code d'erreur retourn&eacute; par un programme peut &ecirc;tre
+contr&ocirc;l&eacute; &agrave; l'aide de la commande IF ERRORLEVEL ... <p>
+<p>
+<hr size="2">
+<p>
+<b><i>Remarque avanc&eacute;e</i></b><p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Si nous quittons une fonction (d'un type diff&eacute;rent de <b>void</b>) sans
+renvoyer de r&eacute;sultat &agrave; l'aide de <b>return</b>, la valeur
+transmise &agrave; la fonction appelante est ind&eacute;finie. Le
+r&eacute;sultat d'une telle action est impr&eacute;visible. Si une erreur
+fatale s'est produite &agrave; l'int&eacute;rieur d'une fonction, il est
+conseill&eacute; d'interrompre l'ex&eacute;cution de tout le programme et de
+renvoyer un code erreur diff&eacute;rent de z&eacute;ro &agrave;
+l'environnement pour indiquer que le programme ne s'est pas termin&eacute;
+normalement. <p>
+<p>
+Vu sous cet angle, il est dangereux de d&eacute;clarer la fonction TAN comme
+nous l'avons fait plus haut: Le cas d'une division par z&eacute;ro, est bien
+intercept&eacute; et report&eacute; par un message d'erreur, mais
+l'ex&eacute;cution du programme continue 'normalement' avec des valeurs
+incorrectes. <p>
+<p>
+<b><i>exit</i></b><p>
+Pour rem&eacute;dier &agrave; ce dilemme, nous pouvons utiliser la fonction
+<b>exit</b> qui est d&eacute;finie dans la biblioth&egrave;que
+<i>&lt;stdlib&gt;</i>. <b>exit</b> nous permet d'interrompre l'ex&eacute;cution
+du programme en fournissant un code d'erreur &agrave; l'environnement. Pour
+pouvoir localiser l'erreur &agrave; l'int&eacute;rieur du programme, il est
+avantageux d'afficher un message d'erreur qui indique la nature de l'erreur et
+la fonction dans laquelle elle s'est produite. <p>
+<p>
+Une version plus solide de TAN se pr&eacute;senterait comme suit:<p>
+
+
+<pre><b>#include &lt;math.h&gt;
+
+double TAN(double X)
+{
+ if (cos(X) != 0)
+     return sin(X)/cos(X);
+ else 
+     {
+      printf(&quot;\aFonction TAN:\n&quot;
+             &quot;Erreur: Division par z&eacute;ro !\n&quot;);
+      exit(-1); /* Code erreur -1 */
+     }
+}</b></pre>
+<p>
+<hr size="2">
+<p>
+<b><i>Ignorer le r&eacute;sultat</i></b><p>
+Lors de l'appel d'une fonction, l'utilisateur est libre d'accepter le
+r&eacute;sultat d'une fonction ou de l'ignorer.<p>
+<p>
+<b><i>Exemple</i></b><p>
+La fonction <b>scanf</b> renvoie le nombre de donn&eacute;es correctement
+re&ccedil;ues comme r&eacute;sultat. En g&eacute;n&eacute;ral, nous avons
+ignor&eacute; ce fait:
+
+<pre><b>
+   int JOUR, MOIS, ANNEE;
+   printf(&quot;Entrez la date actuelle : &quot;);
+   scanf(&quot;%d %d %d&quot;, &amp;JOUR, &amp;MOIS, &amp;ANNEE);
+</b></pre>
+Nous
+pouvons utiliser le r&eacute;sultat de <b>scanf</b> comme contr&ocirc;le:
+
+<pre><b>
+   int JOUR, MOIS, ANNEE;
+   int RES;   
+   do
+      {   
+       printf(&quot;Entrez la date actuelle : &quot;);
+       RES = scanf(&quot;%d %d %d&quot;, &amp;JOUR,&amp;MOIS,&amp;ANNEE);
+      }
+   while (RES != 3);
+</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c116.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

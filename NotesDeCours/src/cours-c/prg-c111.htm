@@ -1,0 +1,93 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.2.1. Variables locales</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c110.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c112.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c110.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.2.1. Variables locales</h3>
+ <p>
+ <p>
+Les variables d&eacute;clar&eacute;es dans un bloc d'instructions sont
+<i>uniquement visibles &agrave; l'int&eacute;rieur de ce bloc</i>. On dit que
+ce sont des <b><i>variables locales</i></b> &agrave; ce bloc. <p>
+<p>
+<b><i>Exemple</i></b><p>
+La variable NOM est d&eacute;finie localement dans le bloc ext&eacute;rieur de
+la fonction HELLO. Ainsi, aucune autre fonction n'a acc&egrave;s &agrave; la
+variable NOM:
+
+<pre><b>void HELLO(void);
+{
+ char NOM[20];
+ printf(&quot;Introduisez votre nom : &quot;);
+ gets(NOM);
+ printf(&quot;Bonjour %s !\n&quot;, NOM);
+}</b></pre>
+<p>
+<b><i>Exemple</i></b><p>
+La d&eacute;claration de la variable I se trouve &agrave; l'int&eacute;rieur
+d'un bloc d'instructions conditionnel. Elle n'est pas visible &agrave;
+l'ext&eacute;rieur de ce bloc, ni m&ecirc;me dans la fonction qui l'entoure.
+
+<pre><b>if (N&gt;0)
+   {
+    int I;
+    for (I=0; I&lt;N; I++)
+      ...
+   }</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+Une variable d&eacute;clar&eacute;e &agrave; l'int&eacute;rieur d'un bloc
+<b><i>cache</i></b> toutes les variables du m&ecirc;me nom des blocs qui
+l'entourent.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Dans la fonction suivante,<p>
+<b><i>
+<img src="prg-c60.gif" width="105" height="66"></i></b>
+
+<pre><b>int FONCTION(int A);
+{
+ int X;
+ ...
+ X = 100;
+ ...
+ while (A&gt;10)
+   {
+    double X;
+    ...
+    X *= A;
+    ...
+   }
+}</b></pre>
+<p>
+la premi&egrave;re instruction <tt><b>X=100</b></tt> se rapporte &agrave; la
+variable du type <b>int</b> d&eacute;clar&eacute;e dans le bloc
+ext&eacute;rieur de la fonction; l'instruction <tt><b>X*=A</b></tt> agit sur la
+variable du type <b>double</b> d&eacute;clar&eacute;e dans la boucle
+<b>while</b>. A l'int&eacute;rieur de la boucle, il est impossible
+d'acc&eacute;der &agrave; la variable X du bloc ext&eacute;rieur.<p>
+<p>
+<b><i>
+<img src="prg-c61.gif" width="114" height="74"></i></b><p>
+Ce n'est pas du bon style d'utiliser des noms de variables qui cachent des
+variables d&eacute;clar&eacute;es dans des blocs ext&eacute;rieurs; ceci peut
+facilement mener &agrave; des malentendus et &agrave; des erreurs.<p>
+<p>
+La plupart des programmes C ne profitent pas de la possibilit&eacute; de
+d&eacute;clarer des variables ou des fonctions &agrave; l'int&eacute;rieur
+d'une boucle ou d'un bloc conditionnel. Dans la suite, nous allons faire toutes
+nos d&eacute;clarations locales <i>au d&eacute;but des fonctions</i>.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c110.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c112.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c110.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

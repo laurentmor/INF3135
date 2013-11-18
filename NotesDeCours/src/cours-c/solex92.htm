@@ -1,0 +1,60 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.14</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex91.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex93.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.14</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ /* Sujets et terminaisons */
+<b> char SUJ[6][5]  = {&quot;je&quot;,&quot;tu&quot;,&quot;il&quot;,&quot;nous&quot;,&quot;vous&quot;,&quot;ils&quot;};</b>
+<b> char TERM[6][5] = {&quot;e&quot;,&quot;es&quot;,&quot;e&quot;,&quot;ons&quot;,&quot;ez&quot;,&quot;ent&quot;};</b>
+  char VERB[20]; /* cha&icirc;ne contenant le verbe */
+ int L;         /* longueur de la cha&icirc;ne */
+ int I;         /* indice courant */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Verbe : &quot;);
+ scanf(&quot;%s&quot;, VERB);
+
+ /* Contr&ocirc;ler s'il s'agit d'un verbe en 'er' */
+ L=strlen(VERB);
+ if ((VERB[L-2] != 'e') || (VERB[L-1] != 'r'))
+  printf(&quot;\&quot;%s\&quot; n'est pas un verbe du premier groupe.\n&quot;,VERB);
+ else
+     {
+      /* Couper la terminaison 'er'. */
+      VERB[L-2]='\0';
+<b>      /* Conjuguer ... */</b>
+<b>      for (I=0; I&lt;6; I++)</b>
+<b>          printf(&quot;%s %s%s\n&quot;,SUJ[I], VERB, TERM[I]);</b>
+      }
+ return 0;
+}</pre>
+<p>
+	<p>
+<p>
+Sauf indication contraire, les exercices suivants sont &agrave; r&eacute;soudre
+<b><i>sans utiliser les fonctions sp&eacute;ciales des biblioth&egrave;ques
+&lt;string&gt;, &lt;stdlib&gt; ou &lt;ctype&gt;</i></b>. Ils servent &agrave;
+comprendre et &agrave; suivre le raisonnement de ces fonctions.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex91.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex93.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

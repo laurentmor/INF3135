@@ -1,0 +1,49 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  11.3. Acc&egrave;s aux fichiers s&eacute;quentiels</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c135.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c137.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 11.3. Acc&egrave;s aux fichiers s&eacute;quentiels</h2>
+<b>		</b><p>
+ <p>
+<center>Les probl&egrave;mes traitant des fichiers ont
+g&eacute;n&eacute;ralement la forme suivante: un fichier donn&eacute; par son
+nom (et en cas de besoin le chemin d'acc&egrave;s sur le m&eacute;dium de
+stockage) doit &ecirc;tre cr&eacute;&eacute;, lu ou modifi&eacute;. La question
+qui se pose est alors:<p>
+</center><p>
+<center><b><i>Comment pouvons-nous relier le nom d'un fichier sur un support
+externe avec les instructions qui donnent acc&egrave;s au contenu du fichier
+?</i></b><p>
+<b><i></center></i></b><p>
+En r&eacute;sum&eacute;, la m&eacute;thode employ&eacute;e sera la suivante:<p>
+<p>
+Avant de lire ou d'&eacute;crire un fichier, l'acc&egrave;s est notifi&eacute;
+par la commande <b>fopen</b>. <b>fopen</b> accepte le nom du fichier (p.ex:
+&quot;A:\ADRESSES.DAT&quot;), n&eacute;gocie avec le syst&egrave;me d'exploitation et
+fournit un pointeur sp&eacute;cial qui sera utilis&eacute; ensuite lors de
+l'&eacute;criture ou la lecture du fichier. Apr&egrave;s les traitements, il
+faut annuler la liaison entre le nom du fichier et le pointeur &agrave; l'aide
+de la commande <b>fclose</b>.<p>
+<p>
+On peut dire aussi qu'entre les &eacute;v&eacute;nements <b>fopen()</b> et <b>fclose()</b> le
+ fichier est ouvert.
+<p>
+<p><hr size="1" width="100%">
+<ul>
+<li><a href="prg-c137.htm"> 11.3.1. Le type FILE* </a>
+<li><a href="prg-c138.htm"> 11.3.2. Exemple: Cr&eacute;er et afficher un fichier s&eacute;quentiel </a>
+</ul>
+<hr size="1" width="100%">
+<a href="prg-c135.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c137.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

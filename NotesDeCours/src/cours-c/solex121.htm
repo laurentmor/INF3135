@@ -1,0 +1,58 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.19</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex120.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex122.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.19</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+<b> /* Tableaux de pointeurs sur des cha&icirc;nes de caract&egrave;res */</b>
+  <b>char *MFRAN[]</b> = {&quot;\aErreur d'entr&eacute;e !&quot;, &quot;janvier&quot;, &quot;f&eacute;vrier&quot;,
+                  &quot;mars&quot;, &quot;avril&quot;, &quot;mai&quot;, &quot;juin&quot;, &quot;juillet&quot;, 
+                  &quot;ao&ucirc;t&quot;, &quot;septembre&quot;, &quot;octobre&quot;, &quot;novembre&quot;, 
+                  &quot;d&eacute;cembre&quot;}; 
+ <b>char *MDEUT[]</b> = {&quot;\aEingabefehler !&quot;, &quot;Januar&quot;, &quot;Februar&quot;,
+                  &quot;M&auml;rz&quot;, &quot;April&quot;, &quot;Mai&quot;, &quot;Juni&quot;, &quot;Juli&quot;,
+                  &quot;August&quot;, &quot;September&quot;, &quot;Oktober&quot;, &quot;November&quot;, 
+                  &quot;Dezember&quot;};
+ int JOUR, MOIS, ANNEE; /* donn&eacute;es pour la date */
+ int CORRECT; /* indicateur logique: */
+              /* vrai si la date entr&eacute;e est correcte */
+<b> /* Saisie des donn&eacute;es */</b>
+<b> do</b>
+<b> {</b>
+<b>  printf(&quot;Introduire le jour, le mois et l'ann&eacute;e : &quot;);</b>
+<b>  scanf(&quot;%d %d %d&quot;, &amp;JOUR, &amp;MOIS, &amp;ANNEE);</b>
+<b>  CORRECT=1;</b>
+<b>  if (JOUR&lt;0||JOUR&gt;31||MOIS&lt;0||MOIS&gt;12||ANNEE&lt;0||ANNEE&gt;3000)</b>
+<b>     {</b>
+<b>      CORRECT=0;</b>
+<b>      puts(MFRAN[0]);</b>
+<b>      puts(MDEUT[0]);</b>
+<b>     }       </b>
+<b> } </b>
+<b> while (!CORRECT);</b>
+<b> /* Affichage des dates */</b>
+<b> printf(&quot;Luxembourg, le %d%s %s %d \n&quot;,</b>
+<b> JOUR, (JOUR==1)?&quot;er&quot;:&quot;&quot;, MFRAN[MOIS], ANNEE); </b>
+<b> printf(&quot;Luxemburg, den %d. %s %d \n&quot;,JOUR, MDEUT[MOIS], ANNEE);</b>
+  return 0;
+}</pre>
+ <p>
+ <p><hr size="1" width="100%">
+<a href="solex120.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex122.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

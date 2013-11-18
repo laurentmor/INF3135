@@ -1,0 +1,163 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  3.3. Les op&eacute;rateurs standard </title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c31.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c33.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 3.3. Les op&eacute;rateurs standard </h2>
+<b>		</b><p>
+ <p>
+<p>
+<b><i>Affectation en langage algorithmique</i></b>
+
+<pre><u>en</u> &lt;NomVariable&gt; <u>ranger</u> &lt;Expression&gt;
+</pre>
+<p>
+<b><i>Affectation en C</i></b>
+
+<pre><b>&lt;NomVariable&gt; = &lt;Expression&gt;;
+</b></pre>
+<p>
+<p>
+<b><i>Exemples d'affectations</i></b><p>
+Reprenons les exemples du cours d'algorithmique pour illustrer
+diff&eacute;rents types d'affectations:<p>
+<p>
+<p>
+<b>-	L'affectation avec des valeurs constantes</b><p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>L</i></b><b><i>angage algorithmique</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>C</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>Type
+de la constante</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+LONG <u>ranger</u> 141</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>LONG
+= 141;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>(const.
+enti&egrave;re)</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+PI <u>ranger</u> 3.1415926</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>PI
+= 3.1415926;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>(const.
+r&eacute;elle)</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+NATION <u>ranger</u> &quot;L&quot;</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>NATION
+= 'L';</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>(caract&egrave;re
+const.)</tt>
+<br></td></tr></table><p>
+<p>
+<b>-	L'affectation avec des valeurs de variables</b><p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>L</i></b><b><i>angage algorithmique</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>C</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+VALEUR <u>ranger</u> X1A</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>VALEUR
+= X1A;</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+LETTRE <u>ranger</u> COURRIER</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>LETTRE
+= COURRIER;</b></tt>
+<br></td></tr></table><p>
+<p>
+<b>-	L'affectation avec des valeurs d'expressions</b><p>
+<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>L</i></b><b><i>angage algorithmique</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>C</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+AIRE <u>ranger</u> PI*R<sup>2</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>AIRE
+= PI*pow(R,2);</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+MOYENNE <u>ranger</u> (A+B)/2</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>MOYENNE
+= (A+B)/2;</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+UN <u>ranger</u> sin<sup>2</sup>(X)+cos<sup>2</sup>(X)</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>UN=pow(sin(X),2)+pow(cos(X),2);</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+RES <u>ranger</u> 45+5*X</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>RES
+= 45+5*X;</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+PLUSGRAND <u>ranger</u> (X&gt;Y)</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>PLUSGRAND
+= (X&gt;Y);</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><u>en</u>
+CORRECT <u>ranger</u> ('a'='a')</tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>CORRECT
+= ('a' == 'a');</b></tt>
+<br></td></tr></table><p>
+<p>
+<b><i>Observations</i></b><p>
+Les op&eacute;rateurs et les fonctions arithm&eacute;tiques utilis&eacute;es
+dans les expressions seront introduites dans la suite du chapitre. Observons
+d&eacute;j&agrave; que:<p>
+*
+il n'existe pas de fonction standard en C pour calculer le carr&eacute; d'une
+valeur; on peut se r&eacute;f&eacute;rer &agrave; la fonction plus
+g&eacute;n&eacute;rale <b>pow(x,y)</b> qui calcule <b>x<sup>y</sup></b> (voir
+3.5.). <p>
+*
+le test d'&eacute;galit&eacute; en C se formule avec <i>deux</i> signes
+d'&eacute;galit&eacute;<b> ==</b> , l'affectation avec <i>un seul</i> <b>=</b>
+.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<ul>
+<li><a href="prg-c33.htm"> 3.3.1. Les op&eacute;rateurs connus </a>
+<li><a href="prg-c34.htm"> 3.3.2. Les op&eacute;rateurs particuliers de C </a>
+</ul>
+<hr size="1" width="100%">
+<a href="prg-c31.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c33.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

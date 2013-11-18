@@ -1,0 +1,85 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.5.2. Traitement par caract&egrave;res</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c144.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c146.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c143.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.5.2. Traitement par caract&egrave;res</h3>
+ <p>
+ <p>
+La manipulation de fichiers avec les instructions <b>fprintf</b> et
+<b>fscanf</b> n'est pas assez flexible pour manipuler de fa&ccedil;on
+confortable des textes &eacute;crits. Il est alors avantageux de traiter le
+fichier s&eacute;quentiellement caract&egrave;re par caract&egrave;re.<p>
+<p>
+ <p>
+<b>a) Ecrire un caract&egrave;re dans un fichier s&eacute;quentiel</b> -
+fputc <p>
+ 
+
+<pre><b>fputc( &lt;C&gt; , &lt;FP&gt; );</b></pre>
+<p>
+<b>fputc</b> transf&egrave;re le caract&egrave;re indiqu&eacute; par &lt;C&gt;
+dans le fichier r&eacute;f&eacute;renc&eacute; par &lt;FP&gt; et avance la
+position de la t&ecirc;te de lecture/&eacute;criture au caract&egrave;re
+suivant.<p>
+*	repr&eacute;sente un caract&egrave;re (valeur num&eacute;rique de 0 &agrave;
+255) ou le symbole de fin de fichier <b>EOF</b> (voir 11.5.3.).<p>
+*	<b>&lt;FP&gt;</b> est un pointeur du type <b>FILE*</b> qui est reli&eacute;
+au nom du fichier cible.
+<p>
+<p>
+<b><i>Remarque</i></b><p>
+L'instruction 
+
+<pre><b>fputc('a', stdout);</b></pre>
+<p>
+est identique &agrave;
+
+<pre><b>putchar('a');</b></pre>
+<p>
+<p>
+<b>b) Lire un caract&egrave;re dans un fichier s&eacute;quentiel</b> -
+fgetc <p>
+ 
+
+<pre><b>
+         &lt;C&gt; = fgetc( &lt;FP&gt; );
+</b></pre>
+<b>fgetc</b>
+fournit comme r&eacute;sultat le prochain caract&egrave;re du fichier
+r&eacute;f&eacute;renc&eacute; par &lt;FP&gt; et avance la position de la
+t&ecirc;te de lecture/&eacute;criture au caract&egrave;re suivant. A la fin du
+fichier, <b>fgets</b> retourne <b>EOF </b>(voir 11.5.3.).<p>
+<p>
+		<b>&lt;C&gt;</b> repr&eacute;sente une variable du type <b>int</b> qui peut
+accepter une valeur num&eacute;rique de 0 &agrave; 255 ou le symbole de fin de
+fichier <b>EOF</b>.<p>
+<p>
+<b>		&lt;FP&gt;</b> est un pointeur du type <b>FILE*</b> qui est reli&eacute;
+au nom du fichier &agrave; lire.<p>
+<tt></tt>
+<p>
+<p>
+<b><i>Remarque</i></b><p>
+L'instruction 
+
+<pre><b>C = fgetc(stdin);</b></pre>
+<p>
+est identique &agrave;
+
+<pre><b>C = getchar();</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c144.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c146.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c143.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

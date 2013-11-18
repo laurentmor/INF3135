@@ -1,0 +1,142 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.1</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex126.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex128.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex126.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.1</h3>
+ <p>
+ <p>
+<b>a) </b>	Etablir la hi&eacute;rarchie des appels pour les trois fonctions:<p>
+<p>
+<img src="solex02.gif" width="130" height="119"><p>
+<p>
+<center><b> b) </b>	D&eacute;finir les fonctions d'apr&egrave;s les trois
+m&eacute;thodes d&eacute;crites ci-dessus en ajoutant les d&eacute;clarations
+manquantes.<p>
+</center><i>		suite . . . </i><p>
+ <p>
+<p>
+<b><i> -	D&eacute;clarations locales des fonctions et d&eacute;finition
+'top-down':</i></b><p>
+<b> </b>
+
+<pre> #include &lt;stdio.h&gt;
+
+ main()
+ {
+<b>  /* D&eacute;claration locale de SURFACE */</b>
+<b>  double SURFACE(double RAYON);</b>
+   double R;
+  printf(&quot;Introduire le rayon du cercle : &quot;);
+  scanf(&quot;%lf&quot;, &amp;R);
+  printf(&quot;La surface du cercle est %f. \n&quot;, SURFACE(R));
+  return 0;
+ }
+
+ double SURFACE(double RAYON)
+ {
+<b>  /* D&eacute;claration locale de PI */</b>
+<b>  double PI(void);</b>
+   return PI()*RAYON*RAYON;
+ }
+
+ double PI(void)
+ {
+  return 3.14159265;
+ }
+</pre>
+<b> </b><p>
+<b><i> -	D&eacute;finition 'bottom-up' sans d&eacute;clarations:</i></b><p>
+<b> </b>
+
+<pre> #include &lt;stdio.h&gt;
+
+ double PI(void)
+ {
+  return 3.14159265;
+ }
+
+ double SURFACE(double RAYON)
+ {
+  return PI()*RAYON*RAYON;
+ }
+
+ main()
+ {
+  double R;
+  printf(&quot;Introduire le rayon du cercle : &quot;);
+  scanf(&quot;%lf&quot;, &amp;R);
+  printf(&quot;La surface du cercle est %f. \n&quot;, SURFACE(R));
+  return 0;
+ }</pre>
+<p>
+<p>
+<p>
+<b><i> -	D&eacute;claration globale des fonctions et d&eacute;finition
+'top-down':</i></b><p>
+<b> </b>
+
+<pre> #include &lt;stdio.h&gt;
+<b> /* D&eacute;claration globale des fonctions */</b>
+<b> double SURFACE(double RAYON);</b>
+<b> double PI(void);</b>
+ 
+ main()
+ {
+  double R;
+  printf(&quot;Introduire le rayon du cercle : &quot;);
+  scanf(&quot;%lf&quot;, &amp;R);
+  printf(&quot;La surface du cercle est %f. \n&quot;, SURFACE(R));
+  return 0;
+ }
+
+ double SURFACE(double RAYON)
+ {
+  return PI()*RAYON*RAYON;
+ }
+
+ double PI(void)
+ {
+  return 3.14159265;
+ }</pre>
+<p>
+<b> </b><p>
+<b> c) </b>	<p>
+<b> </b><p>
+Si nous compilons le programme donn&eacute; sans changements, nous obtenons les
+messages suivants:<p>
+<b> </b>
+
+<pre>  Warning ... : Call to function 'SURFACE' with no prototype
+  Error   ... : Type mismatch in redeclaration of 'SURFACE'</pre>
+<p>
+<b>Explications:</b> <p>
+<b> </b><p>
+Le premier message est un avertissement qui nous informe que la fonction
+SURFACE est appel&eacute;e sans &ecirc;tre d&eacute;clar&eacute;e auparavant.
+Le compilateur suppose alors par d&eacute;faut que la fonction fournit <i>un
+r&eacute;sultat du type <b>int</b></i> et que <i>les param&egrave;tres ont le
+type des arguments utilis&eacute;s lors de l'appel</i>. Cet avertissement
+restera sans cons&eacute;quences si ces suppositions sont correctes.<p>
+<b> </b><p>
+En rencontrant ensuite la d&eacute;finition de la fonction, le compilateur
+d&eacute;tecte une incompatibilit&eacute; de type, car la fonction SURFACE
+retourne en r&eacute;alit&eacute; une valeur du type <b>double</b>. Cette
+incompatibilit&eacute; de type (<tt><b>&quot;Type mismatch&quot;</b></tt>) est
+signal&eacute;e par un message d'erreur et le programme ne peut pas &ecirc;tre
+compil&eacute; avec succ&egrave;s.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex126.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex128.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex126.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

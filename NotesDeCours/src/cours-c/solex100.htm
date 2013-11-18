@@ -1,0 +1,84 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.22</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex99.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex101.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.22</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char SUJ[100]; /* cha&icirc;ne &agrave; transformer */
+ char CH1[100]; /* cha&icirc;ne &agrave; rechercher  */
+ char CH2[100]; /* cha&icirc;ne de remplacement */
+ char FIN[100]; /* cha&icirc;ne de sauvegarde pour */
+                /* la fin de SUJ. */
+ int I;      /* indice courant dans SUJ */
+ int J;      /* indice courant dans CH1 et CH2 */
+ int K;      /* indice d'aide pour les copies  */
+<b> int TROUVE; /* indicateur logique qui pr&eacute;cise */</b>
+<b>             /* si la cha&icirc;ne OBJ a &eacute;t&eacute; trouv&eacute;e */</b>
+ 
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Introduisez la cha&icirc;ne &agrave; rechercher  CH1 : &quot;);
+ gets(CH1);
+ printf(&quot;Introduisez la cha&icirc;ne &agrave; remplacer   CH2 : &quot;);
+ gets(CH2);
+ printf(&quot;Introduisez la cha&icirc;ne &agrave; transformer SUJ : &quot;);
+ gets(SUJ);
+
+<b> /* Recherche de CH1 dans SUJ */</b>
+<b> TROUVE=0;</b>
+<b> for (I=0; SUJ[I] &amp;&amp; !TROUVE; I++)</b>
+<b>    if (SUJ[I]==CH1[0])</b>
+<b>        {</b>
+<b>         for (J=1; CH1[J] &amp;&amp; (CH1[J]==SUJ[I+J]); J++)</b>
+<b>            ;</b>
+<b>         if (CH1[J]=='\0') TROUVE=1;</b>
+<b>        }</b>
+<b> 	</b>
+
+<b> /* Si CH1 a &eacute;t&eacute; trouv&eacute;e dans SUJ alors sauvegarder la fin */</b>
+<b> /* de SUJ dans FIN, copier ensuite CH2 et FIN dans SUJ.   */</b>
+<b> if (TROUVE)</b>
+<b>    {</b>
+<b>     I--;</b>
+<b>     /* Maintenant  I indique la position de CH1 */</b>
+<b>     /* dans SUJ et J indique la longueur de CH1 */</b>
+<b>     /* Sauvegarder la fin de SUJ dans FIN */</b>
+<b>     for (K=0; SUJ[K+I+J]; K++)</b>
+<b>          FIN[K]=SUJ[K+I+J];</b>
+<b>     FIN[K]='\0';</b>
+<b>     /* Copier CH2 dans SUJ */</b>
+<b>     for (K=0; CH2[K]; K++,I++)</b>
+<b>          SUJ[I]=CH2[K];</b>
+<b>     /* Recopier FIN dans SUJ */</b>
+<b>     for (K=0; FIN[K]; K++,I++)</b>
+<b>          SUJ[I]=FIN[K];</b>
+<b>     /* Terminer la cha&icirc;ne SUJ */</b>
+<b>     SUJ[I]='\0';</b>
+<b>    }</b>
+ 
+ /* Affichage du r&eacute;sultat */
+ printf(&quot;Cha&icirc;ne r&eacute;sultat : \&quot;%s\&quot;\n&quot;, SUJ);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex99.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex101.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

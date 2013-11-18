@@ -1,0 +1,79 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.5.2. Passage des param&egrave;tres par valeur</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c119.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c121.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.5.2. Passage des param&egrave;tres par valeur</h3>
+ <p>
+ <p>
+<p>
+En C, le passage des param&egrave;tres se fait toujours par la valeur,
+<br>c.-&agrave;-d. les fonctions n'obtiennent que les <b><i>valeurs</i></b> de
+leurs param&egrave;tres et n'ont pas d'acc&egrave;s aux variables
+elles-m&ecirc;mes. <p>
+<p>
+Les param&egrave;tres d'une fonction sont &agrave; consid&eacute;rer comme des
+<b><i>variables locales</i></b> qui sont initialis&eacute;es automatiquement
+par les valeurs indiqu&eacute;es lors d'un appel. <p>
+<p>
+A l'int&eacute;rieur de la fonction, nous pouvons donc changer les valeurs des
+param&egrave;tres sans influencer les valeurs originales dans les fonctions
+appelantes.<p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+La fonction ETOILES dessine une ligne de N &eacute;toiles. Le param&egrave;tre
+N est modifi&eacute; &agrave; l'int&eacute;rieur de la fonction: <p>
+
+
+<pre><b>void ETOILES(int N)
+{
+ while (N&gt;0) 
+   {
+    printf(&quot;*&quot;);
+    N--;
+   }
+ printf(&quot;\n&quot;);
+}</b></pre>
+<p>
+En utilisant N comme compteur, nous n'avons pas besoin de l'indice d'aide I
+comme dans la fonction LIGNES d&eacute;finie plus haut. <p>
+<p>
+La fonction TRIANGLE, appelle la fonction ETOILES en utilisant la variable L
+comme param&egrave;tre:<p>
+
+
+<pre><b>void TRIANGLE(void)
+{
+ int L;
+ for (L=1; L&lt;10; L++)
+      ETOILES(L);
+}</b></pre>
+<p>
+Au moment de l'appel, la <i>valeur</i> de L est copi&eacute;e dans N. La
+variable N peut donc &ecirc;tre d&eacute;cr&eacute;ment&eacute;e &agrave;
+l'int&eacute;rieur de ETOILES, sans influencer la valeur originale de L.<p>
+<p>
+Sch&eacute;matiquement, le passage des param&egrave;tres peut &ecirc;tre
+repr&eacute;sent&eacute; dans une 'grille' des valeurs:<p>
+<p>
+<img src="prg-c63.gif" width="290" height="274"><p>
+<p>
+<center><b><i>Avantages</i></b><p>
+</center>Le passage par <i>valeur</i> a l'avantage que nous pouvons utiliser
+les param&egrave;tres comme des variables locales bien initialis&eacute;es. De
+cette fa&ccedil;on, nous avons besoin de moins de variables d'aide.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c119.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c121.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

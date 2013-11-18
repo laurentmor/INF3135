@@ -1,0 +1,103 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  8.2. Les cha&icirc;nes de caract&egrave;res constantes</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c74.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c76.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 8.2. Les cha&icirc;nes de caract&egrave;res constantes</h2>
+<b>		</b><p>
+ <p>
+*
+Les cha&icirc;nes de caract&egrave;res constantes <i>(string literals)</i> sont
+indiqu&eacute;es entre guillemets. La cha&icirc;ne de caract&egrave;res vide
+est alors: <b>&quot;&quot;</b><p>
+*
+Dans les cha&icirc;nes de caract&egrave;res, nous pouvons utiliser toutes les
+s&eacute;quences d'&eacute;chappement d&eacute;finies comme caract&egrave;res
+constants:
+
+<pre><b>      &quot;Ce \ntexte \nsera r&eacute;parti sur 3 lignes.&quot;
+</b></pre>
+*
+Le symbole <tt><b>&quot;</b></tt> peut &ecirc;tre repr&eacute;sent&eacute; &agrave;
+l'int&eacute;rieur d'une cha&icirc;ne par la s&eacute;quence
+d'&eacute;chappement <tt><b>\&quot;</b></tt>:
+
+<pre><b>      &quot;Affichage de \&quot;guillemets\&quot; \n&quot;
+</b></pre>
+*
+Le symbole <tt><b>'</b></tt> peut &ecirc;tre repr&eacute;sent&eacute; &agrave;
+l'int&eacute;rieur d'une liste de caract&egrave;res par la s&eacute;quence
+d'&eacute;chappement <tt><b>\' </b></tt>:
+
+<pre><b>      {'L','\'','a','s','t','u','c','e','\0'}
+</b></pre>
+*
+Plusieurs cha&icirc;nes de caract&egrave;res constantes qui sont
+s&eacute;par&eacute;es par des signes d'espacement (espaces, tabulateurs ou
+interlignes) dans le texte du programme seront r&eacute;unies en une seule
+cha&icirc;ne constante lors de la compilation:
+
+<pre><b>&quot;un &quot;  &quot;deux&quot;
+         &quot; trois&quot;</b></pre>
+
+	sera &eacute;valu&eacute; &agrave;
+
+<pre><b>         &quot;un deux trois&quot;</b></pre>
+
+Ainsi il est possible de d&eacute;finir de tr&egrave;s longues cha&icirc;nes de
+caract&egrave;res constantes en utilisant plusieurs lignes dans le texte du
+programme.<p>
+<p>
+<b><i>Observation</i></b><p>
+Pour la m&eacute;morisation de la cha&icirc;ne de caract&egrave;res &quot;Hello&quot;, C
+a besoin de <b>six (!!)</b> octets.
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<b>'x'</b>
+<br></td>
+<td colspan="1" align="left">est
+un <i>caract&egrave;re constant</i>, qui a une valeur num&eacute;rique:
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">
+    P.ex: 'x' a la valeur 120 dans le code ASCII.
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>&quot;x&quot;</b>
+<br></td>
+<td colspan="1" align="left">est
+un <i>tableau de caract&egrave;res</i> qui contient deux caract&egrave;res: 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">
+    la lettre 'x' et le caract&egrave;re NUL: '<tt><b>\0</b></tt>'
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>'x'</b>
+<br></td>
+<td colspan="1" align="left">est
+cod&eacute; dans un octet
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>&quot;x&quot;</b>
+<br></td>
+<td colspan="1" align="left">est
+cod&eacute; dans deux octets
+<br></td></tr></table><p>
+<p><hr size="1" width="100%">
+<a href="prg-c74.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c76.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

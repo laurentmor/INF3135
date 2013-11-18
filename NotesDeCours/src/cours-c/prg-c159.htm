@@ -1,0 +1,81 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - C.3. Traitement de cha&icirc;nes de caract&egrave;res : &lt;string.h&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c158.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c160.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+C.3. Traitement de cha&icirc;nes de caract&egrave;res : &lt;string.h&gt;</h3>
+ <p>
+ <p>
+<p>
+<tt><b>int strlen(const char *CH1)   </b></tt>8.6.2.<tt> </tt><p>
+<tt> </tt><p>
+fournit la longueur de <i>CH1 sans</i> compter le '\0' final
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *strcpy(char *CH1, const char *CH2)
+</b></tt>8.6.2.<tt> </tt><p>
+<tt> </tt><p>
+copie <i>CH2</i> vers <i>CH1</i> ('\0' inclus); retourne <i>CH1</i>
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *strncpy(char *CH1, const char *CH1, int N)</b></tt><p>
+<tt><b>         </b></tt>8.6.2.<tt> </tt><p>
+<tt> </tt><p>
+copie au plus <i>N</i> caract&egrave;res de <i>CH2</i> vers <i>CH1</i>;
+retourne <i>CH1. </i>Remplit la fin de <i>CH1</i> par des '\0' si <i>CH2</i> a
+moins que <i>N</i> caract&egrave;res
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *strcat(char *CH1, const char *CH1)
+</b></tt>8.6.2.<tt> </tt><p>
+<tt> </tt><p>
+ajoute <i>CH2</i> &agrave; la fin de <i>CH1</i>; retourne <i>CH1</i>
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *strncat(char *CH1, const char *CH1, int N)</b></tt><p>
+<tt><b>         </b></tt>8.6.2.<tt> </tt><p>
+<tt> </tt><p>
+ajoute au plus <i>N</i> caract&egrave;res de <i>CH2</i> &agrave; la fin de
+<i>CH1</i> et termine <i>CH1</i> par '\0'; retourne <i>CH1</i>
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int strcmp(const char *CH1, const char *CH1)</b></tt><p>
+<tt><b>         </b></tt>8.5. / 8.6.2.<tt> </tt><p>
+<tt> </tt><p>
+compare <i>CH1</i> et <i>CH2</i> lexicographiquement et fournit un
+r&eacute;sultat:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+n&eacute;gatif
+<br></td>
+<td colspan="1" align="left">si
+<i>CH1</i> pr&eacute;c&egrave;de <i>CH2</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">z&eacute;ro
+<br></td>
+<td colspan="1" align="left">si
+<i>CH1</i> est &eacute;gal &agrave; <i>CH2</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">positif
+<br></td>
+<td colspan="1" align="left">si
+<i>CH1</i> suit <i>CH2</i>
+<br></td></tr></table><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c158.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c160.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

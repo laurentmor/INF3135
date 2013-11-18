@@ -1,0 +1,197 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 8.6.2. Les fonctions de &lt;string&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c80.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c82.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+8.6.2. Les fonctions de &lt;string&gt;</h3>
+<ul>
+<li><a href="#Heading169"> Exercice 8.5</a>
+<li><a href="#Heading170">Exercice 8.6</a>
+<li><a href="#Heading171">Exercice 8.7</a>
+<li><a href="#Heading172">Exercice 8.8</a>
+</ul>
+<hr size="1" width="100%">
+<b>	</b><p>
+ <p>
+La biblioth&egrave;que <i>&lt;string&gt;</i> fournit une multitude de fonctions
+pratiques pour le traitement de cha&icirc;nes de caract&egrave;res. Voici une
+br&egrave;ve description des fonctions les plus fr&eacute;quemment
+utilis&eacute;es.<p>
+<p>
+Dans le tableau suivant, &lt;n&gt; repr&eacute;sente un nombre du type
+<b>int</b>. Les symboles &lt;s&gt; et &lt;t&gt; peuvent &ecirc;tre
+remplac&eacute;s par :<p>
+*	une cha&icirc;ne de caract&egrave;res constante<p>
+*	le nom d'une variable d&eacute;clar&eacute;e comme tableau de <b>char</b><p>
+*	un pointeur sur <b>char</b> (voir chapitre 9)<p>
+<p>
+<center><b>Fonctions pour le traitement de cha&icirc;nes de
+caract&egrave;res</b><p>
+<b></center></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>s</b><b>trlen(&lt;s&gt;)</b>
+<br></td>
+<td colspan="1" align="left">fournit
+la longueur de la cha&icirc;ne <b><i>sans</i></b> compter le '\0' final
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>strcpy(&lt;s&gt;,
+&lt;t&gt;)</b>
+<br></td>
+<td colspan="1" align="left">copie
+&lt;t&gt; vers &lt;s&gt;
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>strcat(&lt;s&gt;,
+&lt;t&gt;)</b>
+<br></td>
+<td colspan="1" align="left">ajoute
+&lt;t&gt; &agrave; la fin de &lt;s&gt;
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>strcmp(&lt;s&gt;,
+&lt;t&gt;)</b>
+<br></td>
+<td colspan="1" align="left">compare
+&lt;s&gt; et &lt;t&gt; lexicographiquement et fournit un r&eacute;sultat:
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="center">n&eacute;gatif
+<br></td>
+<td colspan="1" align="center">si
+&lt;s&gt; pr&eacute;c&egrave;de &lt;t&gt;
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="center">z&eacute;ro
+<br></td>
+<td colspan="1" align="center">si
+&lt;s&gt; est &eacute;gal &agrave; &lt;t&gt;
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="center">positif
+<br></td>
+<td colspan="1" align="center">si
+&lt;s&gt; suit &lt;t&gt;
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>strncpy(&lt;s&gt;,
+&lt;t&gt;, &lt;n&gt;)</b>
+<br></td>
+<td colspan="1" align="left">copie
+au plus &lt;n&gt; caract&egrave;res de &lt;t&gt; vers &lt;s&gt;
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><b>strncat(&lt;s&gt;,
+&lt;t&gt;, &lt;n&gt;)</b>
+<br></td>
+<td colspan="1" align="left">ajoute
+au plus &lt;n&gt; caract&egrave;res de &lt;t&gt; &agrave; la fin de &lt;s&gt;
+<br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<p>
+<b><i>Remarques</i></b><p>
+- 	Comme le nom d'une cha&icirc;ne de caract&egrave;res repr&eacute;sente une
+adresse fixe en m&eacute;moire, on ne peut pas 'affecter' une autre
+cha&icirc;ne au nom d'un tableau:<p>
+<p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+<img src="prg-c37.gif" width="132" height="42"><p>
+<p>
+	<center>Il faut bien copier la cha&icirc;ne caract&egrave;re par
+caract&egrave;re ou utiliser la fonction <b>strcpy</b> respectivement
+<b>strncpy</b>:<p>
+</center><p>
+<center><tt><b>strcpy(A, &quot;Hello&quot;);</b></tt><p>
+<tt><b></center></b></tt><p>
+- 	La concat&eacute;nation de cha&icirc;nes de caract&egrave;res en C ne se
+fait pas par le symbole '+' comme en langage algorithmique ou en Pascal. Il
+faut ou bien copier la deuxi&egrave;me cha&icirc;ne caract&egrave;re par
+caract&egrave;re ou bien utiliser la fonction <b>strcat</b> ou
+<b>strncat</b>.<p>
+<p>
+- 	La fonction <b>strcmp</b> est d&eacute;pendante du code de caract&egrave;res
+et peut fournir diff&eacute;rents r&eacute;sultats sur diff&eacute;rentes
+machines (voir 8.5.).<p>
+
+<h4><hr size="2">
+<a name="Heading169"> Exercice 8.5</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui demande l'introduction du nom et du
+pr&eacute;nom de l'utilisateur et qui affiche alors la longueur totale du nom
+sans compter les espaces. Employer la fonction <b>strlen</b>.<p>
+<b>Exemple:</b>
+
+<pre><b>
+   Introduisez votre nom et votre pr&eacute;nom:
+   Mickey Mouse
+
+   Bonjour Mickey Mouse !
+   Votre nom est compos&eacute; de 11 lettres.
+</b></pre>
+
+<h4><hr size="2">
+<a name="Heading170">Exercice 8.6</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit deux cha&icirc;nes de caract&egrave;res CH1 et CH2,
+les compare lexicographiquement et affiche le r&eacute;sultat:<p>
+<b>Exemple:</b>
+
+<pre><b>
+   Introduisez la premi&egrave;re cha&icirc;ne: ABC
+   Introduisez la deuxi&egrave;me cha&icirc;ne: abc
+   &quot;ABC&quot; pr&eacute;c&egrave;de &quot;abc&quot;</b></pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading171">Exercice 8.7</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit deux cha&icirc;nes de caract&egrave;res CH1 et CH2
+et qui copie la premi&egrave;re moiti&eacute; de CH1 et la premi&egrave;re
+moiti&eacute; de CH2 dans une troisi&egrave;me cha&icirc;ne CH3. Afficher le
+r&eacute;sultat.<p>
+<b>a)</b> Utiliser les fonctions sp&eacute;ciales de <i>&lt;string&gt;.</i><p>
+<b>b)</b> Utiliser uniquement les fonctions <b>gets</b> et <b>puts</b>.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading172">Exercice 8.8</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit un verbe r&eacute;gulier en &quot;er&quot; au clavier et qui
+en affiche la conjugaison au pr&eacute;sent de l'indicatif de ce verbe.
+Contr&ocirc;lez s'il s'agit bien d'un verbe en &quot;er&quot; avant de conjuguer.
+Utiliser les fonctions <b>gets</b>, <b>puts</b>, <b>strcat</b> et
+<b>strlen</b>.<p>
+<b>Exemple:</b>
+
+<pre><b>      Verbe : f&ecirc;ter
+      je f&ecirc;te
+      tu f&ecirc;tes
+      il f&ecirc;te
+      nous f&ecirc;tons
+      vous f&ecirc;tez
+      ils f&ecirc;tent</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c80.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c82.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c79.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

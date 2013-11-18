@@ -1,0 +1,181 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 3.1.2. Les types rationnels</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c26.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c28.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c25.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+3.1.2. Les types rationnels</h3>
+<ul>
+<li><a href="#Heading42"> Exercice 3.1</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+En informatique, les rationnels sont souvent appel&eacute;s des 'flottants'. Ce
+terme vient de <i>'en virgule flottante'</i> et trouve sa racine dans la
+notation traditionnelle des rationnels:<p>
+	<i>
+<table border></i>
+<tr rowspan="1" align="center">
+<td colspan="1" align="center"><br></td>
+<td colspan="1" align="center"><p>
+<b>&lt;+|-&gt;<i> &lt;mantisse&gt; * 10<sup>&lt;exposant&gt;</sup></i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">&lt;+|-&gt;
+<br></td>
+<td colspan="1" align="left">est
+le signe positif ou n&eacute;gatif du nombre
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><i>
+&lt;mantisse&gt;</i>
+<br></td>
+<td colspan="1" align="left">est
+un d&eacute;cimal positif avec un seul chiffre devant la virgule.
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><i>
+&lt;exposant&gt;</i>
+<br></td>
+<td colspan="1" align="left">est
+un entier relatif 
+<br></td></tr></table><p>
+<b><i>Exemples</i></b>
+
+<pre><b>   3.14159*100   1.25003*10-12
+   4.3001*10321   -1.5*103</b></pre>
+<p>
+En C, nous avons le choix entre trois types de rationnels: <b>float</b>,
+<b>double</b> et <b>long</b> <b>double</b>. Dans le tableau ci-dessous, vous
+trouverez leurs caract&eacute;ristiques:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<i>min</i> et <i>max</i>
+<br></td>
+<td colspan="1" align="left">repr&eacute;sentent
+les valeurs minimales et maximales
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><b>positives</b>.
+Les valeurs n&eacute;gatives peuvent varier dans 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">les
+m&ecirc;mes domaines.
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><i>mantisse</i>
+<br></td>
+<td colspan="1" align="left">indique
+le nombre de chiffres significatifs de la
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">mantisse.
+<br></td></tr></table><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b><i>d</i></b><b><i>&eacute;finition</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>pr&eacute;cision
+</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>mantisse</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>domaine
+min</i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>domaine
+max </i></b>
+<br></td>
+<td colspan="1" align="left"><b><i>nombre
+d'octets</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>float</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>simple</tt>
+<br></td>
+<td colspan="1" align="left"><tt>6</tt>
+<br></td>
+<td colspan="1" align="left"><tt>3.4
+* 10<sup>-38</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt>3.4
+* 10<sup>38</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt>4</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>double</tt>
+<br></td>
+<td colspan="1" align="left"><tt>15</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1.7
+* 10<sup>-308</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt>1.7
+* 10<sup>308</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt>8</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>long
+double</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>suppl.</tt>
+<br></td>
+<td colspan="1" align="left"><tt>19</tt>
+<br></td>
+<td colspan="1" align="left"><tt>3.4
+* 10<sup>-4932</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt>1.1
+* 10<sup>4932</sup></tt>
+<br></td>
+<td colspan="1" align="left"><tt>10</tt>
+<br></td></tr></table>
+
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113">
+<b><i>Remarque avanc&eacute;e</i></b><p>
+Les d&eacute;tails de l'impl&eacute;mentation sont indiqu&eacute;s dans le fichier <i>header</i> <tt><b>&lt;float.h&gt;</b></tt>.        
+<p><br clear="all">
+<h4><hr size="2">
+<a name="Heading42"> Exercice 3.1</a>
+<hr size="1"></h4>
+<p>
+<p>
+Quel(s) type(s) num&eacute;rique(s) pouvez-vous utiliser pour les groupes de
+nombres suivants? Dressez un tableau et marquez le choix le plus
+&eacute;conomique:<p>
+
+
+<pre><b>   (1)   1  12   4  0   -125
+   (2)   1  12  -4  0    250
+   (3)   1  12   4  0    250
+   (4)   1  12  -4  0.5  125
+   (5)   -220    32000   0
+   (6)   -3000005.000000001
+   (7)   410    50000    2
+   (8)   410    50000    -2
+   (9)   3.14159265      1015
+   (10)   2*10<sup>7</sup>           10000001
+   (11)   2*10<sup>-7</sup>          10000001
+   (12)   -1.05*1050      0.0001
+   (13)   305.122212  0   -12</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c26.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c28.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c25.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

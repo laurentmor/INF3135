@@ -1,0 +1,106 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.24    Recherche de 'points-cols'</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex76.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.24    Recherche de 'points-cols'</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[50][50];  /* matrice donn&eacute;e */
+ int MAX[50][50];/* matrice indiquant les maxima des lignes   */
+ int MIN[50][50];/* matrice indiquant les minima des colonnes */
+ int N, M;    /* dimensions des matrices */
+ int I, J;    /* indices courants */
+ int AIDE;    /* pour la d&eacute;tection des extr&eacute;ma */
+ int C;       /* compteur des points-cols */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;M; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%d&quot;, &amp;A[I][J]);
+        }
+ /* Affichage de la matrice */
+ printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%7d&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+
+<b> /* Construction de la matrice d'aide MAX */</b>
+<b> /* qui indique les positions de tous les */</b>
+<b> /* maxima sur une ligne. */</b>
+<b> for (I=0; I&lt;N; I++)</b>
+<b>     {</b>
+<b>      /* Recherche du maximum sur la ligne I */</b>
+<b>      AIDE=A[I][0];</b>
+<b>      for (J=1; J&lt;M; J++)</b>
+<b>           if (A[I][J]&gt;AIDE) AIDE=A[I][J];</b>
+<b>      /* Marquage de tous les maxima sur la ligne */</b>
+<b>      for (J=0; J&lt;M; J++)</b>
+<b>           if (A[I][J]==AIDE)  /* ou bien :                   */</b>
+<b>                MAX[I][J]=1;   /* MAX[I][J] = (A[I][J]==AIDE) */</b>
+<b>           else</b>
+<b>                MAX[I][J]=0;</b>
+<b>     }</b>
+<b> /* Construction de la matrice d'aide MIN */</b>
+<b> /* qui indique les positions de tous les */</b>
+<b> /* minima sur une colonne. */</b>
+<b> for (J=0; J&lt;M; J++)</b>
+<b>     {</b>
+<b>      /* Recherche du minimum sur la colonne J */</b>
+<b>      AIDE=A[0][J];</b>
+<b>      for (I=1; I&lt;N; I++)</b>
+<b>           if (A[I][J]&lt;AIDE) AIDE=A[I][J];</b>
+<b>      /* Marquage de tous les minima sur la colonne J */</b>
+<b>      for (I=0; I&lt;N; I++)</b>
+<b>           if (A[I][J]==AIDE)  /* ou bien :                   */</b>
+<b>                MIN[I][J]=1;   /* MIN[I][J] = (A[I][J]==AIDE) */</b>
+<b>           else</b>
+<b>                MIN[I][J]=0;</b>
+<b>     }</b>
+ 
+<b> /* Edition du r&eacute;sultat */</b>
+<b> /* Les composantes qui sont marqu&eacute;es comme extr&eacute;ma */</b>
+<b> /* dans MAX et dans MIN sont des points-cols. */</b>
+<b> printf(&quot;Points - cols :\n&quot;);</b>
+<b> for (C=0, I=0; I&lt;N; I++)</b>
+<b>      for (J=0; J&lt;M; J++)</b>
+<b>           if (MAX[I][J]&amp;&amp;MIN[I][J])</b>
+<b>              {</b>
+<b>               C++;</b>
+<b>               printf(&quot;L'&eacute;l&eacute;ment %d\test un maximum &quot;</b>
+<b>                      &quot;sur la ligne %d\n&quot;</b>
+<b>                      &quot;             \t et un minimum &quot;</b>
+<b>                      &quot;sur la colonne %d\n&quot;, A[I][J], I, J);</b>
+<b>              }</b>
+<b> if (C==0)</b>
+<b>     printf(&quot;Le tableau ne contient pas de points-cols.\n&quot;);</b>
+ return 0;
+}</pre>
+<p>
+<a href="solex01.htm"></a><a href="solex01.htm"></a><p><hr size="1" width="100%">
+<a href="solex76.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

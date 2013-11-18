@@ -1,0 +1,164 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.1.4. Affichage et affectation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c63.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c60.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.1.4. Affichage et affectation</h3>
+<ul>
+<li><a href="#Heading124"> Exercice 7.1</a>
+<li><a href="#Heading125">Exercice 7.2</a>
+<li><a href="#Heading126">Exercice 7.3</a>
+<li><a href="#Heading127">Exercice 7.4</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+La structure <b>for</b> se pr&ecirc;te particuli&egrave;rement bien au travail
+avec les tableaux. La plupart des applications se laissent impl&eacute;menter
+par simple modification des exemples-types de l'affichage et de
+l'affectation.<p>
+<p>
+<p>
+<b>- Affichage du contenu d'un tableau</b><p>
+ Traduisons le programme AFFICHER du langage algorithmique en C:
+
+<pre><u>programme</u> AFFICHER
+|   <u>entier tableau</u> A[5]
+|   <u>entier</u> I  (* Compteur *)
+|   <u>pour</u> I <u>variant de</u> 1 <u>&agrave;</u> 5 <u>faire</u>
+|     <u>&eacute;crire</u> A[I]
+|   <u>fpour</u>
+<u>fprogramme</u></pre>
+
+
+<pre><b>main()
+{
+ int A[5];
+ int I;  /* Compteur */
+ for (I=0; I&lt;5; I++)
+     printf(&quot;%d &quot;, A[I]);
+ return 0;
+ printf(&quot;\n&quot;);
+}</b></pre>
+<p>
+<b><i>Remarques</i></b><p>
+*	Avant de pouvoir afficher les composantes d'un tableau, il faut
+&eacute;videmment leur affecter des valeurs.<p>
+*	Rappelez-vous que la deuxi&egrave;me condition dans la structure <b>for</b>
+n'est pas une condition d'arr&ecirc;t, mais une condition de
+r&eacute;p&eacute;tition! Ainsi la commande d'affichage sera
+r&eacute;p&eacute;t&eacute;e <i>aussi longtemps</i> que <tt><b>I</b></tt> est
+inf&eacute;rieur &agrave; 5. La boucle sera donc bien ex&eacute;cut&eacute;e
+pour les indices 0,1,2,3 et 4 !<p>
+*	Par opposition &agrave; la commande simplifi&eacute;e
+<tt><u>&eacute;crire</u> A[I]</tt> du langage algorithmique, la commande
+<b>printf</b> doit &ecirc;tre inform&eacute;e du type exact des donn&eacute;es
+&agrave; afficher. (Ici: <tt><b>%d</b></tt> ou <tt><b>%i</b></tt> pour des
+valeurs du type <b>int</b>)<p>
+*	Pour &ecirc;tre s&ucirc;r que les valeurs sont bien s&eacute;par&eacute;es
+lors de l'affichage, il faut inclure au moins un espace dans la cha&icirc;ne de
+format. Autres possibilit&eacute;s:
+
+<pre><b>   printf(&quot;%d\t&quot;, A[I]); /* tabulateur */
+   printf(&quot;%7d&quot;, A[I]);  /* format d'affichage */</b></pre>
+<p>
+<p>
+<b><i>Affectation</i></b><p>
+<b>- Affectation avec des valeurs provenant de l'ext&eacute;rieur</b><p>
+ <p>
+Traduisons le programme REMPLIR du langage algorithmique en C:<p>
+
+
+<pre><b>programme REMPLIR
+|   entier tableau A[5]
+|   entier I  (* Compteur *)
+|   pour I variant de 1 &agrave; 5 faire
+|     lire A[I]
+|   fpour
+fprogramme
+
+main()
+{
+ int A[5];
+ int I;  /* Compteur */
+ for (I=0; I&lt;5; I++)
+     scanf(&quot;%d&quot;, &amp;A[I]);
+ return 0;
+}
+</b></pre>
+<p>
+<b><i>Remarques</i></b><p>
+*	Comme <b>scanf</b> a besoin des adresses des diff&eacute;rentes composantes
+du tableau, il faut faire pr&eacute;c&eacute;der le terme A[I] par
+l'op&eacute;rateur adresse '<b>&amp;</b>'.<p>
+*	La commande de lecture <b>scanf</b> doit &ecirc;tre inform&eacute;e du type
+exact des donn&eacute;es &agrave; lire. (Ici: <tt><b>%d</b></tt> ou
+<tt><b>%i</b></tt><b> </b>pour lire des valeurs du type <b>int</b>)<p>
+
+<h4><hr size="2">
+<a name="Heading124"> Exercice 7.1</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit la dimension N d'un tableau T du type <b>int</b>
+(dimension maximale: 50 composantes), remplit le tableau par des valeurs
+entr&eacute;es au clavier et affiche le tableau. <p>
+Calculer et afficher ensuite la somme des &eacute;l&eacute;ments du tableau.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading125">Exercice 7.2</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit la dimension N d'un tableau T du type <b>int</b>
+(dimension maximale: 50 composantes), remplit le tableau par des valeurs
+entr&eacute;es au clavier et affiche le tableau. <p>
+Effacer ensuite toutes les occurrences de la valeur 0 dans le tableau T et
+tasser les &eacute;l&eacute;ments restants. Afficher le tableau
+r&eacute;sultant. <p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading126">Exercice 7.3</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit la dimension N d'un tableau T du type <b>int</b>
+(dimension maximale: 50 composantes), remplit le tableau par des valeurs
+entr&eacute;es au clavier et affiche le tableau. <p>
+Ranger ensuite les &eacute;l&eacute;ments du tableau T dans l'ordre inverse
+sans utiliser de tableau d'aide. Afficher le tableau r&eacute;sultant.<p>
+<b>Id&eacute;e:</b> Echanger les &eacute;l&eacute;ments du tableau &agrave;
+l'aide de deux indices qui parcourent le tableau en commen&ccedil;ant
+respectivement au d&eacute;but et &agrave; la fin du tableau et qui se
+rencontrent en son milieu.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading127">Exercice 7.4</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit la dimension N d'un tableau T du type <b>int</b>
+(dimension maximale: 50 composantes), remplit le tableau par des valeurs
+entr&eacute;es au clavier et affiche le tableau. <p>
+Copiez ensuite toutes les composantes strictement positives dans un
+deuxi&egrave;me tableau TPOS et toutes les valeurs strictement n&eacute;gatives
+dans un troisi&egrave;me tableau TNEG. Afficher les tableaux TPOS et TNEG.<p>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c63.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c65.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c60.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

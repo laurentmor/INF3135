@@ -1,0 +1,58 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.4</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex130.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex132.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex128.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.4</h3>
+ <p>
+ <p>
+<p>
+	
+<img src="solex05.gif" width="386" height="154"><p>
+<p>
+<b>Affichage:</b>	3	-8	12	<p>
+	3	12	3<p>
+<p>
+<b>Impl&eacute;mentation:</b><p>
+
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+<b> void MODIFIER(int X, int *Y, int *Z); </b>/* Prototype */ 
+  int A,B,C;
+ A=3;   
+ B=-8;
+ C=12; 
+ printf(&quot;%d %d %d \n&quot;, A, B, C);
+<b> MODIFIER(A,&amp;B,&amp;C);</b>
+  printf(&quot;%d %d %d \n&quot;, A, B, C);
+ return 0;
+}</pre>
+<p>
+
+
+<pre>void MODIFIER(int X, int *Y, int *Z)
+{
+ int T;
+ T  = X;
+ X  = *Y;
+ *Y = *Z;
+ *Z = T;
+}
+</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex130.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex132.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex128.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,94 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.8</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex183.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex185.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.8</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+<b>  /* Prototypes des fonctions appel&eacute;es */</b>
+<b>  int PALI(char *CH);</b>
+<b>  int LONG_CH(char *CH);</b>
+   /* D&eacute;clarations : */
+  /* Nom du fichier et pointeur de r&eacute;f&eacute;rence */
+  char NOM_FICH[] = &quot;A:\\MOTS.TXT&quot;; 
+  FILE *FICHIER;
+  /* Autres variables */
+  char CHAINE[50];
+  int N_PALI; /* nombre de palindromes */
+  int N_MOTS; /* nombre de mots */
+  int L_TOT;  /* longueur totale de tous les mots */
+
+  /* Ouverture du nouveau fichier en &eacute;criture */
+<b>  FICHIER = fopen(NOM_FICH, &quot;r&quot;);</b>
+   if (!FICHIER)
+     {  
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOM_FICH);
+      exit(-1);
+     }
+<b>  /* Compter les palindromes et accumuler */</b>
+<b>  /* les longueurs des mots. */</b>
+<b>  L_TOT =0;</b>
+<b>  N_PALI=0;</b>
+<b>  N_MOTS=0;</b>
+<b>  while (!feof(FICHIER))</b>
+<b>    {</b>
+<b>     fscanf(FICHIER, &quot;%s\n&quot;, CHAINE);</b>
+<b>     N_MOTS++;</b>
+<b>     L_TOT  += LONG_CH(CHAINE);</b>
+<b>     N_PALI += PALI(CHAINE);</b>
+<b>    }</b>
+   /* Fermeture du fichier */
+<b>  fclose(FICHIER);</b>
+   /* Affichage des r&eacute;sultats */
+  printf(&quot;Le fichier %s contient :\n&quot;, NOM_FICH);
+  printf(&quot;\t%d \tmots d'une longueur moyenne de :\n&quot;, N_MOTS);
+  printf(&quot;\t<b>%.1f</b> \tcaract&egrave;res et\n&quot;, <b>(float)L_TOT/N_MOTS</b>);
+  printf(&quot;\t%d \tpalindromes\n&quot;, N_PALI);
+  return 0;
+}
+
+
+int PALI(char *CH)
+{
+ /* Variable locale */
+ char *CH2;
+ /* Placer CH2 &agrave; la fin de la cha&icirc;ne */
+ for (CH2=CH; *CH2; CH2++)
+     ;
+ CH2--;
+ /* Contr&ocirc;ler si la cha&icirc;ne d&eacute;sign&eacute;e par CH est un palindrome */
+ for (; CH&lt;CH2; CH++,CH2--)
+      if (*CH != *CH2) return 0;
+ return 1;
+}
+ 
+
+int LONG_CH(char *CH)
+{
+ char *P;
+ for (P=CH ; *P; P++) ;
+ return P-CH;
+}
+
+</pre>
+<p><hr size="1" width="100%">
+<a href="solex183.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex185.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

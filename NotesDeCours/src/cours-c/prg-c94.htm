@@ -1,0 +1,304 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.2.2. Les op&eacute;rations &eacute;l&eacute;mentaires sur pointeurs</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c93.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c92.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.2.2. Les op&eacute;rations &eacute;l&eacute;mentaires sur pointeurs</h3>
+<ul>
+<li><a href="#Heading201"> Exercice 9.1</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+En travaillant avec des pointeurs, nous devons observer les r&egrave;gles
+suivantes:<p>
+<p>
+<b><i>Priorit&eacute; de
+* et &amp;</i></b><p>
+*	Les op&eacute;rateurs <b>*</b> et <b>&amp;</b> ont la m&ecirc;me
+priorit&eacute; que les autres op&eacute;rateurs unaires (la n&eacute;gation
+<tt><b>!</b></tt>, l'incr&eacute;mentation <tt><b>++</b></tt>, la
+d&eacute;cr&eacute;mentation <tt><b>--</b></tt>). Dans une m&ecirc;me
+expression, les op&eacute;rateurs unaires *, &amp;, !, ++, -- sont
+&eacute;valu&eacute;s de droite &agrave; gauche.<p>
+	<p>
+*	Si un pointeur P pointe sur une variable X, alors *P peut &ecirc;tre
+utilis&eacute; partout o&ugrave; on peut &eacute;crire X. <p>
+<p>
+<b><i>Exemple</i></b><p>
+Apr&egrave;s l'instruction<p>
+
+
+<pre><b>   P = &amp;X;</b></pre>
+<p>
+les expressions suivantes, sont &eacute;quivalentes:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>Y  = *P+1</b></tt>
+<br></td>
+<td colspan="1" align="left"><img src="equivauta.gif"></td>
+<td colspan="1" align="left"><tt><b>Y
+= X+1</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*P
+= *P+10</b></tt>
+<br></td>
+<td colspan="1" align="left"><img src="equivauta.gif"></td>
+<td colspan="1" align="left"><tt><b>X
+= X+10</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*P
++= 2</b></tt>
+<br></td>
+<td colspan="1" align="left"><img src="equivauta.gif"></td>
+<td colspan="1" align="left"><tt><b>X
++= 2</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>++*P</b></tt>
+<br></td>
+<td colspan="1" align="left"><img src="equivauta.gif"></td>
+<td colspan="1" align="left"><tt><b>++X</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>(*P)++</b></tt>
+<br></td>
+<td colspan="1" align="left"><img src="equivauta.gif"></td>
+<td colspan="1" align="left"><tt><b>X++</b></tt>
+<br></td></tr></table><p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+Dans le dernier cas, les parenth&egrave;ses sont n&eacute;cessaires:<p>
+Comme les op&eacute;rateurs unaires * et ++ sont &eacute;valu&eacute;s <i>de
+droite &agrave; gauche</i>, sans les parenth&egrave;ses le <i>pointeur</i> P
+serait incr&eacute;ment&eacute;, <i>non pas l'objet</i> sur lequel P pointe.<p>
+<p>
+		On peut uniquement affecter des adresses &agrave; un pointeur.<p>
+<b><i>Le pointeur NUL</i></b><p>
+		<i>Seule exception: </i>La valeur num&eacute;rique 0 (z&eacute;ro) est
+utilis&eacute;e pour indiquer qu'un pointeur ne pointe 'nulle part'.<p>
+<b><i>	
+<img src="prg-c48.gif" width="67" height="42"></i></b><p>
+
+
+<pre><b>      int *P;
+      P = 0;</b></pre>
+<p>
+<p>
+		Finalement, les pointeurs sont aussi des variables et peuvent &ecirc;tre
+utilis&eacute;s comme telles. Soit P1 et P2 deux pointeurs sur <b>int</b>,
+alors l'affectation<p>
+<tt><b>   </b></tt>
+
+<pre><b>         P1 = P2;</b></pre>
+
+	<p>
+		copie le contenu de P2 vers P1. P1 pointe alors sur le m&ecirc;me objet que
+P2.<p>
+<p>
+<b><i>R&eacute;sumons:</i></b><p>
+<b><i>
+<img src="prg-c49.gif" width="76" height="106"></i></b>
+<p>
+  Apr&egrave;s les instructions:<p>
+
+
+<pre><b>   int A;
+   int *P;
+   P = &amp;A;</b></pre>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b> </b></tt><tt><b>  A</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+  &amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de A
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+  P</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de A
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+  *P</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A
+<br></td></tr></table><p>
+  En outre:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b> </b></tt><tt><b>  &amp;P</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse du pointeur P
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+  *A</b></tt>
+<br></td>
+<td colspan="1" align="left">est
+ill&eacute;gal (puisque A n'est pas un pointeur)
+<br></td></tr></table>
+
+<h4><hr size="2">
+<a name="Heading201"> Exercice 9.1</a>
+<hr size="1"></h4>
+
+
+<pre><b>
+   main()
+   {
+      int A = 1;
+      int B = 2;
+      int C = 3;
+      int *P1, *P2;
+      P1=&amp;A;
+      P2=&amp;C;
+      *P1=(*P2)++;
+      P1=P2;
+      P2=&amp;B;
+      *P1-=*P2;
+      ++*P2;
+      *P1*=*P2;
+      A=++*P2**P1;
+      P1=&amp;A;
+      *P2=*P1/=*P2;
+      return 0;
+   }</b></pre>
+<p>
+Copiez le tableau suivant et compl&eacute;tez-le pour chaque instruction du
+programme ci-dessus.
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b><u>A</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>B</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>C</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>P1</u></b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b><u>P2</u></b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>Init</b>.</tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td>
+<td colspan="1" align="left"><tt>3</tt>
+<br></td>
+<td colspan="1" align="left"><tt>/</tt>
+<br></td>
+<td colspan="1" align="left"><tt>/</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P1=&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>1</tt>
+<br></td>
+<td colspan="1" align="left"><tt>2</tt>
+<br></td>
+<td colspan="1" align="left"><tt>3</tt>
+<br></td>
+<td colspan="1" align="left"><tt>&amp;A</tt>
+<br></td>
+<td colspan="1" align="left"><tt>/</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P2=&amp;C</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>*P1=(*P2)++</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P1=P2</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P2=&amp;B</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>*P1-=*P2</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>++*P2</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>*P1*=*P2</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>A=++*P2**P1</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P1=&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>*P2=*P1/=*P2</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<p><hr size="1" width="100%">
+<a href="prg-c93.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c92.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

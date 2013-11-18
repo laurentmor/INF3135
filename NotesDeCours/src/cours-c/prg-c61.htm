@@ -1,0 +1,110 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.1.1. D&eacute;claration et m&eacute;morisation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c60.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c62.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c60.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.1.1. D&eacute;claration et m&eacute;morisation</h3>
+ <p>
+ <p>
+<b><i>D&eacute;claration</i></b><p>
+<b><i>D&eacute;claration de tableaux en langage algorithmique</i></b>
+
+<pre><u>&lt;TypeSimple&gt; tableau</u> &lt;NomTableau&gt;[&lt;Dimension&gt;]
+</pre>
+<p>
+<b><i>D&eacute;claration de tableaux en C</i></b>
+
+<pre><b>&lt;TypeSimple&gt; &lt;NomTableau&gt;[&lt;Dimension&gt;];
+</b></pre>
+<p>
+Les noms des tableaux sont des <i>identificateurs</i> qui doivent correspondre
+aux restrictions d&eacute;finies au chapitre 2.2.4.<p>
+<p>
+<p>
+<b><i>Exemples</i></b><p>
+Les d&eacute;clarations suivantes en langage algorithmique,
+
+<pre><b>entier tableau A[25]
+r&eacute;el tableau B[100]
+bool&eacute;en tableau C[10]
+caract&egrave;re tableau D[30]</b></pre>
+<p>
+se laissent traduire en C par:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>i</b></tt><tt><b>nt A[25];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt><b>long
+A[25];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt>...</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>float
+B[100];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt><b>double
+B[100];</b></tt>
+<br></td>
+<td colspan="1" align="left">ou
+bien
+<br></td>
+<td colspan="1" align="left"><tt>...</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>int
+C[10];</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>char
+D[30];</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<p>
+<b><i>M&eacute;morisation</i></b><p>
+En C, le nom d'un tableau est le repr&eacute;sentant de <b><i>l'adresse du
+premier &eacute;l&eacute;ment</i></b> du tableau. Les adresses des autres
+composantes sont calcul&eacute;es (automatiquement) relativement &agrave; cette
+adresse.<p>
+<p>
+<b><i>Exemple:</i></b>
+
+<pre><b>   short A[5] = {1200, 2300, 3400, 4500, 5600};
+</b></pre>
+<tt><img src="prg-c12.gif" width="502" height="89"></tt>
+<p>
+<center>Si un tableau est form&eacute; de N composantes et si une composante a
+besoin de M octets en m&eacute;moire, alors le tableau occupera de N*M
+octets.<p>
+</center><p>
+<b><i>Exemple</i></b><p>
+En supposant qu'une variable du type <b>long</b> occupe 4 octets (c.-&agrave;-d: <tt><b>sizeof(long)=4</b></tt>), pour le tableau T d&eacute;clar&eacute; par:	<tt><b>long T[15];</b></tt><br>
+<tt> </tt>C r&eacute;servera N*M = 15*4 = 60 octets en m&eacute;moire.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c60.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c62.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c60.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,49 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 8.7.1. D&eacute;claration, initialisation et m&eacute;morisation</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c84.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c86.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c84.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+8.7.1. D&eacute;claration, initialisation et m&eacute;morisation</h3>
+ <p>
+ <p>
+Un tableau de cha&icirc;nes de caract&egrave;res correspond &agrave; un tableau
+&agrave; deux dimensions du type <b>char</b>, o&ugrave; <b><i>chaque ligne
+contient une cha&icirc;ne de caract&egrave;res</i></b>.<p>
+<p>
+<b><i>D&eacute;claration</i></b><p>
+La d&eacute;claration 	<tt><b>   char JOUR[7][9];</b></tt><p>
+<tt> </tt>r&eacute;serve l'espace en m&eacute;moire pour 7 mots contenant
+9 caract&egrave;res (dont 8 caract&egrave;res significatifs).<p>
+<p>
+<img src="prg-c38.gif" width="500" height="176"><p>
+<p>
+<center><b><i>Initialisation</i></b><p>
+</center>Lors de la d&eacute;claration il est possible d'initialiser toutes les
+composantes du tableau par des cha&icirc;nes de caract&egrave;res constantes:<p>
+
+
+<pre><b>   char JOUR[7][9]= {&quot;lundi&quot;, &quot;mardi&quot;, &quot;mercredi&quot;,
+                     &quot;jeudi&quot;, &quot;vendredi&quot;, &quot;samedi&quot;,
+                     &quot;dimanche&quot;};</b></pre>
+<p>
+<tt>
+<img src="prg-c39.gif" width="491" height="138"></tt><p>
+<p>
+<center><b><i>M&eacute;morisation</i></b><p>
+</center>Les tableaux de cha&icirc;nes sont m&eacute;moris&eacute;s ligne par
+ligne. La variable JOUR aura donc besoin de 7*9*1 = 63 octets en
+m&eacute;moire.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c84.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c86.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c84.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

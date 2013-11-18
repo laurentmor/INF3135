@@ -1,0 +1,98 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.4</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex179.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex181.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.4</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+main()
+{
+  /* D&eacute;clarations : */
+  /* Noms des fichiers et pointeurs de r&eacute;f&eacute;rence */
+  char ANCIEN[]  = &quot;A:\\INFORM.TXT&quot;;
+  char NOUVEAU[] = &quot;A:\\INFBIS.TXT&quot;; 
+  FILE *INFILE, *OUTFILE;
+  /* Autres variables */
+  char NOM[30], PRENOM[30];
+  int MATRICULE;
+  char NOM_NOUV[30], PRE_NOUV[30];
+  int MATRI_NOUV;
+  int TROUVE;
+
+  /* Ouverture de l'ancien fichier en lecture */
+<b>  INFILE = fopen(ANCIEN, &quot;r&quot;);</b>
+   if (!INFILE)
+     { 
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, ANCIEN);
+      exit(-1);
+     }
+
+  /* Ouverture du nouveau fichier en &eacute;criture */
+<b>  OUTFILE = fopen(NOUVEAU, &quot;w&quot;);</b>
+   if (!OUTFILE)
+     { 
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOUVEAU);
+      exit(-1);
+     }
+
+  /* Saisie de l'enregistrement &agrave; ins&eacute;rer */
+  printf(&quot;Enregistrement &agrave; ajouter : \n&quot;);
+  printf(&quot;Num&eacute;ro de matricule : &quot;);
+  scanf(&quot;%d&quot;,&amp;MATRI_NOUV);      
+  printf(&quot;Nom    : &quot;);
+  scanf(&quot;%s&quot;,NOM_NOUV);
+  printf(&quot;Pr&eacute;nom : &quot;);
+  scanf(&quot;%s&quot;,PRE_NOUV);
+
+<b>  /* Copie des enregistrements dont le nom */</b>
+<b>  /* pr&eacute;c&eacute;de lexicogr. celui &agrave; ins&eacute;rer.    */</b>
+<b>  TROUVE = 0;</b>
+<b>  while (!feof(INFILE) &amp;&amp; !TROUVE)</b>
+<b>    {</b>
+<b>     fscanf (INFILE, &quot;%d\n%s\n%s\n&quot;, &amp;MATRICULE, NOM, PRENOM);</b>
+<b>     if (strcmp(NOM, NOM_NOUV) &gt; 0)</b>
+<b>         TROUVE = 1;</b>
+<b>     else</b>
+<b>         fprintf(OUTFILE, &quot;%d\n%s\n%s\n&quot;, MATRICULE,NOM,PRENOM);</b>
+<b>    }</b>
+ 
+<b>  /* Ecriture du nouvel enregistrement, */</b>
+<b>  fprintf(OUTFILE,&quot;%d\n%s\n%s\n&quot;,MATRI_NOUV,NOM_NOUV,PRE_NOUV);</b>
+<b>  /* et du dernier enregistrement lu. */</b>
+<b>  if (TROUVE)</b>
+<b>      fprintf(OUTFILE, &quot;%d\n%s\n%s\n&quot;, MATRICULE, NOM, PRENOM);</b>
+ 
+<b>  /* Copie du reste des enregistrements */</b>
+<b>  while (!feof(INFILE))</b>
+<b>    {</b>
+<b>     fscanf (INFILE, &quot;%d\n%s\n%s\n&quot;, &amp;MATRICULE, NOM, PRENOM);</b>
+<b>     fprintf(OUTFILE, &quot;%d\n%s\n%s\n&quot;, MATRICULE, NOM, PRENOM);</b>
+<b>    }</b>
+ 
+<b>  /* Fermeture des fichiers */</b>
+<b>  fclose(OUTFILE);</b>
+<b>  fclose(INFILE);</b>
+   return 0;
+} </pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex179.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex181.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

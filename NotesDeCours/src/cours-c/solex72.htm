@@ -1,0 +1,127 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.19 Transposition d'une matrice</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex71.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex73.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.19 Transposition d'une matrice</h3>
+<b>	</b><p>
+ <p>
+<b>a)</b>	La matrice transpos&eacute;e sera m&eacute;moris&eacute;e dans une
+deuxi&egrave;me matrice B qui sera ensuite affich&eacute;e.<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[50][50];  /* matrice initiale */
+ int B[50][50];  /* matrice r&eacute;sultat */
+ int N, M;       /* dimensions des matrices */
+ int I, J;       /* indices courants */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;M; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%d&quot;, &amp;A[I][J]);
+        }
+ /* Affichage de la matrice */
+ printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%7d&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+<b> /* Affectation de la matrice transpos&eacute;e &agrave; B */</b>
+<b> for (I=0; I&lt;N; I++)</b>
+<b>     for (J=0; J&lt;M; J++)</b>
+<b>          B[J][I]=A[I][J];</b>
+  /* Edition du r&eacute;sultat */
+<b> /* Attention: maintenant le r&ocirc;le de N et M est invers&eacute;. */</b>
+  printf(&quot;Matrice r&eacute;sultat :\n&quot;);
+ for (I=0; <b>I&lt;M</b>; I++)
+    {
+     for (J=0; <b>J&lt;N</b>; J++)
+          printf(&quot;%7d&quot;, B[I][J]);
+     printf(&quot;\n&quot;);
+    }
+ return 0;
+} </pre>
+<p>
+<p>
+<b>b)</b>	La matrice A sera transpos&eacute;e par permutation des
+&eacute;l&eacute;ments.<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[50][50];  /* matrice donn&eacute;e           */
+ int N, M;       /* dimensions de la matrice */
+ int I, J;       /* indices courants         */
+ int AIDE;       /* pour la permutation      */
+ int DMAX;       /* la plus grande des deux dimensions */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;M; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%d&quot;, &amp;A[I][J]);
+        }
+ /* Affichage de la matrice */
+ printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%7d&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+<b> /* Transposition de la matrice A par permutation des   */</b>
+<b> /* &eacute;l&eacute;ments [I][J] &agrave; gauche de la diagonale principale */</b>
+<b> /* avec les &eacute;l&eacute;ments [J][I] &agrave; droite de la diagonale.  */</b>
+<b> DMAX = (N&gt;M) ? N : M;</b>
+<b> for (I=0; I&lt;DMAX; I++)</b>
+<b>     for (J=0; J&lt;I; J++)</b>
+<b>         {</b>
+<b>          AIDE = A[I][J];</b>
+<b>          A[I][J] = A[J][I];</b>
+<b>          A[J][I] = AIDE;</b>
+<b>         }</b>
+  /* Edition du r&eacute;sultat */
+<b> /* Attention: maintenant le r&ocirc;le de N et M est invers&eacute;. */</b>
+  printf(&quot;Matrice r&eacute;sultat :\n&quot;);
+ for (I=0; <b>I&lt;M</b>; I++)
+    {
+     for (J=0; <b>J&lt;N</b>; J++)
+          printf(&quot;%7d&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex71.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex73.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

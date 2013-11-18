@@ -1,0 +1,83 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  3.4. Les expressions et les instructions</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c34.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c36.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 3.4. Les expressions et les instructions</h2>
+<b>		</b><p>
+ <p>
+<b><i>Expressions</i></b><p>
+La formation des expressions est d&eacute;finie par r&eacute;currence :<p>
+<p>
+	
+Les <i>constantes</i> et les <i>variables</i> sont des expressions.<p>
+	
+Les expressions peuvent &ecirc;tre combin&eacute;es entre elles par des
+<i>op&eacute;rateurs</i> et former ainsi des expressions plus complexes.<p>
+	
+Les expressions peuvent contenir des appels de fonctions et elles peuvent
+appara&icirc;tre comme param&egrave;tres dans des appels de <i>fonctions.</i><p>
+<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>   i =0
+   i++
+   X=pow(A,4)
+   printf(&quot; Bonjour !\n&quot;)
+   a=(5*x+10*y)*2
+   (a+b)&gt;=100
+   position!=limite</b></pre>
+
+<p>
+<p>
+<b><i>Instructions</i></b><p>
+Une expression comme <tt><b>I=0</b></tt> ou <tt><b>I++</b></tt> ou
+<tt><b>printf(...)</b></tt> devient une <b><i>instruction</i></b>, si elle est
+suivie d'un point-virgule.<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>   i=0;
+   i++;
+   X=pow(A,4);
+   printf(&quot; Bonjour !\n&quot;);
+   a=(5*x+10*y)*2;</b></pre>
+<p>
+<p>
+<b><i>&Eacute;valuation et r&eacute;sultats</i></b><p>
+En C toutes les expressions sont &eacute;valu&eacute;es et retournent une
+valeur comme r&eacute;sultat:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>(3+2==5)</b></tt>
+<br></td>
+<td colspan="1" align="left">retourne
+la valeur 1 (<u>vrai</u>)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>A=5+3</b></tt>
+<br></td>
+<td colspan="1" align="left">retourne
+la valeur 8
+<br></td></tr></table><p>
+Comme les affectations sont aussi interpr&eacute;t&eacute;es comme des
+expressions, il est possible de profiter de la valeur rendue par l'affectation:
+
+<pre><b>   ((A=sin(X)) == 0.5)</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c34.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c36.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c24.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

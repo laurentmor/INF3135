@@ -1,0 +1,119 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.18</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex147.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex149.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.18</h3>
+ <p>
+ <p>
+<p>
+D&eacute;terminer le maximum de N &eacute;l&eacute;ments d'un tableau TAB
+d'entiers<b> </b>de trois fa&ccedil;ons diff&eacute;rentes:<p>
+<p>
+<b>a)</b>	la fonction MAX1 retourne la valeur maximale<p>
+
+
+<pre>int MAX1(int *TAB, int N)
+{
+ int MAX,I;  /* variables d'aide */
+ MAX=*TAB;
+ for (I=1; I&lt;N; I++)
+     if (MAX &lt; *(TAB+I))
+         MAX = *(TAB+I);
+ return MAX;
+}
+</pre>
+<b>b)</b>
+la fonction MAX2 retourne l'indice de l'&eacute;l&eacute;ment maximal<p>
+
+
+<pre>int MAX2(int *TAB, int N)
+{
+ int I,MAX; /* variables d'aide */
+ MAX=0;
+ for (I=1; I&lt;N; I++)
+	  if (*(TAB+MAX) &lt; *(TAB+I))
+         MAX = I;
+ return MAX;
+}</pre>
+<p>
+<b>c)</b>	la fonction MAX3 retourne l'adresse de l'&eacute;l&eacute;ment
+maximal<p>
+
+
+<pre>int *MAX3(int *TAB, int N)
+{
+ int *MAX, *P; /* pointeurs d'aide */
+ MAX=TAB;
+ for (P=TAB; P&lt;TAB+N; P++)
+	  if (*MAX &lt; *P)
+         MAX=P;
+ return MAX;
+}</pre>
+<p>
+Ecrire un programme pour tester les trois fonctions:<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ int MAX1 (int *TAB, int N);
+ int MAX2 (int *TAB, int N);
+ int *MAX3(int *TAB, int N);
+ void LIRE_TAB (int *TAB, int *N, int NMAX);
+ void ECRIRE_TAB (int *TAB, int N);
+ /* Variables locales */
+ int T[100]; /* Tableau d'entiers */
+ int DIM;    /* Dimension du tableau */ 
+
+ /* Traitements */
+ LIRE_TAB (T, &amp;DIM, 100);
+ printf(&quot;Tableau donn&eacute; : \n&quot;);
+ ECRIRE_TAB (T, DIM);
+ printf(&quot;MAX1 : %d \n&quot;,   <b>MAX1(T,DIM)  </b>);
+ printf(&quot;MAX2 : %d \n&quot;, <b>T[MAX2(T,DIM)] </b>);
+ printf(&quot;MAX3 : %d \n&quot;,  <b>*MAX3(T,DIM)  </b>);
+ return 0;
+}
+
+int MAX1(int *TAB, int N)
+{
+ . . .
+}
+
+int MAX2(int *TAB, int N)
+{
+ . . .
+}
+
+int *MAX3(int *TAB, int N)
+{
+ . . .
+}
+
+void LIRE_TAB (int *TAB, int *N, int NMAX)
+{
+ . . .
+}
+
+void ECRIRE_TAB (int *TAB, int N)
+{
+ . . .
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex147.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex149.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

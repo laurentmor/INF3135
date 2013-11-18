@@ -1,0 +1,62 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.7</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex57.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex51.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.7</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int M[10][10]; /* tableau &agrave; 2 dimensions */
+ int V[100];    /* tableau &agrave; 1 dimension  */
+ int L, C;      /* dimensions       */
+ int I, J;      /* indices courants */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.10) : &quot;);
+ scanf(&quot;%d&quot;, &amp;L );
+ printf(&quot;Nombre de colonnes (max.10) : &quot;);
+ scanf(&quot;%d&quot;, &amp;C );
+ for (I=0; I&lt;L; I++)
+    for (J=0; J&lt;C; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%d&quot;, &amp;M[I][J]);
+        }
+ /* Affichage du tableau 2-dim */
+ printf(&quot;Tableau donn&eacute; :\n&quot;);
+ for (I=0; I&lt;L; I++)
+    {
+     for (J=0; J&lt;C; J++)
+          printf(&quot;%7d&quot;, M[I][J]);
+     printf(&quot;\n&quot;);
+    }
+<b> /* Transfer des &eacute;l&eacute;ments ligne par ligne */</b>
+<b> for (I=0; I&lt;L; I++)</b>
+<b>      for (J=0; J&lt;C; J++)</b>
+<b>             V[I*C+J] = M[I][J];</b>
+  /* Affichage du tableau 1-dim */
+ printf(&quot;Tableau r&eacute;sultat : &quot;);
+ for (I=0; <b>I&lt;L*C</b>; I++)
+     printf(&quot;%d &quot;, V[I]);
+ printf(&quot;\n&quot;);
+ return 0;
+}
+</pre>
+<p><hr size="1" width="100%">
+<a href="solex57.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex51.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

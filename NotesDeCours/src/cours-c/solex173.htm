@@ -1,0 +1,74 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.41</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex172.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex174.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex168.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.41</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ void MULTI_MATRICE(int X, int *MAT, int L, int C, int CMAX);
+ void LIRE_DIM     (int *L, int LMAX, int *C, int CMAX);
+ void LIRE_MATRICE   (int *MAT, int L, int C, int CMAX);
+ void ECRIRE_MATRICE (int *MAT, int L, int C, int CMAX);
+ /* Variables locales */
+ int M[30][30]; /* Matrice d'entiers */
+ int L, C;      /* Dimensions de la matrice */ 
+ int X;
+ /* Traitements */
+ LIRE_DIM (&amp;L,30,&amp;C,30);
+ LIRE_MATRICE ((int*)M,L,C,30 );
+ printf(&quot;Introduire le multiplicateur (entier) : &quot;);
+ scanf(&quot;%d&quot;, &amp;X);
+ printf(&quot;Matrice donn&eacute;e : \n&quot;);
+ ECRIRE_MATRICE ((int*)M,L,C,30);
+<b> MULTI_MATRICE (X,(int*)M,L,C,30);</b>
+  printf(&quot;Matrice r&eacute;sultat : \n&quot;);
+ ECRIRE_MATRICE ((int*)M,L,C,30);
+ return 0;
+}
+
+<b>void MULTI_MATRICE(int X, int *MAT, int L, int C, int CMAX)</b>
+<b>{</b>
+  /* Variables locales */
+ int I,J;
+ /* Multiplication des &eacute;l&eacute;ments */
+<b> for (I=0; I&lt;L; I++)</b>
+<b>      for (J=0; J&lt;C; J++)</b>
+<b>           *(MAT+I*CMAX+J) *= X;</b>
+<b>}</b>
+
+void LIRE_DIM (int *L, int LMAX, int *C, int CMAX)
+{
+ . . .
+}
+
+void LIRE_MATRICE (int *MAT, int L, int C, int CMAX)
+{
+ . . .
+}
+
+void ECRIRE_MATRICE (int *MAT, int L, int C, int CMAX)
+{
+ . . .
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex172.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex174.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex168.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

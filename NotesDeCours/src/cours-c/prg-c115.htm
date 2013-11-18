@@ -1,0 +1,93 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.3.2. D&eacute;claration d'une fonction</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c114.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c116.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c113.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.3.2. D&eacute;claration d'une fonction</h3>
+ <p>
+ <p>
+En C, il faut d&eacute;clarer chaque fonction avant de pouvoir l'utiliser. La
+d&eacute;claration informe le compilateur du type des param&egrave;tres et du
+r&eacute;sultat de la fonction. A l'aide de ces donn&eacute;es, le compilateur
+peut contr&ocirc;ler si le nombre et le type des param&egrave;tres d'une
+fonction sont corrects. Si dans le texte du programme la fonction est
+d&eacute;finie avant son premier appel, elle n'a pas besoin d'&ecirc;tre
+d&eacute;clar&eacute;e.<p>
+<p>
+<b><i>Prototype d'une fonction</i></b><p>
+La d&eacute;claration d'une fonction se fait par un <b><i>prototype</i></b> de
+la fonction qui indique uniquement le type des donn&eacute;es transmises et
+re&ccedil;ues par la fonction.<p>
+<p>
+<b><i>D&eacute;claration : Prototype d'une fonction</i></b>
+
+<pre><b>&lt;TypeR&eacute;s&gt; &lt;NomFonct&gt; (&lt;TypePar1&gt;, &lt;TypePar2&gt;, ...);
+</b></pre>
+ou
+bien
+
+<pre><b>&lt;TypeR&eacute;s&gt; &lt;NomFonct&gt; (&lt;TypePar1&gt; &lt;NomPar1&gt;,
+                         &lt;TypePar2&gt; &lt;NomPar2&gt;, ... );
+</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+Lors de la <i>d&eacute;claration</i>, le nombre et le type des
+param&egrave;tres doivent n&eacute;cessairement correspondre &agrave; ceux de
+la <i>d&eacute;finition</i> de la fonction.<p>
+<p>
+<b><i>Noms des param&egrave;tres</i></b><p>
+On peut facultativement inclure les <i>noms des param&egrave;tres</i> dans la
+d&eacute;claration, mais ils ne sont pas consid&eacute;r&eacute;s par le
+compilateur. Les noms fournissent pourtant une information int&eacute;ressante
+pour le programmeur qui peut en d&eacute;duire le r&ocirc;le des
+diff&eacute;rents param&egrave;tres.<p>
+<p>
+<b><i>Conseil pratique</i></b><p>
+Il est d'usage de copier (&agrave; l'aide de Edit - Copy &amp; Paste) la
+premi&egrave;re ligne de la d&eacute;finition de la fonction comme
+d&eacute;claration. (N'oubliez pas d'ajouter un point-virgule &agrave; la fin
+de la d&eacute;claration !)<p>
+<p>
+<p>
+<b><i>R&egrave;gles pour la d&eacute;claration des fonctions</i></b><p>
+De fa&ccedil;on analogue aux d&eacute;clarations de variables, nous pouvons
+d&eacute;clarer une fonction localement ou globalement. La d&eacute;finition
+des fonctions joue un r&ocirc;le sp&eacute;cial pour la d&eacute;claration. En
+r&eacute;sum&eacute;, nous allons consid&eacute;rer les r&egrave;gles
+suivantes:<p>
+<p>
+		<b>D&eacute;claration locale:</b> <br>		Une fonction peut &ecirc;tre
+d&eacute;clar&eacute;e localement <i>dans la fonction qui l'appelle </i>(avant
+la d&eacute;claration des variables)<i>.</i> Elle est alors disponible &agrave;
+cette fonction.<p>
+<p>
+		<b>D&eacute;claration globale: </b><br>		Une fonction peut &ecirc;tre
+d&eacute;clar&eacute;e globalement <i>au d&eacute;but du programme
+</i>(derri&egrave;re les instructions #<b>include</b>). Elle est alors
+disponible &agrave; toutes les fonctions du programme.<p>
+<p>
+		<b>D&eacute;claration implicite par la d&eacute;finition:</b><br>		La
+fonction est automatiquement disponible &agrave; toutes les fonctions qui
+suivent sa d&eacute;finition. <p>
+<p>
+		<b>D&eacute;claration multiple:</b><br>		Une fonction peut &ecirc;tre
+d&eacute;clar&eacute;e <i>plusieurs fois</i> dans le texte d'un programme, mais
+les indications doivent concorder.<p>
+<p>
+		<b>main</b><br>		La fonction principale <b>main</b> n'a pas besoin
+d'&ecirc;tre d&eacute;clar&eacute;e.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c114.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c116.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c113.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

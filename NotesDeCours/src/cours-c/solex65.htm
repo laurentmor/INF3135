@@ -1,0 +1,98 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.13 Fusion de deux tableaux tri&eacute;s</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex64.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex66.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.13 Fusion de deux tableaux tri&eacute;s</h3>
+<b>	</b><p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ /* Les tableaux et leurs dimensions */
+ int A[50], B[50], FUS[100];
+ int N, M;
+ int IA, IB, IFUS; /* indices courants */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension du tableau A (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Entrer les &eacute;l&eacute;ments de A dans l'ordre croissant :\n&quot;);
+ for (IA=0; IA&lt;N; IA++)
+    {
+     printf(&quot;El&eacute;ment A[%d] : &quot;, IA);
+     scanf(&quot;%d&quot;, &amp;A[IA]);
+    }
+ printf(&quot;Dimension du tableau B (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ printf(&quot;Entrer les &eacute;l&eacute;ments de B dans l'ordre croissant :\n&quot;);
+ for (IB=0; IB&lt;M; IB++)
+    {
+     printf(&quot;El&eacute;ment B[%d] : &quot;, IB);
+     scanf(&quot;%d&quot;, &amp;B[IB]);
+    }
+ /* Affichage des tableaux A et B */
+ printf(&quot;Tableau A :\n&quot;);
+ for (IA=0; IA&lt;N; IA++)
+     printf(&quot;%d &quot;, A[IA]);
+ printf(&quot;\n&quot;);
+ printf(&quot;Tableau B :\n&quot;);
+ for (IB=0; IB&lt;M; IB++)
+     printf(&quot;%d &quot;, B[IB]);
+ printf(&quot;\n&quot;);
+ 
+<b>/* Fusion des &eacute;l&eacute;ments de A et B dans FUS */</b>
+<b> /* de fa&ccedil;on &agrave; ce que FUS soit aussi tri&eacute;. */</b>
+<b> IA=0; IB=0; IFUS=0;</b>
+<b> while ((IA&lt;N) &amp;&amp; (IB&lt;M))</b>
+<b>        if(A[IA]&lt;B[IB])</b>
+<b>            {</b>
+<b>             FUS[IFUS]=A[IA];</b>
+<b>             IFUS++;</b>
+<b>             IA++;</b>
+<b>            }</b>
+<b>        else</b>
+<b>            {</b>
+<b>             FUS[IFUS]=B[IB];</b>
+<b>             IFUS++;</b>
+<b>             IB++;</b>
+<b>            }</b>
+<b> /* Si IA ou IB sont arriv&eacute;s &agrave; la fin de leur tableau, */</b>
+<b> /* alors copier le reste de l'autre tableau.          */</b>
+<b> while (IA&lt;N)</b>
+<b>        {</b>
+<b>         FUS[IFUS]=A[IA];</b>
+<b>         IFUS++;</b>
+<b>         IA++;</b>
+<b>        }</b>
+<b> while (IB&lt;M)</b>
+<b>        {</b>
+<b>         FUS[IFUS]=B[IB];</b>
+<b>         IFUS++;</b>
+<b>         IB++;</b>
+<b>        }</b>
+ 
+ /* Edition du r&eacute;sultat */
+ printf(&quot;Tableau FUS :\n&quot;);
+ for (IFUS=0; <b>IFUS&lt;N+M</b>; IFUS++)
+     printf(&quot;%d &quot;, FUS[IFUS]);
+ printf(&quot;\n&quot;);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex64.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex66.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,109 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  5.3. if - else if - ... - else</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c49.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c51.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 5.3. if - else if - ... - else</h2>
+<ul>
+<li><a href="#Heading89"> Exercice 5.2</a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ <p>
+En combinant plusieurs structures <b>if</b> - <b>else</b> en une expression
+nous obtenons une structure qui est tr&egrave;s courante pour prendre des
+d&eacute;cisions entre plusieurs alternatives:<p>
+<p>
+<b><i>if - else - ... - else</i></b>
+
+<pre><b>if ( &lt;expr1&gt; ) 
+      &lt;bloc1&gt;
+   else if (&lt;expr2&gt;)
+      &lt;bloc2&gt;
+   else if (&lt;expr3&gt;)
+      &lt;bloc3&gt;
+   else if (&lt;exprN&gt;)
+      &lt;blocN&gt;
+   else &lt;blocN+1&gt;
+</b></pre>
+<p>
+Les expressions &lt;expr1&gt; ... &lt;exprN&gt; sont &eacute;valu&eacute;es du
+haut vers le bas jusqu'&agrave; ce que l'une d'elles soit diff&eacute;rente de
+z&eacute;ro. Le bloc d'instructions y li&eacute; est alors
+ex&eacute;cut&eacute; et le traitement de la commande est termin&eacute;.<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>#include &lt;stdio.h&gt;
+main()
+{
+ int A,B;
+ printf(&quot;Entrez deux nombres entiers :&quot;);
+ scanf(&quot;%i %i&quot;, &amp;A, &amp;B);
+ if (A &gt; B) 
+     printf(&quot;%i est plus grand que %i\n&quot;, A, B);
+ else if (A &lt; B) 
+     printf(&quot;%i est plus petit que %i\n&quot;, A, B);
+ else 
+     printf(&quot;%i est &eacute;gal &agrave; %i\n&quot;, A, B);
+ return 0;
+}</b></pre>
+<p>
+La derni&egrave;re partie <b>else</b> traite le cas o&ugrave; aucune des
+conditions n'a &eacute;t&eacute; remplie. Elle est optionnelle, mais elle peut
+&ecirc;tre utilis&eacute;e tr&egrave;s confortablement pour d&eacute;tecter des
+erreurs.<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>...
+printf(&quot;Continuer (O)ui / (N)on ?&quot;);
+getchar(C);
+if (C=='O')
+     {
+      ...
+     }
+else if (C=='N')
+     printf(&quot;Au revoir ...\n&quot;);
+else
+     printf(&quot;\aErreur d'entr&eacute;e !\n&quot;);
+...</b></pre>
+
+<h4><hr size="2">
+<a name="Heading89"> Exercice 5.2</a>
+<hr size="1"></h4>
+<p>
+<p>
+Consid&eacute;rez la s&eacute;quence d'instructions suivante:
+
+<pre><b>if (A&gt;B) 
+   if (A&gt;10) 
+   printf (&quot;premier choix \n&quot;); else if (B&lt;10)
+   printf (&quot;deuxi&egrave;me choix \n&quot;); else
+   if (A==B) printf (&quot;troisi&egrave;me choix \n&quot;);
+   else printf (&quot;quatri&egrave;me choix \n&quot;);
+</b></pre>
+<b>a)</b>
+Copiez la s&eacute;quence d'instructions en utilisant des tabulateurs pour
+marquer les blocs <b>if - else</b> appartenant ensemble.<p>
+<b>b)</b>	Pour quelles valeurs de A et B obtient-on les r&eacute;sultats:<br>
+<i>premier choix, deuxi&egrave;me choix, ...</i> sur l'&eacute;cran?<p>
+<b>c)</b>	Pour quelles valeurs de A et B n'obtient-on pas de r&eacute;ponse sur
+l'&eacute;cran?<p>
+<b>d)</b>	Notez vos r&eacute;ponses et choisissez vous-m&ecirc;mes des valeurs
+pour A et B pour les v&eacute;rifier l'aide de l'ordinateur.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c49.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c51.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

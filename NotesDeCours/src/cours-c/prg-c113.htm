@@ -1,0 +1,75 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.3. D&eacute;claration et d&eacute;finition de fonctions</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c112.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c114.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+10.3. D&eacute;claration et d&eacute;finition de fonctions</h2>
+<b>	</b><p>
+ <p>
+En g&eacute;n&eacute;ral, le nom d'une fonction appara&icirc;t &agrave; trois
+endroits dans un programme:<p>
+	<b>1)</b>	lors de la <b>d&eacute;claration</b><p>
+	<b>2)</b>	lors de la <b>d&eacute;finition</b><p>
+	<b>3)</b>	lors de l'<b>appel</b><p>
+<p>
+<b><i>Exemple</i></b><p>
+Avant de parler des d&eacute;tails, penchons-nous sur un exemple. Dans le
+programme suivant, la fonction <b>main </b>utilise les deux fonctions:<p>
+<b>	-	ENTREE</b> qui lit un nombre entier au clavier et le fournit comme
+r&eacute;sultat. La fonction ENTREE n'a pas de param&egrave;tres.<p>
+	<b>-</b>	<b>MAX</b> qui renvoie comme r&eacute;sultat le maximum de deux
+entiers fournis comme param&egrave;tres.<p>
+
+
+<pre><b>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ int ENTREE(void);
+ int MAX(int N1, int N2);
+ /* D&eacute;claration des variables */
+ int A, B;
+ /* Traitement avec appel des fonctions */
+ A = ENTREE();
+ B = ENTREE();
+ printf(&quot;Le maximum est %d\n&quot;, MAX(A,B));
+}
+
+/* D&eacute;finition de la fonction ENTREE */
+int ENTREE(void)
+{
+ int NOMBRE;
+ printf(&quot;Entrez un nombre entier : &quot;);
+ scanf(&quot;%d&quot;, &amp;NOMBRE);
+ return NOMBRE;
+}
+
+/* D&eacute;finition de la fonction MAX */
+int MAX(int N1, int N2)
+{
+ if (N1&gt;N2) 
+     return N1;
+ else
+     return N2;
+}</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<ul>
+<li><a href="prg-c114.htm"> 10.3.1. D&eacute;finition d'une fonction </a>
+<li><a href="prg-c115.htm"> 10.3.2. D&eacute;claration d'une fonction </a>
+<li><a href="prg-c116.htm"> 10.3.3. Discussion d'un exemple </a>
+</ul>
+<hr size="1" width="100%">
+<a href="prg-c112.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c114.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c106.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

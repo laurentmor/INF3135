@@ -1,0 +1,104 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  5.1. if - else</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c47.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c49.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 5.1. if - else</h2>
+<b>		</b><p>
+ <p>
+<p>
+<b><i>La structure alternative en langage algorithmique</i></b>
+
+<pre>   <u>si</u> (&lt;expression logique&gt;)
+   <u>alors</u> 
+         &lt;bloc d'instructions 1&gt;
+   <u>sinon</u> 
+         &lt;bloc d'instructions 2&gt;
+   <u>fsi</u>
+ </pre>
+<i>*
+Si l'&lt;expression logique&gt; a la valeur logique </i><cite>vrai</cite><i>,
+<br>alors le &lt;bloc d'instructions 1&gt; est ex&eacute;cut&eacute;</i><p>
+<i>*
+Si l'&lt;expression logique&gt; a la valeur logique </i><cite>faux</cite><i>,
+<br>alors le &lt;bloc d'instructions 2&gt; est ex&eacute;cut&eacute;</i>
+<p>
+<b><i>La structure alternative en C</i></b>
+
+<pre><b>if ( &lt;expression&gt; ) 
+         &lt;bloc d'instructions 1&gt;
+   else 
+         &lt;bloc d'instructions 2&gt;
+</b></pre>
+<i>*
+Si l'&lt;expression&gt; fournit une valeur diff&eacute;rente de z&eacute;ro,
+<br>alors le &lt;bloc d'instructions 1&gt; est ex&eacute;cut&eacute;</i><p>
+<i>*
+Si l'&lt;expression&gt; fournit la valeur z&eacute;ro, <br>alors le &lt;bloc
+d'instructions 2&gt; est ex&eacute;cut&eacute;</i>
+<p>
+La partie<b> &lt;expression&gt;</b> peut d&eacute;signer :<p>
+<li>une variable d'un type num&eacute;rique,<br>
+<li>une expression fournissant un r&eacute;sultat num&eacute;rique.<br>
+<p>
+La partie <b>&lt;bloc d'instructions&gt;</b> peut d&eacute;signer :<p>
+<li>un (vrai) bloc d'instructions compris entre accolades,<br>
+<li>une seule instruction termin&eacute;e par un point-virgule. <p>
+<p>
+<b><i>Exemple 1</i></b>
+
+<pre><b>if (a &gt; b)
+   max = a;
+else
+   max = b;
+</b></pre>
+<b><i>Exemple
+2</i></b>
+
+<pre><b>if (EGAL)
+   printf(&quot;A est &eacute;gal &agrave; B\n&quot;);
+else 
+   printf(&quot;A est diff&eacute;rent de B\n&quot;); 
+</b></pre>
+<b><i>Exemple
+3</i></b>
+
+<pre><b>if (A-B) printf(&quot;A est diff&eacute;rent de B\n&quot;); 
+else printf(&quot;A est &eacute;gal &agrave; B\n&quot;);
+</b></pre>
+<b><i>Exemple
+4</i></b>
+
+<pre><b>if (A &gt; B) 
+   {
+    AIDE = A;
+    A = C;
+    C = AIDE;
+   }
+else 
+   {
+    AIDE = B;
+    B = C;
+    C = AIDE;
+   }
+</b></pre>
+<p>
+<hr size="2">
+<img src="remavanc.gif" align="right" width="262" height="113">
+<a name="remavancee"></a><i><b>Remarque avanc&eacute;e:</b></i> 
+<p>
+Commentaire de <i><b>Francois Donato</b> <a href="mailto:frdonato@hotmail.com">frdonato@hotmail.com</a> au sujet de <a href="accolade.htm">l'usage d'accolades</a>.
+<br clear="all">
+<hr size="1" width="100%">
+<a href="prg-c47.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c49.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

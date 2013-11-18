@@ -1,0 +1,189 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 3.7.1. Les conversions de type automatiques</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c38.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c40.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c38.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+3.7.1. Les conversions de type automatiques</h3>
+<ul>
+<li><a href="#Heading66"> Exercice 3.8</a>
+</ul>
+<hr size="1" width="100%">
+<b>	</b><p>
+ <p>
+<b><i>Calculs et affectations</i></b><p>
+Si un op&eacute;rateur a des op&eacute;randes de diff&eacute;rents types, les
+valeurs des op&eacute;randes sont <i>converties automatiquement dans un type
+commun</i>. <p>
+Ces manipulations implicites convertissent en g&eacute;n&eacute;ral des types
+plus 'petits' en des types plus 'larges'; de cette fa&ccedil;on on ne perd pas
+en pr&eacute;cision.<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67"><p>
+Lors d'une affectation, la donn&eacute;e &agrave; droite du signe
+d'&eacute;galit&eacute; est convertie dans le type &agrave; gauche du signe
+d'&eacute;galit&eacute;. Dans ce cas, il peut y avoir perte de pr&eacute;cision
+si le type de la destination est plus faible que celui de la source.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Consid&eacute;rons le calcul suivant:
+
+<pre><b>   int I = 8;
+   float X = 12.5;
+   double Y;
+   Y = I * X;
+</b></pre>
+Pour
+pouvoir &ecirc;tre multipli&eacute; avec <i>X</i>, la valeur de<i> I</i> est
+convertie en <b>float</b> (le type le plus large des deux). Le r&eacute;sultat
+de la multiplication est du type <b>float</b>, mais avant d'&ecirc;tre
+affect&eacute; a <i>Y</i>, il est converti en <b>double</b>. Nous obtenons
+comme r&eacute;sultat:
+
+<pre><b>Y = 100.00 </b></pre>
+<p>
+<b><i>Appels de fonctions</i></b><p>
+Lors de l'appel d'une fonction, les param&egrave;tres sont automatiquement
+convertis dans les types d&eacute;clar&eacute;s dans la d&eacute;finition de la
+fonction.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Au cours des expressions suivantes, nous assistons &agrave; trois conversions
+automatiques:
+
+<pre><b>   int A = 200;
+   int RES;
+   RES = pow(A, 2);
+</b></pre>
+A
+l'appel de la fonction <b>pow</b>, la valeur de A et la constante 2 sont
+converties en <b>double</b>, parce que <b>pow</b> est d&eacute;finie pour des
+donn&eacute;es de ce type. Le r&eacute;sultat (type <b>double</b>)
+retourn&eacute; par <b>pow</b> doit &ecirc;tre converti en <b>int</b> avant
+d'&ecirc;tre affect&eacute; &agrave; RES.<p>
+<p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+<b><i>R&egrave;gles de conversion automatique</i></b>
+<p>
+Conversions automatiques lors d'une op&eacute;ration avec,<p>
+ <p>
+ 	<b><i>(1)	deux entiers:</i></b><p>
+<b> </b>		D'abord, les types <b>char</b> et <b>short</b> sont convertis
+en <b>int</b>. Ensuite, l'ordinateur choisit le plus large des deux types dans
+l'&eacute;chelle suivante:
+
+<pre><b>int,  unsigned int,  long,  unsigned long
+</b></pre>
+
+<b><i>(2)	un entier et un rationnel:</i></b><p>
+		Le type entier est converti dans le type du rationnel.<p>
+<p>
+	<b><i>(3)	deux rationnels:</i></b><p>
+<b> </b>		L'ordinateur choisit le plus large des deux types selon
+l'&eacute;chelle suivante:
+
+<pre><b>float,  double,  long double
+</b></pre>
+
+<b><i>(4)	affectations et op&eacute;rateurs d'affectation:</i></b><p>
+		Lors d'une affectation, le r&eacute;sultat est toujours converti dans le type
+de la destination. Si ce type est plus faible, il peut y avoir une perte de
+pr&eacute;cision.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+Observons les conversions n&eacute;cessaires lors d'une simple division:<p>
+
+
+<pre><b>   int X;
+   float A=12.48;
+   char B=4;
+   X=A/B;</b></pre>
+<p>
+<i>B</i> est converti en <b>float</b> (r&egrave;gle 2). Le r&eacute;sultat de
+la division est du type <b>float</b> (valeur 3.12) et sera converti en
+<b>int</b> avant d'&ecirc;tre affect&eacute; &agrave; <i>X</i> (r&egrave;gle
+4), ce qui conduit au r&eacute;sultat <i>X=3</i> .<p>
+<p>
+<p>
+<b><i>Ph&eacute;nom&egrave;nes impr&eacute;vus ...</i></b><p>
+Le m&eacute;lange de diff&eacute;rents types num&eacute;riques dans un calcul
+peut inciter &agrave; ne pas tenir compte des ph&eacute;nom&egrave;nes de
+conversion et conduit parfois &agrave; des r&eacute;sultats impr&eacute;vus
+...<p>
+<p>
+<b><i>Exemple</i></b><p>
+Dans cet exemple, nous divisons 3 par 4 &agrave; trois reprises et nous
+observons que le r&eacute;sultat ne d&eacute;pend pas seulement du type de la
+destination, mais aussi du type des op&eacute;randes.
+
+<pre><b>   char A=3;
+   int B=4;
+   float C=4;
+   float D,E;
+   char F;
+   D = A/C;
+   E = A/B;
+   F = A/C;
+</b></pre>
+*
+Pour le calcul de <i>D</i>, <i>A</i> est converti en <b>float</b> (r&egrave;gle
+2) et divis&eacute; par <i>C</i>. Le r&eacute;sultat (0.75) est affect&eacute;
+&agrave;<i> D</i> qui est aussi du type <b>float</b>. On obtient donc:
+<i>D=0.75</i><p>
+*	Pour le calcul de <i>E</i>, <i>A</i> est converti en <b>int</b> (r&egrave;gle
+1) et divis&eacute; par <i>B</i>. Le r&eacute;sultat de la division (type
+<b>int,</b> valeur 0) est converti en <b>float</b> (r&egrave;gle 4). On obtient
+donc:	<i>E=0.000</i><p>
+*	Pour le calcul de <i>F</i>, <i>A</i> est converti en <b>float</b>
+(r&egrave;gle 2) et divis&eacute; par <i>C</i>. Le r&eacute;sultat (0.75) est
+retraduit en <b>char</b> (r&egrave;gle 4). On obtient donc:	<i>F=0</i><p>
+<p>
+<p>
+<b><i>Perte de pr&eacute;cision</i></b><p>
+Lorsque nous convertissons une valeur en un type qui n'est pas assez
+pr&eacute;cis ou pas assez grand, la valeur est coup&eacute;e sans arrondir et
+sans nous avertir ...<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>   unsigned int A = 70000;
+   /* la valeur de A sera: 70000 mod 65536 = 4464 */</b></pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading66"> Exercice 3.8</a>
+<hr size="1"></h4>
+<p>
+<p>
+Soient les d&eacute;clarations:<p>
+
+
+<pre><b>   long  A = 15;
+   char  B = 'A';        /* code ASCII : 65 */
+   short C = 10;</b></pre>
+<tt></tt><p>
+<tt></tt>Quels sont le type et la valeur de chacune des expressions:
+
+<pre><b>   (1)   C + 3
+   (2)   B + 1
+   (3)   C + B
+   (4)   3 * C + 2 * B
+   (5)   2 * B + (A + 10) / C
+   (6)   2 * B + (A + 10.0) / C
+</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c38.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c40.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c38.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

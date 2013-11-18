@@ -1,0 +1,156 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.12    Recherche d'une valeur dans un tableau</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex63.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex65.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.12    Recherche d'une valeur dans un tableau</h3>
+ <p>
+ <p>
+<b><i>a) La recherche s&eacute;quentielle</i></b><p>
+ <p>
+Comparer successivement les valeurs du tableau avec la valeur donn&eacute;e.<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[50]; /* tableau donn&eacute; */
+ int VAL;   /* valeur &agrave; rechercher   */
+ int POS;   /* position de la valeur */
+ int N;     /* dimension      */
+ int I;     /* indice courant */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension du tableau (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ for (I=0; I&lt;N; I++)
+    {
+     printf(&quot;El&eacute;ment %d : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;A[I]);
+    }
+ printf(&quot;El&eacute;ment &agrave; rechercher : &quot;);
+ scanf(&quot;%d&quot;, &amp;VAL );
+ /* Affichage du tableau */
+ printf(&quot;Tableau donn&eacute; : \n&quot;);
+ for (I=0; I&lt;N; I++)
+     printf(&quot;%d &quot;, A[I]);
+ printf(&quot;\n&quot;);
+<b> /* Recherche de la position de la valeur */</b>
+<b> POS = -1;</b>
+<b> for (I=0 ; (I&lt;N)&amp;&amp;(POS==-1) ; I++)</b>
+<b>       if (A[I]==VAL)</b>
+<b>           POS=I;</b>
+  /* Edition du r&eacute;sultat */
+<b> if (POS==-1)</b>
+<b>     printf(&quot;La valeur recherch&eacute;e ne se trouve pas &quot;</b>
+<b>            &quot;dans le tableau.\n&quot;);</b>
+  else
+     printf(&quot;La valeur %d se trouve &agrave; la position %d. \n&quot;,
+ VAL, POS);
+ return 0;
+}</pre>
+<p>
+<p>
+<p>
+<b><i>b) La recherche dichotomique ('recherche binaire', 'binary
+search')</i></b><p>
+<b> </b>
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[50]; /* tableau donn&eacute; */
+ int VAL;   /* valeur &agrave; rechercher   */
+ int POS;   /* position de la valeur */
+ int N;     /* dimension      */
+ int I;     /* indice courant */
+<b> int INF, MIL, SUP; /* limites du champ de recherche */</b>
+ 
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension du tableau (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ for (I=0; I&lt;N; I++)
+    {
+     printf(&quot;El&eacute;ment %d : &quot;, I);
+     scanf(&quot;%d&quot;, &amp;A[I]);
+    }
+ printf(&quot;El&eacute;ment &agrave; rechercher : &quot;);
+ scanf(&quot;%d&quot;, &amp;VAL );
+ /* Affichage du tableau */
+ printf(&quot;Tableau donn&eacute; : \n&quot;);
+ for (I=0; I&lt;N; I++)
+    printf(&quot;%d &quot;, A[I]);
+ printf(&quot;\n&quot;);
+<b> /* Initialisation des limites du domaine de recherche */</b>
+<b> INF=0;</b>
+<b> SUP=N-1;</b>
+<b> /* Recherche de la position de la valeur */</b>
+<b> POS=-1;</b>
+<b> while ((INF&lt;=SUP) &amp;&amp; (POS==-1))</b>
+<b>        {</b>
+<b>         MIL=(SUP+INF)/2;</b>
+<b>         if (VAL &lt; A[MIL])</b>
+<b>               SUP=MIL-1;</b>
+<b>         else if (VAL &gt; A[MIL])</b>
+<b>               INF=MIL+1;</b>
+<b>         else</b>
+<b>               POS=MIL;</b>
+<b>        }</b>
+ 
+  /* Edition du r&eacute;sultat */
+ if (POS==-1)
+     printf(&quot;La valeur recherch&eacute;e ne se trouve pas &quot;
+            &quot;dans le tableau.\n&quot;);
+ else
+     printf(&quot;La valeur %d se trouve &agrave; la position %d. \n&quot;,
+ VAL, POS);
+ return 0;
+}</pre>
+<p>
+<b>Question:</b> <b><i>Quel est l'avantage de la recherche
+dichotomique?</i></b><p>
+<p>
+Dans le pire des cas d'une recherche s&eacute;quentielle, il faut traverser
+tout le tableau avant de trouver la valeur ou avant d'&ecirc;tre s&ucirc;r
+qu'une valeur ne se trouve pas dans le tableau. <p>
+<p>
+Lors de la recherche dichotomique, on &eacute;limine la moiti&eacute; des
+&eacute;l&eacute;ments du tableau &agrave; chaque ex&eacute;cution de la
+boucle. Ainsi, la recherche se termine beaucoup plus rapidement.<p>
+<p>
+La recherche dichotomique devient extr&ecirc;mement avantageuse pour la
+recherche dans de grands tableaux (tri&eacute;s) : L'avantage de la recherche
+dichotomique par rapport &agrave; la recherche s&eacute;quentielle monte alors
+<i>exponentiellement</i> avec la grandeur du tableau &agrave; trier.<p>
+<p>
+<b>Exemple:</b><p>
+ <p>
+ Lors de la recherche dans un tableau de 1024 &eacute;l&eacute;ments:<p>
+ 	-	le pire des cas pour la recherche s&eacute;quentielle peut entra&icirc;ner
+1024 ex&eacute;cutions de la boucle.<p>
+ 	-	le pire des cas pour la recherche dichotomique peut entra&icirc;ner 10
+ex&eacute;cutions de la boucle.<p>
+ <p>
+ Lors de la recherche dans un tableau de 1 048 576 &eacute;l&eacute;ments:<p>
+ 	-	le pire des cas pour la recherche s&eacute;quentielle peut entra&icirc;ner
+1 048 576 ex&eacute;cutions de la boucle.<p>
+ 	-	le pire des cas pour la recherche dichotomique peut entra&icirc;ner 20
+ex&eacute;cutions de la boucle.<p>
+<p>
+<p>
+ <p>
+ <p><hr size="1" width="100%">
+<a href="solex63.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex65.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

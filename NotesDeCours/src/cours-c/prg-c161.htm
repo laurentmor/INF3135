@@ -1,0 +1,86 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - C.5. Classification et conversion de caract&egrave;res : &lt;ctype.h&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c160.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c162.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+C.5. Classification et conversion de caract&egrave;res : &lt;ctype.h&gt;</h3>
+ <p>
+ <p>
+<b><i>Fonctions de classification et de conversion de
+caract&egrave;res</i></b><p>
+<i>Les fonctions suivantes ont des arguments du type <b>int</b>, dont la valeur
+est <b>EOF</b> ou peut &ecirc;tre repr&eacute;sent&eacute;e comme <b>unsigned
+char</b>. </i><p>
+<i> </i> <p>
+<b><tt>int isupper(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <i>C</i> est une
+majuscule 
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int islower(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <i>C</i> est une
+minuscule 
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int isdigit(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <i>C</i> est un
+chiffre d&eacute;cimal 
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int isalpha(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <b>islower(C)</b> ou
+<b>isupper(C)</b>
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int isalnum(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <b>isalpha(C)</b> ou
+<b>isdigit(C)</b>
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int isxdigit(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <i>C</i> est un
+chiffre hexad&eacute;cimal
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int isspace(int C)   </tt></b>8.6.4.<tt> </tt><p>
+<tt> </tt><p>
+retourne une valeur diff&eacute;rente de z&eacute;ro, si <i>C</i> est un signe
+d'espacement
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<i>Les fonctions de <b>conversion</b> suivantes fournissent une valeur du type
+<b>int</b> qui peut &ecirc;tre repr&eacute;sent&eacute;e comme
+caract&egrave;re; la valeur originale de C reste inchang&eacute;e:</i><p>
+ <p>
+<tt><b>int tolower(int C)   </b></tt>8.5. / 8.6.4.<tt> </tt><p>
+<tt> </tt> <p>
+ retourne <i>C</i> converti en minuscule si <i>C</i> est une majuscule,
+sinon <i>C</i>
+<hr size="1" width="100%"><tt> </tt><p>
+ <p>
+<b><tt>int toupper(int C)   </tt></b>8.5. / 8.6.4.<tt> </tt><p>
+<tt> </tt> <p>
+ retourne <i>C</i> converti en majuscule si <i>C</i> est une minuscule,
+sinon <i>C</i><p>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c160.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c162.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

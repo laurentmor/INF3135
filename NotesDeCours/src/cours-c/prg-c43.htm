@@ -1,0 +1,364 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  4.2. Lecture format&eacute;e de donn&eacute;es</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c42.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c44.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c41.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 4.2. Lecture format&eacute;e de donn&eacute;es</h2>
+<ul>
+<li><a href="#Heading72">Exercice 4.2</a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ <p>
+<p>
+<b><i>scanf()</i></b><p>
+La fonction <b>scanf</b> est la fonction sym&eacute;trique &agrave;
+<b>printf</b>; elle nous offre pratiquement les m&ecirc;mes conversions que
+<b>printf</b>, mais en sens inverse. <p>
+<p>
+<b><i>Lecture format&eacute;e en langage algorithmique</i></b>
+
+<pre><u>lire</u> &lt;NomVariable1&gt;,&lt;NomVariable2&gt;, ...
+</pre>
+<p>
+<b><i>Lecture format&eacute;e en C</i></b>
+
+<pre><b>scanf(&quot;&lt;format&gt;&quot;,&lt;AdrVar1&gt;,&lt;AdrVar2&gt;, ...)</b></pre>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+&quot;&lt;format&gt;&quot;
+<br></td>
+<td colspan="1" align="left"><i>:</i>
+<br></td>
+<td colspan="1" align="left"><i>format
+de lecture des donn&eacute;es</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">&lt;AdrVar1&gt;,...
+<br></td>
+<td colspan="1" align="left"><i>:</i>
+<br></td>
+<td colspan="1" align="left"><i>adresses
+des variables auxquelles les donn&eacute;es seront attribu&eacute;es </i>
+<br></td></tr></table><p>
+<p>
+*
+La fonction <b>scanf</b> re&ccedil;oit ses donn&eacute;es &agrave; partir du
+fichier d'entr&eacute;e standard <i>stdin</i> (par d&eacute;faut le clavier).<p>
+*
+La cha&icirc;ne de format d&eacute;termine comment les donn&eacute;es
+re&ccedil;ues doivent &ecirc;tre interpr&eacute;t&eacute;es. <p>
+*
+Les donn&eacute;es re&ccedil;ues correctement sont m&eacute;moris&eacute;es
+successivement aux <b><i>adresses</i></b> indiqu&eacute;es par
+<tt><b>&lt;AdrVar1&gt;,...</b> </tt>.<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67"><p>
+*
+<b><i>L'adresse d'une variable</i></b> est indiqu&eacute;e par le nom de la
+variable pr&eacute;c&eacute;d&eacute; du signe <tt><b>&amp;</b></tt>.<p>
+<p>
+<b><i>Exemple</i></b><p>
+La suite d'instructions:
+
+<pre><b>   int JOUR, MOIS, ANNEE;
+   scanf(&quot;%i %i %i&quot;, &amp;JOUR, &amp;MOIS, &amp;ANNEE);
+</b></pre>
+lit
+trois entiers relatifs, s&eacute;par&eacute;s par des espaces, tabulations ou
+interlignes. Les valeurs sont attribu&eacute;es respectivement aux trois
+variables <tt><b>JOUR</b></tt>, <tt><b>MOIS</b></tt> et
+<tt><b>ANNEE</b></tt>.<p>
+<p>
+*
+<b>scanf</b> retourne comme r&eacute;sultat le nombre de donn&eacute;es
+correctement re&ccedil;ues (type <b>int</b>).<p>
+<p>
+<b><i>Sp&eacute;cificateurs de format pour scanf</i></b>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<sup><b><i>S</i></b></sup><sup><b><i>YMBOLE</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>LECTURE
+D'UN(E)</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>TYPE</i></b></sup>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%d
+ou %i</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+relatif
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%u</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+naturel (unsigned)
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%o</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en octal
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%b</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en hexad&eacute;cimal
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%c</b></tt>
+<br></td>
+<td colspan="1" align="left">caract&egrave;re
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%s</b></tt>
+<br></td>
+<td colspan="1" align="left">cha&icirc;ne
+de caract&egrave;res
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%f
+ou %e</b></tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation d&eacute;cimale ou exponentielle (scientifique)
+<br></td>
+<td colspan="1" align="left"><tt><b>float</b>*</tt>
+<br></td></tr></table><p>
+Le symbole<b> *</b> indique que l'argument n'est pas une variable, mais
+l'<i>adresse</i> d'une variable de ce type (c.-&agrave;-d.: un <i>pointeur sur
+une variable -</i> voir chapitre 9 'Les pointeurs').<p>
+
+<p>
+<p>
+<b><i>1. Le type long</i></b><p>
+	Si nous voulons lire une donn&eacute;e du type <b>long</b>, nous devons
+utiliser les sp&eacute;cificateurs <tt><b>%ld</b></tt>, <tt><b>%li</b></tt>,
+<tt><b>%lu</b></tt>, <tt><b>%lo</b></tt>, <tt><b>%lx</b></tt>. (Sinon, le
+nombre est simplement coup&eacute; &agrave; la taille de <b>int</b>).<p>
+<p>
+<b><i>2. Le type double</i></b><p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+	Si nous voulons lire une donn&eacute;e du type <b>double</b>, nous devons
+utiliser les sp&eacute;cificateurs <tt><b>%le</b></tt> ou
+<tt><b>%lf</b></tt>.<p>
+<p>
+<b><i>3. Le type long double</i></b><p>
+	Si nous voulons lire une donn&eacute;e du type <b>long double</b>, nous devons
+utiliser les sp&eacute;cificateurs <tt><b>%Le</b></tt> ou
+<tt><b>%Lf</b></tt>.<p>
+<p>
+<p>
+<b><i>4. Indication de la largeur maximale</i></b><p>
+	Pour tous les sp&eacute;cificateurs, nous pouvons indiquer la <i>largeur
+maximale</i> du champ &agrave; &eacute;valuer pour une donn&eacute;e. Les
+chiffres qui passent au-del&agrave; du champ d&eacute;fini sont
+attribu&eacute;s &agrave; la prochaine variable qui sera lue !<p>
+<p>
+<b><i>Exemple</i></b><p>
+Soient les instructions:
+
+<pre><b>      int A,B;
+      scanf(&quot;%4d %2d&quot;, &amp;A, &amp;B); 
+</b></pre>
+Si
+nous entrons le nombre <tt><b>1234567</b></tt>, nous obtiendrons les
+affectations suivantes:
+
+<pre><b>      A=1234
+      B=56
+</b></pre>
+le
+chiffre 7 sera gard&eacute; pour la prochaine instruction de lecture. <p>
+<p>
+<p>
+<b><i>5. Les signes d'espacement</i></b><p>
+<b>	</b>Lors de l'entr&eacute;e des donn&eacute;es, une suite de signes
+d'espacement (espaces, tabulateurs, interlignes) est &eacute;valu&eacute;e
+comme un seul espace. Dans la cha&icirc;ne de format, les symboles
+<tt><b>\t</b></tt>, <tt><b>\n</b></tt>, <tt><b>\r</b></tt> ont le m&ecirc;me
+effet qu'un simple espace.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Pour la suite d'instructions
+
+<pre><b>   int JOUR, MOIS, ANNEE;
+   scanf(&quot;%i %i %i&quot;, &amp;JOUR, &amp;MOIS, &amp;ANNEE);
+</b></pre>
+les
+entr&eacute;es suivantes sont correctes et &eacute;quivalentes:
+
+<pre><b>   12 4 1980
+	ou
+   12     004     1980
+	ou
+   12
+   4
+   1980
+</b></pre>
+<p>
+<p>
+<b><i>6. Formats 'sp&eacute;ciaux'</i></b><p>
+	Si la cha&icirc;ne de format contient aussi d'autres caract&egrave;res que des
+signes d'espacement, alors ces symboles doivent &ecirc;tre introduits
+exactement dans l'ordre indiqu&eacute;.<p>
+<p>
+<b><i>Exemple</i></b><p>
+La suite d'instructions
+
+<pre><b>      int JOUR, MOIS, ANNEE;
+      scanf(&quot;%i/%i/%i&quot;, &amp;JOUR, &amp;MOIS, &amp;ANNEE);</b></pre>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+accepte les entr&eacute;es:
+<br></td>
+<td colspan="1" align="left">rejette
+les entr&eacute;es:
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>12/4/1980</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12
+4 1980</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>12/04/01980</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12
+  /4   /1980</b></tt>
+<br></td></tr></table><p>
+<p>
+<p>
+<b><i>7. Nombre de valeurs lues</i></b><p>
+	Lors de l'&eacute;valuation des donn&eacute;es, <b>scanf</b> s'arr&ecirc;te si
+la cha&icirc;ne de format a &eacute;t&eacute; travaill&eacute;e jusqu'&agrave;
+la fin ou si une donn&eacute;e ne correspond pas au format indiqu&eacute;.
+<b>scanf</b> retourne comme r&eacute;sultat le nombre d'arguments correctement
+re&ccedil;us et affect&eacute;s. <p>
+<p>
+<b><i>Exemple</i></b><p>
+La suite d'instructions
+
+<pre><b>   int JOUR, MOIS, ANNEE, RECU;
+   RECU = scanf(&quot;%i %i %i&quot;, &amp;JOUR, &amp;MOIS, &amp;ANNEE);</b></pre>
+r&eacute;agit
+de la fa&ccedil;on suivante ( <tt><b>-</b></tt>  
+ valeur ind&eacute;finie):<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+Introduit:
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>RECU</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>JOUR</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>MOIS</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>ANNEE</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>12
+4 1980</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1980
+</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>12/4/1980</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>-</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>-</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>12.4
+1980</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>-</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>-</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>12
+4 19.80</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>3</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>4</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>19</b></tt>
+<br></td></tr></table><p>
+
+<h4><hr size="2">
+<a name="Heading72">Exercice 4.2</a>
+<hr size="1"></h4>
+<p>
+En vous r&eacute;f&eacute;rant aux exemples du chapitre 4.2, &eacute;crivez un
+programme qui lit la date du clavier et &eacute;crit les donn&eacute;es ainsi
+que le nombre de donn&eacute;es correctement re&ccedil;ues sur l'&eacute;cran.
+<p>
+<b>Exemple:</b>
+
+<pre><b>   Introduisez la date (jour mois ann&eacute;e): 11 11 1991
+   
+   donn&eacute;es re&ccedil;ues : 3
+   jour  : 11
+   mois  : 11
+   ann&eacute;e : 1991
+
+</b></pre>
+*
+Testez les r&eacute;actions du programme &agrave; vos entr&eacute;es. Essayez
+d'introduire des nombres de diff&eacute;rents formats et diff&eacute;rentes
+grandeurs.<p>
+*
+Changez la partie format du programme de fa&ccedil;on &agrave; s&eacute;parer
+les diff&eacute;rentes donn&eacute;es par le symbole '<tt><b>-</b></tt>'<tt><b>
+</b></tt>.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c42.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c44.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c41.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

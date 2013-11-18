@@ -1,0 +1,518 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  4.1. &Eacute;criture format&eacute;e de donn&eacute;es</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c41.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c43.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c41.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 4.1. &Eacute;criture format&eacute;e de donn&eacute;es</h2>
+<ul>
+<li><a href="#Heading70"> Exercice 4.1</a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ <p>
+<p>
+<b><i>printf()</i></b><p>
+La fonction <b>printf</b> est utilis&eacute;e pour transf&eacute;rer du texte,
+des valeurs de variables ou des r&eacute;sultats d'expressions vers le fichier
+de sortie standard <i>stdout </i>(par d&eacute;faut l'&eacute;cran).<p>
+<p>
+<b><i>Ecriture format&eacute;e en langage algorithmique</i></b>
+
+<pre><u>&eacute;crire</u> &lt;Expression1&gt;,&lt;Expression2&gt;, ...
+</pre>
+<p>
+<b><i>Ecriture format&eacute;e en C</i></b>
+
+<pre><b>printf(&quot;&lt;format&gt;&quot;,&lt;Expr1&gt;,&lt;Expr2&gt;, ... )</b></pre>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+&quot;&lt;format&gt;&quot;
+<br></td>
+<td colspan="1" align="left"><i>:</i>
+<br></td>
+<td colspan="1" align="left"><i>format
+de repr&eacute;sentation</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">&lt;Expr1&gt;,...
+<br></td>
+<td colspan="1" align="left"><i>:</i>
+<br></td>
+<td colspan="1" align="left"><i>variables
+et expressions dont les valeurs sont &agrave; repr&eacute;senter</i>
+<br></td></tr></table><p>
+<p>
+La partie &quot;<b><i>&lt;format&gt;&quot;</i></b> est en fait une cha&icirc;ne de
+caract&egrave;res qui peut contenir:<p>
+<i>*
+du texte </i><p>
+<i>*	des s&eacute;quences d'&eacute;chappement </i><p>
+<i>*	des sp&eacute;cificateurs de format </i><p>
+ <p>
+*
+Les <b><i>sp&eacute;cificateurs de format</i></b> indiquent la mani&egrave;re
+dont les valeurs des expressions &lt;Expr1..N&gt; sont imprim&eacute;es. <p>
+*
+La partie &quot;&lt;format&gt;&quot; contient <i>exactement un</i> sp&eacute;cificateur
+de format pour chaque expression &lt;Expr1..N&gt;.<p>
+*	Les sp&eacute;cificateurs de format commencent toujours par le symbole
+<b>%</b> et se terminent par un ou deux caract&egrave;res qui indiquent le
+format d'impression. <p>
+*
+Les sp&eacute;cificateurs de format impliquent une conversion d'un nombre en
+cha&icirc;ne de caract&egrave;res. Ils sont encore appel&eacute;s <i>symboles
+de conversion.</i><p>
+<p>
+<p>
+<b><i>Exemple 1</i></b><p>
+<p>
+La suite d'instructions:
+
+<pre><b>   int A = 1234;
+   int B = 567;
+   printf(&quot;%i fois %i est %li\n&quot;, A, B, (long)A*B);
+</b></pre>
+va
+afficher sur l'&eacute;cran:
+
+<pre><b>   1234 fois 567 est 699678
+</b></pre>
+Les
+arguments de <tt><b>printf</b></tt> sont 
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+-
+<br></td>
+<td colspan="1" align="left">la
+partie format
+<br></td>
+<td colspan="1" align="left"><tt><b>&quot;%i
+fois %i est %li&quot;</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">-
+<br></td>
+<td colspan="1" align="left">la
+variable 
+<br></td>
+<td colspan="1" align="left">
+<tt><b>A</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">-
+<br></td>
+<td colspan="1" align="left">la
+variable 
+<br></td>
+<td colspan="1" align="left">
+<tt><b>B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">-
+<br></td>
+<td colspan="1" align="left">l'expression
+
+<br></td>
+<td colspan="1" align="left"><tt><b>(long)A*B</b></tt>
+<br></td></tr></table><tt><table></tt>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+Le <i>1<sup>er</sup></i>
+<br></td>
+<td colspan="1" align="left">sp&eacute;cificateur
+(<tt><b>%i</b></tt>) indique que la valeur de <tt><b>A</b></tt> 
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">sera
+imprim&eacute;e comme entier relatif 
+<br></td>
+<td colspan="1" align="left"><b>==&gt;<tt>1234</tt></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">Le
+2<sup>e</sup>
+<br></td>
+<td colspan="1" align="left">sp&eacute;cificateur
+(<tt><b>%i</b></tt>) indique que la valeur de <tt><b>B</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">sera
+imprim&eacute;e comme entier relatif 
+<br></td>
+<td colspan="1" align="left"><b>==&gt;
+<tt>567</tt></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">Le<i>
+3<sup>e</sup></i>
+<br></td>
+<td colspan="1" align="left">sp&eacute;cificateur
+(<tt><b>%li</b></tt>) indique que la valeur de <br><tt><b>(long)A*B</b></tt><i>
+</i>sera imprim&eacute;e comme entier relatif long 
+<br></td>
+<td colspan="1" align="left"><b>==&gt;
+<tt>699678</tt></b>
+<br></td></tr></table><p>
+<p>
+<b><i>Exemple 2</i></b><p>
+<p>
+La suite d'instructions:
+
+<pre><b>   char B = 'A';
+   printf(&quot;Le caract&egrave;re %c a le code %i !\n&quot;, B, B);
+</b></pre>
+va
+afficher sur l'&eacute;cran:
+
+<pre><b>   Le caract&egrave;re A a le code 65 !
+</b></pre>
+La
+valeur de <tt><b>B</b></tt> est donc affich&eacute;e sous deux formats
+diff&eacute;rents:<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>%c</b></tt>
+<br></td>
+<td colspan="1" align="left">
+ comme caract&egrave;re:
+<br></td>
+<td colspan="1" align="left"><tt><b>A</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>%i</b></tt>
+<br></td>
+<td colspan="1" align="left">
+ comme entier relatif:
+<br></td>
+<td colspan="1" align="left"><tt><b>65</b></tt>
+<br></td></tr></table><p>
+<p>
+<p>
+<p>
+<b><i>Sp&eacute;cificateurs de format pour printf</i></b>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<sup><b><i>S</i></b></sup><sup><b><i>YMBOLE</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>TYPE</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>IMPRESSION
+COMME</i></b></sup>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%d
+ou %i</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>int</tt>
+<br></td>
+<td colspan="1" align="left">entier
+relatif
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%u</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>int</tt>
+<br></td>
+<td colspan="1" align="left">entier
+naturel (unsigned)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%o</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>int</tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en octal
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%x</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>int</tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en hexad&eacute;cimal
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%c</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>int</tt>
+<br></td>
+<td colspan="1" align="left">caract&egrave;re
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%f</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>double</tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation d&eacute;cimale 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%e</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>double</tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation scientifique
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%s</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>char*</tt>
+<br></td>
+<td colspan="1" align="left">cha&icirc;ne
+de caract&egrave;res
+<br></td></tr></table><tt></tt>
+<p>
+<p>
+<b><i>1. Arguments du type long</i></b><p>
+	Les sp&eacute;cificateurs <tt><b>%d</b>, <b>%i</b>, <b>%u</b>, <b>%o</b>,
+<b>%x</b></tt> peuvent seulement repr&eacute;senter des valeurs du type
+<b>int</b> ou <b>unsigned</b> <b>int</b>. Une valeur trop grande pour
+&ecirc;tre cod&eacute;e dans deux octets est coup&eacute;e sans avertissement
+si nous utilisons <tt><b>%d</b></tt>.<p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+	Pour pouvoir traiter correctement les arguments du type <b>long</b>, il faut
+utiliser les sp&eacute;cificateurs <tt><b>%ld</b>,<b> %li</b>, <b>%lu</b>,
+<b>%lo</b>, <b>%lx</b></tt>. <p>
+<p>
+<b><i>Exemple</i></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>l</b></tt><tt><b>ong N = 1500000;</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%ld,
+%lx&quot;, N, N);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+1500000, 16e360</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%x,
+%x&quot;  , N);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+e360, 16</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%d,
+%d&quot;  , N);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+-7328, 22</b></tt>
+<br></td></tr></table><p>
+<p>
+<b><i>2. Arguments rationnels</i></b><p>
+	Les sp&eacute;cificateurs <tt><b>%f</b></tt> et <tt><b>%e</b></tt> peuvent
+&ecirc;tre utilis&eacute;s pour repr&eacute;senter des arguments du type
+<b>float</b> ou<i> </i><b>double</b>. La mantisse des nombres
+repr&eacute;sent&eacute;s par <tt><b>%e</b></tt> contient exactement un chiffre
+(non nul) devant le point d&eacute;cimal. Cette repr&eacute;sentation s'appelle
+la <i>notation</i> <i>scientifique</i> des rationnels.<p>
+	Pour pouvoir traiter correctement les arguments du type <b>long</b>
+<b>double</b>, il faut utiliser les sp&eacute;cificateurs <tt><b>%Lf</b></tt>
+et <tt><b>%Le</b></tt>. <p>
+<p>
+<b><i>Exemple</i></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>f</b></tt><tt><b>loat N = 12.1234;</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>double
+M = 12.123456789;</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>long
+double P = 15.5;</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%f&quot;,
+N);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+12.123400</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%f&quot;,
+M);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+12.123457</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%e&quot;,
+N);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+1.212340e+01</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%e&quot;,
+M);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+1.212346e+01</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%Le&quot;,
+P);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;
+1.550000e+01</b></tt>
+<br></td></tr></table><p>
+<p>
+<b><i>3. Largeur minimale pour les entiers</i></b><p>
+<b>	</b>Pour les entiers, nous pouvons indiquer la <i>largeur minimale</i> de
+la valeur &agrave; afficher. Dans le champ ainsi r&eacute;serv&eacute;, les
+nombres sont justifi&eacute;s &agrave; droite.<p>
+<p>
+<b><i>Exemples</i></b><p>
+	( <b>_</b>  &lt;=&gt;  position libre)
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>p</b></tt><tt><b>rintf(&quot;%4d&quot;, 123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>_123</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%4d&quot;,
+1234);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1234</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%4d&quot;,
+12345);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>12345</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%4u&quot;,
+0);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>___0</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%4X&quot;,
+123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>__7B</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%4x&quot;,
+123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>__7b</b></tt>
+<br></td></tr></table><p>
+<p>
+<b><i>Largeur minimale et pr&eacute;cision pour les rationnels</i></b><p>
+<b>4.</b>	Pour les rationnels, nous pouvons indiquer la <i>largeur minimale</i>
+de la valeur &agrave; afficher et la <i>pr&eacute;cision</i> du nombre &agrave;
+afficher. La pr&eacute;cision par d&eacute;faut est fix&eacute;e &agrave; six
+d&eacute;cimales. Les positions d&eacute;cimales sont arrondies &agrave; la
+valeur la plus proche.<p>
+<p>
+<b><i>Exemples</i></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>p</b></tt><tt><b>rintf(&quot;%f&quot;, 100.123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>100.123000</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%12f&quot;,
+100.123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>__100.123000</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%.2f&quot;,
+100.123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>100.12</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%5.0f&quot;,
+100.123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>__100</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%10.3f&quot;,
+100.123);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>___100.123</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>printf(&quot;%.4f&quot;,
+1.23456);</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>==&gt;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>1.2346</b></tt>
+<br></td></tr></table><tt> </tt><p>
+<tt> </tt>
+<h4><hr size="2">
+<a name="Heading70"> Exercice 4.1</a>
+<hr size="1"></h4>
+
+
+<pre><b>#include &lt;stdio.h&gt;
+main()
+{
+   int N=10, P=5, Q=10, R;
+   char C='S';
+
+   N = 5; P = 2;
+   Q = N++ &gt; P || P++ != 3;
+   printf (&quot;C : N=%d P=%d Q=%d\n&quot;, N, P, Q);
+
+   N = 5; P = 2;
+   Q = N++ &lt; P || P++ != 3;
+   printf (&quot;D : N=%d P=%d Q=%d\n&quot;, N, P, Q);
+
+   N = 5; P = 2;
+   Q = ++N == 3 &amp;&amp; ++P == 3;
+   printf (&quot;E : N=%d P=%d Q=%d\n&quot;, N, P, Q);
+
+   N=5; P=2;
+   Q = ++N == 6 &amp;&amp; ++P == 3;
+   printf (&quot;F : N=%d P=%d Q=%d\n&quot;, N, P, Q);
+
+   N=C;
+   printf (&quot;G : %c %c\n&quot;, C, N);
+   printf (&quot;H : %d %d\n&quot;, C, N);
+   printf (&quot;I : %x %x\n&quot;, C, N);
+   return 0;
+}
+</b></pre>
+a)
+Sans utiliser l'ordinateur, trouvez et notez les r&eacute;sultats du programme
+ci-dessus.<p>
+b)	V&eacute;rifiez vos r&eacute;sultats &agrave; l'aide de l'ordinateur.<p>
+<p>
+<tt> </tt><p>
+<tt> </tt><p><hr size="1" width="100%">
+<a href="prg-c41.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c43.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c41.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

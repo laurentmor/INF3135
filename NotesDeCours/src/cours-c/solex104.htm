@@ -1,0 +1,68 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.2</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex103.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex105.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.2</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[100], B[50]; /* tableaux */
+ int N, M;  /* dimensions des tableaux */
+ int I;     /* indice courant */
+ 
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension du tableau A (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ for (I=0; I&lt;N; I++)
+     {
+      printf(&quot;El&eacute;ment %d : &quot;, I);
+      scanf(&quot;%d&quot;, <b>A+I</b>);
+     }
+ printf(&quot;Dimension du tableau B (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ for (I=0; I&lt;M; I++)
+     {
+      printf(&quot;El&eacute;ment %d : &quot;, I);
+      scanf(&quot;%d&quot;, <b>B+I</b>);
+     }
+ /* Affichage des tableaux */
+ printf(&quot;Tableau donn&eacute; A :\n&quot;);
+ for (I=0; I&lt;N; I++)
+      printf(&quot;%d &quot;, <b>*(A+I)</b>);
+ printf(&quot;\n&quot;);
+ printf(&quot;Tableau donn&eacute; B :\n&quot;);
+ for (I=0; I&lt;M; I++)
+      printf(&quot;%d &quot;, <b>*(B+I)</b>);
+ printf(&quot;\n&quot;);
+<b> /* Copie de B &agrave; la fin de A */</b>
+<b> for (I=0; I&lt;M; I++)</b>
+<b>       *(A+N+I) = *(B+I);</b>
+<b> /* Nouvelle dimension de A */</b>
+<b> N += M; </b>
+  /* Edition du r&eacute;sultat */
+ printf(&quot;Tableau r&eacute;sultat A :\n&quot;);
+ for (I=0; I&lt;N; I++)
+       printf(&quot;%d &quot;, <b>*(A+I)</b>);
+ printf(&quot;\n&quot;);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex103.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex105.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

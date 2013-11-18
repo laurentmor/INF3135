@@ -1,0 +1,76 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 5.3</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex29.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex31.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 5.3</h3>
+ <p>
+ <p>
+<b>a) if - else</b> et une variable d'aide MAX<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+<b> int A, B, C;</b>
+<b> int MAX;</b>
+<b> printf(&quot;Introduisez trois nombres entiers :&quot;);</b>
+<b> scanf(&quot;%i %i %i&quot;, &amp;A, &amp;B, &amp;C);</b>
+<b> if (A&gt;B)</b>
+<b>     MAX=A;</b>
+<b> else</b>
+<b>     MAX=B;</b>
+<b> if (C&gt;MAX)</b>
+<b>     MAX=C;</b>
+<b> printf(&quot;La valeur maximale est %i\n&quot;, MAX);</b>
+  return 0;
+}</pre>
+<p>
+ <b>b) if - else if - ... - else</b> sans variable d'aide<p>
+
+
+<pre> int A, B, C;
+ printf(&quot;Introduisez trois nombres entiers :&quot;);
+ scanf(&quot;%i %i %i&quot;, &amp;A, &amp;B, &amp;C);
+ printf(&quot;La valeur maximale est &quot;);
+ if (A&gt;B &amp;&amp; A&gt;C)
+     printf(&quot;%i\n&quot;,A);
+ else if (B&gt;C)
+     printf(&quot;%i\n&quot;,B);
+ else
+     printf(&quot;%i\n&quot;,C);</pre>
+<p>
+<b> c)</b> op&eacute;rateurs conditionnels et une variable d'aide MAX<p>
+
+
+<pre> int A, B, C;
+ int MAX;
+ printf(&quot;Introduisez trois nombres entiers :&quot;);
+ scanf(&quot;%i %i %i&quot;, &amp;A, &amp;B, &amp;C);
+ MAX = (A&gt;B) ? A : B;
+ MAX = (MAX&gt;C) ? MAX : C;
+ printf(&quot;La valeur maximale est %i\n&quot;, MAX);</pre>
+<p>
+<b> d)</b> op&eacute;rateurs conditionnels sans variable d'aide<p>
+
+
+<pre> int A, B, C;
+ printf(&quot;Introduisez trois nombres entiers :&quot;);
+ scanf(&quot;%i %i %i&quot;, &amp;A, &amp;B, &amp;C);
+ printf(&quot;La valeur maximale est %i\n&quot;, 
+                         (A&gt;((B&gt;C)?B:C)) ? A : ((B&gt;C)?B:C));</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex29.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex31.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

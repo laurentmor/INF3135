@@ -1,0 +1,258 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.3.2. Arithm&eacute;tique des pointeurs</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c96.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c98.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.3.2. Arithm&eacute;tique des pointeurs</h3>
+<ul>
+<li><a href="#Heading206"> Exercice 9.3</a>
+<li><a href="#Heading207">Exercice 9.4</a>
+<li><a href="#Heading208">Exercice 9.5</a>
+<li><a href="#Heading209">Exercice 9.6</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+Comme les pointeurs jouent un r&ocirc;le si important, le langage C soutient
+une s&eacute;rie d'op&eacute;rations arithm&eacute;tiques sur les pointeurs que
+l'on ne rencontre en g&eacute;n&eacute;ral que dans les langages machines. Le
+confort de ces op&eacute;rations en C est bas&eacute; sur le principe
+suivant:<p>
+<p>
+<p>
+<center><b><i>Toutes les op&eacute;rations avec les pointeurs tiennent compte
+automatiquement du type et de la grandeur des objets point&eacute;s.</i></b><p>
+<b><i></center></i></b><p>
+<p>
+<p>
+<b>- Affectation par un pointeur sur le m&ecirc;me type</b><p>
+Soient P1 et P2 deux pointeurs sur le m&ecirc;me type de donn&eacute;es, alors
+l'instruction<p>
+	<tt><b>P1 = P2;</b></tt><p>
+<tt> </tt>fait pointer P1 sur le m&ecirc;me objet que P2<p>
+<p>
+<p>
+<b>- Addition et soustraction d'un nombre entier</b><p>
+ Si P pointe sur l'&eacute;l&eacute;ment A[i] d'un tableau, alors
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>P+n</b></tt>
+<br></td>
+<td colspan="1" align="left">pointe
+sur A[i+n]
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P-n</b></tt>
+<br></td>
+<td colspan="1" align="left">pointe
+sur A[i-n]
+<br></td></tr></table><p>
+<p>
+<b>- Incr&eacute;mentation et d&eacute;cr&eacute;mentation d'un pointeur</b><p>
+ Si P pointe sur l'&eacute;l&eacute;ment A[i] d'un tableau, alors
+apr&egrave;s l'instruction
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>P++;</b></tt>
+<br></td>
+<td colspan="1" align="left">P
+pointe sur A[i+1]
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P+=n;</b></tt>
+<br></td>
+<td colspan="1" align="left">P
+pointe sur A[i+n]
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P--;</b></tt>
+<br></td>
+<td colspan="1" align="left">P
+pointe sur A[i-1]
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P-=n;</b></tt>
+<br></td>
+<td colspan="1" align="left">P
+pointe sur A[i-n]
+<br></td></tr></table><p>
+<b><i>Domaine des op&eacute;rations</i></b><p>
+L'addition, la soustraction, l'incr&eacute;mentation et la
+d&eacute;cr&eacute;mentation sur les pointeurs sont seulement d&eacute;finies
+<i>&agrave; l'int&eacute;rieur d'un tableau</i>. Si l'adresse form&eacute;e par
+le pointeur et l'indice sort du domaine du tableau, alors le r&eacute;sultat
+n'est pas d&eacute;fini. <p>
+<i>Seule exception: </i>Il est permis de 'pointer' sur le premier
+octet derri&egrave;re un tableau (&agrave; condition que cet octet se trouve dans le m&ecirc;me segment de m&eacute;moire que le tableau). Cette r&egrave;gle,
+introduite avec le standard ANSI-C, l&eacute;galise la d&eacute;finition de
+boucles qui incr&eacute;mentent le pointeur <i>avant</i> l'&eacute;valuation de
+la condition d'arr&ecirc;t.<p>
+<p>
+<b><i>Exemples</i></b>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>i</b></tt><tt><b>nt A[10];</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>int
+*P;</b></tt>
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P
+= A+9;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/*
+dernier &eacute;l&eacute;ment     -&gt; l&eacute;gal   */</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P
+= A+10;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/*
+dernier &eacute;l&eacute;ment + 1 -&gt; l&eacute;gal   */</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P
+= A+11;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/*
+dernier &eacute;l&eacute;ment + 2 -&gt; ill&eacute;gal */</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>P
+= A-1;</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>/*
+premier &eacute;l&eacute;ment - 1 -&gt; ill&eacute;gal */</b></tt>
+<br></td></tr></table><p>
+<p>
+<b>- Soustraction de deux pointeurs</b><p>
+ <p>
+ Soient P1 et P2 deux pointeurs qui pointent <i>dans le m&ecirc;me
+tableau</i>:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b> </b></tt><tt><b> P1-P2</b></tt>
+<br></td>
+<td colspan="1" align="left">fournit
+le nombre de composantes comprises entre P1 et P2. 
+<br></td></tr></table><p>
+Le r&eacute;sultat de la soustraction <tt><b>P1-P2</b></tt> est
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+- n&eacute;gatif,
+<br></td>
+<td colspan="1" align="left">si
+P1 pr&eacute;c&egrave;de P2
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">-
+z&eacute;ro,
+<br></td>
+<td colspan="1" align="left">si
+P1 = P2
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">-
+positif,
+<br></td>
+<td colspan="1" align="left">si
+P2 prec&egrave;de P1
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">-
+ind&eacute;fini,
+<br></td>
+<td colspan="1" align="left">si
+P1 et P2 ne pointent pas dans le m&ecirc;me tableau
+<br></td></tr></table><p>
+Plus g&eacute;n&eacute;ralement, la soustraction de deux pointeurs qui pointent
+dans le m&ecirc;me tableau est &eacute;quivalente &agrave; la soustraction des
+indices correspondants.<p>
+<p>
+<p>
+<b>- Comparaison de deux pointeurs</b><p>
+ <p>
+On peut comparer deux pointeurs par <tt><b>&lt;</b></tt>, <tt><b>&gt;</b></tt>,
+<tt><b>&lt;=</b></tt>, <tt><b>&gt;=</b></tt>, <tt><b>==</b></tt>,
+<tt><b>!=</b></tt>. <p>
+La comparaison de deux pointeurs qui pointent <i>dans le m&ecirc;me tableau</i>
+est &eacute;quivalente &agrave; la comparaison des indices correspondants. (Si
+les pointeurs ne pointent pas dans le m&ecirc;me tableau, alors le
+r&eacute;sultat est donn&eacute; par leurs positions relatives dans la
+m&eacute;moire).<p>
+
+<h4><hr size="2">
+<a name="Heading206"> Exercice 9.3</a>
+<hr size="1"></h4>
+<p>
+<p>
+Pourquoi les cr&eacute;ateurs du standard ANSI-C ont-ils d&eacute;cid&eacute;
+de l&eacute;galiser les pointeurs sur le premier &eacute;l&eacute;ment
+derri&egrave;re un tableau? Donner un exemple.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading207">Exercice 9.4</a>
+<hr size="1"></h4>
+<p>
+<p>
+Soit P un pointeur qui 'pointe' sur un tableau A:
+
+<pre><b>   int A[] = {12, 23, 34, 45, 56, 67, 78, 89, 90};
+   int *P;
+   P = A;</b></pre>
+ <p>
+ Quelles valeurs ou adresses fournissent ces expressions:<p>
+ 
+
+<pre><b>	a)	*P+2	
+	b)	*(P+2)	
+	c)	&amp;P+1	
+	d)	&amp;A[4]-3	
+	e)	A+3	
+	f)	&amp;A[7]-P	
+	g)	P+(*P-10)	
+	h)	*(P+*(P+8)-A[7])	</b></pre>
+<p>
+
+<h4><hr size="2">
+<a name="Heading208">Exercice 9.5</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit un entier X et un tableau A du type <b>int</b> au
+clavier et &eacute;limine toutes les occurrences de X dans A en tassant les
+&eacute;l&eacute;ments restants. Le programme utilisera les pointeurs P1 et P2
+pour parcourir le tableau.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading209">Exercice 9.6</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui range les &eacute;l&eacute;ments d'un tableau A du type
+<b>int</b> dans l'ordre inverse. Le programme utilisera des pointeurs P1 et P2
+et une variable num&eacute;rique AIDE pour la permutation des
+&eacute;l&eacute;ments.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c96.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c98.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

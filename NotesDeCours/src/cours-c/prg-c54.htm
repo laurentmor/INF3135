@@ -1,0 +1,118 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  6.1. while</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c53.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c55.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c53.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 6.1. while</h2>
+<b>		</b><p>
+ <p>
+La structure <b>while </b>correspond tout &agrave; fait &agrave; la structure
+<u>tant que</u> du langage algorithmique. (Si on n&eacute;glige le fait qu'en C
+les conditions peuvent &ecirc;tre formul&eacute;es &agrave; l'aide
+d'expressions num&eacute;riques.)<p>
+<p>
+<b><i>La structure </i><cite>tant que</cite><i> en langage algorithmique</i></b>
+
+<pre>   <u>tant que</u> (&lt;expression logique&gt;) <u>faire</u>
+         &lt;bloc d'instructions&gt;
+   <u>ftant</u>
+
+</pre>
+<i>*
+Tant que l'&lt;expression logique&gt; fournit la valeur
+</i><cite>vrai</cite><i>, <br>le &lt;bloc d'instructions&gt; est
+ex&eacute;cut&eacute;. </i><p>
+<i>*
+Si l'&lt;expression logique&gt; fournit la valeur </i><cite>faux</cite><i>,
+<br>l'ex&eacute;cution continue avec l'instruction qui suit
+</i><cite>ftant</cite><i>.</i><p>
+<i>*
+Le &lt;bloc d'instructions&gt; est ex&eacute;cut&eacute; z&eacute;ro ou
+plusieurs fois.</i><p>
+ 
+<p>
+<b><i>La structure while en C</i></b>
+
+<pre><b>   while ( &lt;expression&gt; )
+         &lt;bloc d'instructions&gt;
+
+</b></pre>
+<i>*
+Tant que l'&lt;expression&gt; fournit une valeur diff&eacute;rente de
+z&eacute;ro, <br>le &lt;bloc d'instructions&gt; est ex&eacute;cut&eacute;.
+</i><p>
+<i>*
+Si l'&lt;expression&gt; fournit la valeur z&eacute;ro, <br>l'ex&eacute;cution
+continue avec l'instruction qui suit le bloc d'instructions.</i><p>
+<i>*
+Le &lt;bloc d'instructions&gt; est ex&eacute;cut&eacute; z&eacute;ro ou
+plusieurs fois.</i><p>
+ 
+<p>
+La partie &lt;expression&gt; peut d&eacute;signer :
+<li>une variable d'un type num&eacute;rique,<br>
+<li>une expression fournissant un r&eacute;sultat num&eacute;rique.<br>
+
+<p>
+La partie &lt;bloc d'instructions&gt; peut d&eacute;signer :
+<br>
+<li>
+un (vrai) bloc d'instructions compris entre accolades,<br>
+<li>
+une seule instruction termin&eacute;e par un point-virgule. <br>
+<p>
+<p>
+<b><i>Exemple 1</i></b>
+
+<pre><b>/* Afficher les nombres de 0 &agrave; 9 */
+int I = 0;
+while (I&lt;10)
+      {
+       printf(&quot;%i \n&quot;, I);
+       I++;
+      }</b></pre>
+<tt></tt><p>
+<tt></tt><b><i>Exemple 2</i></b>
+
+<pre><b>int I;
+/* Afficher les nombres de 0 &agrave; 9 */
+I = 0;
+while (I&lt;10) 
+      printf(&quot;%i \n&quot;, I++);
+/* Afficher les nombres de 1 &agrave; 10 */
+I = 0;
+while (I&lt;10) 
+      printf(&quot;%i \n&quot;, ++I);</b></pre>
+<tt></tt><p>
+<tt></tt><b><i>Exemple 3</i></b>
+
+<pre><b>/* Afficher les nombres de 10 &agrave; 1 */
+int I=10;
+while (I) 
+      printf(&quot;%i \n&quot;, I--);</b></pre>
+<p>
+<b><i>Remarque</i></b><p>
+
+Parfois nous voulons seulement attendre un certain &eacute;v&eacute;nement,
+sans avoir besoin d'un traitement de donn&eacute;es. Dans ce cas, la partie
+&lt;bloc d'instructions&gt; peut &ecirc;tre vide (notation: <tt><b>;</b></tt>
+ou <tt><b>{}</b></tt> ). La ligne suivante ignore tous les espaces
+entr&eacute;s au clavier et peut &ecirc;tre utilis&eacute;e avant de lire le
+premier caract&egrave;re significatif:
+
+<pre><b>while (getch()==' ') 
+         ;</b></pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c53.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c55.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c53.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

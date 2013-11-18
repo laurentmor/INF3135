@@ -1,0 +1,80 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  8.3. Initialisation de cha&icirc;nes de caract&egrave;res</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c75.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c77.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 8.3. Initialisation de cha&icirc;nes de caract&egrave;res</h2>
+<ul>
+<li><a href="#Heading160"> Exercice 8.1.</a>
+</ul>
+<hr size="1" width="100%">
+<b>		</b><p>
+ <p>
+En g&eacute;n&eacute;ral, les tableaux sont initialis&eacute;s par l'indication
+de la liste des &eacute;l&eacute;ments du tableau entre accolades:<p>
+
+
+<pre><b>   char CHAINE[] = {'H','e','l','l','o','\0'};</b></pre>
+<p>
+Pour le cas sp&eacute;cial des tableaux de caract&egrave;res, nous pouvons
+utiliser une initialisation plus confortable en indiquant simplement une
+cha&icirc;ne de caract&egrave;re constante: <p>
+
+
+<pre><b>   char CHAINE[] = &quot;Hello&quot;;</b></pre>
+<p>
+Lors de l'initialisation par <tt><b>[]</b></tt>, l'ordinateur r&eacute;serve
+automatiquement le nombre d'octets n&eacute;cessaires pour la cha&icirc;ne,
+c.-&agrave;-d.: le nombre de caract&egrave;res <b>+ 1</b> (ici: 6 octets). Nous
+pouvons aussi indiquer explicitement le nombre d'octets &agrave;
+r&eacute;server, si celui-ci est sup&eacute;rieur ou &eacute;gal &agrave; la
+longueur de la cha&icirc;ne d'initialisation.<p>
+<p>
+<p>
+<b><i>Exemples</i></b><p>
+<img src="prg-c31.gif" width="519" height="88"><p>
+<p>
+<img src="prg-c32.gif" width="519" height="88"><p>
+<p>
+<img src="prg-c33.gif" width="519" height="88"><p>
+<p>
+<p>
+<img src="prg-c34.gif" width="520" height="128"><p>
+<p>
+<img src="prg-c35.gif" width="520" height="80"><p>
+
+<h4><hr size="2">
+<a name="Heading160"> Exercice 8.1.</a>
+<hr size="1"></h4>
+<p>
+<p>
+<center>Lesquelles des cha&icirc;nes suivantes sont initialis&eacute;es
+correctement ? Corrigez les d&eacute;clarations fausses et indiquez pour chaque
+cha&icirc;ne de caract&egrave;res le nombre d'octets qui sera
+r&eacute;serv&eacute; en m&eacute;moire.<p>
+</center>
+
+<pre><b>a)   char a[]   = &quot;un\ndeux\ntrois\n&quot;;
+b)   char b[12] = &quot;un deux trois&quot;;
+c)   char c[]   = 'abcdefg';
+d)   char d[10] = 'x';
+e)   char e[5]  = &quot;cinq&quot;;
+f)   char f[]   = &quot;Cette &quot;   &quot;phrase&quot;   &quot;est coup&eacute;e&quot;;
+g)   char g[2]  = {'a', '\0'};
+h)   char h[4]  = {'a', 'b', 'c'};
+i)   char i[4]  = &quot;'o'&quot;;</b></pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c75.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c77.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c73.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

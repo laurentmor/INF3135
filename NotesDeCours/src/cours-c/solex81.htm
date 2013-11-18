@@ -1,0 +1,67 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.3</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex80.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex82.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.3</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ char TXT[201]; /* cha&icirc;ne donn&eacute;e       */
+ int I,J;  /* indices courants         */
+ int L;    /* longueur de la cha&icirc;ne    */
+ int C;    /* compteur des lettres 'e' */
+ int AIDE; /* pour l'&eacute;change des caract&egrave;res */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Entrez une ligne de texte (max.200 caract&egrave;res) :\n&quot;);
+ gets(TXT); /* L'utilisation de scanf est impossible pour */
+ /* lire une phrase contenant un nombre variable de mots. */
+
+<b> /* a) Compter les caract&egrave;res */</b>
+<b> /* La marque de fin de cha&icirc;ne '\0' est */</b>
+<b> /* utilis&eacute;e comme condition d'arr&ecirc;t. */</b>
+<b> for (L=0; TXT[L]; L++)</b>
+<b>     ;</b>
+<b> printf(&quot;Le texte est compos&eacute; de %d caract&egrave;res.\n&quot;,L);</b>
+ 
+<b> /* b) Compter les lettres 'e' dans le texte */</b>
+<b> C=0;</b>
+<b> for (I=0; TXT[I]; I++)</b>
+<b>     if (TXT[I]=='e') C++;</b>
+<b> printf(&quot;Le texte contient %d lettres \'e\'.\n&quot;,C);</b>
+ 
+<b> /* c) Afficher la phrase &agrave; l'envers */</b>
+<b> for (I=L-1; I&gt;=0; I--)</b>
+<b>     putchar(TXT[I]);  /* ou printf(&quot;%c&quot;,TXT[I]); */</b>
+<b> putchar('\n');        /* ou printf(&quot;\n&quot;); */</b>
+ 
+<b> /* d) Inverser l'ordre des caract&egrave;res */</b>
+<b> for (I=0,J=L-1 ; I&lt;J ; I++,J--)</b>
+<b>    {</b>
+<b>     AIDE=TXT[I];</b>
+<b>     TXT[I]=TXT[J];</b>
+<b>     TXT[J]=AIDE;</b>
+<b>    }</b>
+<b> puts(TXT);  </b>/* ou printf(&quot;%s\n&quot;,TXT); */ 
+  return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex80.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex82.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

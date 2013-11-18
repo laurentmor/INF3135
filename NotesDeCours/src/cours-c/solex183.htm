@@ -1,0 +1,57 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.7</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex182.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex184.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.7</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+  /* D&eacute;clarations : */
+  /* Nom du fichier et pointeur de r&eacute;f&eacute;rence */
+  char NOM_FICH[] = &quot;A:\\MOTS.TXT&quot;; 
+  FILE *FICHIER;
+  /* Autres variables */
+  char CHAINE[50];
+ 
+  /* Ouverture du nouveau fichier en &eacute;criture */
+<b>  FICHIER = fopen(NOM_FICH, &quot;w&quot;);</b>
+   if (!FICHIER)
+     {  
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOM_FICH);
+      exit(-1);
+     }
+  /* Saisie des donn&eacute;es et cr&eacute;ation du fichier */
+  printf(&quot;*** Cr&eacute;ation du fichier %s ***\n&quot;, NOM_FICH);
+<b>  do</b>
+<b>    {</b>
+<b>     printf(&quot;Entrez un mot ('*' pour finir) : &quot;);</b>
+<b>     scanf(&quot;%s&quot;, CHAINE);</b>
+<b>     if (CHAINE[0] != '*')</b>
+<b>         fprintf(FICHIER, &quot;%s\n&quot;, CHAINE);</b>
+<b>    }</b>
+<b>  while (CHAINE[0] != '*');</b>
+<b>  /* Fermeture du fichier */</b>
+<b>  fclose(FICHIER);</b>
+   return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex182.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex184.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

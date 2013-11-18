@@ -1,0 +1,67 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 9.17</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex118.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex120.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 9.17</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ <b>char TABCH[5][51];</b>/* tableau de cha&icirc;nes de caract&egrave;res */
+ char AIDE;        /* pour la permutation des caract&egrave;res */
+ char *P1, *P2;    /* pointeurs d'aide */
+ int I;            /* indice courant   */
+ 
+<b> /* TABCH+I est l'adresse de la I-i&egrave;me cha&icirc;ne du tableau */</b>
+<b> /* Il vaut mieux convertir TABCH+I en pointeur sur char */</b>
+  /* Saisie des donn&eacute;es */
+ printf(&quot;Entrez 5 mots :\n&quot;);
+ for (I=0; I&lt;5; I++)
+     {
+      printf(&quot;Mot %d (max.50 caract&egrave;res) : &quot;, I);
+      gets(<b>(char *)(TABCH+I)</b>);
+     }
+ 
+<b> /* Inverser l'ordre des caract&egrave;res &agrave; l'int&eacute;rieur des mots */</b>
+<b> for (I=0; I&lt;5; I++)</b>
+<b>     {</b>
+<b>      P1 = P2 = (char *)(TABCH+I);</b>
+<b>      /* Placer P2 &agrave; la fin de la cha&icirc;ne */</b>
+<b>      while (*P2)</b>
+<b>             P2++;</b>
+<b>      P2--; /* sinon '\0' est plac&eacute; au d&eacute;but de la cha&icirc;ne */</b>
+<b>      while (P1&lt;P2)</b>
+<b>           {</b>
+<b>            AIDE = *P1;</b>
+<b>            *P1  = *P2;</b>
+<b>            *P2  = AIDE;</b>
+<b>            P1++;</b>
+<b>            P2--;</b>
+<b>           }</b>
+<b>     }</b>
+ 
+  /* Affichage des mots invers&eacute;s */
+ for (I=0; I&lt;5; I++)
+      puts(<b>(char *)(TABCH+I)</b>);
+ return 0;
+}</pre>
+ <p>
+ <p>
+<p><hr size="1" width="100%">
+<a href="solex118.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex120.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex102.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

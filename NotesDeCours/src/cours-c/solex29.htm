@@ -1,0 +1,156 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>Solutions des exercices de programmation en C - Exercice 5.2</title>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<link rel="Stylesheet" href="./site.css" type="text/css">
+</head>
+<body background="bgr-solu.gif">
+<a href="solex28.htm"><img SRC="leftg.gif" ALT="Previous" BORDER=0 height=30 width=30></a><a href="solex30.htm"><img SRC="rightg.gif" ALT="Next" BORDER=0 height=30 width=30></a><a href="solex27.htm"><img SRC="upg.gif" ALT="Up" BORDER=0 height=30 width=30></a><a href="solex.htm"><img SRC="topg.gif" ALT="Index" BORDER=0 height=30 width=30></a><a href="solex_c.htm"><img SRC="contg.gif" ALT="Contents" BORDER=0 height=30 width=30></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 5.2</h3>
+Consid&eacute;rez la s&eacute;quence d'instructions suivante:
+<br>&nbsp;
+<br>&nbsp;
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (A>B)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (A>10)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("premier choix \n"); else if (B&lt;10)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("deuxi&egrave;me choix \n"); else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (A==B) printf ("troisi&egrave;me choix \n");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else printf ("quatri&egrave;me choix \n");</pre>
+<b>a)</b> Copiez la s&eacute;quence d'instructions en utilisant des tabulateurs
+pour marquer les blocs <b>if - else</b> appartenant ensemble.
+<br>&nbsp;
+<br>&nbsp;
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (A>B)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (A>10)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("premier choix \n");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (B&lt;10)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("deuxi&egrave;me choix \n");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (A==B)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("troisi&egrave;me choix \n");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("quatri&egrave;me choix \n");</pre>
+<b>b)</b> Le r&eacute;sultat:
+<br>&nbsp;
+<br>&nbsp;
+<table>
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT><b><tt>"premier choix"</tt></b></td>
+
+<td ALIGN=LEFT>appara&icirc;t pour (A>B) et (A>10)</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT><b><tt>"deuxi&egrave;me choix"</tt></b></td>
+
+<td ALIGN=LEFT>appara&icirc;t pour (10<img SRC="plusgrand.gif" NOSAVE height=14 width=13>A>B)</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT><b><tt>"troisi&egrave;me choix"</tt></b></td>
+
+<td ALIGN=LEFT>appara&icirc;t pour (10<img SRC="plusgrand.gif" NOSAVE height=14 width=13>A>B<img SRC="plusgrand.gif" NOSAVE height=14 width=13>10)
+et (A=B)</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>10>10 impossible</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>A>B et A=B impossible</td>
+
+<td ALIGN=LEFT>=></td>
+
+<td ALIGN=LEFT>"troisi&egrave;me choix" n'appara&icirc;t jamais</td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT><b><tt>"quatri&egrave;me choix"</tt></b></td>
+
+<td ALIGN=LEFT>appara&icirc;t pour (10<img SRC="plusgrand.gif" NOSAVE height=14 width=13>A>B<img SRC="plusgrand.gif" NOSAVE height=14 width=13>10)
+et (A<img SRC="diffde.gif" NOSAVE height=14 width=14>B)</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr ALIGN=LEFT rowspan="1">
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>10>10 impossible</td>
+
+<td ALIGN=LEFT>=></td>
+
+<td ALIGN=LEFT>"quatri&egrave;me choix" n'appara&icirc;t jamais</td>
+</tr>
+</table>
+
+<p><b>c)</b>
+<p>On n'obtient pas de r&eacute;ponses pour (A<img SRC="pluspetit.gif" NOSAVE height=13 width=12>B).
+Si (A>B) alors la construction <b>if - else if - ... - else</b> garantit
+que toutes les combinations sont trait&eacute;es et fournissent un r&eacute;sultat.
+<br>&nbsp;
+<br>&nbsp;
+<p>
+<hr size="1" width="100%"><a href="solex28.htm"><img SRC="leftg.gif" ALT="Previous" BORDER=0 height=30 width=30></a><a href="solex30.htm"><img SRC="rightg.gif" ALT="Next" BORDER=0 height=30 width=30></a><a href="solex27.htm"><img SRC="upg.gif" ALT="Up" BORDER=0 height=30 width=30></a><a href="solex.htm"><img SRC="topg.gif" ALT="Index" BORDER=0 height=30 width=30></a><a href="solex_c.htm"><img SRC="contg.gif" ALT="Contents" BORDER=0 height=30 width=30></a>
+<br>
+<hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback
+- Copyright &copy;</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - C.1. Entr&eacute;e et sortie de donn&eacute;es : &lt;stdio.h&gt;</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c156.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c158.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+C.1. Entr&eacute;e et sortie de donn&eacute;es : &lt;stdio.h&gt;</h3>
+ <p>
+ <p>
+<b><i>Traitement de fichiers</i></b><p>
+<i>Le fichier en-t&ecirc;te &lt;stdio.h&gt; contient les d&eacute;clarations
+d'un ensemble de fonctions qui g&egrave;rent des fichiers ainsi que
+l'indispensable structure <b>FILE</b> et les constantes <b>stdin</b> et
+<b>stdout</b>. Dans la suite, FP<tt><b> </b></tt>d&eacute;signe une source ou
+une destination de donn&eacute;es qui est li&eacute;e &agrave; un fichier sur
+disque dur ou sur un autre p&eacute;riph&eacute;rique. </i><p>
+<i>Principe: On associe une structure <b>FILE</b> au fichier par
+l'interm&eacute;diaire d'un pointeur sur cette structure.</i><p>
+ 
+<hr size="1" width="100%"><tt> </tt><p>
+<tt><b>FILE *fopen(const char *NOM_FICH, const char *MODE)
+</b></tt>11.4.1<tt><b>.</b></tt><p>
+<tt> </tt><p>
+<b>fopen</b> ouvre le fichier indiqu&eacute; et fournit un pointeur sur
+<b>FILE</b> ou z&eacute;ro en cas d'&eacute;chec.<p>
+<i>MODE</i><b> </b>est une des cha&icirc;nes suivantes:<p>
+	&quot;r&quot;	<i>(read)</i> lecture seule, &agrave; partir du premier caract&egrave;re
+du ficher<p>
+	&quot;w&quot;	<i>(write)</i> &eacute;criture apr&egrave;s cr&eacute;ation ou
+&eacute;crasement du fichier, s'il existe d&eacute;j&agrave;
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int *fclose(FILE *FP)   </b></tt>11.4.2.<tt> </tt><p>
+<tt> </tt><p>
+<b>fclose</b> &eacute;crit les donn&eacute;es de <i>FP </i>qui n'ont pas encore
+&eacute;t&eacute; &eacute;crites, jette les donn&eacute;es de la m&eacute;moire
+tampon qui n'ont pas encore &eacute;t&eacute; lues, lib&egrave;re l'espace pris
+par la m&eacute;moire tampon et ferme le fichier associ&eacute; &agrave;
+<i>FP</i>. <b>fclose</b> retourne <b>EOF</b> en cas d'&eacute;chec, sinon
+z&eacute;ro.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int feof(FILE *FP)   </b></tt>11.5.3.<tt> </tt><p>
+<tt> </tt> <p>
+<b>feof</b> fournit une valeur diff&eacute;rente z&eacute;ro si <i>FP</i> est
+arriv&eacute; &agrave; la fin du fichier.<p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int fprintf(FILE *FP, const char *FORMAT, ...)</b></tt><p>
+<tt><b>            </b></tt>11.5.1.<tt> </tt><p>
+<tt> </tt><p>
+<b>fprintf</b> convertit les donn&eacute;es dans une suite de caract&egrave;res
+et les &eacute;crit dans <i>FP</i> sous le contr&ocirc;le de <i>FORMAT</i>. La
+valeur du r&eacute;sultat est le nombre de caract&egrave;res &eacute;crits; le
+r&eacute;sultat est n&eacute;gatif dans le cas d'une erreur.<p>
+<i>FORMAT</i> contient deux sortes de donn&eacute;es: des caract&egrave;res qui
+sont copi&eacute;s comme tels dans <i>FP</i> et des sp&eacute;cificateurs de
+format qui d&eacute;finissent la conversion du prochain param&egrave;tre de
+<b>fprintf</b>. <p>
+<p>
+<b><i>Sp&eacute;cificateurs de format pour fprintf</i></b><p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<sup><b><i>S</i></b></sup><sup><b><i>YMBOLE</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>TYPE</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>IMPRESSION
+COMME</i></b></sup>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%d
+ou %i</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+relatif
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%u</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+naturel (unsigned)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%o</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en octal
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%x
+ou %X</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en hexad&eacute;cimal
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%c</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b></tt>
+<br></td>
+<td colspan="1" align="left">caract&egrave;re
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%f</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation d&eacute;cimale 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>float</b></tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation d&eacute;cimale 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%e</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>double</b></tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation scientifique
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>float</b></tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation scientifique
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%s</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>char*</b></tt>
+<br></td>
+<td colspan="1" align="left">cha&icirc;ne
+de caract&egrave;res
+<br></td></tr></table><tt>
+           </tt>4.1.<tt></tt>
+<p>
+Pour traiter correctement les arguments du type <b>long</b>, il faut utiliser
+les sp&eacute;cificateurs <tt><b>%ld</b>,<b> %li</b>, <b>%lu</b>, <b>%lo</b>,
+<b>%lx</b></tt>.<p>
+Pour traiter correctement les arguments du type <b>long</b> <b>double</b>, il
+faut utiliser les sp&eacute;cificateurs <tt><b>%Lf</b></tt> et
+<tt><b>%Le</b></tt>. <p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int fscanf(FILE *FP, const char *FORMAT, ...)
+</b></tt>11.5.1.<tt> </tt><p>
+<tt> </tt><p>
+<b>fscanf</b> lit des donn&eacute;es de <i>FP</i> sous le contr&ocirc;le de
+<i>FORMAT</i> et les attribue aux arguments suivants qui doivent &ecirc;tre des
+pointeurs. La fonction s'arr&ecirc;te si la cha&icirc;ne de format a
+&eacute;t&eacute; travaill&eacute;e jusqu'&agrave; la fin. La valeur du
+r&eacute;sultat est le nombre des donn&eacute;es lues ou <b>EOF</b> au cas
+d'une erreur ou si on est arriv&eacute; &agrave; la fin du fichier.<p>
+<i>FORMAT</i> contient trois sortes de donn&eacute;es: des caract&egrave;res
+qui doivent &ecirc;tre entr&eacute;s exactement de la m&ecirc;me fa&ccedil;on
+qu'ils sont not&eacute;s dans la cha&icirc;ne <i>FORMAT</i>; des signes
+d'espacement qui correspondent &agrave; une suite quelconque de signes
+d'espacement lors de l'entr&eacute;e; des sp&eacute;cificateurs de format qui
+d&eacute;finissent la conversion de la prochaine donn&eacute;e. <p>
+<p>
+<b><i>Sp&eacute;cificateurs de format pour fscanf</i></b><p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<sup><b><i>S</i></b></sup><sup><b><i>YMBOLE</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>LECTURE
+D'UN(E)</i></b></sup>
+<br></td>
+<td colspan="1" align="left"><sup><b><i>TYPE</i></b></sup>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%d
+ou %i</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+relatif
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%u</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+naturel (unsigned)
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%o</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en octal
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%x</b></tt>
+<br></td>
+<td colspan="1" align="left">entier
+exprim&eacute; en hexad&eacute;cimal
+<br></td>
+<td colspan="1" align="left"><tt><b>int</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%c</b></tt>
+<br></td>
+<td colspan="1" align="left">caract&egrave;re
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%s</b></tt>
+<br></td>
+<td colspan="1" align="left">cha&icirc;ne
+de caract&egrave;res
+<br></td>
+<td colspan="1" align="left"><tt><b>char</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%f
+ou %e</b></tt>
+<br></td>
+<td colspan="1" align="left">rationnel
+en notation d&eacute;cimale
+<br></td>
+<td colspan="1" align="left"><tt><b>float</b>*</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">ou
+exponentielle
+<br></td>
+<td colspan="1" align="left"><br></td></tr></table><tt>
+                          </tt>4.2.<tt></tt>
+<p>
+Si nous voulons lire une donn&eacute;e du type <b>long</b>, nous devons
+utiliser les sp&eacute;cificateurs <tt><b>%ld</b></tt>, <tt><b>%li</b></tt>,
+<tt><b>%lu</b></tt>, <tt><b>%lo</b></tt>, <tt><b>%lx.</b></tt><p>
+Si nous voulons lire une donn&eacute;e du type <b>double</b>, nous devons
+utiliser les sp&eacute;cificateurs <tt><b>%le</b></tt> ou
+<tt><b>%lf.</b></tt><p>
+Si nous voulons lire une donn&eacute;e du type <b>long double</b>, nous devons
+utiliser les sp&eacute;cificateurs <tt><b>%Le</b></tt> ou
+<tt><b>%Lf</b></tt>.<p>
+
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int fputc(int C, FILE *FP)   </b></tt>11.5.2.<tt> </tt><p>
+<tt> </tt> <p>
+<b>fputc</b> &eacute;crit le caract&egrave;re <i>C</i> (converti en <b>unsigned
+char</b>) dans <i>FP.</i> La fonction retourne le caract&egrave;re &eacute;crit
+comme r&eacute;sultat ou <b>EOF</b> lors d'une erreur.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int fgetc(FILE *FP)   </b></tt>11.5.2.<tt> </tt><p>
+<tt> </tt> <p>
+<b>fgetc</b> lit le prochain caract&egrave;re de <i>FP</i> comme <b>unsigned
+char</b> (converti en <b>int</b>) ou <b>EOF</b> &agrave; la fin du fichier ou
+lors d'une erreur.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<b><i>Lire et &eacute;crire dans les fichiers standard</i></b><p>
+<p>
+<tt><b>int printf(const char *FORMAT, ...)   </b></tt>4.1. /
+8.6.1.<tt> </tt><p>
+<tt> </tt> <p>
+<b>printf(...)</b> est &eacute;quivalent &agrave; <b>fprintf(stdout, ...)</b>.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int scanf(const char *FORMAT, ...)   </b></tt>4.2. /
+8.6.1.<tt> </tt><p>
+<tt> </tt> <p>
+<b>scanf(...)</b> est &eacute;quivalent &agrave; <b>fscanf(stdin, ...)</b>.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int putchar(int C)   </b></tt>4.3.<tt> </tt><p>
+<tt> </tt> <p>
+<b>putchar(C)</b> est &eacute;quivalent &agrave; <b>fputc(C, stdout)</b>
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int getchar(void)   </b></tt>4.4.<tt> </tt><p>
+<tt> </tt> <p>
+<b>getchar</b> est &eacute;quivalent &agrave; <b>fgetc(stdin)</b>. (Comme le
+fichier <i>stdin</i> travaille &agrave; l'aide d'une m&eacute;moire tampon qui
+est &eacute;valu&eacute;e ligne par ligne, <b>getchar</b> attend un retour
+&agrave; la ligne avant de fournir le caract&egrave;re lu comme
+r&eacute;sultat.)
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>int puts(const char *CH)   </b></tt>8.6.1.<p>
+ <p>
+<b>puts</b> &eacute;crit la cha&icirc;ne <i>CH</i> et un retour &agrave; la
+ligne dans <i>stdout.</i> La fonction retourne <b>EOF</b> lors d'une erreur
+sinon une valeur non n&eacute;gative.
+<hr size="1" width="100%"><tt> </tt><p>
+<p>
+<tt><b>char *gets(char *CH)   </b></tt>8.6.1.<p>
+ <p>
+<b>gets</b> lit la prochaine ligne de <i>stdin </i>et l'attribue &agrave;
+<i>CH</i> en rempla&ccedil;ant le retour &agrave; la ligne final par un symbole
+de fin de cha&icirc;ne '\0'<i>.</i> La fonction retourne <i>CH</i> ou le
+pointeur nul &agrave; la fin du fichier ou lors d'une erreur.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c156.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c158.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c156.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,41 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 5.5</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex31.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex33.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 5.5</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* Afficher le signe du produit de deux entiers sans
+    faire la multiplication
+ */
+ int A, B;
+ printf(&quot;Introduisez deux nombres entiers :&quot;);
+ scanf(&quot;%i %i&quot;, &amp;A, &amp;B);
+<b> if ((A&gt;0 &amp;&amp; B&gt;0) || (A&lt;0 &amp;&amp; B&lt;0))</b>
+<b>   printf(&quot;Le signe du produit %i * %i est positif\n&quot;, A, B);</b>
+<b> else if ((A&lt;0 &amp;&amp; B&gt;0) || (A&gt;0 &amp;&amp; B&lt;0))</b>
+<b>   printf(&quot;Le signe du produit %i * %i est n&eacute;gatif\n&quot;, A, B);</b>
+<b> else</b>
+<b>   printf(&quot;Le produit %i * %i est z&eacute;ro\n&quot;, A, B);</b>
+  return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex31.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex33.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex27.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

@@ -1,0 +1,55 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.5</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex39.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex41.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.5</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int  X, N;   /* Les donn&eacute;es */
+ int  I;      /* Le compteur */
+ <b>double RESU;</b> /* Type double &agrave; cause de la */
+              /* grandeur du r&eacute;sultat.     */
+
+<b> do</b>
+<b>    {</b>
+      printf(&quot;Entrez l'entier naturel X : &quot;);
+     scanf(&quot;%d&quot;, &amp;X);
+<b>    }</b>
+<b> while (X&lt;0);</b>
+<b> do</b>
+<b>    {</b>
+      printf(&quot;Entrez l'exposant       N : &quot;);
+     scanf(&quot;%d&quot;, &amp;N);
+<b>    }</b>
+<b> while (N&lt;0);</b>
+ 
+ /* Pour N=0, le r&eacute;sultat sera automatiquement X^0=1 */
+<b> for (RESU=1.0, I=1 ; I&lt;=N ; I++)</b>
+<b>        RESU*=X;</b>
+ 
+ /* Attention: Pour X=0 et N=0 , 0^0 n'est pas d&eacute;fini */
+<b> if (N==0 &amp;&amp; X==0)</b>
+<b>     printf(&quot;z&eacute;ro exposant z&eacute;ro n'est pas d&eacute;fini !\n&quot;);</b>
+<b> else</b>
+<b>     printf(&quot;R&eacute;sultat : %d ^ %d = %.0f\n&quot;, X, N, RESU);</b>
+  return 0;
+}</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex39.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex41.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

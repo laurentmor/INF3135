@@ -1,0 +1,212 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 3.3.2. Les op&eacute;rateurs particuliers de C</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c33.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c35.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c32.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+3.3.2. Les op&eacute;rateurs particuliers de C</h3>
+<ul>
+<li><a href="#Heading56">- Les op&eacute;rateurs d'affectation</a>
+<li><a href="#Heading57">- Op&eacute;rateurs d'incr&eacute;mentation et de d&eacute;cr&eacute;mentation</a>
+</ul>
+<hr size="1" width="100%">
+<b>	</b><p>
+ 
+<h4>
+<a name="Heading56">- Les op&eacute;rateurs d'affectation</a></h4>
+
+<b>
+</b><p>
+ <p>
+<b><i>Op&eacute;rateurs d'affectation</i></b><p>
+En pratique, nous retrouvons souvent des affectations comme:<p>
+
+
+<pre><b>   i = i + 2</b></pre>
+<p>
+En C, nous utiliserons plut&ocirc;t la formulation plus compacte:<p>
+
+
+<pre><b>   i += 2</b></pre>
+<p>
+L'op&eacute;rateur<tt><b> +=</b></tt> est un <i>op&eacute;rateur
+d'affectation</i>. <p>
+Pour la plupart des expressions de la forme:<p>
+<p>
+<b>	expr1 = (expr1) op (expr2)</b><p>
+ <p>
+il existe une formulation &eacute;quivalente qui utilise un op&eacute;rateur
+d'affectation:<p>
+<p>
+<b>	expr1 op= expr2</b><p>
+ <p>
+<b><i>Op&eacute;rateurs d'affectation</i></b>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>+=</b> </tt>
+<br></td>
+<td colspan="1" align="left"><tt>ajouter
+&agrave;</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>-=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>diminuer
+de</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>*=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>multiplier
+par</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>/=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>diviser
+par</tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>%=</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt>modulo</tt>
+<br></td></tr></table><p>
+<p>
+<b><i>Avantages</i></b><p>
+La formulation avec un op&eacute;rateur d'affectation est souvent plus
+pr&egrave;s de la logique humaine: <p>
+	Un homme dirait 	<i>&lt;&lt;Ajoute 2 &agrave; I&gt;&gt;</i><p>
+	plut&ocirc;t que	<i>&lt;&lt;Ajoute 2 &agrave; I et &eacute;cris le
+r&eacute;sultat dans I&gt;&gt;</i><p>
+<p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Les op&eacute;rateurs d'affectation peuvent aider le compilateur &agrave;
+g&eacute;n&eacute;rer un code plus efficient parce que <i>expr1 n'est
+&eacute;valu&eacute; qu'une seule fois</i>. <p>
+Les op&eacute;rateurs d'affectation deviennent le plus int&eacute;ressant si
+<i>expr1</i> est une expression complexe. Ceci peut &ecirc;tre le cas si nous
+calculons avec des tableaux. L'expression:<p>
+
+
+<pre><b>Element[n*i+j] = Element[n*i+j] * x[j]</b></pre>
+<p>
+peut &ecirc;tre formul&eacute;e de mani&egrave;re plus efficiente et plus
+claire:<p>
+
+
+<pre><b>Element[n*i+j] *= x[j]</b></pre>
+<p>
+
+<h4>
+<a name="Heading57">- Op&eacute;rateurs d'incr&eacute;mentation et de d&eacute;cr&eacute;mentation</a></h4>
+
+<b>
+</b><p>
+ <p>
+Les affectations les plus fr&eacute;quentes sont du type:<p>
+
+
+<pre><b>I = I + 1      et      I = I - 1</b></pre>
+<p>
+En C, nous disposons de deux op&eacute;rateurs inhabituels pour ces
+affectations:<p>
+<table border>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b>I</b></tt><tt><b>++</b></tt>  ou  <tt><b>++I</b></tt>
+<br></td>
+<td colspan="1" align="left">pour
+l'incr&eacute;mentation
+<br></td>
+<td colspan="1" align="left">(augmentation
+d'une unit&eacute;)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>I--</b></tt>
+ ou  <tt><b>--I</b></tt>
+<br></td>
+<td colspan="1" align="left">pour
+la d&eacute;cr&eacute;mentation
+<br></td>
+<td colspan="1" align="left">(diminution
+d'une unit&eacute;)
+<br></td></tr></table><p>
+<p>
+<p>
+Les op&eacute;rateurs <tt><b>++</b></tt> et <tt><b>--</b></tt> sont
+employ&eacute;s dans les cas suivants: <p>
+	incr&eacute;menter/d&eacute;cr&eacute;menter une variable (p.ex: dans une
+boucle). Dans ce cas il n'y a pas de diff&eacute;rence entre la notation
+<b><i>pr&eacute;fixe</i></b> (<tt><b>++I --I</b></tt>) et la notation<i>
+<b>postfixe</b></i> (<tt><b>I++ I--</b></tt>).<p>
+	incr&eacute;menter/d&eacute;cr&eacute;menter une variable et en m&ecirc;me
+temps affecter sa valeur &agrave; une autre variable. Dans ce cas, nous devons
+choisir entre la notation pr&eacute;fixe et postfixe:<p>
+<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67">
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>X = I++</b></tt>
+<br></td>
+<td colspan="1" align="left">passe
+d'abord la valeur de I &agrave; X et <b><i>incr&eacute;mente
+apr&egrave;s</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>X
+= I--</b></tt>
+<br></td>
+<td colspan="1" align="left">passe
+d'abord la valeur de I &agrave; X et <b><i>d&eacute;cr&eacute;mente
+apr&egrave;s</i></b>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>X
+= ++I</b></tt>
+<br></td>
+<td colspan="1" align="left"><b><i>incr&eacute;mente
+d'abord</i></b> et passe la valeur incr&eacute;ment&eacute;e &agrave; X
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>X
+= --I</b></tt>
+<br></td>
+<td colspan="1" align="left"><b><i>d&eacute;cr&eacute;mente
+d'abord</i></b> et passe la valeur d&eacute;cr&eacute;ment&eacute;e &agrave; X
+<br></td></tr></table><p>
+<b><i>Exemple</i></b><p>
+	Supposons que la valeur de N est &eacute;gal &agrave; 5:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+Incr&eacute;m. postfixe:
+<br></td>
+<td colspan="1" align="left"><tt><b>X
+= N++;</b></tt>
+<br></td>
+<td colspan="1" align="left">R&eacute;sultat:
+  N=6 et X=5
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">Incr&eacute;m.
+pr&eacute;fixe:
+<br></td>
+<td colspan="1" align="left"><tt><b>X
+= ++N;</b></tt>
+<br></td>
+<td colspan="1" align="left">R&eacute;sultat:
+  N=6 et X=6
+<br></td></tr></table><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c33.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c35.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c32.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

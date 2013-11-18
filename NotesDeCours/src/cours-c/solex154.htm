@@ -1,0 +1,110 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.24  Fusion de tableaux tri&eacute;s</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex153.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex155.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.24  Fusion de tableaux tri&eacute;s</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ void FUSION(int *A, int *B, int *FUS, int N, int M);
+ void TRI_BULLE(int *T, int N);
+ void LIRE_TAB (int *TAB, int *N, int NMAX);
+ void ECRIRE_TAB (int *TAB, int N);
+ /* Variables locales */
+ /* Les tableaux et leurs dimensions */
+ int A[100], B[100], FUS[200];
+ int N, M;
+ /* Traitements */
+ printf(&quot;*** Tableau A ***\n&quot;);
+ LIRE_TAB (A, &amp;N, 100);
+ printf(&quot;*** Tableau B ***\n&quot;);
+ LIRE_TAB (B, &amp;M, 100);
+<b> TRI_BULLE(A, N);</b>
+  printf(&quot;Tableau A tri&eacute; : \n&quot;);
+ ECRIRE_TAB (A, N);
+<b> TRI_BULLE(B, M);</b>
+  printf(&quot;Tableau B tri&eacute; : \n&quot;);
+ ECRIRE_TAB (B, M);
+<b> FUSION(A,B,FUS,N,M);</b>
+  printf(&quot;Tableau FUS : \n&quot;);
+ ECRIRE_TAB (FUS, N+M);
+ return 0;
+}
+
+
+<b>void FUSION(int *A, int *B, int *FUS, int N, int M)</b>
+<b>{</b>
+  /* Variables locales */
+ /* Indices courants dans A, B et FUS */
+ int IA,IB,IFUS;  
+ /* Fusion de A et B dans FUS */
+<b> IA=0, IB=0; IFUS=0;</b>
+<b> while ((IA&lt;N) &amp;&amp; (IB&lt;M))</b>
+<b>    if (*(A+IA)&lt;*(B+IB))</b>
+<b>        {</b>
+<b>         *(FUS+IFUS)=*(A+IA);</b>
+<b>         IFUS++;</b>
+<b>         IA++;</b>
+<b>        }</b>
+<b>    else</b>
+<b>        {</b>
+<b>         FUS[IFUS]=B[IB];</b>
+<b>         IFUS++;</b>
+<b>         IB++;</b>
+<b>        }</b>
+  /* Si A ou B sont arriv&eacute;s &agrave; la fin, alors */
+ /* copier le reste de l'autre tableau.    */
+<b> while (IA&lt;N)</b>
+<b>     {</b>
+<b>      *(FUS+IFUS)=*(A+IA);</b>
+<b>      IFUS++;</b>
+<b>      IA++;</b>
+<b>     }</b>
+<b> while (IB&lt;M)</b>
+<b>     {</b>
+<b>      *(FUS+IFUS)=*(B+IB);</b>
+<b>      IFUS++;</b>
+<b>      IB++;</b>
+<b>     }</b>
+<b>}</b>
+ 
+void TRI_BULLE(int *T, int N)
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ int RANGER(int *X, int *Y);
+ . . .
+}
+int RANGER(int *X, int *Y)
+{
+ . . .
+}
+void LIRE_TAB (int *TAB, int *N, int NMAX)
+{
+ . . .
+}
+void ECRIRE_TAB (int *TAB, int N)
+{
+ . . .
+}
+</pre>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex153.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex155.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex146.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

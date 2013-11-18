@@ -1,0 +1,61 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 7.1.2. Initialisation et r&eacute;servation automatique</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c61.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c63.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c60.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+7.1.2. Initialisation et r&eacute;servation automatique</h3>
+ <p>
+ <p>
+<b><i>Initialisation</i></b><p>
+Lors de la d&eacute;claration d'un tableau, on peut initialiser les composantes
+du tableau, en indiquant la liste des valeurs respectives entre accolades.<p>
+<p>
+<b><i>Exemples</i></b>
+
+<pre><b>int A[5]   = {10, 20, 30, 40, 50};
+float B[4] = {-1.05, 3.33, 87e-5, -12.3E4};
+int C[10]  = {1, 0, 0, 1, 1, 1, 0, 1, 0, 1};</b></pre>
+<p>
+Il faut &eacute;videmment veiller &agrave; ce que le nombre de valeurs dans la
+liste corresponde &agrave; la dimension du tableau. Si la liste ne contient pas
+assez de valeurs pour toutes les composantes, les composantes restantes sont
+initialis&eacute;es par z&eacute;ro.<p>
+<p>
+<b><i>R&eacute;servation automatique</i></b><p>
+Si la dimension n'est pas indiqu&eacute;e explicitement lors de
+l'initialisation, alors l'ordinateur r&eacute;serve automatiquement le nombre
+d'octets n&eacute;cessaires.<p>
+<p>
+<b><i>Exemples</i></b><p>
+<tt><b>int A[] = {10, 20, 30, 40, 50};</b></tt><p>
+<tt><b>      ==&gt;</b></tt>	r&eacute;servation de <b>5*sizeof(int)</b> octets (dans notre cas: 10 octets)<p>
+<p>
+<tt><b>float B[] = {-1.05, 3.33, 87e-5, -12.3E4};</b></tt><p>
+<tt><b>      ==&gt;</b></tt>	r&eacute;servation de <b>4*sizeof(float)</b> octets (dans notre cas: 16 octets)<p>
+<p>
+<tt><b>int C[] = {1, 0, 0, 1, 1, 1, 0, 1, 0, 1};</b></tt><p>
+<tt><b>      ==&gt;</b></tt>	r&eacute;servation de <b>10*sizeof(int)</b> octets (dans notre cas: 20 octets)<p>
+<p>
+<b><i>Exemples</i></b><p>
+<tt>
+<img src="prg-c13.gif" width="504" height="87"></tt><p>
+<p>
+<tt>
+<img src="prg-c14.gif" width="504" height="87"></tt><p>
+<p>
+<tt>
+<img src="prg-c15.gif" width="504" height="127"></tt><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c61.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c63.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c60.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

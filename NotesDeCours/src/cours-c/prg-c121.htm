@@ -1,0 +1,95 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.5.3. Passage de l'adresse d'une variable</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c120.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c122.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.5.3. Passage de l'adresse d'une variable</h3>
+ <p>
+ Comme nous l'avons constat&eacute; ci-dessus, une fonction n'obtient que
+les valeurs de ses param&egrave;tres.<p>
+<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67"><p>
+<p>
+<i>Pour changer la valeur d'une variable de la fonction appelante</i>, <p>
+nous allons proc&eacute;der comme suit:<p>
+	-	la fonction appelante doit <b><i>fournir l'adresse de la variable</i></b> et
+<p>
+	-	la fonction appel&eacute;e doit <b><i>d&eacute;clarer le param&egrave;tre
+comme pointeur</i></b>.<p>
+On peut alors atteindre la variable &agrave; l'aide du pointeur.<p>
+<p>
+<p>
+<b><i>Discussion d'un exemple</i></b><p>
+Nous voulons &eacute;crire une fonction PERMUTER qui &eacute;change le contenu
+de deux variables du type <b>int</b>. En premi&egrave;re approche, nous
+&eacute;crivons la fonction suivante:<p>
+<p>
+<img src="mauvais.gif" alt="Mauvaise solution" align="right" width="44" height="56">
+
+<pre><b>void PERMUTER (int A, int B)
+{
+ int AIDE;
+ AIDE = A;
+ A = B;
+ B = AIDE;
+}</b></pre>
+<p>
+Nous appelons la fonction pour deux variables X et Y par:<p>
+
+
+<pre><b>   PERMUTER(X, Y);</b></pre>
+<p>
+<b>R&eacute;sultat:</b> X et Y restent inchang&eacute;s ! <p>
+<b>Explication:</b> Lors de l'appel, les <i>valeurs</i> de X et de Y sont
+copi&eacute;es dans les param&egrave;tres A et B. PERMUTER &eacute;change bien
+contenu des variables <i>locales</i> A et B, mais les valeurs de X et Y restent
+les m&ecirc;mes.<p>
+<p>
+<img src="prg-c64.gif" width="354" height="106"><p>
+<p>
+<p>
+<center>Pour pouvoir modifier le contenu de X et de Y, la fonction PERMUTER a
+besoin des adresses de X et Y. En utilisant des pointeurs, nous &eacute;crivons
+une deuxi&egrave;me fonction:<p>
+</center><p>
+<img src="bonnesol.gif" alt="Bonne solution" align="right" width="43" height="55">
+
+<pre><b>void PERMUTER (int *A, int *B)
+{
+ int AIDE;
+ AIDE = *A;
+ *A = *B;
+ *B = AIDE;
+}</b></pre>
+<p>
+Nous appelons la fonction par:<p>
+
+
+<pre><b>   PERMUTER(&amp;X, &amp;Y);</b></pre>
+<p>
+<b>R&eacute;sultat:</b> Le contenu des variables X et Y est
+&eacute;chang&eacute; !<p>
+<b>Explication:</b> Lors de l'appel, les <i>adresses</i> de X et de Y sont
+copi&eacute;es dans les <i>pointeurs</i> A et B. PERMUTER &eacute;change
+ensuite le contenu des adresses indiqu&eacute;es par les pointeurs A et B. <p>
+<p>
+<img src="prg-c65.gif" width="354" height="106"><p>
+<p>
+<center><b><i>Remarque</i></b><p>
+</center>Dans les grilles, nous allons marquer les param&egrave;tres acceptant
+une adresse comme pointeurs et indiquer le contenu de ces adresses.<p>
+ <p>
+ <p>
+<p><hr size="1" width="100%">
+<a href="prg-c120.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c122.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c118.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

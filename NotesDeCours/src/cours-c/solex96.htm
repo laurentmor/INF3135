@@ -1,0 +1,64 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 8.18</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex95.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex97.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 8.18</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+<b>#include &lt;ctype.h&gt;</b>
+ main()
+{
+ /* D&eacute;clarations */
+ char CH[100]; /* cha&icirc;ne num&eacute;rique &agrave; convertir */
+ long N; /* r&eacute;sultat num&eacute;rique */
+ int I;  /* indice courant */
+ int OK; /* indicateur logique pr&eacute;cisant si la */
+         /* cha&icirc;ne a &eacute;t&eacute; convertie avec succ&egrave;s */
+
+ /* Saisie de la cha&icirc;ne */
+ printf(&quot;Entrez un nombre hexad&eacute;cimal entier et positif : &quot;);
+ gets(CH);
+<b> /* Conversion de la cha&icirc;ne */</b>
+<b> OK=1;</b>
+<b> N=0;</b>
+<b> for (I=0; OK &amp;&amp; CH[I]; I++)</b>
+<b>     if (isxdigit(CH[I]))</b>
+<b>       {</b>
+<b>        CH[I] = toupper(CH[I]);</b>
+<b>        if (isdigit(CH[I]))</b>
+<b>           N = N*16 + (CH[I]-'0');</b>
+<b>        else</b>
+<b>           N = N*16 + 10 + (CH[I]-'A');</b>
+<b>       }</b>
+<b>     else</b>
+<b>        OK=0;</b>
+ 
+ /* Affichage de la cha&icirc;ne convertie */
+ if (OK)
+   {
+    printf(&quot;Valeur num&eacute;rique hexad&eacute;cimale : %<b>lX</b>\n&quot;, N);
+    printf(&quot;Valeur num&eacute;rique d&eacute;cimale     : %<b>ld</b>\n&quot;, N);
+   }
+ else
+    printf(&quot;\a\&quot;%s\&quot; n'est pas une valeur &quot;
+           &quot;hexad&eacute;cimale correcte.\n&quot;, CH);
+ return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex95.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex97.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex78.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

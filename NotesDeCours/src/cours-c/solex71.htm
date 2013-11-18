@@ -1,0 +1,68 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.18 Matrice unitaire</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex70.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex72.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.18 Matrice unitaire</h3>
+<b>	</b><p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int U[50][50]; /* matrice unitaire */
+ int N;         /* dimension de la matrice unitaire */
+ int I, J;      /* indices courants */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension de la matrice carr&eacute;e (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N);
+
+<b> /* Construction de la matrice carr&eacute;e unitaire */</b>
+<b> for (I=0; I&lt;N; I++)</b>
+<b>     for (J=0; J&lt;N; J++)</b>
+<b>         if (I==J)</b>
+<b>             U[I][J]=1;</b>
+<b>         else</b>
+<b>             U[I][J]=0;</b>
+ 
+  /* Edition du r&eacute;sultat */
+ printf(&quot;Matrice unitaire de dimension %d :\n&quot;, N);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;N; J++)
+          printf(&quot;%7d&quot;, U[I][J]);
+     printf(&quot;\n&quot;);
+    }
+ return 0;
+}</pre>
+<p>
+<b>Remarque:</b><p>
+ L'op&eacute;ration:
+
+<pre>	if (I==J)
+		U[I][J]=1;
+	else
+		U[I][J]=0;</pre>
+<tt> </tt><p>
+<tt> </tt>peut &ecirc;tre simplifi&eacute;e par: <p>
+
+
+<pre>	U[I][J] = (I==J);</pre>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex70.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex72.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

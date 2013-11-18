@@ -1,0 +1,73 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  5.4. Les op&eacute;rateurs conditionnels</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c50.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c52.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 5.4. Les op&eacute;rateurs conditionnels</h2>
+<b>		</b><p>
+ <p>
+Le langage C poss&egrave;de une paire d'op&eacute;rateurs un peu exotiques qui
+peut &ecirc;tre utilis&eacute;e comme alternative &agrave; <b>if - else</b> et
+qui a l'avantage de pouvoir &ecirc;tre int&eacute;gr&eacute;e dans une
+expression:<p>
+<p>
+<b><i>Les op&eacute;rateurs conditionnels</i></b>
+
+<pre><b>&lt;expr1&gt; ? &lt;expr2&gt; : &lt;expr3&gt;
+
+</b></pre>
+<i>*
+Si &lt;expr1&gt; fournit une valeur diff&eacute;rente de z&eacute;ro, <br>
+alors la valeur de &lt;expr2&gt; est fournie comme r&eacute;sultat</i><p>
+<i>*
+Si &lt;expr1&gt; fournit la valeur z&eacute;ro, <br>		alors la valeur de
+&lt;expr3&gt; est fournie comme r&eacute;sultat</i>
+<p>
+<b><i>Exemple</i></b><p>
+La suite d'instructions 
+
+<pre><b>   if (A&gt;B) 
+      MAX=A;
+   else
+      MAX=B;
+</b></pre>
+peut
+&ecirc;tre remplac&eacute;e par:
+
+<pre><b>   MAX = (A &gt; B) ? A : B;
+</b></pre>
+<p>
+<img src="conseil.gif" alt="Conseil" align="right" width="34" height="64"><p>
+Employ&eacute;s de fa&ccedil;on irr&eacute;fl&eacute;chis, les
+op&eacute;rateurs conditionnels peuvent nuire &agrave; la lisibilit&eacute;
+d'un programme, mais si on les utilise avec pr&eacute;caution, ils fournissent
+des solutions tr&egrave;s &eacute;l&eacute;gantes:<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>printf(&quot;Vous avez %i carte%c \n&quot;, N, (N==1) ? ' ' : 's');</b></pre>
+<p>
+<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67"><p>
+Les <b><i>r&egrave;gles de conversion de types</i></b> s'appliquent aussi aux
+op&eacute;rateurs conditionnels <b>? :</b>   Ainsi, pour un entier N du type
+<b>int</b> et un rationnel F du type <b>float</b>, l'expression
+
+<pre><b>   (N&gt;0) ? N : F 
+</b></pre>
+va
+<b><i>toujours</i></b> fournir un r&eacute;sultat du type <b>float</b>,
+n'importe si N est plus grand ou plus petit que z&eacute;ro!<p>
+<p><hr size="1" width="100%">
+<a href="prg-c50.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c52.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c47.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

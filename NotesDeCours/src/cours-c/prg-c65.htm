@@ -1,0 +1,79 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C -  7.2. Les tableaux &agrave; deux dimensions</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c64.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c66.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h2>
+ 7.2. Les tableaux &agrave; deux dimensions</h2>
+<b>		</b><p>
+ <p>
+<p>
+<b><i>D&eacute;finitions</i></b><p>
+<p>
+En C, un tableau &agrave; deux dimensions A est &agrave; interpr&eacute;ter
+comme un tableau (uni-dimensionnel) de dimension L dont chaque composante est
+un tableau (uni-dimensionnel) de dimension C.<p>
+<p>
+On appelle L le <b><i>nombre de lignes</i></b> du tableau et C le <b><i>nombre
+de colonnes</i></b> du tableau. L et C sont alors les deux
+<b><i>dimensions</i></b> du tableau. Un tableau &agrave; deux dimensions
+contient donc <b><i>L*C</i></b> <b><i>composantes</i></b>.<p>
+<p>
+<img src="prg-c17.gif" width="410" height="216"><p>
+<p>
+On dit qu'un tableau &agrave; deux dimensions est <b><i>carr&eacute;</i></b>,
+si L est &eacute;gal &agrave; C.<p>
+<p>
+<p>
+En faisant le rapprochement avec les math&eacute;matiques, on peut dire que
+<i>&quot;A est un vecteur de L vecteurs de dimension C&quot;</i>, ou mieux: <p>
+<p>
+<i>&quot;A est une <b>matrice</b> de dimensions L et C&quot;</i>.<p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+Consid&eacute;rons un tableau NOTES &agrave; une dimension pour
+m&eacute;moriser les notes de 20 &eacute;l&egrave;ves d'une classe dans un
+devoir:<p>
+<p>
+<tt><b>   int NOTE[20] = {45, 34, ... , 50, 48};</b></tt><p>
+<tt> </tt><p>
+	<tt>
+<img src="prg-c18.gif" width="394" height="45"></tt><p>
+<p>
+Pour m&eacute;moriser les notes des &eacute;l&egrave;ves dans les 10 devoirs
+d'un trimestre, nous pouvons rassembler plusieurs de ces tableaux
+uni-dimensionnels dans un tableau NOTES &agrave; deux dimensions :
+
+<pre><b>int NOTE[10][20] = {{45, 34, ... , 50, 48},
+                    {39, 24, ... , 49, 45},
+                      ...    ...     ...
+                    {40, 40, ... , 54, 44}};
+</b></pre>
+<p>
+<tt>
+<img src="prg-c19.gif" width="488" height="176"></tt><p>
+<p>
+Dans une ligne nous retrouvons les notes de tous les &eacute;l&egrave;ves dans
+un devoir. Dans une colonne, nous retrouvons toutes les notes d'un
+&eacute;l&egrave;ve.<p>
+<p>
+<p><hr size="1" width="100%">
+<ul>
+<li><a href="prg-c66.htm"> 7.2.1. D&eacute;claration et m&eacute;morisation </a>
+<li><a href="prg-c67.htm"> 7.2.2. Initialisation et r&eacute;servation automatique </a>
+<li><a href="prg-c68.htm"> 7.2.3. Acc&egrave;s aux composantes </a>
+<li><a href="prg-c69.htm"> 7.2.4. Affichage et affectation </a>
+</ul>
+<hr size="1" width="100%">
+<a href="prg-c64.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c66.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c59.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

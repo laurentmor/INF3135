@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Programmation en C -  1.3.  Les biblioth&egrave;ques de fonctions pr&eacute;d&eacute;finies</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0b6Gold (WinNT; I) [Netscape]">
+<link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+
+<P><!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<A HREF="prg-c12.htm"><IMG SRC="./leftg.gif" ALT="Previous" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c14.htm"><IMG SRC="./rightg.gif" ALT="Next" HEIGHT=30 WIDTH=30  border=0></A>
+<A HREF="prg-c08.htm"><IMG SRC="./upg.gif" ALT="Up" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c.htm"><IMG SRC="./topg.gif" ALT="Title" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c_c.htm"><IMG SRC="./contg.gif" ALT="Contents" HEIGHT=30 WIDTH=30 border=0></A>
+<!--solu-->
+<hr size="1" width="100%"></P>
+
+<H2>1.3. Les biblioth&egrave;ques de fonctions pr&eacute;d&eacute;finies</H2>
+
+<P><B><I>Utilisation des biblioth&egrave;ques de fonctions</I></B></P>
+
+<P> La pratique en C exige l'utilisation de biblioth&egrave;ques de fonctions.
+Ces biblioth&egrave;ques sont disponibles dans leur forme pr&eacute;compil&eacute;e
+(extension: <B><TT>.LIB</TT></B>). Pour pouvoir les utiliser, il faut inclure
+des fichiers en-t&ecirc;te (<I>header files </I><B><TT>- </TT></B>extension
+<B><TT>.H</TT></B>) dans nos programmes. Ces fichiers contiennent des <I>'prototypes'</I>
+des fonctions d&eacute;finies dans les biblioth&egrave;ques et cr&eacute;ent
+un lien entre les fonctions pr&eacute;compil&eacute;es et nos programmes.</P>
+
+<P><B><I>#include</I></B></P>
+
+<P> L'instruction <B>#<I>include</I></B> ins&egrave;re les fichiers en-t&ecirc;te
+indiqu&eacute;s comme arguments dans le texte du programme au moment de
+la compilation.</P>
+
+<P><B><I>Identification des fichiers</I></B></P>
+
+<P> Lors de la programmation en Borland C, nous travaillons donc avec diff&eacute;rents
+types de fichiers qui sont identifi&eacute;s par leurs extensions:</P>
+
+<TABLE>
+<TR rowspan=1 align="left">
+<TD colspan=1 align="left"><B><TT>*.C</TT></B><BR>
+</TD>
+
+<TD colspan=1 align="left">fichiers source<BR>
+</TD>
+</TR>
+
+<TR rowspan=1 align="left">
+<TD colspan=1 align="left"><B><TT>*.OBJ</TT></B><BR>
+</TD>
+
+<TD colspan=1 align="left">fichiers compil&eacute;s (versions objet)<BR>
+</TD>
+</TR>
+
+<TR rowspan=1 align="left">
+<TD colspan=1 align="left"><B><TT>*.EXE</TT></B><BR>
+</TD>
+
+<TD colspan=1 align="left">fichiers compil&eacute;s et li&eacute;s (versions
+ex&eacute;cutables)<BR>
+</TD>
+</TR>
+
+<TR rowspan=1 align="left">
+<TD colspan=1 align="left"><B><TT>*.LIB</TT></B><BR>
+</TD>
+
+<TD colspan=1 align="left">biblioth&egrave;ques de fonctions pr&eacute;compil&eacute;es<BR>
+</TD>
+</TR>
+
+<TR rowspan=1 align="left">
+<TD colspan=1 align="left"><B><TT>*.H</TT></B><BR>
+</TD>
+
+<TD colspan=1 align="left">fichiers en-t&ecirc;te (<I>header files</I>)<BR>
+</TD>
+</TR>
+</TABLE>
+
+<P><B><I>Exemple</I></B></P>
+
+<P> Nous avons &eacute;crit un programme qui fait appel &agrave; des fonctions
+math&eacute;matiques et des fonctions graphiques pr&eacute;d&eacute;finies.
+Pour pouvoir utiliser ces fonctions, le programme a besoin des biblioth&egrave;ques:</P>
+
+<PRE><B>   MATHS.LIB
+   GRAPHICS.LIB</B></PRE>
+
+<P>Nous devons donc inclure les fichiers en-t&ecirc;te correspondants dans
+le code source de notre programme &agrave; l'aide des instructions:</P>
+
+<PRE><B>   #include &lt;math.h&gt;
+   #include &lt;graphics.h&gt;</B></PRE>
+
+<P>Apr&egrave;s la compilation, les fonctions precompil&eacute;es des biblioth&egrave;ques
+seront ajout&eacute;es &agrave; notre programme pour former une version
+ex&eacute;cutable du programme (voir sch&eacute;ma).</P>
+
+<P><B><I>Remarque:</I></B> La biblioth&egrave;que de fonctions <B>graphics.h
+</B>est sp&eacute;cifique aux fonctionnalit&eacute;s du PC et n'est pas
+incluse dans le standard ANSI-C.</P>
+
+<P>
+<hr size="1" width="100%"></P>
+
+<UL>
+<LI><A HREF="prg-c14.htm">Sch&eacute;ma: Biblioth&egrave;ques de fonctions
+et compilation</A></LI>
+</UL>
+
+<P>
+<hr size="1" width="100%">
+<A HREF="prg-c12.htm"><IMG SRC="./leftg.gif" ALT="Previous" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c14.htm"><IMG SRC="./rightg.gif" ALT="Next" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c08.htm"><IMG SRC="./upg.gif" ALT="Up" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c.htm"><IMG SRC="./topg.gif" ALT="Title" HEIGHT=30 WIDTH=30 border=0></A>
+<A HREF="prg-c_c.htm"><IMG SRC="./contg.gif" ALT="Contents" HEIGHT=30 WIDTH=30 border=0></A>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small></P>
+
+</BODY>
+</HTML>

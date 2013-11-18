@@ -1,0 +1,64 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.17 Mise &agrave; z&eacute;ro de la diagonale principale d'une matrice</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex69.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex71.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.17 Mise &agrave; z&eacute;ro de la diagonale principale d'une matrice</h3>
+<b>	</b><p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ int A[50][50]; /* matrice carr&eacute;e   */
+ int N;         /* dimension de la matrice carr&eacute;e */
+ int I, J;      /* indices courants */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Dimension de la matrice carr&eacute;e (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N);
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;N; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%d&quot;, &amp;A[I][J]);
+        }
+ /* Affichage de la matrice */
+ printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;N; J++)
+          printf(&quot;%7d&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+
+<b> /* Mise &agrave; z&eacute;ro de la diagonale principale */</b>
+<b> for (I=0; I&lt;N; I++)</b>
+<b>      A[I][I]=0;</b>
+ 
+ /* Edition du r&eacute;sultat */
+ printf(&quot;Matrice r&eacute;sultat :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;N; J++)
+          printf(&quot;%7d&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+ return 0;
+}</pre>
+ <p>
+ <p>
+<p><hr size="1" width="100%">
+<a href="solex69.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex71.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

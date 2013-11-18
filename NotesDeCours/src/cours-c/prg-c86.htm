@@ -1,0 +1,177 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 8.7.2. Acc&egrave;s aux diff&eacute;rentes composantes</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c85.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c87.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c84.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+8.7.2. Acc&egrave;s aux diff&eacute;rentes composantes</h3>
+<ul>
+<li><a href="#Heading180"> Exercice 8.11</a>
+<li><a href="#Heading181">Exercice 8.12</a>
+<li><a href="#Heading182">Exercice 8.13</a>
+<li><a href="#Heading183">Exercice 8.14</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+<b><i>Acc&egrave;s aux cha&icirc;nes</i></b><p>
+Il est possible d'acc&eacute;der aux diff&eacute;rentes <b><i>cha&icirc;nes de
+caract&egrave;res</i></b> d'un tableau, en indiquant simplement la ligne
+correspondante.<p>
+<p>
+<b><i>Exemple</i></b><p>
+L'ex&eacute;cution des trois instructions suivantes:<p>
+
+
+<pre><b> char JOUR[7][9]= {&quot;lundi&quot;, &quot;mardi&quot;, &quot;mercredi&quot;,
+                   &quot;jeudi&quot;, &quot;vendredi&quot;,
+                   &quot;samedi&quot;, &quot;dimanche&quot;};
+ int I = 2;
+ printf(&quot;Aujourd'hui, c'est %s !\n&quot;, JOUR[I]);</b></pre>
+<p>
+affichera la phrase:<p>
+
+
+<pre><b> Aujourd'hui, c'est mercredi !</b></pre>
+<p>
+<p>
+<b><i>Affectation</i></b><p>
+Des expressions comme JOUR[I] repr&eacute;sentent <i>l'adresse</i> du premier
+&eacute;l&eacute;ment d'une cha&icirc;ne de caract&egrave;res. N'essayez donc
+pas de 'modifier' une telle adresse par une affectation directe !<p>
+<p>
+<img src="attentio.gif" alt="Attention!" align="right" width="43" height="65"><p>
+<img src="prg-c40.gif" width="203" height="42"><p>
+<p>
+<center>L'attribution d'une cha&icirc;ne de caract&egrave;res &agrave; une
+composante d'un tableau de cha&icirc;nes se fait en g&eacute;n&eacute;ral
+&agrave; l'aide de la fonction <b>strcpy</b>:<p>
+</center><p>
+<b><i>Exemple</i></b><p>
+La commande
+
+<pre><b>   strcpy(JOUR[4], &quot;Friday&quot;);</b></pre>
+changera
+le contenu de la <i>5<sup>e</sup></i> composante du tableau JOUR de &quot;vendredi&quot;
+en &quot;Friday&quot;.<p>
+<p>
+<p>
+<b><i>Acc&egrave;s aux caract&egrave;res</i></b><p>
+Evidemment, il existe toujours la possibilit&eacute; d'acc&eacute;der
+directement aux diff&eacute;rents <b><i>caract&egrave;res</i></b> qui composent
+les mots du tableau.<p>
+<p>
+<b><i>Exemple</i></b><p>
+L'instruction
+
+<pre><b>for(I=0; I&lt;7; I++) 
+       printf(&quot;%c  &quot;, JOUR[I][0]);</b></pre>
+<p>
+va afficher les premi&egrave;res lettres des jours de la semaine:
+
+<pre><b>   l  m  m  j  v  s  d</b></pre>
+
+<h4><hr size="2">
+<a name="Heading180"> Exercice 8.11</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit 10 mots et les m&eacute;morise dans un tableau de
+cha&icirc;nes de caract&egrave;res. Trier les 10 mots lexicographiquement en
+utilisant les fonctions <b>strcmp</b> et <b>strcpy</b>. Afficher le tableau
+tri&eacute;. Utilisez la m&eacute;thode de tri par s&eacute;lection directe
+(voir Exercice 7.14).<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading181">Exercice 8.12</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit un nombre entre 1 et 7 et qui affiche le nom du
+jour de la semaine correspondant:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt>&quot;lundi&quot;</tt>
+<br></td>
+<td colspan="1" align="left">pour
+1
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>&quot;mardi&quot;</tt>
+<br></td>
+<td colspan="1" align="left">pour
+2
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">.
+. .
+<br></td>
+<td colspan="1" align="left">.
+. .
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>&quot;dimanche&quot;</tt>
+<br></td>
+<td colspan="1" align="left">pour
+7
+<br></td></tr></table>Utiliser
+le premier &eacute;l&eacute;ment du tableau pour m&eacute;moriser un petit
+message d'erreur.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading182">Exercice 8.13</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit 5 mots, s&eacute;par&eacute;s par des espaces et
+qui les affiche ensuite dans une ligne, mais dans l'ordre inverse. Les mots
+sont m&eacute;moris&eacute;s dans un tableau de cha&icirc;nes de
+caract&egrave;res. <p>
+<b>Exemple</b>
+
+<pre><b>      voici une petite phrase !
+      ! phrase petite une voici</b></pre>
+
+<h3>
+</h3>
+
+<h4><hr size="2">
+<a name="Heading183">Exercice 8.14</a>
+<hr size="1"></h4>
+<p>
+<p>
+Refaire l'exercice 8.8 (Conjugaison des verbes r&eacute;guliers en &quot;er&quot;) en
+utilisant deux tableaux de cha&icirc;nes de caract&egrave;res:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+SUJ
+<br></td>
+<td colspan="1" align="left">pour
+les sujets
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">TERM
+<br></td>
+<td colspan="1" align="left">pour
+les terminaisons
+<br></td></tr></table>Employez
+les fonctions <b>printf</b>, <b>scanf</b>, <b>strlen</b>.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c85.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c87.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c84.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

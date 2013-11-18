@@ -1,0 +1,70 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.7</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex134.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex136.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.7</h3>
+ <p>
+ <p>
+
+
+<pre>#include &lt;stdio.h&gt;
+
+main()
+{
+ /* Prototypes des fonctions appel&eacute;es */
+ double EXP1(double X, int N);
+ void   EXP2(double *X, int N);
+ /* Variables locales */
+ double A;
+ int B;
+ /* Traitements */
+ printf(&quot;Introduire un r&eacute;el X : &quot;);
+ scanf(&quot;%lf&quot;, &amp;A);
+ printf(&quot;Introduire l'exposant positif N : &quot;);
+ scanf(&quot;%d&quot;, &amp;B);
+ /* a */
+ printf(&quot;EXP1(%.2f , %d) = <b>%f</b>\n&quot;, A, B, <b>EXP1(A,B)</b>);
+ /* b */
+ /* Comme la valeur initiale de A est perdue &agrave; l'appel */
+ /* de EXP2, il faut partager l'affichage si on veut   */
+ /* afficher la valeur de A avant et apr&egrave;s l'appel !   */ 
+ printf(&quot;EXP2(%.2f , %d) = &quot;, A, B);
+ <b>EXP2(&amp;A, B);</b>
+ printf(&quot;%f\n&quot;, <b>A</b>);
+ return 0;
+}
+
+<b>double EXP1(double X, int N)</b>
+<b>{</b>
+<b> double RES;</b>
+<b> for (RES=1.0; N&gt;0; N--)</b>
+<b>     RES *= X;</b>
+<b> return RES;</b>
+<b>}</b>
+ 
+<b>void EXP2(double *X, int N)</b>
+<b>{</b>
+<b> double AIDE;</b>
+<b> for (AIDE=1.0; N&gt;0; N--)</b>
+<b>     AIDE *= *X;</b>
+<b> *X = AIDE;</b>
+<b>}</b></pre>
+<p>
+<b>Remarque:</b> Cette solution de EXP2 respecte automatiquement le cas
+o&ugrave; N=0.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex134.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex136.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex133.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

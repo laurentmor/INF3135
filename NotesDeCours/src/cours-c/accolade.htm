@@ -1,0 +1,53 @@
+<html><head>
+
+<title>Programmation en C - Usage des accolades</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c48.htm#RemAvancee"><img src="./leftg.gif" alt="retour " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+Je crois qu'il est de bonne pratique de forcer les accolades &quot;{ }&quot;
+dans un if (while, do ...while, for ...) m&ecirc;me pour une seule instruction.
+<p>
+<i><b>Exemple:</b></i>
+<p>
+                        je n'&eacute;cris jamais (qu'il y est ou pas de else est sans importance):
+ <pre><b>
+                                        if (condition) 
+                                                printf(&quot;Message&quot;);
+</b> </pre>
+                        mais toujours:
+ <pre><b>
+                                        if (condition) {
+                                                printf(&quot;Message&quot;);
+                                        }
+
+</b> </pre>
+<p>
+              La raison de est que lors du d&eacute;veloppement de gros projet (o&ugrave; plusieurs personnes peuvent
+                etre impliqu&eacute;es) il se peut que le code soit modifi&eacute; par une autre personne plus tard dans
+                le cadre du projet (ou d'une nouvelle version, ou d'un bug...). Il suffit d'un moment d'inattention et une erreur est introduite. <p>Ainsi si vous avez:
+ <pre><b>
+                        if (condition)
+                                a = b; /* une expression quelconque */
+</b> </pre>
+<p>
+
+                Si vous voulez une nouvelle fonctionalit&eacute;, une erreur fr&eacute;quente qui peut
+arriver (et qui 
+                arrive!) est:
+ <pre><b>
+                        if (condition)
+                                a = b; /* une expression quelconque */
+                                a += fct() /* l'ajout d'une nouvelle valeur mais dans tout les cas !!! */
+</b> </pre>
+<p>
+                Ainsi si les accolades sont forc&eacute;es il n'y a pas d'erreur potentielle.
+<br>
+                (Le seul cas acceptable est celui-ci:<tt><b> if (condition) printf(...); </b></tt>car sur une seule ligne.)
+<br>
+                Ceci n'est qu'une opinion, mais si on
+                fait de la programmation d&eacute;fensive forcer les accolades est de bonne pratique.
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c48.htm#RemAvancee"><img src="./leftg.gif" alt="retour " border="0" width="30" height="30"></a>
+<p><hr size="1" width="100%"><i> Commentaire publi&eacute; avec l'aimable permission de <i><b>Francois Donato</b> <a href="mailto:frdonato@hotmail.com">frdonato@hotmail.com</a></i><p></body></html>
+ 

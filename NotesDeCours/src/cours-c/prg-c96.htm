@@ -1,0 +1,453 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.3.1. Adressage des composantes d'un tableau</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c95.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c97.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.3.1. Adressage des composantes d'un tableau</h3>
+<ul>
+<li><a href="#Heading204">Exercice 9.2</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+<p>
+Comme nous l'avons d&eacute;j&agrave; constat&eacute; au chapitre 7, le nom
+d'un tableau repr&eacute;sente l'adresse de son premier &eacute;l&eacute;ment.
+En d'autre termes:<p>
+<center><tt><b>&amp;tableau[0]     </b></tt>et<tt><b>     tableau
+</b></tt> <p>
+<b></center></b>sont une seule et m&ecirc;me adresse. 	<p>
+En simplifiant, nous pouvons retenir que <i>le nom d'un tableau est un</i>
+<b><i>pointeur</i></b><i> <b>constant</b> sur le premier &eacute;l&eacute;ment
+du tableau</i>.<p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+En d&eacute;clarant un tableau A de type <b>int</b> et un pointeur P sur
+<b>int</b>, 
+
+<pre><b>   int A[10];
+   int *P;
+</b></pre>
+l'instruction:<p>
+<tt><b>      P = A;     </b></tt>est &eacute;quivalente &agrave;<tt><b>     P =
+&amp;A[0];</b></tt><p>
+<tt> </tt><p>
+<img src="prg-c50.gif" width="396" height="106"><p>
+<p>
+<p>
+<p>
+<center>Si P pointe sur une composante quelconque d'un tableau, alors P+1
+pointe sur la composante suivante. Plus g&eacute;n&eacute;ralement,<p>
+</center>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>P+i</b></tt>
+<br></td>
+<td colspan="1" align="left">pointe
+sur la i-i&egrave;me composante derri&egrave;re P et 
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P-i</b></tt>
+<br></td>
+<td colspan="1" align="left">pointe
+sur la i-i&egrave;me composante devant P.
+<br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<p>
+Ainsi, apr&egrave;s l'instruction,<p>
+
+
+<pre><b>   P = A;</b></pre>
+<p>
+le pointeur P pointe sur A[0], et<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<tt><b> </b></tt><tt><b>  *(P+1)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A[1]
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left">
+<tt><b>   *(P+2)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A[2]
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+  ...</b></tt>
+<br></td>
+<td colspan="1" align="left"><tt><b>...</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><tt><b>
+  *(P+i)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A[i]
+<br></td></tr></table><p>
+<b><i>Remarque</i></b><p>
+Au premier coup d'oeil, il est bien surprenant que P+i n'adresse pas le
+i-i&egrave;me <b><i>octet</i></b> derri&egrave;re P, mais la i-i&egrave;me
+<b><i>composante</i></b> derri&egrave;re P ...<p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Ceci s'explique par la strat&eacute;gie de programmation 'd&eacute;fensive' des
+cr&eacute;ateurs du langage C: <p>
+<p>
+Si on travaille avec des pointeurs, les erreurs les plus perfides sont
+caus&eacute;es par des pointeurs malplac&eacute;s et des adresses mal
+calcul&eacute;es. En C, le compilateur peut calculer automatiquement l'adresse
+de l'&eacute;l&eacute;ment P+i en ajoutant &agrave; P la grandeur d'une
+composante multipli&eacute;e par i. Ceci est possible, parce que:<p>
+<p>
+ - chaque pointeur est limit&eacute; &agrave; un seul type de donn&eacute;es,
+et<p>
+ - le compilateur conna&icirc;t le nombre d'octets des diff&eacute;rents
+types.<p>
+<p>
+<b><i>Exemple</i></b><p>
+Soit A un tableau contenant des &eacute;l&eacute;ments du type <b>float</b> et
+P un pointeur sur <b>float</b>:
+
+<pre><b>   float A[20], X;
+   float *P;
+</b></pre>
+Apr&egrave;s
+les instructions,
+
+<pre><b>   P = A;
+   X = *(P+9);
+</b></pre>
+X
+contient la valeur du 10-i&egrave;me &eacute;l&eacute;ment de A,
+(c.-&agrave;-d. celle de A[9]). Une donn&eacute;e du type <b>float</b> ayant
+besoin de 4 octets, le compilateur obtient l'adresse P+9 en ajoutant 9 * 4 = 36
+octets &agrave; l'adresse dans P.<p>
+<p>
+Rassemblons les constatations ci dessus   :<p>
+<p>
+<b>  Comme A repr&eacute;sente l'adresse de A[0],
+</b><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>*(A+1)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A[1]
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(A+2)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A[2]
+<br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">...
+<br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(A+i)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de A[i]
+<br></td>
+<td colspan="1" align="left"><br></td></tr></table><p>
+<p>
+<b><i>Attention !</i></b><p>
+Il existe toujours une diff&eacute;rence essentielle entre un pointeur et le
+nom d'un tableau:<p>
+<p>
+<img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67"><p>
+- 	Un <i>pointeur</i> est une variable, <br>		donc des op&eacute;rations comme
+<tt><b>P = A</b></tt> ou <tt><b>P++</b></tt> sont permises.<p>
+- 	Le <i>nom d'un tableau</i> est une constante, <br>		donc des
+op&eacute;rations comme <tt><b>A = P</b></tt> ou <tt><b>A++</b></tt> sont
+impossibles.<p>
+<p>
+<p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Ceci nous permet de jeter un petit coup d'oeil derri&egrave;re les rideaux:<p>
+Lors de la premi&egrave;re phase de la compilation, toutes les expressions de
+la forme A[i] sont traduites en *(A+i). En multipliant l'indice i par la
+grandeur d'une composante, on obtient un indice en octets: <p>
+<p>
+<center><i>&lt;indice en octets&gt; = &lt;indice &eacute;l&eacute;ment&gt; *
+&lt;grandeur &eacute;l&eacute;ment&gt;</i><p>
+<i></center></i><p>
+Cet indice est ajout&eacute; &agrave; l'adresse du premier
+&eacute;l&eacute;ment du tableau pour obtenir l'adresse de la composante i du
+tableau. Pour le calcul d'une adresse donn&eacute;e par une adresse plus un
+indice en octets, on utilise un mode d'adressage sp&eacute;cial connu sous le
+nom <b><i>'adressage index&eacute;'</i></b><i>:</i><p>
+<p>
+<center><i>&lt;adresse index&eacute;e&gt; = &lt;adresse&gt; + &lt;indice en
+octets&gt;</i><p>
+<i></center></i><p>
+Presque tous les processeurs disposent de plusieurs registres sp&eacute;ciaux
+<i>(registres index)</i> &agrave; l'aide desquels on peut effectuer l'adressage
+index&eacute; de fa&ccedil;on tr&egrave;s efficace.<p>
+<p>
+<b><i>R&eacute;sumons</i></b>
+Soit un tableau A d'un type quelconque et i un indice pour les composantes de
+A, alors<p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>A</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de <b> </b>
+<br></td>
+<td colspan="1" align="left"><tt><b>A[0]</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>A+i</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de
+<br></td>
+<td colspan="1" align="left"><tt><b>A[i]</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(A+i)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de
+<br></td>
+<td colspan="1" align="left"><tt><b>A[i]</b></tt>
+<br></td></tr></table><p>
+Si P = A, alors 
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>P</b></tt>
+<br></td>
+<td colspan="1" align="left">pointe
+sur l'&eacute;l&eacute;ment
+<br></td>
+<td colspan="1" align="left"><tt><b>A[0]</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P+i</b></tt>
+<br></td>
+<td colspan="1" align="left">pointe
+sur l'&eacute;l&eacute;ment
+<br></td>
+<td colspan="1" align="left"><tt><b>A[i]</b></tt>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(P+i)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de
+<br></td>
+<td colspan="1" align="left"><tt><b>A[i]</b></tt>
+<br></td></tr></table><p>
+<b><i>Formalisme tableau et formalisme pointeur</i></b><p>
+A l'aide de ce bagage, il nous est facile de 'traduire' un programme
+&eacute;crit &agrave; l'aide du <i>'formalisme tableau'</i> dans un programme
+employant le <i>'formalisme pointeur'.</i><p>
+<p>
+<p>
+<b><i>Exemple</i></b><p>
+Les deux programmes suivants copient les &eacute;l&eacute;ments positifs d'un
+tableau T dans un deuxi&egrave;me tableau POS. <p>
+<p>
+<b><i>Formalisme tableau</i></b>
+
+<pre><b>main()
+{
+ int T[10] = {-3, 4, 0, -7, 3, 8, 0, -1, 4, -9};
+ int POS[10];
+ int I,J;  /* indices courants dans T et POS */
+ for (J=0,I=0 ; I&lt;10 ; I++)
+     if (T[I]&gt;0) 
+        {
+         POS[J] = T[I];
+         J++;
+        }
+ return 0;
+}</b></pre>
+<p>
+Nous pouvons remplacer syst&eacute;matiquement la notation
+<tt><b>tableau[I]</b></tt> par <tt><b>*(tableau + I)</b></tt>, ce qui conduit
+&agrave; ce programme:<p>
+<p>
+<b><i>Formalisme pointeur</i></b>
+
+<pre><b>main()
+{
+ int T[10] = {-3, 4, 0, -7, 3, 8, 0, -1, 4, -9};
+ int POS[10];
+ int I,J;  /* indices courants dans T et POS */
+ for (J=0,I=0 ; I&lt;10 ; I++)
+     if (*(T+I)&gt;0) 
+        {
+         *(POS+J) = *(T+I);
+         J++;
+        }
+ return 0;
+}</b></pre>
+<p>
+<p>
+<b><i>Sources d'erreurs</i></b><p>
+Un bon nombre d'erreurs lors de l'utilisation de C provient de la confusion
+entre soit contenu et adresse, soit pointeur et variable. Revoyons donc les
+trois types de d&eacute;clarations que nous connaissons jusqu'ici et
+r&eacute;sumons les possibilit&eacute;s d'acc&egrave;s aux donn&eacute;es qui
+se pr&eacute;sentent. <p>
+<p>
+<p>
+<b><i>Les variables et leur utilisation</i></b>
+<tt><b>int A;<br></b></tt>	d&eacute;clare une <b><i>variable simple</i></b> du
+type <b>int</b><p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>A</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+<i>le contenu de A</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>&amp;A</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de A
+<br></td></tr></table><tt></tt><p>
+<tt><b>int B[];</b></tt><br>	d&eacute;clare un <b><i>tableau
+</i></b>d'&eacute;l&eacute;ments du type <b>int</b><p>
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>B</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+<i>l'adresse de la premi&egrave;re composante de B</i>. 
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">(Cette
+adresse est toujours constante)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>B[i]</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de la composante i du tableau
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>&amp;B[i]</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de la composante i du tableau
+<br></td></tr></table><p>
+	en utilisant le formalisme pointeur:
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>B+i</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de la composante i du tableau
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(B+i)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de la composante i du tableau
+<br></td></tr></table><tt></tt><p>
+<tt><b>int *P;<br></b></tt>	d&eacute;clare un<b><i> pointeur</i></b> sur des
+&eacute;l&eacute;ments du type <b>int</b>.
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>P</b></tt> peut pointer
+<br></td>
+<td colspan="1" align="left">sur
+des variables simples du type <b>int</b> ou
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">sur
+les composantes d'un tableau du type <b>int</b>.
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+<i>l'adresse contenue dans P</i>
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">(Cette
+adresse est variable)
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*P</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de l'adresse dans P
+<br></td></tr></table><p>
+	Si P pointe dans un tableau, alors
+<table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><p>
+<tt><b>P</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de la premi&egrave;re composante
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>P+i</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+l'adresse de la i-i&egrave;me composante derri&egrave;re P
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt><b>*(P+i)</b></tt>
+<br></td>
+<td colspan="1" align="left">d&eacute;signe
+le contenu de la i-i&egrave;me composante derri&egrave;re P
+<br></td></tr></table>
+<h4><hr size="2">
+<a name="Heading204">Exercice 9.2</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit deux tableaux A et B et leurs dimensions N et M au
+clavier et qui ajoute les &eacute;l&eacute;ments de B &agrave; la fin de A.
+Utiliser le formalisme pointeur &agrave; chaque fois que cela est possible.<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c95.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c97.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

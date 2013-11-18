@@ -1,0 +1,45 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 11.3.1. Le type FILE*</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c136.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c138.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c136.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+11.3.1. Le type FILE*</h3>
+ <p>
+ Pour pouvoir travailler avec un fichier, un programme a besoin d'un
+certain nombre d'informations au sujet du fichier: <p>
+<p>
+	-	adresse de la m&eacute;moire tampon,<p>
+	-	position actuelle de la t&ecirc;te de lecture/&eacute;criture,<p>
+	-	type d'acc&egrave;s au fichier: &eacute;criture, lecture, ... <p>
+	-	&eacute;tat d'erreur,<p>
+	-	. . .  <p>
+<p>
+Ces informations (dont nous n'aurons pas &agrave; nous occuper), sont
+rassembl&eacute;es dans une structure du type sp&eacute;cial <b>FILE</b>.
+Lorsque nous ouvrons un fichier avec la commande <b>fopen</b>, le
+syst&egrave;me g&eacute;n&egrave;re automatiquement un bloc du type <b>FILE</b>
+et nous fournit son adresse. <p>
+<p>
+Tout ce que nous avons &agrave; faire dans notre programme est:<p>
+<p>
+*	d&eacute;clarer un pointeur du type <b>FILE*</b> pour chaque fichier dont
+nous avons besoin,<p>
+*	affecter l'adresse retourn&eacute;e par <b>fopen</b> &agrave; ce pointeur,<p>
+*	employer le pointeur &agrave; la place du nom du fichier dans toutes les
+instructions de lecture ou d'&eacute;criture,<p>
+*	lib&eacute;rer le pointeur &agrave; la fin du traitement &agrave; l'aide de
+<b>fclose</b>.<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c136.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c138.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c136.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

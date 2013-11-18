@@ -1,0 +1,60 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 10.37</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex168.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex170.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex168.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 10.37</h3>
+ <p>
+ 
+
+<pre>void LIRE_DIM (int *L, int LMAX, int *C, int CMAX)
+{
+ /* Saisie des dimensions de la matrice */
+ do
+  {
+   printf(&quot;Nombre de lignes de la matrice   (max.%d) : &quot;,LMAX);
+   scanf(&quot;%d&quot;, L);
+  }
+ while (*L&lt;0 || *L&gt;LMAX);
+ do
+  {
+   printf(&quot;Nombre de colonnes de la matrice (max.%d) : &quot;,CMAX);
+   scanf(&quot;%d&quot;, C);
+  }
+ while (*C&lt;0 || *C&gt;CMAX);
+}</pre>
+<p>
+<p>
+<p>
+<b> b)</b>	Ecrire la fonction LIRE_MATRICE &agrave; quatre param&egrave;tres
+MAT, L, C, et CMAX qui lit les composantes d'une matrice MAT du type <b>int</b>
+et de dimensions L et C. <p>
+
+
+<pre>void LIRE_MATRICE (int *MAT, int L, int C, int CMAX)
+{
+ /* Variables locales */
+ int I,J;
+ /* Saisie des composantes de la matrice */
+ for (I=0; I&lt;L; I++)
+      for (J=0; J&lt;C; J++)
+          {
+           printf(&quot;El&eacute;ment[%d][%d] : &quot;, I, J);
+           scanf(&quot;%d&quot;, MAT + I*CMAX + J);
+          }
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex168.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex170.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex168.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

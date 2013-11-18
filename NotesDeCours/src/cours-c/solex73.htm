@@ -1,0 +1,121 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 7.20    Multiplication d'une matrice par un r&eacute;el</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex72.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex74.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 7.20    Multiplication d'une matrice par un r&eacute;el</h3>
+ <p>
+ <p>
+<b>a)</b>    Le r&eacute;sultat de la multiplication sera
+m&eacute;moris&eacute; dans une deuxi&egrave;me matrice A qui sera ensuite
+affich&eacute;e.<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ float A[50][50]; /* matrice donn&eacute;e   */
+ float B[50][50]; /* matrice r&eacute;sultat */
+ int N, M;        /* dimensions des matrices */
+ int I, J;        /* indices courants */
+ float X;         /* multiplicateur   */
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;M; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%f&quot;, &amp;A[I][J]);
+        }
+ printf(&quot;Multiplicateur X : &quot;);
+ scanf(&quot;%f&quot;, &amp;X );
+ /* Affichage de la matrice */
+ printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%10.2f&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+<b> /* Affectation du r&eacute;sultat de la multiplication &agrave; B */</b>
+<b> for (I=0; I&lt;N; I++)</b>
+<b>     for (J=0; J&lt;M; J++)</b>
+<b>          B[I][J] = X*A[I][J];</b>
+  /* Edition du r&eacute;sultat */
+ printf(&quot;Matrice r&eacute;sultat :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%10.2f&quot;, B[I][J]);
+     printf(&quot;\n&quot;);
+    }
+ return 0;
+} </pre>
+<p>
+<b>b)</b>	Les &eacute;l&eacute;ments de la matrice A seront multipli&eacute;s
+par X.<p>
+
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ /* D&eacute;clarations */
+ float A[50][50]; /* matrice donn&eacute;e    */
+ int N, M;        /* dimensions de la matrice */
+ int I, J;        /* indices courants */
+ float X;         /* multiplicateur   */
+
+ /* Saisie des donn&eacute;es */
+ printf(&quot;Nombre de lignes   (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;N );
+ printf(&quot;Nombre de colonnes (max.50) : &quot;);
+ scanf(&quot;%d&quot;, &amp;M );
+ for (I=0; I&lt;N; I++)
+    for (J=0; J&lt;M; J++)
+        {
+         printf(&quot;El&eacute;ment[%d][%d] : &quot;,I,J);
+         scanf(&quot;%f&quot;, &amp;A[I][J]);
+        }
+ printf(&quot;Multiplicateur X : &quot;);
+ scanf(&quot;%f&quot;, &amp;X);
+ /* Affichage de la matrice */
+ printf(&quot;Matrice donn&eacute;e :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%10.2f&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+<b> /* Multiplication des &eacute;l&eacute;ments de A par X */</b>
+<b> for (I=0; I&lt;N; I++)</b>
+<b>     for (J=0; J&lt;M; J++)</b>
+<b>          A[I][J] *= X;</b>
+  /* Edition du r&eacute;sultat */
+ printf(&quot;Matrice r&eacute;sultat :\n&quot;);
+ for (I=0; I&lt;N; I++)
+    {
+     for (J=0; J&lt;M; J++)
+          printf(&quot;%10.2f&quot;, A[I][J]);
+     printf(&quot;\n&quot;);
+    }
+ return 0;
+}</pre>
+<p>
+ <p>
+ <p><hr size="1" width="100%">
+<a href="solex72.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex74.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex69.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

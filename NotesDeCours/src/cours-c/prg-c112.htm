@@ -1,0 +1,79 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 10.2.2. Variables globales</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c111.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c113.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c110.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+10.2.2. Variables globales</h3>
+ <p>
+ <p>
+<p>
+Les variables d&eacute;clar&eacute;es au d&eacute;but du fichier, &agrave;
+l'ext&eacute;rieur de toutes les fonctions<i> sont disponibles &agrave; toutes
+les fonctions du programme</i>. Ce sont alors des <b><i>variables
+globales</i></b>. En g&eacute;n&eacute;ral, les variables globales sont
+d&eacute;clar&eacute;es imm&eacute;diatement derri&egrave;re les instructions
+<b>#include</b> au d&eacute;but du programme.<p>
+<p>
+<p>
+<b><i>Attention !</i></b><p>
+<center><i>Les variables d&eacute;clar&eacute;es au d&eacute;but de la fonction
+principale </i><b>main</b><i> </i><p>
+<i></center><center><b>ne sont pas</b> des variables globales, mais elles sont
+locales &agrave; </i><b>main</b><i> <b>!</b> </i><p>
+<i></center></i><p>
+<b><i>Exemple</i></b><p>
+La variable STATUS est d&eacute;clar&eacute;e globalement pour pouvoir
+&ecirc;tre utilis&eacute;e dans les proc&eacute;dures A et B.
+
+<pre><b>#include &lt;stdio.h&gt;
+int STATUS;
+
+void A(...)
+{
+ ...
+ if (STATUS&gt;0) 
+      STATUS--;
+ else
+      ...
+ ...
+}
+
+void B(...)
+{
+ ...
+ STATUS++;
+ ...
+}</b></pre>
+<p>
+<b><i>Conseils</i></b><p>
+*	Les variables globales sont &agrave; utiliser avec pr&eacute;caution,
+puisqu'elles cr&eacute;ent des <i>liens invisibles entre les fonctions</i>. La
+modularit&eacute; d'un programme peut en souffrir et le programmeur risque de
+perdre la vue d'ensemble. <br>
+<img src="conseil.gif" alt="Conseil" align="right" width="34" height="64">
+*	Il faut faire
+attention &agrave; ne pas cacher involontairement des variables globales par
+des variables locales du m&ecirc;me nom.<br>
+*	Le codex de la programmation d&eacute;fensive nous conseille <b><i>d'&eacute;crire
+nos programmes aussi 'localement' que possible</i></b>.<p>
+<p>
+L'utilisation de variables globales devient in&eacute;vitable, si<p>
+*	plusieurs fonctions qui ne s'appellent pas ont besoin des m&ecirc;mes
+variables, ou<br>
+*	plusieurs fonctions d'un programme ont besoin du m&ecirc;me ensemble de
+variables. Ce serait alors trop encombrant de passer toutes les variables comme
+param&egrave;tres d'une fonction &agrave; l'autre. <br>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c111.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c113.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c110.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

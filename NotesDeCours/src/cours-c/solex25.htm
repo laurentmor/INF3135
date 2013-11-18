@@ -1,0 +1,101 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 4.9</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex24.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex26.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex16.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 4.9</h3>
+ <p>
+ <p>
+<p>
+<b>a)</b>	 <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+<b> int PNET, TVA;</b>
+<b> double PTTC;</b>
+  printf(&quot;Entrez le prix net de l'article : &quot;);
+ scanf(&quot;%d&quot;, &amp;PNET);
+ printf(&quot;Entrez le taux de la TVA (en %) : &quot;);
+ scanf(&quot;%d&quot;, &amp;TVA);
+<b> PTTC = PNET+(double)PNET*TVA/100;</b>
+  printf(&quot;Le prix TTC est <b>%.2lf</b> Francs\n&quot;,PTTC);
+ return 0;
+}</pre>
+<p>
+<b>Remarque:</b><i> Conversion des types et priorit&eacute;s</i><p>
+ <p>
+ Lors du calcul de PTTC (type <b>double</b>), nous divisons le produit
+du PNET (type <b>int</b>) et de la TVA (type <b>int</b>) par 100. Pour ne pas
+perdre de la pr&eacute;cision lors de la division et pour &eacute;viter un
+d&eacute;passage du domaine lors du calcul du produit, il faut forcer
+l'utilisation du type <b>double</b>.<p>
+ <p>
+ En utilisant l'op&eacute;rateur de la conversion forc&eacute;e, il faut
+respecter la suite de l'&eacute;valuation de l'expression. Il ne suffirait donc
+pas d'&eacute;crire:<p>
+<tt>		 PTTC = (double)PNET+PNET*TVA/100;</tt><p>
+<tt></tt>Parce que la multiplication et la division ont la priorit&eacute; sur
+l'addition; la conversion se ferait trop tard, c.-&agrave;-d.: &agrave; la fin
+du calcul.<p>
+ <p>
+ Il existe plusieurs possibilit&eacute;s de r&eacute;soudre ce
+probl&egrave;me:<p>
+ <p>
+ 	-	utiliser la conversion <tt>(double)</tt> lors des premi&egrave;res
+op&eacute;rations effectu&eacute;es:<p>
+<tt>		 PTTC = PNET+<b>(double)</b>PNET*TVA/100;</tt><p>
+<tt></tt>	-	utiliser une constante du type <b>double</b> lors de la division:<p>
+<tt>		 PTTC = PNET+PNET*TVA/<b>100.0</b>;</tt><p>
+<tt></tt>	-	d&eacute;clarer PNET et/ou TVA comme <b>double</b> :<p>
+<tt>		 <b>double</b> PNET, TVA, PTTC;</tt><p>
+<tt></tt><i>suite . . .</i><p>
+ <p>
+<p>
+<b>b)</b>	 <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ <b>int  TVA;</b>
+<b> double PNET, PTTC;</b> /* donn&eacute;e et r&eacute;sultat du type double */
+ printf(&quot;Entrez le prix TTC de l'article : &quot;);
+ scanf(&quot;<b>%lf</b>&quot;, &amp;PTTC);
+ printf(&quot;Entrez le taux de la TVA (en %)  : &quot;);
+ scanf(&quot;%d&quot;, &amp;TVA);
+ /* Calcul: Ici, pas de for&ccedil;age de type n&eacute;cessaire */
+<b> PNET = PTTC*100/(100+TVA);</b>
+  printf(&quot;Le prix net est <b>%.2lf</b> Francs\n&quot;, PNET);
+ return 0;
+}</pre>
+<p>
+<b>Remarque:</b><i> Conversion de types et priorit&eacute;s</i><p>
+ <p>
+ Ici, PNET et PTTC sont du type <b>double</b>. Comme l'&eacute;valuation
+des op&eacute;rateurs binaires * et / se fait en passant de gauche &agrave;
+droite, la valeur 100 est d'abord convertie en <b>double</b> (valeur 100.0)
+pour &ecirc;tre multipli&eacute;e avec PTTC. La premi&egrave;re
+op&eacute;rande de la division est donc du type <b>double</b> et le
+r&eacute;sultat de l'addition est automatiquement converti en <b>double</b>
+avant la division. <p>
+ <p>
+ Un simple rem&egrave;de aux confusions serait ici l'utilisation de la
+constante 100.0 &agrave; la place de 100 :<p>
+<tt>		 PNET = PTTC*<b>100.0</b>/(<b>100.0</b>+TVA));</tt><p>
+<tt></tt><p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex24.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex26.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex16.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

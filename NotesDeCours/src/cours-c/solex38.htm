@@ -1,0 +1,55 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 6.3</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex37.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex39.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 6.3</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+main()
+{
+ int NUM;   /* num&eacute;rateur   de la division enti&egrave;re */
+ int DEN;   /* d&eacute;nominateur de la division enti&egrave;re */
+ int DIV;   /* r&eacute;sultat de la division enti&egrave;re */
+ int RES;   /* reste    de la division enti&egrave;re */
+
+ printf(&quot;Introduisez le num&eacute;rateur   : &quot;);
+ scanf(&quot;%d&quot;, &amp;NUM);
+ printf(&quot;Introduisez le d&eacute;nominateur : &quot;);
+ scanf(&quot;%d&quot;, &amp;DEN);
+
+<b> RES=NUM;</b>
+<b> DIV=0;</b>
+<b> while(RES&gt;=DEN)</b>
+<b>    {</b>
+<b>     RES-=DEN;</b>
+<b>     DIV++;</b>
+<b>    }</b>
+
+/* ou mieux encore : */
+/*
+<b> for (RES=NUM, DIV=0 ; RES&gt;=DEN ; DIV++)</b>
+<b>      RES-=DEN;</b>
+ */
+
+ printf(&quot; %d divis&eacute; par %d est %d reste %d\n&quot;, NUM, DEN, DIV, RES);
+ return 0;
+}</pre>
+<p>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex37.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex39.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex35.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

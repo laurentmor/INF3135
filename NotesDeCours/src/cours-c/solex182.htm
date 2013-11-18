@@ -1,0 +1,101 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Solutions des exercices de programmation en C - Exercice 11.6</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body background="bgr-solu.gif">
+<a href="solex181.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex183.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+Exercice 11.6</h3>
+ <p>
+ 
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+main()
+{
+  /* D&eacute;clarations : */
+  /* Nom du fichier et pointeur de r&eacute;f&eacute;rence */
+  char NOM_FICH[] = &quot;A:\\FAMILLE.TXT&quot;; 
+  FILE *FICHIER;
+  /* Autres variables */
+  char NOM[30], PERE[30], MERE[30], ENFANT[30];
+  int J,N_ENFANTS;
+  int I,N_ENR;
+ 
+  /* Ouverture du nouveau fichier en &eacute;criture */
+<b>  FICHIER = fopen(NOM_FICH, &quot;w&quot;);</b>
+   if (!FICHIER)
+     {  
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOM_FICH);
+      exit(-1);
+     }
+
+  /* Saisie des donn&eacute;es et cr&eacute;ation du fichier */
+  printf(&quot;*** Cr&eacute;ation du fichier %s ***\n&quot;, NOM_FICH);
+  printf(&quot;Nombre d'enregistrements &agrave; cr&eacute;er : &quot;);
+  scanf(&quot;%d&quot;,&amp;N_ENR);
+  for (I=1; I&lt;=N_ENR; I++)
+    {
+     printf(&quot;Enregistrement No: %d \n&quot;, I);
+     printf(&quot;Nom de famille : &quot;);
+     scanf(&quot;%s&quot;, NOM);      
+     printf(&quot;Pr&eacute;nom du p&egrave;re : &quot;);
+     scanf(&quot;%s&quot;, PERE);
+     printf(&quot;Pr&eacute;nom de la m&egrave;re : &quot;);
+     scanf(&quot;%s&quot;, MERE);
+     printf(&quot;Nombre d'enfants : &quot;);
+     scanf(&quot;%d&quot;, &amp;N_ENFANTS);
+<b>     fprintf(FICHIER, &quot;%s\n%s\n%s\n%d\n&quot;,</b>
+<b>                                   NOM, PERE, MERE, N_ENFANTS);</b>
+<b>     for (J=1; J&lt;=N_ENFANTS; J++)</b>
+<b>         {</b>
+<b>          printf(&quot;Pr&eacute;nom %d. enfant : &quot;, J);</b>
+<b>          scanf(&quot;%s&quot;, ENFANT);</b>
+<b>          fprintf(FICHIER, &quot;%s\n&quot;, ENFANT);</b>
+<b>         }</b>
+<b>    }</b>
+<b>  /* Fermeture du fichier */</b>
+<b>  fclose(FICHIER);</b>
+<b>  /* R&eacute;ouverture du fichier */</b>
+<b>  FICHIER = fopen(NOM_FICH, &quot;r&quot;);</b>
+   if (!FICHIER)
+     {  
+      printf(&quot;\aERREUR: Impossible d'ouvrir &quot;
+             &quot;le fichier: %s.\n&quot;, NOM_FICH);
+      exit(-1);
+     }
+  /* Affichage du fichier */
+  printf(&quot;*** Contenu du fichier  %s ***\n&quot;, NOM_FICH);
+<b>  while (!feof(FICHIER))</b>
+<b>    {</b>
+<b>     fscanf (FICHIER, &quot;%s\n%s\n%s\n%d\n&quot;,</b>
+<b>                                   NOM, PERE, MERE, &amp;N_ENFANTS);</b>
+      printf(&quot;\n&quot;);
+     printf(&quot;Nom de famille : %s\n&quot;, NOM);
+     printf(&quot;Nom du p&egrave;re    : %s %s\n&quot;, PERE, NOM);
+     printf(&quot;Nom de la m&egrave;re : %s %s\n&quot;, MERE, NOM);
+     printf(&quot;Noms des enfants : \n&quot;, N_ENFANTS);
+<b>     for (J=1; J&lt;=N_ENFANTS; J++)</b>
+<b>         {</b>
+<b>          fscanf(FICHIER, &quot;%s\n&quot;, ENFANT);</b>
+<b>          printf(&quot;\t%d. : %s %s\n&quot;, J, ENFANT, NOM);</b>
+<b>         }</b>
+<b>    }</b>
+<b>  /* Fermeture du fichier */</b>
+<b>  fclose(FICHIER);</b>
+   return 0;
+}</pre>
+<p>
+<p>
+<p><hr size="1" width="100%">
+<a href="solex181.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="solex183.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="solex176.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="solex.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="solex_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>

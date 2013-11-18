@@ -1,0 +1,429 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 3.0.1 -->
+<title>Programmation en C - 9.3.3. Pointeurs et cha&icirc;nes de caract&egrave;res</title><link rel="Stylesheet" href="./site.css" type="text/css"></head>
+<body>
+<a href="prg-c97.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c99.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<hr size="1" width="100%">
+<h3>
+9.3.3. Pointeurs et cha&icirc;nes de caract&egrave;res</h3>
+<ul>
+<li><a href="#Heading211">Exercice 9.7</a>
+<li><a href="#Heading212">Exercice 9.8</a>
+<li><a href="#Heading213">Exercice 9.9</a>
+<li><a href="#Heading214">Exercice 9.10</a>
+<li><a href="#Heading215">Exercice 9.11</a>
+<li><a href="#Heading216">Exercice 9.12</a>
+<li><a href="#Heading217">Exercice 9.13</a>
+<li><a href="#Heading218">Exercice 9.14</a>
+</ul>
+<hr size="1" width="100%">
+ <p>
+ <p>
+De la m&ecirc;me fa&ccedil;on qu'un pointeur sur <b>int</b> peut contenir
+l'adresse d'un nombre isol&eacute; ou d'une composante d'un tableau, un
+pointeur sur <b>char</b> peut pointer sur un caract&egrave;re isol&eacute; ou
+sur les &eacute;l&eacute;ments d'un tableau de caract&egrave;res. Un pointeur
+sur <b>char</b> peut en plus contenir <i>l'adresse d'une cha&icirc;ne de
+caract&egrave;res constante</i> et il peut m&ecirc;me &ecirc;tre
+<i>initialis&eacute;</i> avec une telle adresse. <p>
+<p>
+A la fin de ce chapitre, nous allons anticiper avec un exemple et montrer que
+les pointeurs sont les &eacute;l&eacute;ments indispensables mais effectifs des
+fonctions en C.<p>
+<p>
+<p>
+<b>- Pointeurs sur char et cha&icirc;nes de caract&egrave;res constantes</b><p>
+ <p>
+<p>
+<b><i>Affectation</i></b><p>
+<b>a)</b> On peut attribuer <i>l'adresse d'une cha&icirc;ne de
+caract&egrave;res constante</i> &agrave; un pointeur sur <b>char</b>:<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>  char *C;
+  C = &quot;Ceci est une cha&icirc;ne de caract&egrave;res constante&quot;;</b></pre>
+<p>
+<img src="prg-c51.gif" width="440" height="31"><p>
+<p>
+<center><img src="attenti2.gif" alt="Attention!" align="right" width="18" height="67"><p>
+</center>Nous pouvons lire cette cha&icirc;ne constante (p.ex: pour
+l'afficher), mais il n'est pas recommand&eacute; de la modifier, parce que le
+r&eacute;sultat d'un programme qui essaie de modifier une cha&icirc;ne de
+caract&egrave;res constante n'est pas pr&eacute;visible en ANSI-C.<p>
+<p>
+<p>
+<b><i>Initialisation</i></b><p>
+<b>b)</b> Un pointeur sur <b>char </b>peut &ecirc;tre initialis&eacute; lors de
+la d&eacute;claration si on lui affecte l'adresse d'une cha&icirc;ne de
+caract&egrave;res constante:
+
+<pre><b>
+      char *B = &quot;Bonjour !&quot;;</b></pre>
+<p>
+<b><i>Attention !</i></b><p>
+Il existe une diff&eacute;rence importante entre les deux d&eacute;clarations:
+
+<pre><b>
+      char A[] = &quot;Bonjour !&quot;;   /* un tableau  */
+      char *B  = &quot;Bonjour !&quot;;   /* un pointeur */</b></pre>
+<p>
+<b><i>A est un tableau</i></b> qui a exactement la grandeur pour contenir la
+cha&icirc;ne de caract&egrave;res et la terminaison '\0'. Les caract&egrave;res
+de la cha&icirc;ne peuvent &ecirc;tre chang&eacute;s, mais le nom A va toujours
+pointer sur la m&ecirc;me adresse en m&eacute;moire.<p>
+<b><i>B est un pointeur</i></b> qui est initialis&eacute; de fa&ccedil;on
+&agrave; ce qu'il pointe sur une cha&icirc;ne de caract&egrave;res constante
+stock&eacute;e quelque part en m&eacute;moire. Le pointeur peut &ecirc;tre
+modifi&eacute; et pointer sur autre chose. La cha&icirc;ne constante peut
+&ecirc;tre lue, copi&eacute;e ou affich&eacute;e, mais pas modifi&eacute;e.<p>
+<p>
+<img src="prg-c52.gif" width="440" height="80"><p>
+<p>
+<p>
+<center><b><i>Modification</i></b><p>
+</center><b>c)</b> Si nous affectons une nouvelle valeur &agrave; un pointeur
+sur une cha&icirc;ne de caract&egrave;res constante, nous risquons de perdre la
+cha&icirc;ne constante. D'autre part, un pointeur sur <b>char</b> a l'avantage
+de pouvoir pointer sur des cha&icirc;nes de n'importe quelle longueur:<p>
+<p>
+<b><i>Exemple</i></b>
+
+<pre><b>   char *A = &quot;Petite cha&icirc;ne&quot;;
+   char *B = &quot;Deuxi&egrave;me cha&icirc;ne un peu plus longue&quot;;
+   A = B;   </b></pre>
+<p>
+Maintenant A et B pointent sur la m&ecirc;me cha&icirc;ne; la &quot;Petite
+cha&icirc;ne&quot; est perdue:<p>
+<p>
+<img src="prg-c53.gif" width="440" height="80"><p>
+<p>
+<center><b><i>Attention !</i></b><p>
+</center>Les affectations discut&eacute;es ci-dessus ne peuvent pas &ecirc;tre
+effectu&eacute;es avec des tableaux de caract&egrave;res: <p>
+<p>
+<b><i>Exemple</i></b><p>
+<img src="solincor.gif" alt="Solution incorrecte!" align="right" width="59" height="49">
+
+<pre><b>  char A[45] = &quot;Petite cha&icirc;ne&quot;;
+  char B[45] = &quot;Deuxi&egrave;me cha&icirc;ne un peu plus longue&quot;;
+  char C[30];
+  A = B;             /* IMPOSSIBLE -&gt; ERREUR !!! */
+  C = &quot;Bonjour !&quot;;   /* IMPOSSIBLE -&gt; ERREUR !!! */</b></pre>
+<p>
+<img src="prg-c54.gif" width="443" height="80"><p>
+<center>Dans cet exemple, nous essayons de copier l'adresse de B dans A,
+respectivement l'adresse de la cha&icirc;ne constante dans C. Ces
+op&eacute;rations sont impossibles et ill&eacute;gales parce que
+<b><i>l'adresse repr&eacute;sent&eacute;e par le nom d'un tableau reste
+toujours constante</i></b>.<p>
+</center><p>
+Pour changer le contenu d'un tableau, nous devons changer les composantes du
+tableau l'une apr&egrave;s l'autre (p.ex. dans une boucle) ou
+d&eacute;l&eacute;guer cette charge &agrave; une fonction de
+<i>&lt;stdio&gt;</i> ou <i>&lt;string&gt;</i>.<p>
+<p>
+<hr size="1" width="100%">
+<p>
+<b><i>Conclusions:</i></b>
+<p>
+<ul>
+<li>	Utilisons des <i>tableaux de caract&egrave;res</i> pour d&eacute;clarer les
+cha&icirc;nes de caract&egrave;res que nous voulons modifier.
+<li>	Utilisons des <i>pointeurs sur <b>char</b></i> pour manipuler des
+cha&icirc;nes de caract&egrave;res constantes (dont le contenu ne change
+pas).
+<li>  Utilisons de pr&eacute;f&eacute;rence des <i>pointeurs </i>pour
+effectuer les manipulations &agrave; l'int&eacute;rieur des tableaux de
+caract&egrave;res. (voir aussi les remarques ci-dessous).
+</ul>
+
+<p>
+<hr size="1" width="100%">
+<p>
+<b><i>Perspectives et motivation</i></b><p>
+<b>- Avantages des pointeurs sur char</b><p>
+ <p>
+<img src="remavanc.gif" alt="Remarque avancée" align="right" width="262" height="113"><p>
+Comme la fin des cha&icirc;nes de caract&egrave;res est marqu&eacute;e par un
+symbole sp&eacute;cial, nous n'avons pas besoin de conna&icirc;tre la longueur
+des cha&icirc;nes de caract&egrave;res; nous pouvons m&ecirc;me laisser de
+c&ocirc;t&eacute; les indices d'aide et parcourir les cha&icirc;nes &agrave;
+l'aide de pointeurs. <p>
+<p>
+Cette fa&ccedil;on de proc&eacute;der est indispensable pour traiter de
+cha&icirc;nes de caract&egrave;res dans des fonctions. En anticipant sur la
+mati&egrave;re du chapitre 10, nous pouvons ouvrir une petite parenth&egrave;se
+pour illustrer les avantages des pointeurs dans la d&eacute;finition de
+fonctions traitant des cha&icirc;nes de caract&egrave;res:<p>
+<p>
+Pour fournir un tableau comme param&egrave;tre &agrave; une fonction, il faut
+passer <i>l'adresse du tableau </i>&agrave; la fonction. Or, les<i>
+param&egrave;tres des fonctions sont des variables locales, </i>que nous
+pouvons utiliser comme variables d'aide. Bref, une fonction obtenant une
+cha&icirc;ne de caract&egrave;res comme param&egrave;tre, dispose d'une
+<i>copie locale de l'adresse de la cha&icirc;ne</i>. Cette copie peut remplacer
+les indices ou les variables d'aide du formalisme tableau.<p>
+<p>
+<b><i>Discussion d'un exemple</i></b><p>
+Reprenons l'exemple de la fonction <b>strcpy</b>, qui copie la cha&icirc;ne CH2
+vers CH1. Les deux cha&icirc;nes sont les arguments de la fonction et elles
+sont d&eacute;clar&eacute;es comme <i>pointeurs sur <b>char</b></i>. La
+premi&egrave;re version de <b>strcpy</b> est &eacute;crite enti&egrave;rement
+&agrave; l'aide du formalisme tableau:<p>
+
+
+<pre><b>void strcpy(char *CH1, char *CH2)
+{
+ int I;
+ I=0;
+ while ((CH1[I]=CH2[I]) != '\0')
+      I++;
+}</b></pre>
+<p>
+Dans une premi&egrave;re approche, nous pourrions remplacer simplement la
+notation <tt><b>tableau[I]</b></tt> par <tt><b>*(tableau + I)</b></tt>, ce qui
+conduirait au programme:<p>
+
+
+<pre><b>void strcpy(char *CH1, char *CH2)
+{
+ int I;
+ I=0;
+ while ((*(CH1+I)=*(CH2+I)) != '\0')
+      I++;
+}</b></pre>
+<p>
+Cette transformation ne nous avance gu&egrave;re, nous avons tout au plus
+gagn&eacute; quelques milli&egrave;mes de secondes lors de la compilation. Un
+'v&eacute;ritable' avantage se laisse gagner en calculant directement avec les
+pointeurs CH1 et CH2 :<p>
+
+
+<pre><b>void strcpy(char *CH1, char *CH2)
+{
+ while ((*CH1=*CH2) != '\0')
+       {
+        CH1++;
+        CH2++;
+       }
+}</b></pre>
+<p>
+Comme nous l'avons d&eacute;j&agrave; constat&eacute; dans l'introduction de ce
+manuel, un vrai professionnel en C escaladerait les 'simplifications'
+jusqu'&agrave; obtenir:<p>
+
+
+<pre><b>void strcpy(char *CH1, char *CH2)
+{
+ while (*CH1++ = *CH2++) 
+        ;
+}</b></pre>
+<p>
+Assez 'optimis&eacute;' - fermons la parenth&egrave;se et familiarisons-nous
+avec les notations et les manipulations du 'formalisme pointeur' ...<p>
+
+<h4><hr size="2">
+<a name="Heading211">Exercice 9.7</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit deux tableaux d'entiers A et B et leurs dimensions
+N et M au clavier et qui ajoute les &eacute;l&eacute;ments de B &agrave; la fin
+de A. Utiliser deux pointeurs PA et PB pour le transfer et afficher le tableau
+r&eacute;sultant A.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading212">Exercice 9.8</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire de deux fa&ccedil;ons diff&eacute;rentes, un programme qui
+v&eacute;rifie sans utiliser une fonction de <i>&lt;string&gt;</i>, si une
+cha&icirc;ne CH introduite au clavier est un palindrome:<p>
+	<b>a)</b>	en utilisant uniquement le formalisme tableau<p>
+	<b>b)</b>	en utilisant des pointeurs au lieu des indices num&eacute;riques<p>
+<b>Rappel: </b>Un palindrome est un mot qui reste le m&ecirc;me qu'on le lise
+de gauche &agrave; droite ou de droite &agrave; gauche:<p>
+<b>
+</b><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>E</b><b>xemples: </b>
+<br></td>
+<td colspan="1" align="left"><tt>PIERRE</tt>
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">n'est
+pas un palindrome
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>OTTO</tt>
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">est
+un palindrome
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left"><tt>23432</tt>
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">est
+un palindrome
+<br></td></tr></table><p>
+
+<h4><hr size="2">
+<a name="Heading213">Exercice 9.9</a>
+<hr size="1"></h4>
+<p>
+<p>
+Ecrire un programme qui lit une cha&icirc;ne de caract&egrave;res CH et
+d&eacute;termine la longueur de la cha&icirc;ne &agrave; l'aide d'un pointeur
+P. Le programme n'utilisera pas de variables num&eacute;riques.<p>
+<p>
+
+<h4><hr size="2">
+<a name="Heading214">Exercice 9.10</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit une cha&icirc;ne de caract&egrave;res CH et
+d&eacute;termine le nombre de mots contenus dans la cha&icirc;ne. Utiliser un
+pointeur P, une variable logique, la fonction <b>isspace</b> et une variable
+num&eacute;rique N qui contiendra le nombre des mots.<p>
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading215">Exercice 9.11</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit une cha&icirc;ne de caract&egrave;res CH au
+clavier et qui compte les occurrences des lettres de l'alphabet en ne
+distinguant pas les majuscules et les minuscules. Utiliser un tableau ABC de
+dimension 26 pour m&eacute;moriser le r&eacute;sultat et un pointeur PCH pour
+parcourir la cha&icirc;ne CH et un pointeur PABC pour parcourir ABC. Afficher
+seulement le nombre des lettres qui apparaissent au mois une fois dans le
+texte.<p>
+<b>Exemple:</b>
+
+<pre><b> Entrez un ligne de texte (max. 100 caract&egrave;res) : 
+ Jeanne
+ La cha&icirc;ne &quot;Jeanne&quot; contient :
+ 1   fois la lettre 'A'
+ 2   fois la lettre 'E'
+ 1   fois la lettre 'J'
+ 3   fois la lettre 'N'</b></pre>
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading216">Exercice 9.12</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit un caract&egrave;re C et une cha&icirc;ne de
+caract&egrave;res CH au clavier. Ensuite toutes les occurrences de C dans CH
+seront &eacute;limin&eacute;es. Le reste des caract&egrave;res dans CH sera
+tass&eacute; &agrave; l'aide d'un pointeur et de la fonction <b>strcpy</b>.<p>
+ <p>
+ 
+<h4><hr size="2">
+<a name="Heading217">Exercice 9.13</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit deux cha&icirc;nes de caract&egrave;res CH1
+et CH2 au clavier et &eacute;limine toutes les lettres de CH1 qui apparaissent
+aussi dans CH2. Utiliser deux pointeurs P1 et P2, une variable logique TROUVE
+et la fonction <b>strcpy</b>.<p>
+<b>
+</b><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>E</b><b>xemples:</b>
+<br></td>
+<td colspan="1" align="left">Bonjour
+<br></td>
+<td colspan="1" align="left">Bravo
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">njou
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">Bonjour
+<br></td>
+<td colspan="1" align="left">bravo
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">Bnjou
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">abacab
+<br></td>
+<td colspan="1" align="left">aa
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">bcab
+<br></td></tr></table> <p>
+ 
+<h4><hr size="2">
+<a name="Heading218">Exercice 9.14</a>
+<hr size="1"></h4>
+<p>
+ <p>
+ Ecrire un programme qui lit deux cha&icirc;nes de caract&egrave;res CH1
+et CH2 au clavier et supprime la premi&egrave;re occurrence de CH2 dans CH1.
+Utiliser uniquement des pointeurs, une variable logique TROUVE et la fonction
+<b>strcpy</b>.<p>
+<b>
+</b><table>
+<tr rowspan="1" align="left">
+<td colspan="1" align="left"><p>
+<b>E</b><b>xemples:</b>
+<br></td>
+<td colspan="1" align="left">Alphonse
+<br></td>
+<td colspan="1" align="left">phon
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">Alse
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">totalement
+<br></td>
+<td colspan="1" align="left">t
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">otalement
+<br></td></tr><tr rowspan="1" align="left">
+<td colspan="1" align="left"><br></td>
+<td colspan="1" align="left">abacab
+<br></td>
+<td colspan="1" align="left">aa
+<br></td>
+<td colspan="1" align="left">==&gt;
+<br></td>
+<td colspan="1" align="left">abacab
+<br></td></tr></table> <p>
+ <p>
+<p>
+<p><hr size="1" width="100%">
+<a href="prg-c97.htm"><img src="./leftg.gif" alt="Previous " border="0" width="30" height="30"></a>
+ <a href="prg-c99.htm"><img src="./rightg.gif" alt="Next " border="0" width="30" height="30"></a>
+ <a href="prg-c95.htm"><img src="./upg.gif" alt="Up " border="0" width="30" height="30"></a>
+ <a href="prg-c.htm"><img src="./topg.gif" alt="Index " border="0" width="30" height="30"></a>
+ <a href="prg-c_c.htm"><img src="./contg.gif" alt="Contents " border="0" width="30" height="30"></a>
+<br><hr size="1" width="100%"><small><a href="prg-c04.htm">Feedback - Copyright &copy</a> 1993,1996,1997 <a href="prg-c02.htm">F.Faber</a></small><p></body></html>
