@@ -6,7 +6,7 @@ int valider(char *expression, regex_t regPtr ){
 	{
 		return REGEX_INVALIDE;
 	}
-	int erreur=regcomp(&regPtr,expr,REG_NOSUB | REG_EXTENDED);
+	int erreur=regcomp(&regPtr,expression,REG_NOSUB | REG_EXTENDED);
 	if (erreur==0) return REGEX_VALIDE;
 	regfree(&regPtr);
 	return REGEX_INVALIDE;
