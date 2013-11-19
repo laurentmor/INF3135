@@ -7,8 +7,12 @@ OPTIONS= -W -Wall  -std=c99 -o
 #changer le noa de l'exécutable pour la spec du TP2
 EXEC=TP2
 
-all:mod_regex
+all:filtre
 
+filtre:mod_regex
+	echo "compilation du filtre"
+	${COMPILER} filtre.c ${OPTIONS} filtre.o
+	
 mod_regex:mod_regex.h
 	echo "compilation du module d'expression regulieres"
 	${COMPILER} mod_regex.c ${OPTIONS} mod_regex.o

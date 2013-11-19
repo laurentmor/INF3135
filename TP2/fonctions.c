@@ -127,8 +127,7 @@ int check_domaine(char * domaine){
     int erreur;
     //Supporte tous les cas de syntaxe
     const char * expr="(^-{1}[0-9]+$){1}|(^[0-9]+-$)|(^[0-9]+-[0-9]+$)";
-    regex_t expressionPtr;
-    erreur=regcomp(&expressionPtr,expr,REG_NOSUB | REG_EXTENDED);
+    
     if(erreur==0){
         int matched=regexec(&expressionPtr,domaine,0,NULL,0);
         regfree(&expressionPtr);

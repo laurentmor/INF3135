@@ -1,6 +1,5 @@
-#include<stdio.h>
-#include "fonctions.h"
-int main(int argc, const char* argv []){
-seek_option(argv,'L');
-return 0;
+int main(int argc, char const *argv[])
+{
+	/* code */
+	return 0;
 }
