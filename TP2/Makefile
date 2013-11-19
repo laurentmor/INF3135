@@ -11,11 +11,11 @@ all:filtre
 
 filtre:mod_regex
 	echo "compilation du filtre"
-	${COMPILER} filtre.c ${OPTIONS} filtre.o
+	${COMPILER} filtre.c ${OPTIONS} 
 
 mod_regex:mod_regex.h
 	echo "compilation du module d'expression regulieres"
-	${COMPILER} mod_regex.c ${OPTIONS} mod_regex.o
+	${COMPILER} mod_regex.c ${OPTIONS} 
 
 clean:
 	rm -rf *.o
