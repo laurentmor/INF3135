@@ -3,7 +3,7 @@
 #########################
 
 COMPILER=gcc
-FILTRE_OPTIONS= -W -Wall  -std=c99  -o
+FILTRE_OPTIONS= -W -v -Wall  -std=c99  -o
 MOD_OPTIONS= -W -Wall  -std=c99 -c -o
 #changer le noa de l'exécutable pour la spec du TP2
 EXEC=TP2
