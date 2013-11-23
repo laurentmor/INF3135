@@ -12,7 +12,7 @@ all:filtre
 
 filtre:mod_regex.o mod_domaine.o
 	echo "compilation du filtre"
-	${COMPILER} filtre.c ${FILTRE_OPTIONS} filtre 
+	${COMPILER} filtre.c mod_domaine.o ${FILTRE_OPTIONS} filtre 
 
 mod_regex:mod_regex.h
 	echo "compilation du module d'expression regulieres"
