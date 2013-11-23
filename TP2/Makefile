@@ -11,12 +11,12 @@ EXEC=TP2
 all:filtre
 
 filtre:mod_regex mod_domaine
-	@echo "compilation du filtre"
-	@${COMPILER} filtre.c ${FILTRE_OPTIONS} filtre 
+	echo "compilation du filtre"
+	${COMPILER} filtre.c ${FILTRE_OPTIONS} filtre 
 
 mod_regex:mod_regex.h
-	@echo "compilation du module d'expression regulieres"
-	@${COMPILER} mod_regex.c ${MOD_OPTIONS} mod_regex.o
+	echo "compilation du module d'expression regulieres"
+	${COMPILER} mod_regex.c ${MOD_OPTIONS} mod_regex.o
 
 mod_domaine:mod_domaine.h
 	${COMPILER} mod_domaine.c ${MOD_OPTIONS} mod_domaine.o
