@@ -123,22 +123,7 @@ int seek_option(char *const argv[], char option){
  return position;
 }
 
-int check_domaine(char * domaine){
-    int erreur;
-    //Supporte tous les cas de syntaxe
-    const char * expr="(^-{1}[0-9]+$){1}|(^[0-9]+-$)|(^[0-9]+-[0-9]+$)";
-    
-    if(erreur==0){
-        int matched=regexec(&expressionPtr,domaine,0,NULL,0);
-        regfree(&expressionPtr);
-        if (matched==0)return 1;
 
-
-
-    }
-    signaler_erreur(SYNTAX_DOMAIN_ERREUR);
-    return 0;
-}
 
     int get_debut_fin_domaine(char * domaine, int max, int *debut, int *fin)
     {

@@ -52,7 +52,7 @@ int get_debut(char *domaine,int *debut){
              return 1;
 		}
 		else{
-			if (chercherDansChaine(_NUM))
+			if (chercherDansChaine(_NUM,domaine))
 			{
 				*debut=0;
 				return 1;

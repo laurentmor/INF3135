@@ -15,6 +15,6 @@ int get_nbre_domaines(char  *const argv[], int pos);
 //retourne 0 si la syntaxe  de domaine est incorrecte
 
 int get_debut(char * domaine, int *debut);
-int get_fin(char * domaine, int *fin);
+int get_fin(char * domaine, int *fin,int max);
 
 #endif
