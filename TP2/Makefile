@@ -10,7 +10,7 @@ EXEC=TP2
 
 all:filtre
 
-filtre:mod_regex mod_domaine
+filtre:mod_regex.o mod_domaine.o
 	echo "compilation du filtre"
 	${COMPILER} filtre.c ${FILTRE_OPTIONS} filtre 
 
