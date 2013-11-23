@@ -15,5 +15,6 @@ ${EXECUTABLE}:	${OBJETS}
 
 filtre.o: filtre.c mod_regex.h
 
-mod_regex.o:mod_regex.c mod_regex.c 
-	
+mod_regex.o:mod_regex.c mod_regex.h 
+
+mod_domaine.o:mod_regex.h mod_domaine.h mod_domaine.c
