@@ -1,6 +1,7 @@
 #ifndef MOD_DOMAINE_H
 #define MOD_DOMAINE_H 
-
+#include <stdlib.h>
+#include <stdio.h>
 //verifie si un domnaine est syntaxiquement correcte
 // retourne 1 si correcte et 0 sinon
 int check(char *domaine) ;
