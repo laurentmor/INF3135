@@ -1,5 +1,6 @@
 #include "mod_domaine.h"
 #include "mod_regex.h"
+#include "mod_erreur.h"
 #include <assert.h>
 #include <string.h>
 /**
@@ -16,7 +17,7 @@ int check(char *domaine){
 	{
 		return 1;
 	}
-	// Signaler les erreurs
+	signaler(SYNTAX_DOMAIN_ERREUR);
 	return 0;
 } 
 
