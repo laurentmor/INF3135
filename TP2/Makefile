@@ -3,7 +3,7 @@
 #########################
 
 COMPILER=gcc
-OPTIONS= -W  -Wall  -std=c99  
+OPTIONS= -W  -Wall  -std=c99 -g 
 
 
 SOURCES= filtre.c mod_regex.c mod_domaine.c mod_erreur.c
