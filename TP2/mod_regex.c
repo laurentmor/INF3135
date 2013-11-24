@@ -1,7 +1,7 @@
 #include "mod_regex.h"
 
-int valider(char *expression, regex_t regPtr) ;
-int valider(char *expression, regex_t regPtr ){
+int valider(char *expression, regex_t *regPtr) ;
+int valider(char *expression, regex_t *regPtr ){
 	if (expression==NULL)
 	{
 		return REGEX_INVALIDE;
