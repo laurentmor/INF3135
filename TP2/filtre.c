@@ -6,7 +6,9 @@
 
 int main()
 {
-int state=chercherDansChaine(NUM1_NUM2,"1-23");
+	char * cas=NUM1_NUM2;
+	char *dom="1-23";
+int state=chercherDansChaine(cas,"1-23");
 printf("%d\n",state );	
 //signaler(OPTION_ERREUR);
 
