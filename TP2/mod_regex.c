@@ -24,7 +24,8 @@ int chercherDansChaine(char *expression, char *chaine){
 	}
 	else{
 		fprintf(stderr, "expression %s invalide\n",expression );
-		return 0;
+		
         
 	}
+	return 0;
 }
