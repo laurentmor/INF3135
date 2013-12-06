@@ -1,22 +1,15 @@
 #include "mod_regex.h"
 
-int valider(char *expression, regex_t regPtr) ;
-int valider(char *expression, regex_t regPtr ){
+
+
+int chercherDansChaine(char *expression, char *chaine){
+	regex_t regPtr;
 	if (expression==NULL)
 	{
 		return REGEX_INVALIDE;
 	}
 	int erreur=regcomp(&regPtr,expression,REG_NOSUB | REG_EXTENDED);
-	if (erreur==0) return REGEX_VALIDE;
-	regfree(&regPtr);
-	return REGEX_INVALIDE;
-	
-			
-}
-
-int chercherDansChaine(char *expression, char *chaine){
-	regex_t regPtr;
-	if(valider(expression,regPtr)==REGEX_VALIDE){
+	if (erreur==0){
 		int trouve=regexec(&regPtr,chaine,0,NULL,0);
 		regfree(&regPtr);
 		if (trouve==0)return 1;
@@ -27,5 +20,9 @@ int chercherDansChaine(char *expression, char *chaine){
 		
         
 	}
+	 
+	
+		
 	return 0;
+}
 }
