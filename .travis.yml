@@ -1,2 +1,3 @@
 language: C
+before_script:  chmod +xu build.sh
 script: ./build.sh
