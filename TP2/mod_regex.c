@@ -25,4 +25,4 @@ int chercherDansChaine(char *expression, char *chaine){
 		
 	return 0;
 }
-}
+
