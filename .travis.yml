@@ -1,2 +1,2 @@
 language: C
-script: build.sh
+script: laurentmor/INF3135/build.sh
