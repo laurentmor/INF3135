@@ -1,4 +1,4 @@
 language: C
 before_script:  
-  - chmod 777 build.sh
+  - chmod +x build.sh
 script: ./build.sh
