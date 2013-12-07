@@ -1,2 +1,2 @@
 language: C
-script: ./script/ci/build.sh
+script: ./build.sh
