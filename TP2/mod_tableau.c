@@ -2,26 +2,26 @@
 #include "mod_erreur.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-void afficher(int *ptr, int n, int m)
+void afficher(struct tab2D mat)
 {
-    if (n>0 && m>0 && ptr!=NULL)
+if (mat.lignes>0 && mat.colonnes>0 && mat.ptr!=NULL)
+{
+    char * (*lignePtr)[mat.colonnes];
+
+    lignePtr = (char * (*)[mat.colonnes]) mat.ptr;
+
+    for (int i = 0 ; i < mat.lignes ; i++)
     {
-        int (*lignePtr)[m];
-
-        lignePtr = (int (*)[m]) ptr;
-
-        for (int i = 0 ; i < n ; i++)
+        printf("[");
+        for (int j = 0 ; j < mat.colonnes ; j++) 
         {
-            for (int j = 0 ; j < m ; j++)
-            {
-                printf("%5d ",lignePtr[i][j]);
-            }
-            printf("\b\n");
+            printf("%-10s ",lignePtr[i][j]);
         }
-    }
-    else
-    {
-        signaler_erreur(TABLEAU2D_VIDE_ERREUR);
-    }
+        printf("]\n");
+    }    
+}
+else
+ {
+    signaler(TABLEAU2D_VIDE_ERREUR);
+ }
 }
