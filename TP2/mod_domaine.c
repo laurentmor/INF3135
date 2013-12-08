@@ -1,6 +1,7 @@
 #include "mod_domaine.h"
 #include "mod_regex.h"
 #include "mod_erreur.h"
+#include "mod_cmd.h"
 #include <assert.h>
 #include <string.h>
 /**
@@ -21,8 +22,28 @@ int check(char *domaine){
 	return 0;
 } 
 
-int get_nbre_domaines(char  *const argv[], int pos){
-
+int get_nbre_domaines(char *const argv[], int pos) {
+    int nbdomaine = 0;
+    int nbArg = nombreArguments(argv);
+    if (pos == nbArg) {
+        printf("Hors du tableau\n");
+    }
+    if (pos < nbArg) {
+        while (*(argv + pos)) {
+            nbdomaine++;
+            if (!(strcmp(*(argv + pos), "-C")) || !(strcmp(*(argv + pos), "-L"))) {
+                nbdomaine--;
+            }
+            argv++;
+        }
+    }
+    if (pos == 0) {
+        nbdomaine = nbdomaine - 2;
+    }
+    if (pos == 1) {
+        nbdomaine--;
+    }
+    return nbdomaine;
 }
 int get_debut(char *domaine,int *debut){
 	 assert(domaine!=NULL && "le domaine est obligatoire");
