@@ -13,7 +13,8 @@ if (mat.lignes>0 && mat.colonnes>0 && mat.ptr!=NULL)
     for (; i < mat.lignes ; i++)
     {
         printf("[");
-        for (int j = 0 ; j < mat.colonnes ; j++) 
+        int j = 0;
+        for ( ; j < mat.colonnes ; j++) 
         {
             printf("%-10s ",lignePtr[i][j]);
         }
