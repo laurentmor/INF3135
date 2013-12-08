@@ -9,8 +9,8 @@ if (mat.lignes>0 && mat.colonnes>0 && mat.ptr!=NULL)
     char * (*lignePtr)[mat.colonnes];
 
     lignePtr = (char * (*)[mat.colonnes]) mat.ptr;
-
-    for (int i = 0 ; i < mat.lignes ; i++)
+    int i = 0 ;
+    for (; i < mat.lignes ; i++)
     {
         printf("[");
         for (int j = 0 ; j < mat.colonnes ; j++) 
