@@ -6,7 +6,7 @@ COMPILER=gcc
 OPTIONS= -W  -Wall  -std=c99 -g 
 
 
-SOURCES= filtre.c mod_regex.c mod_domaine.c mod_erreur.c mod_tableau.c mod_cmd.c
+SOURCES= filtre.c mod_regex.c mod_domaine.c mod_erreur.c mod_tableau.c mod_cmd.c mod_fichier.c
 OBJETS=${SOURCES:.c=.o}
 EXECUTABLE=filtre	
 
