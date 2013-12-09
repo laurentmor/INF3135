@@ -1,6 +1,7 @@
 #include "mod_fichier.h"
 #include "mod_erreur.h"
 #include <stdlib.h>
+#include <stdio.h>
 int compteur_Lignes(int* vecteur, int nbL);
 /**
  Retourne le nombre de lignes à ne pas inclure dans le vecteur
