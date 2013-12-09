@@ -6,7 +6,7 @@ int compteur_Lignes(char ** vecteur, int nbL);
 /**
  Retourne le nombre de lignes à ne pas inclure dans le vecteur
  */
-int compteur_Lignes(int* vecteur, int nbL) {
+int compteur_Lignes(char ** vecteur, int nbL) {
     int nb = 0;
     int i = 0;
     for (; i < nbL; i++) {
