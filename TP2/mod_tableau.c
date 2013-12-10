@@ -20,7 +20,7 @@ void fusVerticale(struct tab2D *source, int count, struct tab2D *destination){
                 destinationPtr[k + ix][j] = memcpy(malloc(strlen(sourcePtr[k][j]) + 1), sourcePtr[k][j], len);
             }
             for (j = source[i].colonnes; j < destination->colonnes; j++) 
-                destination[k + ix][j] = memcpy(malloc(sizeof ("")), "",sizeof (""));
+                destinationPtr[k + ix][j] = memcpy(malloc(sizeof ("")), "",sizeof (""));
         }
         ix += source[i].lignes;
     }
