@@ -25,7 +25,7 @@ void fusVerticale(struct tab2D *source, int count, struct tab2D *destination){
         ix += source[i].lignes;
     }
 }
-}
+
 
 
 void fusHorizontale(struct tab2D *source, int count, struct tab2D *destination){
