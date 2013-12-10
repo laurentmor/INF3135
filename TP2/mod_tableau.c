@@ -80,7 +80,7 @@ else
  }
 }
 
-void fusionner(char mode,struct tab2D t1,struct tab2D t2){
+void fusionner(char mode,struct *tab2D t1,struct *tab2D t2){
     if (mode=='H')
     {
         fusHorizontale(t1,count,t2);
