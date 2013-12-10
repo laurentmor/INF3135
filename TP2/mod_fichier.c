@@ -30,7 +30,7 @@ int nombreLigne = 0;
     rewind(fp);
     return nombreLigne;
 }
-char ** charger(FILE *fp, char *vecteur, int nbLignes, int nbColonnes){
+char ** charger(FILE *fp, char **vecteur, int nbLignes, int nbColonnes){
 	int nbL2 = 0;
 	nbL2 = compteur_Lignes(vecteur, nbLignes);
 	char **ptr_vecteur = malloc(3*nbL2 * sizeof (char *));
