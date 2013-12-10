@@ -35,7 +35,7 @@ char ** charger(FILE *fp, char **vecteur, int nbLignes, int nbColonnes){
 	nbL2 = compteur_Lignes(vecteur, nbLignes);
 	char **ptr_vecteur = malloc(3*nbL2 * sizeof (char *));
 	char *(*lignePtr)[nbColonnes] = malloc(3*nbColonnes * sizeof (char *));
-	lignePtr = *(char(*)[nbColonnes]) ptr_vecteur;
+	lignePtr = (char(**)[nbColonnes]) ptr_vecteur;
 
 	
 	
