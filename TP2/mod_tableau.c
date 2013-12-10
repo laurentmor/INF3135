@@ -1,3 +1,8 @@
+//NOM et Prénom : Morissette, Laurent
+//Code permanent : MORL05058301
+//antoine boutros
+//BOUA06099209
+
 #include "mod_tableau.h"
 #include "mod_erreur.h"
 #include <stdio.h>
@@ -73,4 +78,15 @@ else
  {
     signaler(TABLEAU2D_VIDE_ERREUR);
  }
+}
+
+void fusionner(char mode,struct tab2D t1,struct tab2D t2){
+    if (mode=='H')
+    {
+        fusHorizontale(t1,count,t2);
+    }
+    else if (mode=='V')
+    {
+        fusVerticale(t1,count,t2);
+    }
 }

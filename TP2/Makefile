@@ -1,6 +1,10 @@
-#########################
+######################################
 #MAKEFILE pour le projet#
-#########################
+#NOM et Prénom : Morissette, Laurent 
+#Code permanent : MORL05058301
+#antoine boutros
+#BOUA06099209
+#####################################
 
 COMPILER=gcc
 OPTIONS= -W  -Wall  -std=c99 -g 

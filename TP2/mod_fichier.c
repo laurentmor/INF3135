@@ -1,3 +1,8 @@
+//NOM et Prénom : Morissette, Laurent
+//Code permanent : MORL05058301
+//antoine boutros
+//BOUA06099209
+
 #include "mod_fichier.h"
 #include "mod_erreur.h"
 #include <stdlib.h>
