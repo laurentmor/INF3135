@@ -8,6 +8,6 @@ char* *ptr; // représente un tableau de char* celui est interprété comme
              // un tableau 2D de taille lignes x colonnes
 }; 
 void afficher(struct tab2D mat);
-struct tab2D fusionner(char mode,struct tab2D t1,struct tab2D t2);
+void fusionner(char mode,struct tab2D t1,struct tab2D t2);
 
 #endif
