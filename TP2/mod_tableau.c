@@ -2,6 +2,7 @@
 #include "mod_erreur.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 void fusVerticale(struct tab2D *source, int count, struct tab2D *destination);
 void fusHorizontale(struct tab2D *source, int count, struct tab2D *destination);
 
@@ -16,7 +17,7 @@ void fusVerticale(struct tab2D *source, int count, struct tab2D *destination){
         for (k = 0; k < source[i].lignes; k++) {
             for (j = 0; j < source[i].colonnes; j++){
                 size_t len = strlen(sourcePtr[k][j]) + 1;
-                destinationPtr[k + ix][j] = memcpy(malloc(strlen(sourcePtr[k][j]) + 1), SrcPtr[k][j], len);
+                destinationPtr[k + ix][j] = memcpy(malloc(strlen(sourcePtr[k][j]) + 1), sourcePtr[k][j], len);
             }
             for (j = source[i].colonnes; j < destination->colonnes; j++) 
                 destination[k + ix][j] = memcpy(malloc(sizeof ("")), "",sizeof (""));
@@ -40,7 +41,7 @@ void fusHorizontale(struct tab2D *source, int count, struct tab2D *destination){
         for (j = 0; j < source[i].colonnes; j++) {
             for (k = 0; k < source[i].lignes; k++){
                 size_t len = strlen(sourcePtr[k][j]) + 1;
-                destinationPtr[k][j + ix] = memcpy(malloc(len), source[k][j], len);
+                destinationPtr[k][j + ix] = memcpy(malloc(len), sourcePtr[k][j], len);
             }
             for (k = source[i].lignes; k < destination->lignes; k++) 
                 destinationPtr[k][j + ix] = memcpy(malloc(sizeof ("")), "",sizeof (""));
